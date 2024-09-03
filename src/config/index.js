@@ -11,21 +11,21 @@ export const categories = [
     description: "Explore our selection of seasonal and exotic fruits.",
     href: "/categories/fruits",
     imageSrc:
-      "https://images.pexels.com/photos/419908/pexels-photo-419908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/68525/soap-colorful-color-fruit-68525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     title: "Dairy Products",
     description: "Get fresh milk, cheese, butter, and more.",
     href: "/categories/dairy-products",
     imageSrc:
-      "https://images.pexels.com/photos/419633/pexels-photo-419633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     title: "Bakery",
     description: "Freshly baked bread, cakes, and pastries.",
     href: "/categories/bakery",
     imageSrc:
-      "https://images.pexels.com/photos/3026803/pexels-photo-3026803.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/1546890/pexels-photo-1546890.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     title: "Meat & Poultry",
@@ -46,28 +46,28 @@ export const categories = [
     description: "A wide range of drinks including juices, sodas, and more.",
     href: "/categories/beverages",
     imageSrc:
-      "https://images.pexels.com/photos/616837/pexels-photo-616837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/1289247/pexels-photo-1289247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     title: "Snacks",
     description: "Find your favorite chips, cookies, and other snacks.",
     href: "/categories/snacks",
     imageSrc:
-      "https://images.pexels.com/photos/5945670/pexels-photo-5945670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     title: "Frozen Foods",
     description: "Ready-to-eat meals, frozen veggies, and more.",
     href: "/categories/frozen-foods",
     imageSrc:
-      "https://images.pexels.com/photos/3762876/pexels-photo-3762876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/4705113/pexels-photo-4705113.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     title: "Pantry Staples",
     description: "Everything you need to keep your pantry stocked.",
     href: "/categories/pantry-staples",
     imageSrc:
-      "https://images.pexels.com/photos/411017/pexels-photo-411017.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/458796/pexels-photo-458796.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     title: "Cereals & Grains",
@@ -102,7 +102,7 @@ export const categories = [
     description: "Vitamins, supplements, and health-focused products.",
     href: "/categories/health-wellness",
     imageSrc:
-      "https://images.pexels.com/photos/5728315/pexels-photo-5728315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/6191550/pexels-photo-6191550.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     title: "Baby Products",
@@ -491,7 +491,7 @@ export const productsByCategory = {
 };
 
 export const productFilter = {
-  dairy: [
+  "dairy-products": [
     {
       id: "type",
       name: "Type",
@@ -526,9 +526,38 @@ export const productFilter = {
       name: "Type",
       options: [
         { value: "diapers", label: "Diapers" },
-        { value: "wipes", label: "Wipes" },
-        { value: "formula", label: "Formula" },
+        { value: "baby-food", label: "Baby Food" },
         { value: "clothing", label: "Clothing" },
+        { value: "toys", label: "Toys" },
+      ],
+    },
+    {
+      id: "age-group",
+      name: "Age Group",
+      options: [
+        { value: "newborn", label: "Newborn" },
+        { value: "infant", label: "Infant" },
+        { value: "toddler", label: "Toddler" },
+      ],
+    },
+    {
+      id: "organic",
+      name: "Organic",
+      options: [
+        { value: "organic", label: "Organic" },
+        { value: "non-organic", label: "Non-Organic" },
+      ],
+    },
+  ],
+  fruits: [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "citrus", label: "Citrus" },
+        { value: "berries", label: "Berries" },
+        { value: "tropical", label: "Tropical" },
+        { value: "stone-fruit", label: "Stone Fruit" },
       ],
     },
     {
@@ -540,100 +569,365 @@ export const productFilter = {
       ],
     },
     {
-      id: "size",
-      name: "Size",
+      id: "seasonal",
+      name: "Seasonal",
       options: [
-        { value: "small", label: "Small" },
-        { value: "medium", label: "Medium" },
-        { value: "large", label: "Large" },
+        { value: "summer", label: "Summer" },
+        { value: "winter", label: "Winter" },
+        { value: "year-round", label: "Year-Round" },
       ],
     },
   ],
-  soda: [
+  "fresh-vegetables": [
     {
       id: "type",
       name: "Type",
       options: [
-        { value: "cola", label: "Cola" },
-        { value: "lemon-lime", label: "Lemon-Lime" },
-        { value: "root-beer", label: "Root Beer" },
-        { value: "diet", label: "Diet" },
+        { value: "root", label: "Root" },
+        { value: "leafy", label: "Leafy" },
+        { value: "cruciferous", label: "Cruciferous" },
+        { value: "allium", label: "Allium" },
       ],
     },
     {
-      id: "sugar-free",
-      name: "Sugar-Free",
+      id: "organic",
+      name: "Organic",
       options: [
-        { value: "yes", label: "Yes" },
-        { value: "no", label: "No" },
+        { value: "organic", label: "Organic" },
+        { value: "non-organic", label: "Non-Organic" },
       ],
     },
     {
-      id: "packaging",
-      name: "Packaging",
+      id: "seasonal",
+      name: "Seasonal",
       options: [
-        { value: "can", label: "Can" },
-        { value: "bottle", label: "Bottle" },
-        { value: "box", label: "Box" },
+        { value: "summer", label: "Summer" },
+        { value: "winter", label: "Winter" },
+        { value: "year-round", label: "Year-Round" },
       ],
     },
   ],
-  "soft-drinks": [
+  bakery: [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "bread", label: "Bread" },
+        { value: "cakes", label: "Cakes" },
+        { value: "pastries", label: "Pastries" },
+        { value: "cookies", label: "Cookies" },
+      ],
+    },
     {
       id: "flavor",
       name: "Flavor",
       options: [
-        { value: "cola", label: "Cola" },
-        { value: "fruit", label: "Fruit" },
-        { value: "energy", label: "Energy" },
-        { value: "diet", label: "Diet" },
+        { value: "sweet", label: "Sweet" },
+        { value: "savory", label: "Savory" },
+        { value: "nutty", label: "Nutty" },
+        { value: "fruity", label: "Fruity" },
+      ],
+    },
+    {
+      id: "gluten-free",
+      name: "Gluten-Free",
+      options: [
+        { value: "gluten-free", label: "Gluten-Free" },
+        { value: "contains-gluten", label: "Contains Gluten" },
+      ],
+    },
+  ],
+  "meat-poultry": [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "chicken", label: "Chicken" },
+        { value: "beef", label: "Beef" },
+        { value: "pork", label: "Pork" },
+        { value: "turkey", label: "Turkey" },
+      ],
+    },
+    {
+      id: "cut",
+      name: "Cut",
+      options: [
+        { value: "breast", label: "Breast" },
+        { value: "ground", label: "Ground" },
+        { value: "steak", label: "Steak" },
+        { value: "roast", label: "Roast" },
+      ],
+    },
+    {
+      id: "organic",
+      name: "Organic",
+      options: [
+        { value: "organic", label: "Organic" },
+        { value: "non-organic", label: "Non-Organic" },
+      ],
+    },
+  ],
+  seafood: [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "fish", label: "Fish" },
+        { value: "shellfish", label: "Shellfish" },
+        { value: "crustaceans", label: "Crustaceans" },
+        { value: "mollusks", label: "Mollusks" },
+      ],
+    },
+    {
+      id: "freshness",
+      name: "Freshness",
+      options: [
+        { value: "fresh", label: "Fresh" },
+        { value: "frozen", label: "Frozen" },
+        { value: "canned", label: "Canned" },
+      ],
+    },
+    {
+      id: "wild-caught",
+      name: "Wild Caught",
+      options: [
+        { value: "wild", label: "Wild" },
+        { value: "farmed", label: "Farmed" },
+      ],
+    },
+  ],
+  beverages: [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "juice", label: "Juice" },
+        { value: "water", label: "Water" },
+        { value: "soda", label: "Soda" },
+        { value: "coffee", label: "Coffee" },
+      ],
+    },
+    {
+      id: "flavor",
+      name: "Flavor",
+      options: [
+        { value: "citrus", label: "Citrus" },
+        { value: "berry", label: "Berry" },
+        { value: "herbal", label: "Herbal" },
+        { value: "classic", label: "Classic" },
       ],
     },
     {
       id: "sugar-content",
       name: "Sugar Content",
       options: [
-        { value: "high", label: "High" },
-        { value: "medium", label: "Medium" },
-        { value: "low", label: "Low" },
-      ],
-    },
-    {
-      id: "packaging",
-      name: "Packaging",
-      options: [
-        { value: "bottle", label: "Bottle" },
-        { value: "can", label: "Can" },
-        { value: "tetra-pack", label: "Tetra Pack" },
+        { value: "sugar-free", label: "Sugar-Free" },
+        { value: "low-sugar", label: "Low Sugar" },
+        { value: "regular", label: "Regular" },
       ],
     },
   ],
-  cream: [
+  snacks: [
     {
       id: "type",
       name: "Type",
       options: [
-        { value: "heavy", label: "Heavy Cream" },
-        { value: "whipping", label: "Whipping Cream" },
-        { value: "half-and-half", label: "Half and Half" },
-        { value: "light", label: "Light Cream" },
+        { value: "chips", label: "Chips" },
+        { value: "cookies", label: "Cookies" },
+        { value: "crackers", label: "Crackers" },
+        { value: "nuts", label: "Nuts" },
       ],
     },
     {
-      id: "organic",
-      name: "Organic",
+      id: "flavor",
+      name: "Flavor",
       options: [
-        { value: "organic", label: "Organic" },
-        { value: "non-organic", label: "Non-Organic" },
+        { value: "sweet", label: "Sweet" },
+        { value: "salty", label: "Salty" },
+        { value: "spicy", label: "Spicy" },
+        { value: "savory", label: "Savory" },
+      ],
+    },
+  ],
+  "frozen-foods": [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "pizza", label: "Pizza" },
+        { value: "vegetables", label: "Vegetables" },
+        { value: "meals", label: "Meals" },
+        { value: "desserts", label: "Desserts" },
       ],
     },
     {
-      id: "packaging",
-      name: "Packaging",
+      id: "cooking-method",
+      name: "Cooking Method",
       options: [
-        { value: "carton", label: "Carton" },
-        { value: "plastic", label: "Plastic Bottle" },
-        { value: "glass", label: "Glass Bottle" },
+        { value: "oven", label: "Oven" },
+        { value: "microwave", label: "Microwave" },
+        { value: "stovetop", label: "Stovetop" },
+      ],
+    },
+  ],
+  "spices-herbs": [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "herbs", label: "Herbs" },
+        { value: "spices", label: "Spices" },
+      ],
+    },
+    {
+      id: "cooking-method",
+      name: "Cooking Method",
+      options: [
+        { value: "oven", label: "Oven" },
+        { value: "microwave", label: "Microwave" },
+        { value: "stovetop", label: "Stovetop" },
+      ],
+    },
+  ],
+  "pantry-staples": [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "fruits", label: "Fruits" },
+        { value: "vegetables", label: "Vegetables" },
+        { value: "meals", label: "Meals" },
+        { value: "desserts", label: "Desserts" },
+      ],
+    },
+    {
+      id: "cooking-method",
+      name: "Cooking Method",
+      options: [
+        { value: "oven", label: "Oven" },
+        { value: "microwave", label: "Microwave" },
+        { value: "stovetop", label: "Stovetop" },
+      ],
+    },
+  ],
+  "cereals-grains": [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "cereals", label: "Cereals" },
+        { value: "grains", label: "Grains" },
+      ],
+    },
+    {
+      id: "cooking-method",
+      name: "Cooking Method",
+      options: [
+        { value: "oven", label: "Oven" },
+        { value: "microwave", label: "Microwave" },
+        { value: "stovetop", label: "Stovetop" },
+      ],
+    },
+  ],
+  "condiments-sauces": [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "condiments", label: "Condiments" },
+        { value: "sauces", label: "Sauces" },
+      ],
+    },
+    {
+      id: "cooking-method",
+      name: "Cooking Method",
+      options: [
+        { value: "oven", label: "Oven" },
+        { value: "microwave", label: "Microwave" },
+        { value: "stovetop", label: "Stovetop" },
+      ],
+    },
+  ],
+  "health-wellness": [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "vitamins", label: "Vitamins" },
+        { value: "supplements", label: "Supplements" },
+      ],
+    },
+    {
+      id: "cooking-method",
+      name: "Cooking Method",
+      options: [
+        { value: "oven", label: "Oven" },
+        { value: "microwave", label: "Microwave" },
+        { value: "stovetop", label: "Stovetop" },
+      ],
+    },
+  ],
+  "pet-supplies": [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "food", label: "Food" },
+        { value: "toys", label: "Toys" },
+        { value: "grooming", label: "Grooming" },
+        { value: "health", label: "Health" },
+      ],
+    },
+    {
+      id: "cooking-method",
+      name: "Cooking Method",
+      options: [
+        { value: "oven", label: "Oven" },
+        { value: "microwave", label: "Microwave" },
+        { value: "stovetop", label: "Stovetop" },
+      ],
+    },
+  ],
+  "household-essentials": [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "cleaning", label: "Cleaning" },
+        { value: "toiletries", label: "Toiletries" },
+      ],
+    },
+    {
+      id: "cooking-method",
+      name: "Cooking Method",
+      options: [
+        { value: "oven", label: "Oven" },
+        { value: "microwave", label: "Microwave" },
+        { value: "stovetop", label: "Stovetop" },
+      ],
+    },
+  ],
+  "organic-foods": [
+    {
+      id: "type",
+      name: "Type",
+      options: [
+        { value: "fruits", label: "Fruits" },
+        { value: "vegetables", label: "Vegetables" },
+        { value: "meals", label: "Meals" },
+        { value: "grains", label: "Grains" },
+        { value: "nuts", label: "Nuts" },
+        { value: "herbs", label: "Herbs" },
+        { value: "spices", label: "Spices" },
+      ],
+    },
+    {
+      id: "cooking-method",
+      name: "Cooking Method",
+      options: [
+        { value: "oven", label: "Oven" },
+        { value: "microwave", label: "Microwave" },
+        { value: "stovetop", label: "Stovetop" },
       ],
     },
   ],

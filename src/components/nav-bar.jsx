@@ -123,7 +123,7 @@ const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-card">
+    <header className="sticky top-0 z-50 bg-card">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
@@ -361,8 +361,8 @@ const NavBar = () => {
         </DialogPanel>
       </Dialog>
 
-      <div className="relative z-10 w-full hidden px-4">
-        <Search className="text-muted-foreground pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform" />
+      <div className="relative z-10 hidden w-full px-4">
+        <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
         <Input
           type="search"
           placeholder="Search for Fruits, Vegetables and more..."

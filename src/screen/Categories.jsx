@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import MaxWidthWrapper from "../components/max-width-wrapper";
 import { useParams } from "react-router-dom";
 import {
@@ -16,80 +16,41 @@ import {
 import { Link } from "react-router-dom";
 import { Heart, ShoppingCart } from "lucide-react";
 import { CiFilter } from "react-icons/ci";
-import { productsByCategory } from "../config";
-
-// Filters and products data
-const filters = [
-  {
-    id: "type",
-    name: "Type",
-    options: [
-      { value: "leafy-greens", label: "Leafy Greens" },
-      { value: "root-vegetables", label: "Root Vegetables" },
-      { value: "cruciferous", label: "Cruciferous" },
-      { value: "alliums", label: "Alliums" },
-      { value: "squash", label: "Squash" },
-      { value: "nightshades", label: "Nightshades" },
-    ],
-  },
-  {
-    id: "organic",
-    name: "Organic",
-    options: [
-      { value: "organic", label: "Organic" },
-      { value: "conventional", label: "Conventional" },
-    ],
-  },
-  {
-    id: "packaging",
-    name: "Packaging",
-    options: [
-      { value: "loose", label: "Loose" },
-      { value: "pre-packaged", label: "Pre-packaged" },
-      { value: "bundle", label: "Bundle" },
-    ],
-  },
-];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import { productFilter, productsByCategory } from "../config";
 
 const Categories = () => {
   const { categoryTag } = useParams();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [selectedFilters, setSelectedFilters] = useState({
-    type: [],
-    organic: [],
-    packaging: [],
-  });
+  const [selectedFilters, setSelectedFilters] = useState({});
 
-  const handleFilterChange = (sectionId, value) => {
-    setSelectedFilters((prev) => {
-      const currentFilters = prev[sectionId];
-      const updatedFilters = currentFilters.includes(value)
-        ? currentFilters.filter((item) => item !== value)
-        : [...currentFilters, value];
-      return { ...prev, [sectionId]: updatedFilters };
-    });
-  };
+  const handleFilterChange = useCallback(
+    (sectionId, value) =>
+      setSelectedFilters((prev) => ({
+        ...prev,
+        [sectionId]: prev[sectionId]
+          ? prev[sectionId].includes(value)
+            ? prev[sectionId].filter((item) => item !== value)
+            : [...prev[sectionId], value]
+          : [value],
+      })),
+    [],
+  );
 
-  //   const filteredProducts = products.filter((product) => {
-  //     return Object.keys(selectedFilters).every((filterId) => {
-  //       const selected = selectedFilters[filterId];
-  //       if (selected.length === 0) return true;
-  //       return selected.includes(product[filterId]);
-  //     });
-  //   });
+  const filters = useMemo(
+    () => productFilter[categoryTag] || [],
+    [categoryTag],
+  );
 
-  const filteredProducts =
-    productsByCategory[categoryTag]?.filter((product) => {
-      return Object.keys(selectedFilters).every((filterId) => {
-        const selected = selectedFilters[filterId];
-        if (selected.length === 0) return true;
-        return selected.includes(product[filterId]);
-      });
-    }) || [];
+  const filteredProducts = useMemo(() => {
+    const products = productsByCategory[categoryTag] || [];
+    return products.filter((product) =>
+      Object.entries(selectedFilters).every(
+        ([filterId, selectedValues]) =>
+          selectedValues.length === 0 ||
+          selectedValues.includes(product[filterId]),
+      ),
+    );
+  }, [categoryTag, selectedFilters]);
 
   return (
     <MaxWidthWrapper className="h-full pt-0">
@@ -97,12 +58,12 @@ const Categories = () => {
         <div className="mx-auto max-w-6xl">
           <div className="bg-white">
             <div className="border-b border-gray-200 pb-10 pt-10">
-              <h2 className="text-2xl font-bold capitalize tracking-tight text-zinc-900 sm:text-3xl md:text-4xl dark:text-zinc-100">
+              <h2 className="text-2xl font-bold capitalize tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl md:text-4xl">
                 {categoryTag.replace(/-/g, " ")}
               </h2>
               <p className="mt-4 text-sm text-gray-500 sm:text-base">
-                Explore our selection of fresh, locally-sourced vegetables to
-                add nutrition and flavor to your meals.
+                Explore our selection of fresh, locally-sourced products to add
+                nutrition and flavor to your meals.
               </p>
             </div>
 
@@ -159,10 +120,9 @@ const Categories = () => {
                                   </span>
                                   <span className="ml-6 flex h-7 items-center">
                                     <ChevronDownIcon
-                                      className={classNames(
-                                        open ? "-rotate-180" : "rotate-0",
-                                        "h-5 w-5 transform",
-                                      )}
+                                      className={`h-5 w-5 transform ${
+                                        open ? "-rotate-180" : "rotate-0"
+                                      }`}
                                       aria-hidden="true"
                                     />
                                   </span>
@@ -181,7 +141,7 @@ const Categories = () => {
                                         type="checkbox"
                                         checked={selectedFilters[
                                           section.id
-                                        ].includes(option.value)}
+                                        ]?.includes(option.value)}
                                         onChange={() =>
                                           handleFilterChange(
                                             section.id,
@@ -226,9 +186,9 @@ const Categories = () => {
                                   id={`${section.id}-${option.value}`}
                                   name={`${section.id}[]`}
                                   type="checkbox"
-                                  checked={selectedFilters[section.id].includes(
-                                    option.value,
-                                  )}
+                                  checked={selectedFilters[
+                                    section.id
+                                  ]?.includes(option.value)}
                                   onChange={() =>
                                     handleFilterChange(section.id, option.value)
                                   }

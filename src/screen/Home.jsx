@@ -16,7 +16,7 @@ const Home = () => {
               className="h-64 w-full object-cover sm:h-72 lg:h-96"
               draggable="false"
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+            <div className="hidden absolute inset-0 flex items-center justify-center bg-black/30">
               <h1 className="text-3xl font-bold text-white lg:text-5xl">
                 Explore the World’s Highest Peaks
               </h1>
