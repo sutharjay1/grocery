@@ -181,6 +181,7 @@ const NavBar = () => {
                   <Link
                     key={item.name}
                     to={item.to}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                   >
                     <item.icon
@@ -312,6 +313,7 @@ const NavBar = () => {
                         key={item.name}
                         as={Link}
                         to={item.to}
+                        onClick={() => setMobileMenuOpen(false)}
                         className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                       >
                         {item.name}
@@ -323,6 +325,7 @@ const NavBar = () => {
                   <Link
                     key={link.name}
                     to={link.to}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     {link.name}
@@ -332,6 +335,7 @@ const NavBar = () => {
               <div className="space-y-6 py-6">
                 <Link
                   to="/signup"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
