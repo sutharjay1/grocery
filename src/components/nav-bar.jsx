@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import {
   Dialog,
   DialogPanel,
@@ -13,65 +11,103 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/react";
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  PhoneIcon,
-  PlayCircleIcon,
-} from "@heroicons/react/20/solid";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
+import { GiFruitBowl } from "react-icons/gi";
+import { Link } from "react-router-dom";
 import Cart from "./cart/cart";
-import { IconBowl } from "@tabler/icons-react";
+
+import { Banana, CupSoda, Milk, Pizza } from "lucide-react";
+import { FaBreadSlice, FaEgg, FaIceCream } from "react-icons/fa6";
+
+const categories = [
+  {
+    name: "Fruits & Vegetables",
+    description: "Fresh fruits and vegetables delivered to your doorstep.",
+    to: "/fruits-vegetables",
+    icon: GiFruitBowl,
+  },
+  {
+    name: "Dairy & Eggs",
+    description: "Milk, cheese, eggs, and other dairy products.",
+    to: "/dairy-eggs",
+    icon: FaEgg,
+  },
+  {
+    name: "Bakery & Snacks",
+    description: "Freshly baked bread, cookies, and snacks.",
+    to: "/bakery-snacks",
+    icon: FaBreadSlice,
+  },
+  {
+    name: "Beverages",
+    description: "Juices, soft drinks, and other beverages.",
+    to: "/beverages",
+    icon: CupSoda,
+  },
+  {
+    name: "Frozen Foods",
+    description: "Frozen meals, ice cream, and more.",
+    to: "/frozen-foods",
+    icon: FaIceCream,
+  },
+];
 
 const products = [
   {
-    name: "Analytics",
-    description: "Get a better understanding of your traffic",
-    to: "/analytics",
-    icon: IconBowl,
+    name: "Bananas",
+    description: "Fresh and ripe bananas.",
+    category: "Fruits & Vegetables",
+    price: "$1.20 per lb",
+    to: "/product/bananas",
+    icon: Banana,
   },
   {
-    name: "Engagement",
-    description: "Speak directly to your customers",
-    to: "/engagement",
-    icon: IconBowl,
+    name: "Organic Milk",
+    description: "1 gallon of organic whole milk.",
+    category: "Dairy & Eggs",
+    price: "$4.50",
+    to: "/product/organic-milk",
+    icon: Milk,
   },
   {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
-    to: "/security",
-    icon: IconBowl,
+    name: "Sourdough Bread",
+    description: "Freshly baked sourdough bread.",
+    category: "Bakery & Snacks",
+    price: "$3.00",
+    to: "/product/sourdough-bread",
+    icon: FaBreadSlice,
   },
   {
-    name: "Integrations",
-    description: "Connect with third-party tools",
-    to: "/integrations",
-    icon: IconBowl,
+    name: "Orange Juice",
+    description: "Freshly squeezed orange juice.",
+    category: "Beverages",
+    price: "$5.00 per bottle",
+    to: "/product/orange-juice",
+    icon: CupSoda,
   },
   {
-    name: "Automations",
-    description: "Build strategic funnels that will convert",
-    to: "/automations",
-    icon: IconBowl,
+    name: "Frozen Pizza",
+    description: "Delicious frozen pizza ready to bake.",
+    category: "Frozen Foods",
+    price: "$6.99",
+    to: "/product/frozen-pizza",
+    icon: Pizza,
   },
 ];
 
 const callsToAction = [
-  { name: "Watch demo", to: "/watch-demo", icon: PlayCircleIcon },
-  { name: "Contact sales", to: "/contact-sales", icon: PhoneIcon },
+  { name: "View Cart", to: "/cart", icon: Cart },
+  { name: "Checkout", to: "/checkout", icon: Cart },
 ];
 
 const links = [
-  { name: "Features", to: "/features" },
-  { name: "Marketplace", to: "/marketplace" },
-  { name: "Company", to: "/company" },
+  { name: "Home", to: "/" },
+  { name: "Shop by Category", to: "/categories" },
+  { name: "Deals", to: "/deals" },
+  { name: "My Orders", to: "/orders" },
+  { name: "Profile", to: "/profile" },
 ];
 
 const NavBar = () => {
@@ -93,11 +129,12 @@ const NavBar = () => {
             />
           </Link>
         </div>
-        <div className="flex lg:hidden">
+        <div className="flex items-center justify-between space-x-4 lg:hidden">
+          <Cart />
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            className="-my-2.5 inline-flex items-center justify-center rounded-md py-2.5 text-gray-700"
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="h-6 w-6" />
@@ -170,7 +207,7 @@ const NavBar = () => {
             </Link>
           ))}
         </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-x-5">
+        <div className="hidden gap-x-5 lg:flex lg:flex-1 lg:justify-end">
           <Cart />
 
           <Link
@@ -197,14 +234,17 @@ const NavBar = () => {
                 className="h-8 w-auto"
               />
             </Link>
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon aria-hidden="true" className="h-6 w-6" />
-            </button>
+            <div className="flex space-x-4">
+              <Cart />
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="-my-2.5 rounded-md py-2.5 text-gray-700"
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+              </button>
+            </div>
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
@@ -240,7 +280,7 @@ const NavBar = () => {
                   </Link>
                 ))}
               </div>
-              <div className="py-6">
+              <div className="space-y-6 py-6">
                 <Link
                   to="/login"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
