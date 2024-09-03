@@ -20,6 +20,7 @@ import Cart from "./cart/cart";
 
 import { Banana, CupSoda, Milk, Pizza } from "lucide-react";
 import { FaBreadSlice, FaEgg, FaIceCream } from "react-icons/fa6";
+import AppLogo from "./logo/logo";
 
 const categories = [
   {
@@ -122,11 +123,7 @@ const NavBar = () => {
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img
-              alt=""
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
-            />
+            <AppLogo />
           </Link>
         </div>
         <div className="flex items-center justify-between space-x-4 lg:hidden">
@@ -228,11 +225,7 @@ const NavBar = () => {
           <div className="flex items-center justify-between">
             <Link to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                alt=""
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
-              />
+              <AppLogo />
             </Link>
             <div className="flex space-x-4">
               <Cart />
