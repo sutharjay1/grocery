@@ -17,8 +17,16 @@ import { useState } from "react";
 import { GiFruitBowl } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import Cart from "./cart/cart";
+import { Input } from "./ui/input";
 
-import { Banana, CupSoda, Milk, Pizza } from "lucide-react";
+import {
+  Banana,
+  CupSoda,
+  Milk,
+  Pizza,
+  Search,
+  XCircleIcon,
+} from "lucide-react";
 import { FaBreadSlice, FaEgg, FaIceCream } from "react-icons/fa6";
 import AppLogo from "./logo";
 
@@ -115,7 +123,7 @@ const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-card z-50">
+    <header className="bg-card z-40">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
@@ -126,16 +134,27 @@ const NavBar = () => {
             <AppLogo />
           </Link>
         </div>
-        <div className="flex items-center justify-between space-x-4 lg:hidden">
+        <div className="flex space-x-4 lg:hidden">
           <Cart />
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(true)}
-            className="-my-2.5 inline-flex items-center justify-center rounded-md py-2.5 text-gray-700"
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon aria-hidden="true" className="h-6 w-6" />
-          </button>
+          {mobileMenuOpen ? (
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              className="-my-2.5 rounded-md py-2.5 text-gray-700"
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(true)}
+              className="-my-2.5 inline-flex items-center justify-center rounded-md py-2.5 text-gray-700"
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+            </button>
+          )}
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
@@ -181,7 +200,6 @@ const NavBar = () => {
                   <Link
                     key={item.name}
                     to={item.to}
-                    onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                   >
                     <item.icon
@@ -263,7 +281,6 @@ const NavBar = () => {
         </PopoverGroup>
         <div className="hidden gap-x-5 lg:flex lg:flex-1 lg:justify-end">
           <Cart />
-
           <Link
             to="/signup"
             className="text-sm font-semibold leading-6 text-gray-900"
@@ -275,9 +292,9 @@ const NavBar = () => {
       <Dialog
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
-        className="lg:hidden"
+        className="z-50 lg:hidden"
       >
-        <div className="fixed inset-0 z-10" />
+        <div className="fixed inset-0 z-50" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link to="/" className="-m-1.5 p-1.5">
@@ -292,10 +309,12 @@ const NavBar = () => {
                 className="-my-2.5 rounded-md py-2.5 text-gray-700"
               >
                 <span className="sr-only">Close menu</span>
-                <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+                {/* <XMarkIcon aria-hidden="true" className="h-6 w-6" /> */}
+                <XCircleIcon aria-hidden="true" className="h-6 w-6" />
               </button>
             </div>
           </div>
+          djdj
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
@@ -313,7 +332,6 @@ const NavBar = () => {
                         key={item.name}
                         as={Link}
                         to={item.to}
-                        onClick={() => setMobileMenuOpen(false)}
                         className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                       >
                         {item.name}
@@ -335,7 +353,6 @@ const NavBar = () => {
               <div className="space-y-6 py-6">
                 <Link
                   to="/signup"
-                  onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
@@ -345,6 +362,17 @@ const NavBar = () => {
           </div>
         </DialogPanel>
       </Dialog>
+
+      <div className="relative z-20 w-full max-w-lg px-4">
+        <Search className="text-muted-foreground pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform" />
+        <Input
+          type="search"
+          placeholder="Search for Fruits, Vegetables and more..."
+          className="w-full rounded-xl py-6 pl-10 pr-6 ring-0 focus-visible:outline-none"
+          //   onChange={handleChange}
+          aria-label="Search for products"
+        />
+      </div>
     </header>
   );
 };
