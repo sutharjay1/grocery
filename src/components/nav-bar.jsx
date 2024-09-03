@@ -20,7 +20,7 @@ import Cart from "./cart/cart";
 
 import { Banana, CupSoda, Milk, Pizza } from "lucide-react";
 import { FaBreadSlice, FaEgg, FaIceCream } from "react-icons/fa6";
-import AppLogo from "./logo/logo";
+import AppLogo from "./logo";
 
 const categories = [
   {
@@ -115,7 +115,7 @@ const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-card">
+    <header className="bg-card z-50">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
@@ -264,7 +264,7 @@ const NavBar = () => {
           <Cart />
 
           <Link
-            to="/login"
+            to="/signup"
             className="text-sm font-semibold leading-6 text-gray-900"
           >
             Log in <span aria-hidden="true">&rarr;</span>
@@ -331,7 +331,7 @@ const NavBar = () => {
               </div>
               <div className="space-y-6 py-6">
                 <Link
-                  to="/login"
+                  to="/signup"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
