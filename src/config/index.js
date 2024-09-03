@@ -134,8 +134,11 @@ export const productsByCategory = {
       name: "Organic Carrots",
       description: "Freshly picked organic carrots.",
       price: "$2.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/1627484/pexels-photo-1627484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1627484/pexels-photo-1627484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1627484/pexels-photo-1627484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/organic-carrots",
     },
     {
@@ -143,8 +146,11 @@ export const productsByCategory = {
       name: "Bell Peppers",
       description: "Sweet and crunchy bell peppers.",
       price: "$3.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/1667808/pexels-photo-1667808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1667808/pexels-photo-1667808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1667808/pexels-photo-1667808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/bell-peppers",
     },
   ],
@@ -154,8 +160,11 @@ export const productsByCategory = {
       name: "Apples",
       description: "Juicy and crisp apples.",
       price: "$1.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/419904/pexels-photo-419904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/419904/pexels-photo-419904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/419904/pexels-photo-419904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/apples",
     },
     {
@@ -163,8 +172,11 @@ export const productsByCategory = {
       name: "Mangoes",
       description: "Sweet and tropical mangoes.",
       price: "$4.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/2286911/pexels-photo-2286911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2286911/pexels-photo-2286911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2286911/pexels-photo-2286911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/mangoes",
     },
   ],
@@ -174,8 +186,11 @@ export const productsByCategory = {
       name: "Fresh Milk",
       description: "Organic whole milk.",
       price: "$2.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/548039/pexels-photo-548039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/548039/pexels-photo-548039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/548039/pexels-photo-548039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/fresh-milk",
     },
     {
@@ -183,8 +198,11 @@ export const productsByCategory = {
       name: "Cheddar Cheese",
       description: "Aged cheddar cheese.",
       price: "$5.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/3174830/pexels-photo-3174830.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3174830/pexels-photo-3174830.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3174830/pexels-photo-3174830.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/cheddar-cheese",
     },
   ],
@@ -194,8 +212,11 @@ export const productsByCategory = {
       name: "Artisan Bread",
       description: "Freshly baked artisan bread.",
       price: "$3.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/3845700/pexels-photo-3845700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3845700/pexels-photo-3845700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3845700/pexels-photo-3845700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/artisan-bread",
     },
     {
@@ -203,8 +224,11 @@ export const productsByCategory = {
       name: "Chocolate Cake",
       description: "Rich and moist chocolate cake.",
       price: "$6.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/4148994/pexels-photo-4148994.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4148994/pexels-photo-4148994.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4148994/pexels-photo-4148994.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/chocolate-cake",
     },
   ],
@@ -214,8 +238,11 @@ export const productsByCategory = {
       name: "Chicken Breasts",
       description: "Boneless and skinless chicken breasts.",
       price: "$7.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/6263/food-healthy-meat-chicken.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6263/food-healthy-meat-chicken.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6263/food-healthy-meat-chicken.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/chicken-breasts",
     },
     {
@@ -223,8 +250,11 @@ export const productsByCategory = {
       name: "Ground Beef",
       description: "Lean ground beef.",
       price: "$5.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/1236191/pexels-photo-1236191.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1236191/pexels-photo-1236191.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1236191/pexels-photo-1236191.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/ground-beef",
     },
   ],
@@ -234,8 +264,11 @@ export const productsByCategory = {
       name: "Salmon Fillets",
       description: "Fresh salmon fillets.",
       price: "$12.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/4148997/pexels-photo-4148997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4148997/pexels-photo-4148997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4148997/pexels-photo-4148997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/salmon-fillets",
     },
     {
@@ -243,8 +276,11 @@ export const productsByCategory = {
       name: "Shrimp",
       description: "Large, succulent shrimp.",
       price: "$9.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/2263431/pexels-photo-2263431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2263431/pexels-photo-2263431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2263431/pexels-photo-2263431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/shrimp",
     },
   ],
@@ -254,8 +290,11 @@ export const productsByCategory = {
       name: "Orange Juice",
       description: "Freshly squeezed orange juice.",
       price: "$3.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/4112545/pexels-photo-4112545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4112545/pexels-photo-4112545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4112545/pexels-photo-4112545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/orange-juice",
     },
     {
@@ -263,8 +302,11 @@ export const productsByCategory = {
       name: "Sparkling Water",
       description: "Refreshing sparkling water.",
       price: "$1.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/1021595/pexels-photo-1021595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1021595/pexels-photo-1021595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1021595/pexels-photo-1021595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/sparkling-water",
     },
   ],
@@ -274,8 +316,11 @@ export const productsByCategory = {
       name: "Potato Chips",
       description: "Crunchy potato chips.",
       price: "$2.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/5945681/pexels-photo-5945681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/5945681/pexels-photo-5945681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/5945681/pexels-photo-5945681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/potato-chips",
     },
     {
@@ -283,8 +328,11 @@ export const productsByCategory = {
       name: "Chocolate Cookies",
       description: "Delicious chocolate chip cookies.",
       price: "$3.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/2749488/pexels-photo-2749488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2749488/pexels-photo-2749488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2749488/pexels-photo-2749488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/chocolate-cookies",
     },
   ],
@@ -294,8 +342,11 @@ export const productsByCategory = {
       name: "Frozen Pizza",
       description: "Tasty frozen pizza.",
       price: "$7.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/1595745/pexels-photo-1595745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1595745/pexels-photo-1595745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1595745/pexels-photo-1595745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/frozen-pizza",
     },
     {
@@ -303,8 +354,11 @@ export const productsByCategory = {
       name: "Frozen Vegetables",
       description: "Assorted frozen vegetables.",
       price: "$4.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/4067944/pexels-photo-4067944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4067944/pexels-photo-4067944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4067944/pexels-photo-4067944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/frozen-vegetables",
     },
   ],
@@ -314,8 +368,11 @@ export const productsByCategory = {
       name: "Rice",
       description: "High-quality long grain rice.",
       price: "$2.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/1019544/pexels-photo-1019544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1019544/pexels-photo-1019544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1019544/pexels-photo-1019544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/rice",
     },
     {
@@ -323,8 +380,11 @@ export const productsByCategory = {
       name: "Pasta",
       description: "Classic spaghetti pasta.",
       price: "$1.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/1188984/pexels-photo-1188984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1188984/pexels-photo-1188984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1188984/pexels-photo-1188984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/pasta",
     },
   ],
@@ -334,8 +394,11 @@ export const productsByCategory = {
       name: "Oatmeal",
       description: "Nutritious oatmeal for breakfast.",
       price: "$3.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/1051397/pexels-photo-1051397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1051397/pexels-photo-1051397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1051397/pexels-photo-1051397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/oatmeal",
     },
     {
@@ -343,8 +406,11 @@ export const productsByCategory = {
       name: "Quinoa",
       description: "Protein-rich quinoa.",
       price: "$6.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/5641551/pexels-photo-5641551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/5641551/pexels-photo-5641551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/5641551/pexels-photo-5641551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/quinoa",
     },
   ],
@@ -354,8 +420,11 @@ export const productsByCategory = {
       name: "Ketchup",
       description: "Classic tomato ketchup.",
       price: "$1.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/4536371/pexels-photo-4536371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4536371/pexels-photo-4536371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4536371/pexels-photo-4536371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/ketchup",
     },
     {
@@ -363,8 +432,11 @@ export const productsByCategory = {
       name: "Soy Sauce",
       description: "Savory soy sauce.",
       price: "$2.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/3193865/pexels-photo-3193865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3193865/pexels-photo-3193865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3193865/pexels-photo-3193865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/soy-sauce",
     },
   ],
@@ -374,8 +446,11 @@ export const productsByCategory = {
       name: "Organic Almonds",
       description: "Raw organic almonds.",
       price: "$8.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/2031922/pexels-photo-2031922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2031922/pexels-photo-2031922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2031922/pexels-photo-2031922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/organic-almonds",
     },
     {
@@ -383,8 +458,11 @@ export const productsByCategory = {
       name: "Organic Honey",
       description: "Pure organic honey.",
       price: "$5.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/648676/pexels-photo-648676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/648676/pexels-photo-648676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/648676/pexels-photo-648676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/organic-honey",
     },
   ],
@@ -394,8 +472,11 @@ export const productsByCategory = {
       name: "Cinnamon",
       description: "Ground cinnamon.",
       price: "$1.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/1068325/pexels-photo-1068325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1068325/pexels-photo-1068325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1068325/pexels-photo-1068325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/cinnamon",
     },
     {
@@ -403,8 +484,11 @@ export const productsByCategory = {
       name: "Basil",
       description: "Dried basil leaves.",
       price: "$2.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/5569575/pexels-photo-5569575.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/5569575/pexels-photo-5569575.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/5569575/pexels-photo-5569575.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/basil",
     },
   ],
@@ -414,8 +498,11 @@ export const productsByCategory = {
       name: "Vitamin C Tablets",
       description: "Boost your immune system with Vitamin C.",
       price: "$12.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/5882283/pexels-photo-5882283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/5882283/pexels-photo-5882283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/5882283/pexels-photo-5882283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/vitamin-c-tablets",
     },
     {
@@ -423,8 +510,11 @@ export const productsByCategory = {
       name: "Protein Powder",
       description: "High-quality protein powder.",
       price: "$29.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/4497586/pexels-photo-4497586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4497586/pexels-photo-4497586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4497586/pexels-photo-4497586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/protein-powder",
     },
   ],
@@ -434,8 +524,11 @@ export const productsByCategory = {
       name: "Diapers",
       description: "Soft and absorbent diapers.",
       price: "$19.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/3965547/pexels-photo-3965547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3965547/pexels-photo-3965547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3965547/pexels-photo-3965547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/diapers",
     },
     {
@@ -443,8 +536,11 @@ export const productsByCategory = {
       name: "Baby Food",
       description: "Nutrient-rich baby food.",
       price: "$5.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/3932261/pexels-photo-3932261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3932261/pexels-photo-3932261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3932261/pexels-photo-3932261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/baby-food",
     },
   ],
@@ -454,8 +550,11 @@ export const productsByCategory = {
       name: "Pet Food",
       description: "Nutritious food for your pets.",
       price: "$15.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/48264/cat-pet-animal-animal-shelter-48264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/48264/cat-pet-animal-animal-shelter-48264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/48264/cat-pet-animal-animal-shelter-48264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/pet-food",
     },
     {
@@ -463,8 +562,11 @@ export const productsByCategory = {
       name: "Pet Toys",
       description: "Fun toys for your furry friends.",
       price: "$7.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/4587934/pexels-photo-4587934.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4587934/pexels-photo-4587934.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/4587934/pexels-photo-4587934.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/pet-toys",
     },
   ],
@@ -474,8 +576,11 @@ export const productsByCategory = {
       name: "Cleaning Supplies",
       description: "Essential cleaning supplies.",
       price: "$8.99",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/3824718/pexels-photo-3824718.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3824718/pexels-photo-3824718.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3824718/pexels-photo-3824718.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/cleaning-supplies",
     },
     {
@@ -483,8 +588,11 @@ export const productsByCategory = {
       name: "Toiletries",
       description: "Personal care toiletries.",
       price: "$4.49",
-      imageSrc:
+      imageSrc: [
         "https://images.pexels.com/photos/3359521/pexels-photo-3359521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3359521/pexels-photo-3359521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3359521/pexels-photo-3359521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      ],
       href: "/products/toiletries",
     },
   ],

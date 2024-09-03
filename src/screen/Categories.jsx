@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import { Heart, ShoppingCart } from "lucide-react";
 import { CiFilter } from "react-icons/ci";
 import { productFilter, productsByCategory } from "../config";
+import ImageSlider from "../components/image-slider";
 
 const Categories = () => {
   const { categoryTag } = useParams();
@@ -228,26 +229,21 @@ const Categories = () => {
 const Card = ({ product }) => {
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
-      <div className="w-full bg-gray-200 group-hover:opacity-75">
-        <img
-          src={product.imageSrc}
-          alt={product.imageAlt}
-          className="h-48 w-full object-cover object-center sm:h-64 md:h-80 lg:h-96"
-        />
+      <div className="w-full">
+        <ImageSlider images={product.imageSrc} />
       </div>
-      <div className="flex flex-1 flex-col space-y-2 p-4">
-        <h3 className="text-sm font-medium text-gray-900">
-          <a href={product.href} className="relative">
-            <span aria-hidden="true" className="absolute inset-0" />
-            {product.name}
-          </a>
-        </h3>
-        <p className="text-sm text-gray-500">{product.description}</p>
-        <div className="flex flex-1 flex-col justify-end">
-          <p className="text-sm italic text-gray-500">{product.options}</p>
-          <p className="text-base font-medium text-gray-900">{product.price}</p>
+      <Link to={product.href}>
+        <div className="flex flex-1 flex-col space-y-2 p-4">
+          <h3 className="text-sm font-medium text-gray-900">{product.name}</h3>
+          <p className="text-sm text-gray-500">{product.description}</p>
+          <div className="flex flex-1 flex-col justify-end">
+            <p className="text-sm italic text-gray-500">{product.options}</p>
+            <p className="text-base font-medium text-gray-900">
+              {product.price}
+            </p>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

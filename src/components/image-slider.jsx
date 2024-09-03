@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
@@ -7,7 +5,6 @@ import { cn } from "@/lib/utils";
 
 const ImageSlider = ({ images, className }) => {
   const [imgIndex, setImgIndex] = useState(0);
-
   const dragX = useMotionValue(0);
 
   const onDragEnd = () => {
@@ -20,12 +17,15 @@ const ImageSlider = ({ images, className }) => {
     }
   };
 
+  const stopPropagation = (e) => e.stopPropagation();
+
   return (
     <div
       className={cn(
         "group/hover relative aspect-square h-full w-full overflow-hidden rounded-lg",
         className,
       )}
+      onClick={stopPropagation}
     >
       <div className="pointer-events-none absolute top-1/2 z-10 flex w-full -translate-y-1/2 justify-between px-5">
         <button
@@ -60,17 +60,10 @@ const ImageSlider = ({ images, className }) => {
       </div>
       <motion.div
         drag="x"
-        dragConstraints={{
-          left: 0,
-          right: 0,
-        }}
+        dragConstraints={{ left: 0, right: 0 }}
         dragMomentum={false}
-        style={{
-          x: dragX,
-        }}
-        animate={{
-          translateX: `-${imgIndex * 100}%`,
-        }}
+        style={{ x: dragX }}
+        animate={{ translateX: `-${imgIndex * 100}%` }}
         onDragEnd={onDragEnd}
         transition={{
           damping: 18,
@@ -80,19 +73,18 @@ const ImageSlider = ({ images, className }) => {
         }}
         className="flex h-full cursor-grab items-center rounded-[inherit] active:cursor-grabbing"
       >
-        {images.map((src, i) => {
-          return (
-            <motion.div
-              key={i}
-              className="h-full w-full shrink-0 overflow-hidden bg-neutral-800 object-cover first:rounded-l-[inherit] last:rounded-r-[inherit]"
-            >
-              <img
-                src={src}
-                className="pointer-events-none h-full w-full object-cover"
-              />
-            </motion.div>
-          );
-        })}
+        {images.map((src, i) => (
+          <motion.div
+            key={i}
+            className="h-full w-full shrink-0 overflow-hidden bg-neutral-800 object-cover first:rounded-l-[inherit] last:rounded-r-[inherit]"
+          >
+            <img
+              src={src}
+              className="pointer-events-none h-full w-full object-cover"
+              onClick={stopPropagation}
+            />
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );
