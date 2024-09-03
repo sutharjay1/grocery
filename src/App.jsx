@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./screen/Home";
 import NavBar from "./components/nav-bar";
 import Login from "./screen/auth/Login";
+import Categories from "./screen/Categories";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ export const AppRouter = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/signup" element={<Login />} />
+      <Route path="/categories/:categoryTag" element={<Categories />} />
       {/* <Route path="/help" element={<Help />} /> */}
     </Routes>
   );

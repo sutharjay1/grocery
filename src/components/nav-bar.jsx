@@ -361,7 +361,7 @@ const NavBar = () => {
         </DialogPanel>
       </Dialog>
 
-      <div className="relative z-10 w-full max-w-lg px-4">
+      <div className="relative z-10 w-full hidden px-4">
         <Search className="text-muted-foreground pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform" />
         <Input
           type="search"
