@@ -16,7 +16,7 @@ const Home = () => {
               className="h-64 w-full object-cover sm:h-72 lg:h-96"
               draggable="false"
             />
-            <div className="hidden absolute inset-0 flex items-center justify-center bg-black/30">
+            <div className="absolute inset-0 flex hidden items-center justify-center bg-black/30">
               <h1 className="text-3xl font-bold text-white lg:text-5xl">
                 Explore the World’s Highest Peaks
               </h1>
@@ -26,7 +26,7 @@ const Home = () => {
 
         {/* Categories Section */}
         <div className="mx-auto mt-10 w-full max-w-6xl">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
             Top Categories
           </h2>
           <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-6">
@@ -41,7 +41,7 @@ const Home = () => {
                   alt={category.title}
                   className="h-32 w-full object-cover transition duration-300 ease-in-out group-hover:opacity-75"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition duration-300 ease-in-out group-hover:opacity-100">
+                <div className="absolute inset-0 hidden items-center justify-center bg-black/60 opacity-0 transition duration-300 ease-in-out group-hover:flex group-hover:opacity-100">
                   <h3 className="text-center text-sm font-medium text-white">
                     {category.title}
                   </h3>

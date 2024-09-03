@@ -18,6 +18,7 @@ import { Heart, ShoppingCart } from "lucide-react";
 import { CiFilter } from "react-icons/ci";
 import { productFilter, productsByCategory } from "../config";
 import ImageSlider from "../components/image-slider";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const Categories = () => {
   const { categoryTag } = useParams();
@@ -136,7 +137,7 @@ const Categories = () => {
                                       key={option.value}
                                       className="flex items-center"
                                     >
-                                      <input
+                                      {/* <input
                                         id={`${section.id}-${option.value}`}
                                         name={`${section.id}[]`}
                                         type="checkbox"
@@ -150,7 +151,22 @@ const Categories = () => {
                                           )
                                         }
                                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                      /> */}
+
+                                      <Checkbox
+                                        id={`${section.id}-${option.value}`}
+                                        name={`${section.id}[]`}
+                                        checked={selectedFilters[
+                                          section.id
+                                        ]?.includes(option.value)}
+                                        onChange={() =>
+                                          handleFilterChange(
+                                            section.id,
+                                            option.value,
+                                          )
+                                        }
                                       />
+
                                       <label
                                         htmlFor={`${section.id}-${option.value}`}
                                         className="ml-3 text-sm text-gray-500"
@@ -183,17 +199,15 @@ const Categories = () => {
                                 key={option.value}
                                 className="flex items-center"
                               >
-                                <input
+                                <Checkbox
                                   id={`${section.id}-${option.value}`}
                                   name={`${section.id}[]`}
-                                  type="checkbox"
                                   checked={selectedFilters[
                                     section.id
                                   ]?.includes(option.value)}
                                   onChange={() =>
                                     handleFilterChange(section.id, option.value)
                                   }
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                 />
                                 <label
                                   htmlFor={`${section.id}-${option.value}`}
