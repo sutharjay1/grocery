@@ -123,7 +123,7 @@ const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-card z-40">
+    <header className="bg-card">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
@@ -292,9 +292,9 @@ const NavBar = () => {
       <Dialog
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
-        className="z-50 lg:hidden"
+        className="z-20 lg:hidden"
       >
-        <div className="fixed inset-0 z-50" />
+        <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link to="/" className="-m-1.5 p-1.5">
@@ -309,12 +309,10 @@ const NavBar = () => {
                 className="-my-2.5 rounded-md py-2.5 text-gray-700"
               >
                 <span className="sr-only">Close menu</span>
-                {/* <XMarkIcon aria-hidden="true" className="h-6 w-6" /> */}
-                <XCircleIcon aria-hidden="true" className="h-6 w-6" />
+                <XMarkIcon aria-hidden="true" className="h-6 w-6" />
               </button>
             </div>
           </div>
-          djdj
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
@@ -363,7 +361,7 @@ const NavBar = () => {
         </DialogPanel>
       </Dialog>
 
-      <div className="relative z-20 w-full max-w-lg px-4">
+      <div className="relative z-10 w-full max-w-lg px-4">
         <Search className="text-muted-foreground pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform" />
         <Input
           type="search"
