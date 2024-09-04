@@ -34,6 +34,7 @@ import Cart from "./cart/cart";
 import Heart from "./heart";
 import Profile from "./profile";
 import SearchInput from "./search-input";
+import { cn } from "../lib/utils";
 
 const categories = [
   {
@@ -307,7 +308,7 @@ const NavBar = () => {
       <Dialog
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
-        className="z-20 lg:hidden"
+        className="z-30 lg:hidden"
       >
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
@@ -376,7 +377,7 @@ const NavBar = () => {
         </DialogPanel>
       </Dialog>
 
-      <SearchInput className="lg:hidden" />
+      <SearchInput className={cn("lg:hidden", mobileMenuOpen && "hidden")} />
 
       {/* <div className="relative z-10 w-full px-4 lg:hidden">
         <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />

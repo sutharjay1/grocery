@@ -70,7 +70,7 @@ const Categories = () => {
             </div>
 
             <div className="py-6 sm:pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
-              <aside className="pb-4 lg:col-span-1">
+              <aside className="flex items-start pb-4 lg:col-span-1">
                 <h2 className="sr-only">Filters</h2>
 
                 <SheetTrigger>
@@ -188,7 +188,7 @@ const Categories = () => {
                 <div className="hidden lg:block">
                   <form className="space-y-10 divide-y divide-gray-200">
                     {filters.map((section) => (
-                      <div key={section.name} className="pt-10">
+                      <div key={section.name} className="">
                         <fieldset>
                           <legend className="block text-sm font-medium text-gray-900">
                             {section.name}
