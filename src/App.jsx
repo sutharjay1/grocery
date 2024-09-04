@@ -6,6 +6,7 @@ import Login from "./screen/auth/Login";
 import Categories from "./screen/Categories";
 import Home from "./screen/Home";
 import Product from "./screen/Product";
+import Search from "./screen/Search";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ export const AppRouter = () => {
       <Route path="/signup" element={<Login />} />
       <Route path="/categories/:categoryTag" element={<Categories />} />
       <Route path="/products/:productId" element={<Product />} />
+      <Route path="/search" element={<Search />} />
     </Routes>
   );
 };
