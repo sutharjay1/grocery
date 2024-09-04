@@ -33,6 +33,7 @@ import AppLogo from "./logo";
 import Cart from "./cart/cart";
 import Heart from "./heart";
 import Profile from "./profile";
+import SearchInput from "./search-input";
 
 const categories = [
   {
@@ -284,16 +285,7 @@ const NavBar = () => {
               </PopoverPanel>
             </Popover>
           </PopoverGroup>
-          <div className="relative z-10 hidden w-full px-4 lg:flex">
-            <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search for Fruits, Vegetables and more..."
-              className="w-full rounded-xl py-6 pl-10 pr-6 ring-0 focus-visible:outline-none"
-              //   onChange={handleChange}
-              aria-label="Search for products"
-            />
-          </div>
+          <SearchInput className="hidden lg:flex" />
         </div>
         <div className="hidden gap-x-6 lg:flex lg:justify-end">
           <Heart />
@@ -384,7 +376,9 @@ const NavBar = () => {
         </DialogPanel>
       </Dialog>
 
-      <div className="relative z-10 w-full px-4 lg:hidden">
+      <SearchInput className="lg:hidden" />
+
+      {/* <div className="relative z-10 w-full px-4 lg:hidden">
         <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
         <Input
           type="search"
@@ -393,7 +387,7 @@ const NavBar = () => {
           //   onChange={handleChange}
           aria-label="Search for products"
         />
-      </div>
+      </div> */}
     </header>
   );
 };
