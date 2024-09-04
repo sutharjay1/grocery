@@ -53,6 +53,9 @@ const schema = z
 const Login = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isOTPVerified, setIsOTPVerified] = useState(false);
+
+  const [otp, setOtp] = useState("");
 
   const form = useForm({
     resolver: zodResolver(schema),
@@ -84,8 +87,8 @@ const Login = () => {
   };
 
   return (
-    <section className="bg-background">
-      <div className="flex min-h-screen w-full place-items-center lg:grid lg:grid-cols-12">
+    <section className="h-full bg-card">
+      <div className="flex h-full w-full place-items-center lg:grid lg:grid-cols-12">
         <section className="relative hidden h-32 items-end bg-gray-900 lg:col-span-5 lg:flex lg:h-full xl:col-span-6">
           <img
             alt="Decorative background image"
@@ -165,7 +168,10 @@ const Login = () => {
                             <InputOTP
                               maxLength={6}
                               value={field.value}
-                              onChange={(value) => field.onChange(value)}
+                              onChange={(value) => {
+                                field.onChange(value);
+                                setOtp(value);
+                              }}
                             >
                               <InputOTPGroup>
                                 <InputOTPSlot index={0} />
@@ -245,9 +251,12 @@ const Login = () => {
 
                 <CardFooter className="px-2 py-2">
                   <Button
-                    type="submit"
+                    type="button"
                     className="w-full"
                     disabled={isSubmitting}
+                    onClick={async () => {
+                      setCurrentStep((prevStep) => prevStep + 1); // Increment the step
+                    }}
                   >
                     {isSubmitting ? (
                       <>

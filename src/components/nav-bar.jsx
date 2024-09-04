@@ -22,7 +22,6 @@ import { Input } from "./ui/input";
 import {
   Banana,
   CupSoda,
-  Heart,
   Milk,
   Pizza,
   Search,
@@ -30,6 +29,7 @@ import {
 } from "lucide-react";
 import { FaBreadSlice, FaEgg, FaIceCream } from "react-icons/fa6";
 import AppLogo from "./logo";
+import Heart from "./heart";
 
 const categories = [
   {
@@ -116,7 +116,7 @@ const links = [
   { name: "Home", to: "/" },
   // { name: "Shop by Category", section },
   { name: "Deals", to: "/deals" },
-  { name: "My Orders", to: "/orders" },
+  // { name: "My Orders", to: "/orders" },
   { name: "Profile", to: "/profile" },
 ];
 
@@ -136,10 +136,7 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="flex space-x-4 lg:hidden">
-          <Heart
-            aria-hidden="true"
-            className="h-6 w-6 flex-shrink-0 text-zinc-600 group-hover:text-zinc-700 dark:text-zinc-400"
-          />
+          <Heart />
           <Cart />
           {mobileMenuOpen ? (
             <button
@@ -162,6 +159,15 @@ const NavBar = () => {
           )}
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+          {links.map((link) => (
+            <Link
+              key={link.name}
+              to={link.to}
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              {link.name}
+            </Link>
+          ))}
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
               Product
@@ -218,7 +224,7 @@ const NavBar = () => {
             </PopoverPanel>
           </Popover>
 
-          <Popover className="relative">
+          <Popover className="relative hidden">
             <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
               Shop by Category
               <ChevronDownIcon
@@ -273,26 +279,13 @@ const NavBar = () => {
               </div>
             </PopoverPanel>
           </Popover>
-
-          {links.map((link) => (
-            <Link
-              key={link.name}
-              to={link.to}
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              {link.name}
-            </Link>
-          ))}
         </PopoverGroup>
         <div className="hidden gap-x-5 lg:flex lg:flex-1 lg:justify-end">
-          <Heart
-            aria-hidden="true"
-            className="h-6 w-6 flex-shrink-0 text-zinc-600 group-hover:text-zinc-700 dark:text-zinc-400"
-          />
+          <Heart />
           <Cart />
           <Link
             to="/signup"
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className="hidden text-sm font-semibold leading-6 text-gray-900"
           >
             Log in <span aria-hidden="true">&rarr;</span>
           </Link>
@@ -370,7 +363,7 @@ const NavBar = () => {
         </DialogPanel>
       </Dialog>
 
-      <div className="relative z-10 w-full px-4">
+      <div className="relative z-10 flex w-full px-4 lg:hidden">
         <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
         <Input
           type="search"
