@@ -41,7 +41,7 @@ const Stepper = ({ steps, currentStep, setCurrentStep }) => {
           {index < steps.length - 1 && (
             <div
               className={cn(
-                "h-[2px] flex-1 transition-colors duration-300",
+                "mb-5 h-[2px] flex-1 transition-colors duration-300",
                 index < currentStep ? "bg-primary" : "bg-muted-foreground/30",
               )}
             />
