@@ -95,7 +95,7 @@ const Login = () => {
             src="https://images.pexels.com/photos/260503/pexels-photo-260503.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             className="absolute inset-0 h-full w-full object-cover opacity-80"
           />
-          <div className="hidden lg:relative lg:block lg:p-12">
+          <div className="hidden bg-gradient-to-t from-gray-950 to-gray-900/[0.01] lg:relative lg:block lg:px-12 lg:pb-16 lg:pt-36">
             <AppLogo height={50} width={50} />
             <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
               Welcome to Grocery
