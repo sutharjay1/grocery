@@ -6,7 +6,7 @@ import { categories } from "../config";
 const Home = () => {
   return (
     <MaxWidthWrapper className="h-full pt-0">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
         {/* Hero Image Section */}
         <div className="mt-12 sm:mt-14">
           <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
@@ -25,7 +25,7 @@ const Home = () => {
         </div>
 
         {/* Categories Section */}
-        <div className="mx-auto mt-10 w-full max-w-6xl">
+        <div className="mx-auto mt-10 w-full max-w-7xl">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
             Top Categories
           </h2>

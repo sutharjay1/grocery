@@ -42,7 +42,7 @@ const Cart = () => {
     <>
       <Sheet>
         <SheetTrigger className="group -m-2 flex items-center p-2">
-          <Tooltip>
+          <Tooltip delayDuration={100}>
             <TooltipTrigger className="-m-2 flex items-center p-1">
               <Heart
                 aria-hidden="true"

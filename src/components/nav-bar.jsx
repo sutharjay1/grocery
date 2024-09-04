@@ -16,8 +16,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { GiFruitBowl } from "react-icons/gi";
 import { Link } from "react-router-dom";
-import Cart from "./cart/cart";
+
 import { Input } from "./ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import {
   Banana,
@@ -29,7 +30,9 @@ import {
 } from "lucide-react";
 import { FaBreadSlice, FaEgg, FaIceCream } from "react-icons/fa6";
 import AppLogo from "./logo";
+import Cart from "./cart/cart";
 import Heart from "./heart";
+import Profile from "./profile";
 
 const categories = [
   {
@@ -292,9 +295,15 @@ const NavBar = () => {
             />
           </div>
         </div>
-        <div className="hidden gap-x-5 lg:flex lg:justify-end">
+        <div className="hidden gap-x-6 lg:flex lg:justify-end">
           <Heart />
           <Cart />
+          <Profile/>  
+          {/* <Avatar>
+            <AvatarImage src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar> */}
+
           <Link
             to="/signup"
             className="hidden text-sm font-semibold leading-6 text-gray-900"
