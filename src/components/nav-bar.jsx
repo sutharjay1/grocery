@@ -129,7 +129,7 @@ const NavBar = () => {
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
       >
-        <div className="flex lg:flex-1">
+        <div className="flex lg:flex-none">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <AppLogo />
@@ -158,129 +158,141 @@ const NavBar = () => {
             </button>
           )}
         </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          {links.map((link) => (
-            <Link
-              key={link.name}
-              to={link.to}
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              Product
-              <ChevronDownIcon
-                aria-hidden="true"
-                className="h-5 w-5 flex-none text-gray-400"
-              />
-            </PopoverButton>
+        <div className="hidden w-full items-center justify-between gap-x-12 pl-14 pr-2 lg:flex">
+          <PopoverGroup className="flex lg:gap-x-12">
+            {links.map((link) => (
+              <Link
+                key={link.name}
+                to={link.to}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Popover className="relative">
+              <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                Product
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  className="h-5 w-5 flex-none text-gray-400"
+                />
+              </PopoverButton>
 
-            <PopoverPanel
-              //   transition
-              className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
-            >
-              <div className="p-4">
-                {products.map((item) => (
-                  <div
-                    key={item.name}
-                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-                  >
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+              <PopoverPanel
+                //   transition
+                className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+              >
+                <div className="p-4">
+                  {products.map((item) => (
+                    <div
+                      key={item.name}
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                    >
+                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <item.icon
+                          aria-hidden="true"
+                          className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                        />
+                      </div>
+                      <div className="flex-auto">
+                        <Link
+                          to={item.to}
+                          className="block font-semibold text-gray-900"
+                        >
+                          {item.name}
+                          <span className="absolute inset-0" />
+                        </Link>
+                        <p className="mt-1 text-gray-600">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                  {callsToAction.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.to}
+                      className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+                    >
                       <item.icon
                         aria-hidden="true"
-                        className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                        className="h-5 w-5 flex-none text-gray-400"
                       />
-                    </div>
-                    <div className="flex-auto">
-                      <Link
-                        to={item.to}
-                        className="block font-semibold text-gray-900"
-                      >
-                        {item.name}
-                        <span className="absolute inset-0" />
-                      </Link>
-                      <p className="mt-1 text-gray-600">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                {callsToAction.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.to}
-                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                  >
-                    <item.icon
-                      aria-hidden="true"
-                      className="h-5 w-5 flex-none text-gray-400"
-                    />
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </PopoverPanel>
-          </Popover>
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </PopoverPanel>
+            </Popover>
 
-          <Popover className="relative hidden">
-            <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              Shop by Category
-              <ChevronDownIcon
-                aria-hidden="true"
-                className="h-5 w-5 flex-none text-gray-400"
-              />
-            </PopoverButton>
+            <Popover className="relative hidden">
+              <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                Shop by Category
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  className="h-5 w-5 flex-none text-gray-400"
+                />
+              </PopoverButton>
 
-            <PopoverPanel
-              //   transition
-              className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
-            >
-              <div className="p-4">
-                {categories.map((item) => (
-                  <div
-                    key={item.name}
-                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-                  >
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+              <PopoverPanel
+                //   transition
+                className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+              >
+                <div className="p-4">
+                  {categories.map((item) => (
+                    <div
+                      key={item.name}
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                    >
+                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <item.icon
+                          aria-hidden="true"
+                          className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                        />
+                      </div>
+                      <div className="flex-auto">
+                        <Link
+                          to={item.to}
+                          className="block font-semibold text-gray-900"
+                        >
+                          {item.name}
+                          <span className="absolute inset-0" />
+                        </Link>
+                        <p className="mt-1 text-gray-600">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                  {callsToAction.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.to}
+                      className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+                    >
                       <item.icon
                         aria-hidden="true"
-                        className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                        className="h-5 w-5 flex-none text-gray-400"
                       />
-                    </div>
-                    <div className="flex-auto">
-                      <Link
-                        to={item.to}
-                        className="block font-semibold text-gray-900"
-                      >
-                        {item.name}
-                        <span className="absolute inset-0" />
-                      </Link>
-                      <p className="mt-1 text-gray-600">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                {callsToAction.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.to}
-                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                  >
-                    <item.icon
-                      aria-hidden="true"
-                      className="h-5 w-5 flex-none text-gray-400"
-                    />
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </PopoverPanel>
-          </Popover>
-        </PopoverGroup>
-        <div className="hidden gap-x-5 lg:flex lg:flex-1 lg:justify-end">
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </PopoverPanel>
+            </Popover>
+          </PopoverGroup>
+          <div className="relative z-10 hidden w-full px-4 lg:flex">
+            <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
+            <Input
+              type="search"
+              placeholder="Search for Fruits, Vegetables and more..."
+              className="w-full rounded-xl py-6 pl-10 pr-6 ring-0 focus-visible:outline-none"
+              //   onChange={handleChange}
+              aria-label="Search for products"
+            />
+          </div>
+        </div>
+        <div className="hidden gap-x-5 lg:flex lg:justify-end">
           <Heart />
           <Cart />
           <Link
@@ -363,7 +375,7 @@ const NavBar = () => {
         </DialogPanel>
       </Dialog>
 
-      <div className="relative z-10 flex w-full px-4 lg:hidden">
+      <div className="relative z-10 w-full px-4 lg:hidden">
         <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
         <Input
           type="search"
