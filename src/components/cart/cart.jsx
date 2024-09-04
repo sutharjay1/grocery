@@ -43,7 +43,7 @@ const Cart = () => {
       <Sheet>
         <SheetTrigger className="group -m-2 flex items-center p-2">
           <Tooltip>
-            <TooltipTrigger className="-m-2 flex items-center p-2">
+            <TooltipTrigger className="-m-2 flex items-center p-1">
               <ShoppingCartIcon
                 aria-hidden="true"
                 className="h-6 w-6 flex-shrink-0 text-zinc-600 group-hover:text-zinc-700 dark:text-zinc-400"

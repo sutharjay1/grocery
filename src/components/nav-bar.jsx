@@ -22,6 +22,7 @@ import { Input } from "./ui/input";
 import {
   Banana,
   CupSoda,
+  Heart,
   Milk,
   Pizza,
   Search,
@@ -135,6 +136,10 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="flex space-x-4 lg:hidden">
+          <Heart
+            aria-hidden="true"
+            className="h-6 w-6 flex-shrink-0 text-zinc-600 group-hover:text-zinc-700 dark:text-zinc-400"
+          />
           <Cart />
           {mobileMenuOpen ? (
             <button
@@ -280,6 +285,10 @@ const NavBar = () => {
           ))}
         </PopoverGroup>
         <div className="hidden gap-x-5 lg:flex lg:flex-1 lg:justify-end">
+          <Heart
+            aria-hidden="true"
+            className="h-6 w-6 flex-shrink-0 text-zinc-600 group-hover:text-zinc-700 dark:text-zinc-400"
+          />
           <Cart />
           <Link
             to="/signup"
@@ -361,7 +370,7 @@ const NavBar = () => {
         </DialogPanel>
       </Dialog>
 
-      <div className="relative z-10 hidden w-full px-4">
+      <div className="relative z-10 w-full px-4">
         <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
         <Input
           type="search"
