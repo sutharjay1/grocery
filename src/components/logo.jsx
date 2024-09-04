@@ -7,7 +7,7 @@ const AppLogo = ({ className, width, height }) => {
     <img
       src="/logo.svg"
       alt="Logo"
-      className={cn(className, "object-contain")}
+      className={cn(className, "min-w-fit object-contain")}
       width={width || 60}
       height={height || 60}
     />
