@@ -3,16 +3,7 @@
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import Sheet from "@/components/sheet";
 import { Heart, ShoppingCartIcon } from "lucide-react";
 import { cn, formatPrice } from "@/lib/utils";
 import { useCart } from "@/hook/useCart";
@@ -41,7 +32,7 @@ const Cart = () => {
   return (
     <>
       <Sheet>
-        <SheetTrigger className="group -m-2 flex items-center p-2">
+        <Sheet.Trigger className="group -m-2 flex items-center p-2">
           <Tooltip delayDuration={100}>
             <TooltipTrigger className="-m-2 flex items-center p-1">
               <Heart
@@ -56,11 +47,11 @@ const Cart = () => {
               <p>Favorites</p>
             </TooltipContent>
           </Tooltip>
-        </SheetTrigger>
-        <SheetContent className="flex w-full flex-col sm:max-w-lg">
-          <SheetHeader className="font-polySansMedian space-y-2.5 pr-6 font-medium">
-            <SheetTitle>Favorites ({itemCount})</SheetTitle>
-          </SheetHeader>
+        </Sheet.Trigger>
+        <Sheet.Content className="flex w-full flex-col sm:max-w-lg">
+          <Sheet.Header className="font-polySansMedian space-y-2.5 pr-6 font-medium">
+            <Sheet.Title>Favorites ({itemCount})</Sheet.Title>
+          </Sheet.Header>
           {itemCount > 0 ? (
             <>
               <div className="flex w-full flex-1 flex-col pr-6">
@@ -87,8 +78,8 @@ const Cart = () => {
                   </div>
                 </div>
 
-                <SheetFooter className="">
-                  <SheetTrigger asChild>
+                <Sheet.Footer className="">
+                  <Sheet.Trigger asChild>
                     <Link
                       to="/cart"
                       className={buttonVariants({
@@ -97,8 +88,8 @@ const Cart = () => {
                     >
                       Continue to Checkout
                     </Link>
-                  </SheetTrigger>
-                </SheetFooter>
+                  </Sheet.Trigger>
+                </Sheet.Footer>
               </div>
             </>
           ) : (
@@ -125,7 +116,7 @@ const Cart = () => {
               <div className="font-polySansMedian text-2xl font-medium">
                 Your favorites is empty
               </div>
-              <SheetTrigger asChild>
+              <Sheet.Trigger asChild>
                 <Link
                   to="/product"
                   className={buttonVariants({
@@ -136,10 +127,10 @@ const Cart = () => {
                 >
                   Add items to your favorites
                 </Link>
-              </SheetTrigger>
+              </Sheet.Trigger>
             </div>
           )}
-        </SheetContent>
+        </Sheet.Content>
       </Sheet>
     </>
   );

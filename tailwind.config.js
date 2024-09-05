@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       maxWidth: {
-        "8xl": "1508px",
+        "8xl": "1408px",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -61,5 +61,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("daisyui")],
 };
