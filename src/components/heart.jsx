@@ -28,6 +28,7 @@ const Cart = () => {
   );
 
   useEffect(() => {});
+  
 
   return (
     <>

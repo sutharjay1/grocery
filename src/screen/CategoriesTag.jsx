@@ -7,12 +7,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { ChevronDownIcon, PlusCircle, X } from "lucide-react";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import Sheet from "../components/sheet";
 import { Link } from "react-router-dom";
 import { Heart, ShoppingCart } from "lucide-react";
 import { CiFilter } from "react-icons/ci";
@@ -73,7 +68,7 @@ const CategoriesTag = () => {
               <aside className="flex items-start pb-4 lg:col-span-1">
                 <h2 className="sr-only">Filters</h2>
 
-                <SheetTrigger>
+                <Sheet.Trigger>
                   <button
                     type="button"
                     className="inline-flex items-center lg:hidden"
@@ -87,14 +82,14 @@ const CategoriesTag = () => {
                       aria-hidden="true"
                     />
                   </button>
-                </SheetTrigger>
-                <SheetContent>
+                </Sheet.Trigger>
+                <Sheet.Content>
                   <div className="relative flex h-full w-full flex-col overflow-y-auto py-4 pb-6">
                     <div className="flex items-center justify-between px-4">
                       <h2 className="text-lg font-medium text-gray-900">
                         Filters
                       </h2>
-                      <SheetClose>
+                      <Sheet.Close>
                         <button
                           type="button"
                           className="-mr-2 flex h-10 w-10 items-center justify-center p-2 text-gray-400 hover:text-gray-500"
@@ -102,10 +97,9 @@ const CategoriesTag = () => {
                           <span className="sr-only">Close menu</span>
                           <X className="h-6 w-6" aria-hidden="true" />
                         </button>
-                      </SheetClose>
+                      </Sheet.Close>
                     </div>
 
-                    {/* Filters */}
                     <form className="mt-4">
                       {filters.map((section) => (
                         <Disclosure
@@ -137,22 +131,6 @@ const CategoriesTag = () => {
                                       key={option.value}
                                       className="flex items-center"
                                     >
-                                      {/* <input
-                                        id={`${section.id}-${option.value}`}
-                                        name={`${section.id}[]`}
-                                        type="checkbox"
-                                        checked={selectedFilters[
-                                          section.id
-                                        ]?.includes(option.value)}
-                                        onChange={() =>
-                                          handleFilterChange(
-                                            section.id,
-                                            option.value,
-                                          )
-                                        }
-                                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                      /> */}
-
                                       <Checkbox
                                         id={`${section.id}-${option.value}`}
                                         name={`${section.id}[]`}
@@ -183,7 +161,7 @@ const CategoriesTag = () => {
                       ))}
                     </form>
                   </div>
-                </SheetContent>
+                </Sheet.Content>
 
                 <div className="hidden lg:block">
                   <form className="space-y-10 divide-y divide-gray-200">

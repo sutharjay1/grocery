@@ -132,7 +132,7 @@ const NavBar = () => {
     <header className="sticky top-0 z-50 bg-card">
       <nav
         aria-label="Global"
-        className="max-w-8xl mx-auto flex items-center justify-between p-6 lg:px-8"
+        className="max-w-7xl mx-auto flex items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-none">
           <Link to="/" className="-m-1.5 p-1.5">

@@ -2,12 +2,8 @@ import React from "react";
 import { useSearchParams } from "react-router-dom";
 import { productsByCategory } from "../config";
 import MaxWidthWrapper from "../components/max-width-wrapper";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetClose,
-} from "../components/ui/sheet";
+import Sheet from "../components/sheet";
+
 import { CiFilter } from "react-icons/ci";
 import { ChevronDownIcon, X } from "lucide-react";
 import { Checkbox } from "../components/ui/checkbox";
@@ -40,7 +36,7 @@ const Search = () => {
               <aside className="flex items-start pb-4 lg:col-span-1">
                 <h2 className="sr-only">Filters</h2>
 
-                <SheetTrigger>
+                <Sheet.Trigger>
                   <button
                     type="button"
                     className="inline-flex items-center lg:hidden"
@@ -54,14 +50,14 @@ const Search = () => {
                       aria-hidden="true"
                     />
                   </button>
-                </SheetTrigger>
-                <SheetContent>
+                </Sheet.Trigger>
+                <Sheet.Content>
                   <div className="relative flex h-full w-full flex-col overflow-y-auto py-4 pb-6">
                     <div className="flex items-center justify-between px-4">
                       <h2 className="text-lg font-medium text-gray-900">
                         Filters
                       </h2>
-                      <SheetClose>
+                      <Sheet.Close>
                         <button
                           type="button"
                           className="-mr-2 flex h-10 w-10 items-center justify-center p-2 text-gray-400 hover:text-gray-500"
@@ -69,7 +65,7 @@ const Search = () => {
                           <span className="sr-only">Close menu</span>
                           <X className="h-6 w-6" aria-hidden="true" />
                         </button>
-                      </SheetClose>
+                      </Sheet.Close>
                     </div>
 
                     <form className="mt-4">
@@ -149,7 +145,7 @@ const Search = () => {
                       ))} */}
                     </form>
                   </div>
-                </SheetContent>
+                </Sheet.Content>
 
                 <div className="hidden lg:block">
                   {/* <form className="space-y-10 divide-y divide-gray-200">

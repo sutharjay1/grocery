@@ -16,7 +16,7 @@ import {
 
 const Home = () => {
   return (
-    <MaxWidthWrapper className="h-full pt-0">
+    <MaxWidthWrapper className="h-full pt-0 pb-4">
       <div className="max-w-8xl mx-auto">
         {/* Hero Image Section */}
         <div className="mt-12 sm:mt-14">
