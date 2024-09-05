@@ -4,56 +4,43 @@ export const categories = [
     description: "Find a variety of fresh and organic vegetables.",
     href: "/categories/fresh-vegetables",
     imageSrc:
-      "https://images.pexels.com/photos/2286776/pexels-photo-2286776.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  },
-  {
-    title: "Fruits",
-    description: "Explore our selection of seasonal and exotic fruits.",
-    href: "/categories/fruits",
-    imageSrc:
-      "https://images.pexels.com/photos/68525/soap-colorful-color-fruit-68525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://klbtheme.com/grogin/wp-content/uploads/2023/11/fruits-vegetables.png",
   },
   {
     title: "Dairy Products",
     description: "Get fresh milk, cheese, butter, and more.",
     href: "/categories/dairy-products",
     imageSrc:
-      "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://klbtheme.com/grogin/wp-content/uploads/2023/11/dairy.png",
   },
   {
     title: "Bakery",
     description: "Freshly baked bread, cakes, and pastries.",
     href: "/categories/bakery",
     imageSrc:
-      "https://images.pexels.com/photos/1546890/pexels-photo-1546890.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "https://klbtheme.com/grogin/wp-content/uploads/2023/11/bakery.png",
   },
-  {
-    title: "Meat & Poultry",
-    description: "High-quality meats, chicken, and more.",
-    href: "/categories/meat-poultry",
-    imageSrc:
-      "https://images.pexels.com/photos/4021893/pexels-photo-4021893.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  },
+
   {
     title: "Seafood",
     description: "Fresh fish, shrimp, and other seafood.",
     href: "/categories/seafood",
     imageSrc:
-      "https://images.pexels.com/photos/1459644/pexels-photo-1459644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://klbtheme.com/grogin/wp-content/uploads/2023/11/meat-fish.png",
   },
   {
     title: "Beverages",
     description: "A wide range of drinks including juices, sodas, and more.",
     href: "/categories/beverages",
     imageSrc:
-      "https://images.pexels.com/photos/1289247/pexels-photo-1289247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://klbtheme.com/grogin/wp-content/uploads/2023/11/beverages.png",
   },
   {
     title: "Snacks",
     description: "Find your favorite chips, cookies, and other snacks.",
     href: "/categories/snacks",
     imageSrc:
-      "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://klbtheme.com/grogin/wp-content/uploads/2024/01/organic.png",
   },
   {
     title: "Frozen Foods",
@@ -103,6 +90,13 @@ export const categories = [
     href: "/categories/health-wellness",
     imageSrc:
       "https://images.pexels.com/photos/6191550/pexels-photo-6191550.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    title: "Meat & Poultry",
+    description: "High-quality meats, chicken, and more.",
+    href: "/categories/meat-poultry",
+    imageSrc:
+      "https://klbtheme.com/grogin/wp-content/uploads/2023/11/meat-fish.png",
   },
   {
     title: "Baby Products",
