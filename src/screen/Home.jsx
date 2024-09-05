@@ -16,7 +16,7 @@ import {
 
 const Home = () => {
   return (
-    <MaxWidthWrapper className="h-full pt-0 pb-4">
+    <MaxWidthWrapper className="h-full pb-4 pt-0">
       <div className="max-w-8xl mx-auto">
         {/* Hero Image Section */}
         <div className="mt-12 sm:mt-14">
@@ -38,13 +38,13 @@ const Home = () => {
         {/* Categories Section */}
         <div className="max-w-8xl mx-auto mt-10 w-full">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-2xl">
+            <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
               Top Categories
             </h2>
             <Link to="/categories">
               <Button
                 variant="ghost"
-                className="rounded-3xl border border-zinc-900/10 text-sm text-zinc-900 dark:text-zinc-100"
+                className="rounded-3xl border border-zinc-900/10 px-3 py-0 text-sm text-zinc-900 dark:text-zinc-100"
               >
                 View All <ArrowRightIcon className="ml-2 h-4 w-4" />
               </Button>
@@ -164,6 +164,23 @@ const Home = () => {
               </CarouselContent>
             </Carousel>
           </div>
+        </div>
+
+        <div className="max-w-8xl mx-auto mt-10 w-full">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
+              Top Picks
+            </h2>
+            <Link to="/categories">
+              <Button
+                variant="ghost"
+                className="rounded-3xl border border-zinc-900/10 text-sm text-zinc-900 dark:text-zinc-100"
+              >
+                View All <ArrowRightIcon className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+          <div className="mt-8 grid grid-cols-2 rounded-lg border border-zinc-900/10 sm:grid-cols-3 lg:grid-cols-6"></div>
         </div>
       </div>
     </MaxWidthWrapper>
