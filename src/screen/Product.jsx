@@ -9,14 +9,16 @@ const Product = () => {
 
   const product = productsByCategory[productId];
 
+  console.log(product);
+
   return (
     <MaxWidthWrapper>
       <div className="flex flex-col gap-4">
-        <ImageSlider images={product.imageSrc} />
+        <ImageSlider images={product?.imageSrc} />
         <div className="flex flex-col gap-4">
-          <h1 className="text-2xl font-bold">{product.name}</h1>
-          <p className="text-gray-500">{product.description}</p>
-          <p className="text-gray-500">{product.price}</p>
+          <h1 className="text-2xl font-bold">{product?.name}</h1>
+          <p className="text-gray-500">{product?.description}</p>
+          <p className="text-gray-500">{product?.price}</p>
         </div>
       </div>
     </MaxWidthWrapper>

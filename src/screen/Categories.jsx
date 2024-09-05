@@ -20,7 +20,7 @@ const Categories = () => {
             </p>
           </div>
 
-          <div className="py-6 sm:pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
+          <div className="py-6 sm:pt-12 lg:grid md:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
             <main className="w-full lg:col-span-3 xl:col-span-4">
               <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {categories.map((category) => (

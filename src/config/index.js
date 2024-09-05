@@ -1034,3 +1034,12 @@ export const productFilter = {
     },
   ],
 };
+
+export const randomProducts = [
+  productsByCategory["beverages"],
+  productsByCategory["snacks"],
+  productsByCategory["frozen-foods"],
+  productsByCategory["pantry-staples"],
+  productsByCategory["cereals-grains"],
+  productsByCategory["condiments-sauces"],
+];

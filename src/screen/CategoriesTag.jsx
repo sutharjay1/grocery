@@ -120,7 +120,7 @@ const CategoriesTag = () => {
                                         open ? "-rotate-180" : "rotate-0"
                                       }`}
                                       aria-hidden="true"
-                                    />
+                                    />  
                                   </span>
                                 </DisclosureButton>
                               </legend>

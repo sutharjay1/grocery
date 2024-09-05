@@ -40,7 +40,7 @@ const ImageSlider = ({ images, className }) => {
           <IconChevronLeft className="stroke-neutral-600" size={20} />
         </button>
         <button
-          style={imgIndex === images.length - 1 ? { opacity: 0 } : {}}
+          style={imgIndex === images?.length - 1 ? { opacity: 0 } : {}}
           className="pointer-events-auto h-fit w-fit rounded-full bg-white/80 p-2 opacity-0 transition-all group-hover/hover:opacity-100"
           onClick={() => {
             if (imgIndex < images.length - 1) {
@@ -54,7 +54,7 @@ const ImageSlider = ({ images, className }) => {
       <div className="pointer-events-none absolute bottom-2 z-10 flex w-full items-center justify-center">
         <div className="flex w-9 items-center justify-center rounded-md bg-black/80 p-0.5 text-xs text-white opacity-0 transition-all group-hover/hover:opacity-100">
           <div>
-            {imgIndex + 1}/{images.length}
+            {imgIndex + 1}/{images?.length}
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@ const ImageSlider = ({ images, className }) => {
         }}
         className="flex h-full cursor-grab items-center rounded-[inherit] active:cursor-grabbing"
       >
-        {images.map((src, i) => (
+        {images?.map((src, i) => (
           <motion.div
             key={i}
             className="h-full w-full shrink-0 overflow-hidden bg-neutral-800 object-cover first:rounded-l-[inherit] last:rounded-r-[inherit]"

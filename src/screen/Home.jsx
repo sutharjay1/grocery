@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MaxWidthWrapper from "../components/max-width-wrapper";
 import { Link } from "react-router-dom";
-import { categories } from "../config";
+import { categories, productsByCategory, randomProducts } from "../config";
 import { Button } from "../components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import { cn } from "../lib/utils";
@@ -13,11 +13,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Card from "../components/card";
 
 const Home = () => {
   const [api, setApi] = useState(null);
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+
 
   useEffect(() => {
     if (!api) {
@@ -234,6 +236,9 @@ const Home = () => {
             </Link>
           </div>
           <div className="mt-8 grid grid-cols-2 rounded-lg border border-zinc-900/10 sm:grid-cols-3 lg:grid-cols-6">
+            {randomProducts.map((product) => (
+              <Card product={product} />
+            ))}
           </div>
         </div>
       </div>
