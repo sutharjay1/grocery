@@ -5,6 +5,14 @@ import { categories } from "../config";
 import { Button } from "../components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import { cn } from "../lib/utils";
+import Highlight from "../components/Highlight";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Home = () => {
   return (
@@ -54,9 +62,9 @@ const Home = () => {
                   index === 1 &&
                     "rounded-bl-none rounded-tr-lg sm:rounded-br-none sm:rounded-tr-none",
                   index === 2 &&
-                    "rounded-bl-none rounded-tr-none sm:rounded-br-none sm:rounded-tr-lg lg:rounded-br-lg lg:rounded-tr-lg",
+                    "rounded-bl-none rounded-tr-none sm:rounded-br-lg sm:rounded-tr-lg lg:rounded-br-none lg:rounded-tr-none",
                   index === 3 &&
-                    "sm:rounded-bl-lg sm:rounded-tl-none lg:rounded-bl-lg lg:rounded-tl-lg",
+                    "sm:rounded-bl-lg sm:rounded-tl-none md:rounded-bl-lg md:rounded-tl-lg lg:rounded-bl-none lg:rounded-tl-none",
                   index === 4 &&
                     "rounded-bl-lg rounded-tr-none sm:rounded-bl-none sm:rounded-tr-none",
                   index === 5 &&
@@ -80,6 +88,74 @@ const Home = () => {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+
+        <div className="mx-auto mt-8 max-w-7xl">
+          <div className="mt-8 hidden grid-cols-1 gap-4 sm:grid-cols-2 lg:grid lg:grid-cols-3">
+            <Highlight
+              badge="Only this week"
+              title="Sale 70%"
+              description="Sale 70% off on all products"
+              buttonText="Shop Now"
+              buttonLink="/categories/mount-everest"
+              image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+            />
+            <Highlight
+              badge="Only this week"
+              title="Sale 70%"
+              description="Sale 70% off on all products"
+              buttonText="Shop Now"
+              buttonLink="/categories/mount-everest"
+              image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+            />
+            <Highlight
+              badge="Only this week"
+              title="Sale 70%"
+              description="Sale 70% off on all products"
+              buttonText="Shop Now"
+              buttonLink="/categories/mount-everest"
+              image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+            />
+          </div>
+          <div className="mt-8 flex w-full lg:hidden">
+            <Carousel>
+              <CarouselContent>
+                <CarouselItem>
+                  <Highlight
+                    badge="Only this week"
+                    title="Sale 30%"
+                    className="w-full"
+                    description="Sale 30% off on all products"
+                    buttonText="Shop Now"
+                    buttonLink="/categories/mount-everest"
+                    image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+                  />
+                </CarouselItem>
+                <CarouselItem>
+                  <Highlight
+                    badge="Only this week"
+                    title="Sale 50%"
+                    className="w-full"
+                    description="Sale 50% off on all products"
+                    buttonText="Shop Now"
+                    buttonLink="/categories/mount-everest"
+                    image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+                  />
+                </CarouselItem>
+                <CarouselItem>
+                  <Highlight
+                    badge="Only this week"
+                    title="Sale 70%"
+                    className="w-full"
+                    description="Sale 70% off on all products"
+                    buttonText="Shop Now"
+                    buttonLink="/categories/mount-everest"
+                    image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+                  />
+                </CarouselItem>
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
       </div>

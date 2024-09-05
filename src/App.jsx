@@ -3,10 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import NavBar from "./components/NavBar";
 import NavBar from "./components/nav-bar";
 import Login from "./screen/auth/Login";
-import Categories from "./screen/Categories";
+import CategoriesTag from "./screen/CategoriesTag";
 import Home from "./screen/Home";
 import Product from "./screen/Product";
 import Search from "./screen/Search";
+import Categories from "./screen/Categories";
 
 const App = () => {
   return (
@@ -29,9 +30,10 @@ export const AppRouter = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/signup" element={<Login />} />
-      <Route path="/categories/:categoryTag" element={<Categories />} />
+      <Route path="/categories/:categoryTag" element={<CategoriesTag />} />
       <Route path="/products/:productId" element={<Product />} />
       <Route path="/search" element={<Search />} />
+      <Route path="/categories" element={<Categories />} />
     </Routes>
   );
 };
