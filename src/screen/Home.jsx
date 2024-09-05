@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MaxWidthWrapper from "../components/max-width-wrapper";
 import { Link } from "react-router-dom";
 import { categories } from "../config";
@@ -15,24 +15,77 @@ import {
 } from "@/components/ui/carousel";
 
 const Home = () => {
+  const [api, setApi] = useState(null);
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
   return (
     <MaxWidthWrapper className="h-full pb-4 pt-0">
       <div className="max-w-8xl mx-auto">
         {/* Hero Image Section */}
         <div className="mt-12 sm:mt-14">
-          <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
-            <img
-              src="https://images.pexels.com/photos/27367865/pexels-photo-27367865/free-photo-of-mount-everest.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="Mount Everest"
-              className="h-64 w-full object-cover sm:h-72 lg:h-96"
-              draggable="false"
-            />
-            <div className="absolute inset-0 flex hidden items-center justify-center bg-black/30">
-              <h1 className="text-3xl font-bold text-white lg:text-5xl">
-                Explore the World’s Highest Peaks
-              </h1>
-            </div>
-          </div>
+          <Carousel
+            orientation="horizontal"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            setApi={setApi}
+            className="w-full"
+          >
+            <CarouselContent>
+              <CarouselItem>
+                <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
+                  <img
+                    src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-01.jpg"
+                    alt="Mount Everest"
+                    className="h-64 w-full object-cover sm:h-72 lg:h-96"
+                    draggable="false"
+                  />
+                  {/* <div className="absolute inset-0 flex items-center justify-start bg-black/30">
+                    <h1 className="text-3xl font-bold text-white lg:text-5xl">
+                      Explore the World&apos;s Highest Peaks
+                    </h1>
+                  </div> */}
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
+                  <img
+                    src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-02.jpg"
+                    alt="Mount Everest"
+                    className="h-64 w-full object-cover sm:h-72 lg:h-96"
+                    draggable="false"
+                  />
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
+                  <img
+                    src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-03.jpg"
+                    alt="Mount Everest"
+                    className="h-64 w-full object-cover sm:h-72 lg:h-96"
+                    draggable="false"
+                  />
+                </div>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselNext className="z-30 hidden lg:flex" />
+            <CarouselPrevious className="z-30 hidden lg:flex" />
+          </Carousel>
         </div>
 
         {/* Categories Section */}

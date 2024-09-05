@@ -21,7 +21,7 @@ const Highlight = ({
         <img src={image} alt={title} className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
       </div>
-      <div className="relative flex h-full flex-col justify-end p-6 text-white sm:p-8">
+      <div className="relative flex h-full flex-col justify-end p-6 text-white sm:px-6 sm:py-6">
         <div className="space-y-2 sm:space-y-3">
           {badge && (
             <span className="inline-block rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white">

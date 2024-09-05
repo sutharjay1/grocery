@@ -38,7 +38,7 @@ const SearchInput = ({ className }) => {
   }, [debouncedValue, navigate]);
 
   return (
-    <div className={cn("relative z-10 w-full px-4", className)}>
+    <div className={cn("relative z-10 mb-4 w-full px-4", className)}>
       <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
       <Input
         type="search"
