@@ -233,7 +233,8 @@ const Home = () => {
               </Button>
             </Link>
           </div>
-          <div className="mt-8 grid grid-cols-2 rounded-lg border border-zinc-900/10 sm:grid-cols-3 lg:grid-cols-6"></div>
+          <div className="mt-8 grid grid-cols-2 rounded-lg border border-zinc-900/10 sm:grid-cols-3 lg:grid-cols-6">
+          </div>
         </div>
       </div>
     </MaxWidthWrapper>
