@@ -119,7 +119,14 @@ const Home = () => {
             />
           </div>
           <div className="mt-8 flex w-full lg:hidden">
-            <Carousel>
+            <Carousel
+              orientation="horizontal"
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
               <CarouselContent>
                 <CarouselItem>
                   <Highlight
