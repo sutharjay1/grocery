@@ -12,9 +12,9 @@ import Categories from "./screen/Categories";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="font-poppins flex h-full min-h-screen w-full flex-col bg-muted-foreground text-muted-foreground">
+      <div className="font-poppins flex h-full min-h-screen w-full flex-col bg-card text-muted-foreground">
         <NavBar />
-        <main className="font-poppins w-full flex-1 bg-primary">
+        <main className="font-poppins w-full flex-1">
           <AppRouter />
         </main>
         {/* <Footer /> */}

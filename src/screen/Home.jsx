@@ -17,7 +17,7 @@ import {
 const Home = () => {
   return (
     <MaxWidthWrapper className="h-full pt-0">
-      <div className="mx-auto max-w-7xl">
+      <div className="max-w-8xl mx-auto">
         {/* Hero Image Section */}
         <div className="mt-12 sm:mt-14">
           <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
@@ -36,7 +36,7 @@ const Home = () => {
         </div>
 
         {/* Categories Section */}
-        <div className="mx-auto mt-10 w-full max-w-7xl">
+        <div className="max-w-8xl mx-auto mt-10 w-full">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-2xl">
               Top Categories
@@ -91,7 +91,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="mx-auto mt-8 max-w-7xl">
+        <div className="max-w-8xl mx-auto mt-8">
           <div className="mt-8 hidden grid-cols-1 gap-4 sm:grid-cols-2 lg:grid lg:grid-cols-3">
             <Highlight
               badge="Only this week"
@@ -99,7 +99,7 @@ const Home = () => {
               description="Sale 70% off on all products"
               buttonText="Shop Now"
               buttonLink="/categories/mount-everest"
-              image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+              image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-01.jpg"
             />
             <Highlight
               badge="Only this week"
@@ -107,7 +107,7 @@ const Home = () => {
               description="Sale 70% off on all products"
               buttonText="Shop Now"
               buttonLink="/categories/mount-everest"
-              image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+              image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-02.jpg"
             />
             <Highlight
               badge="Only this week"
@@ -115,7 +115,7 @@ const Home = () => {
               description="Sale 70% off on all products"
               buttonText="Shop Now"
               buttonLink="/categories/mount-everest"
-              image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+              image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-03.jpg"
             />
           </div>
           <div className="mt-8 flex w-full lg:hidden">
