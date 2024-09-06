@@ -1,17 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import { IconChevronLeft } from "@tabler/icons-react";
+import React, { useState } from "react";
 
 const ProductSlider = ({ images, className, isHovered, setIsHovered }) => {
   const [index, setIndex] = useState(0);
-
 
   return (
     <div className={cn("relative w-full py-8", className)}>
@@ -55,8 +53,6 @@ const ProductSlider = ({ images, className, isHovered, setIsHovered }) => {
           </button>
         ))}
       </div>
-
-
     </div>
   );
 };
