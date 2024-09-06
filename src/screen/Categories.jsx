@@ -1,27 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MaxWidthWrapper from "../components/max-width-wrapper";
 import { categories } from "../config";
 import CategoryCard from "../components/category-card";
+import { motion } from "framer-motion";
 
 const Categories = () => {
+  const [activeCategory, setActiveCategory] = useState(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * categories.length);
+      setActiveCategory(categories[randomIndex].title);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <MaxWidthWrapper className="h-full pt-0">
       <div className="mx-auto max-w-6xl">
-        <div className="bg-white">
-          <div className="border-b border-gray-200 pb-10 pt-10">
-            <h2 className="text-2xl font-bold capitalize tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl md:text-4xl">
-              Shop by Category
-            </h2>
-            <p className="mt-4 text-sm text-gray-500 sm:text-base">
-              Browse through our diverse categories of fresh and high-quality
-              products.
-            </p>
+        {/* <div className="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900"> */}
+        <div className="">
+          <div className="border-b border-gray-200 pb-10 pt-10 text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl font-extrabold capitalize tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl md:text-5xl"
+            >
+              Explore Our Categories
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-4 text-sm text-gray-600 dark:text-gray-300 sm:text-base"
+            >
+              Discover a world of fresh, high-quality products in our curated
+              categories.
+            </motion.p>
           </div>
 
-          <div className="py-6 sm:pt-12">
-            <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="py-12 sm:py-16">
+            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {categories.map((category) => (
-                <CategoryCard key={category.title} category={category} />
+                <motion.div
+                  key={category.title}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{
+                    scale: activeCategory === category.title ? 1.1 : 1,
+                    zIndex: activeCategory === category.title ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <CategoryCard category={category} />
+                </motion.div>
               ))}
             </div>
           </div>

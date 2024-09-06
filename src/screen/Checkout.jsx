@@ -3,13 +3,22 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn, formatPrice } from "@/lib/utils";
-import { Check, Loader2, X, ArrowRight } from "lucide-react";
+import {
+  Check,
+  Loader2,
+  X,
+  ArrowRight,
+  ShoppingBag,
+  CreditCard,
+} from "lucide-react";
 import { useCart } from "@/hook/useCart";
 import { P } from "@/components/shared/typographypara";
 import MaxWidthWrapper from "../components/max-width-wrapper";
+import { motion, AnimatePresence } from "framer-motion";
+// import { toast } from "react-hot-toast";
 
 const Checkout = () => {
-  const { items, removeItem } = useCart();
+  const { items, removeItem, clearCart } = useCart();
   const [isMounted, setIsMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isVerifying, setIsVerifying] = useState(false);
@@ -18,30 +27,41 @@ const Checkout = () => {
     return total + (product.price || 0) * (Number(product.quantity) || 1);
   }, 0);
 
-  console.log(cartTotal);
-  const fee = 9.8;
+  const fee = cartTotal * 0.05;
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const handleCheckout = () => {
-    console.log("Checkout initiated");
-    // Implement checkout logic here
+  const handleCheckout = async () => {
+    setIsLoading(true);
+    setIsVerifying(true);
+
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    setIsVerifying(false);
+    setIsLoading(false);
+    clearCart();
+    // toast.success("Order placed successfully!");
   };
 
   const LoadingScreen = () => (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+    >
       <div className="rounded-lg bg-white p-6 text-center shadow-lg dark:bg-zinc-800">
         <Loader2 className="mx-auto mb-4 h-12 w-12 animate-spin text-blue-500" />
         <p className="font-polySansMedian text-lg font-medium">
-          Verifying Payment...
+          Processing Your Order
         </p>
         <p className={cn("text-sm text-gray-500 dark:text-gray-400")}>
-          Please wait while we confirm your payment.
+          Please wait while we confirm your payment and prepare your order.
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 
   return (
@@ -54,7 +74,7 @@ const Checkout = () => {
       <div className="">
         <div className="mx-auto max-w-2xl pb-24 pt-[4.8rem] sm:pt-0 lg:max-w-7xl lg:pt-16">
           <h1 className="font-polySansMedian text-3xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-            Shopping Cart
+            Your Shopping Bag
           </h1>
 
           <div className="mt-8 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
@@ -64,25 +84,31 @@ const Checkout = () => {
                   isMounted && items.length === 0,
               })}
             >
-              <h2 className="sr-only">Items in your shopping cart</h2>
+              <h2 className="sr-only">Items in your shopping bag</h2>
 
               {isMounted && items.length === 0 ? (
-                <div className="flex h-full flex-col items-center justify-center space-y-1">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="flex h-full flex-col items-center justify-center space-y-1"
+                >
+                  <ShoppingBag className="h-16 w-16 text-gray-400" />
                   <h3 className="font-polySansMedian text-2xl font-semibold">
-                    Your cart is empty
+                    Your bag is empty
                   </h3>
                   <P className="text-center text-muted-foreground">
-                    Whoops! Nothing to show here yet.
+                    Looks like you haven't added anything to your bag yet.
                   </P>
-                  <Link to="/product">
-                    <Button className="group mt-4 flex items-center justify-center gap-1.5 rounded-lg border border-green-900 bg-gradient-to-br from-green-900 to-blue-900 py-[0.01rem] dark:border-green-900 dark:from-green-950 dark:to-blue-950 sm:w-36">
+                  <Link to="/categories">
+                    <Button className="group mt-4 flex items-center justify-center gap-1.5 rounded-lg sm:w-36">
                       <span className="text-zinc-200 dark:text-zinc-300">
-                        Browse Products
+                        Start Shopping
                       </span>
                       <ArrowRight className="h-5 w-5 text-zinc-200 transition-all group-hover:translate-x-1 dark:text-zinc-300" />
                     </Button>
                   </Link>
-                </div>
+                </motion.div>
               ) : null}
 
               {!isMounted && items.length === 0 ? (
@@ -118,101 +144,111 @@ const Checkout = () => {
                     isMounted && items.length > 0,
                 })}
               >
-                {isMounted &&
-                  items.map(({ product }) => {
-                    const image = product.imageSrc && product.imageSrc[0];
+                <AnimatePresence>
+                  {isMounted &&
+                    items.map(({ product }) => {
+                      const image = product.imageSrc && product.imageSrc[0];
 
-                    return (
-                      <li
-                        key={product.id}
-                        className="flex flex-col py-6 md:flex-row"
-                      >
-                        <div className="flex-shrink-0">
-                          <div className="relative h-32 w-full sm:w-32">
-                            {image && (
-                              <img
-                                src={image.url || image}
-                                alt="product image"
-                                className="h-full w-full rounded-md object-cover object-center"
-                              />
-                            )}
+                      return (
+                        <motion.li
+                          key={product.id}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.3 }}
+                          className="flex flex-col py-6 md:flex-row"
+                        >
+                          <div className="flex-shrink-0">
+                            <div className="relative h-32 w-full sm:w-32">
+                              {image && (
+                                <img
+                                  src={image.url || image}
+                                  alt="product image"
+                                  className="h-full w-full rounded-md object-cover object-center"
+                                />
+                              )}
+                            </div>
                           </div>
-                        </div>
 
-                        <div className="flex flex-1 flex-col justify-between pt-4 sm:ml-6 md:pt-0">
-                          <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-5 sm:pr-0">
-                            <div>
-                              <div className="flex justify-between">
-                                <h3 className="text-sm">
-                                  <Link
-                                    to={`/product/${product.name.toLowerCase()}`}
-                                    className="font-medium text-zinc-700 hover:text-zinc-800 dark:text-zinc-200 dark:hover:text-zinc-100"
-                                  >
-                                    {product.name}
-                                  </Link>
-                                </h3>
-                              </div>
-
-                              <div className="mt-1 flex text-sm">
-                                <p className="text-muted-foreground">
-                                  Category:{" "}
-                                  <span className="capitalize">
-                                    {product?.category?.replace("-", " ")}
-                                  </span>
-                                </p>
-                              </div>
-
+                          <div className="flex flex-1 flex-col justify-between pt-4 sm:ml-6 md:pt-0">
+                            <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-5 sm:pr-0">
                               <div>
-                                <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                  {formatPrice(product.price)}
-                                </p>
+                                <div className="flex justify-between">
+                                  <h3 className="text-sm">
+                                    <Link
+                                      to={`/product/${product.name.toLowerCase()}`}
+                                      className="font-medium text-zinc-700 hover:text-zinc-800 dark:text-zinc-200 dark:hover:text-zinc-100"
+                                    >
+                                      {product.name}
+                                    </Link>
+                                  </h3>
+                                </div>
 
-                                <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                  Quantity: {product.quantity}
-                                </p>
-                                <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                  Size: {product.product?.details.size}
-                                </p>
-                                <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                  Pack: {product.product?.details.quantity} pcs
-                                </p>
+                                <div className="mt-1 flex text-sm">
+                                  <p className="text-muted-foreground">
+                                    Category:{" "}
+                                    <span className="capitalize">
+                                      {product?.category?.replace("-", " ")}
+                                    </span>
+                                  </p>
+                                </div>
+
+                                <div>
+                                  <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                                    {formatPrice(product.price)}
+                                  </p>
+
+                                  <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                                    Quantity: {product.quantity}
+                                  </p>
+                                  <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                                    Size: {product.product?.details.size}
+                                  </p>
+                                  <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                                    Pack: {product.product?.details.quantity}{" "}
+                                    pcs
+                                  </p>
+                                </div>
+                              </div>
+
+                              <div className="mt-4 w-20 sm:mt-0 sm:pr-9">
+                                <div className="absolute right-0 top-0">
+                                  <Button
+                                    aria-label="remove product"
+                                    onClick={() => removeItem(product.id)}
+                                    variant="destructive"
+                                    size="icon"
+                                    className="flex items-center justify-center"
+                                  >
+                                    <X size={24} aria-hidden="true" />
+                                  </Button>
+                                </div>
                               </div>
                             </div>
 
-                            <div className="mt-4 w-20 sm:mt-0 sm:pr-9">
-                              <div className="absolute right-0 top-0">
-                                <Button
-                                  aria-label="remove product"
-                                  onClick={() => removeItem(product.id)}
-                                  variant="destructive"
-                                  size="icon"
-                                  className="flex items-center justify-center"
-                                >
-                                  <X size={24} aria-hidden="true" />
-                                </Button>
-                              </div>
-                            </div>
+                            <p className="mt-4 flex space-x-2 text-sm text-zinc-700 dark:text-zinc-300">
+                              <Check className="h-5 w-5 flex-shrink-0 text-green-500 dark:text-green-400" />
+
+                              <span>Eligible for instant delivery</span>
+                            </p>
                           </div>
-
-                          <p className="mt-4 flex space-x-2 text-sm text-zinc-700 dark:text-zinc-300">
-                            <Check className="h-5 w-5 flex-shrink-0 text-green-500 dark:text-green-400" />
-
-                            <span>Eligible for instant delivery</span>
-                          </p>
-                        </div>
-                      </li>
-                    );
-                  })}
+                        </motion.li>
+                      );
+                    })}
+                </AnimatePresence>
               </ul>
             </div>
 
-            <section
+            <motion.section
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
               className={cn(
                 "mt-4 rounded-lg border-[0.5px] border-zinc-200 px-4 py-6 dark:border-zinc-200/20 sm:mt-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8",
               )}
             >
               <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
-                Order summary
+                Order Summary
               </h2>
 
               <div className="mt-6 space-y-4">
@@ -235,7 +271,7 @@ const Checkout = () => {
                       "flex items-center text-sm text-muted-foreground",
                     )}
                   >
-                    <span>Flat Transaction Fee</span>
+                    <span>Transaction Fee (5%)</span>
                   </div>
                   <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
                     {isMounted ? (
@@ -271,18 +307,20 @@ const Checkout = () => {
                   className="w-full"
                   size="lg"
                 >
-                  Checkout
+                  {isLoading ? "Processing..." : "Complete Purchase"}
                   {isLoading ? (
                     <Loader2 className="ml-1.5 h-4 w-4 animate-spin" />
-                  ) : null}
+                  ) : (
+                    <CreditCard className="ml-1.5 h-4 w-4" />
+                  )}
                 </Button>
               </div>
-            </section>
+            </motion.section>
           </div>
         </div>
       </div>
 
-      {isVerifying && <LoadingScreen />}
+      <AnimatePresence>{isVerifying && <LoadingScreen />}</AnimatePresence>
     </MaxWidthWrapper>
   );
 };
