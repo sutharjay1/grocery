@@ -1,61 +1,32 @@
-"use client";
-
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn, formatPrice } from "@/lib/utils";
-import { Check, Loader2, X } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { Check, Loader2, X, ArrowRight } from "lucide-react";
 import { useCart } from "@/hook/useCart";
-import { useSession } from "next-auth/react";
 import { P } from "@/components/shared/typographypara";
-import { HiMiniArrowLongRight } from "react-icons/hi2";
-import { toast } from "sonner";
+import MaxWidthWrapper from "../components/max-width-wrapper";
 
-const Page = () => {
+const Checkout = () => {
   const { items, removeItem } = useCart();
-
-  const router = useRouter();
-  const session = useSession();
-
-  const searchParam = useSearchParams();
-
-  const orderId = searchParam.get("order_id");
-
-  const productIds = items.map(({ product }) => product.id);
-
-  const { user } = useUser();
-  const [isMounted, setIsMounted] = useState < boolean > false;
-
-  const cartTotal = items.reduce((total, { product }) => {
-    console.log(
-      `Product ID: ${product.id}, Price: ${product.price}, Quantity: ${product.quantity}`,
-    );
-    return total + product.price * Number(product.quantity);
-  }, 0);
-  // const fee = 9.8;
-  const fee = 0;
-
-  useEffect(() => {
-    setTotalPrice(cartTotal + fee);
-  }, [cartTotal, fee]);
-  console.log(cartTotal);
-
-  const [totalPrice, setTotalPrice] = useState(cartTotal + fee);
-  const [isLoading, setIsLoading] = useState < boolean > false;
-
-  const [verifyPayment, setVerifyPayment] = useState < boolean > false;
+  const [isMounted, setIsMounted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isVerifying, setIsVerifying] = useState(false);
 
-  // const [paymentSessionId, setPaymentSessionId] = useState<string>("");
-  // const [orderId, setOrderId] = useState<string>();
+  const cartTotal = items.reduce((total, { product }) => {
+    return total + product.price * Number(product.quantity);
+  }, 0);
+  const fee = 0;
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const handleCheckout = () => {
+    console.log("Checkout initiated");
+    // Implement checkout logic here
+  };
 
   const LoadingScreen = () => (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -64,12 +35,7 @@ const Page = () => {
         <p className="font-polySansMedian text-lg font-medium">
           Verifying Payment...
         </p>
-        <p
-          className={cn(
-            InterVar.className,
-            "text-sm text-gray-500 dark:text-gray-400",
-          )}
-        >
+        <p className={cn("text-sm text-gray-500 dark:text-gray-400")}>
           Please wait while we confirm your payment.
         </p>
       </div>
@@ -85,7 +51,7 @@ const Page = () => {
     >
       <div className="">
         <div className="mx-auto max-w-2xl pb-24 pt-[4.8rem] sm:pt-0 lg:max-w-7xl lg:pt-16">
-          <h1 className="font-polySansMedian text-3xl font-medium tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
+          <h1 className="font-polySansMedian text-3xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
             Shopping Cart
           </h1>
 
@@ -100,40 +66,18 @@ const Page = () => {
 
               {isMounted && items.length === 0 ? (
                 <div className="flex h-full flex-col items-center justify-center space-y-1">
-                  {/* <div
-                    aria-hidden="true"
-                    className="relative mb-4 h-40 w-40 text-muted-foreground"
-                  >
-                    <Image
-                      src="/not-found-light.svg"
-                      fill
-                      alt="empty shopping cart femeraa"
-                      draggable="false"
-                      className="dark:hidden"
-                    />
-                    <Image
-                      src="/not-found-dark.svg"
-                      fill
-                      alt="empty shopping cart femeraa"
-                      draggable="false"
-                      className="hidden dark:block"
-                    />
-                  </div> */}
                   <h3 className="font-polySansMedian text-2xl font-semibold">
                     Your cart is empty
                   </h3>
-                  <P className="text-muted-foreground text-center">
+                  <P className="text-center text-muted-foreground">
                     Whoops! Nothing to show here yet.
                   </P>
-                  <Link href="/product">
-                    <Button
-                      className="group mt-4 flex items-center justify-center gap-1.5 rounded-lg border border-green-900 bg-gradient-to-br from-green-900 to-blue-900 py-[0.01rem] sm:w-36 dark:border-green-900 dark:from-green-950 dark:to-blue-950"
-                      // onClick={() => router.push("/product")}
-                    >
+                  <Link to="/product">
+                    <Button className="group mt-4 flex items-center justify-center gap-1.5 rounded-lg border border-green-900 bg-gradient-to-br from-green-900 to-blue-900 py-[0.01rem] dark:border-green-900 dark:from-green-950 dark:to-blue-950 sm:w-36">
                       <span className="text-zinc-200 dark:text-zinc-300">
                         Browse Products
                       </span>
-                      <HiMiniArrowLongRight className="h-5 w-5 text-zinc-200 transition-all group-hover:translate-x-1 dark:text-zinc-300" />
+                      <ArrowRight className="h-5 w-5 text-zinc-200 transition-all group-hover:translate-x-1 dark:text-zinc-300" />
                     </Button>
                   </Link>
                 </div>
@@ -174,11 +118,7 @@ const Page = () => {
               >
                 {isMounted &&
                   items.map(({ product }) => {
-                    const label = PRODUCT_CATEGORIES.find(
-                      (c) => c.value === product.category,
-                    )?.label;
-
-                    const { image } = product.images[0];
+                    const image = product.imageSrc && product.imageSrc[0];
 
                     return (
                       <li
@@ -187,14 +127,13 @@ const Page = () => {
                       >
                         <div className="flex-shrink-0">
                           <div className="relative h-32 w-32">
-                            {typeof image !== "string" && image.url ? (
-                              <Image
-                                fill
-                                src={image.url}
+                            {image && (
+                              <img
+                                src={image.url || image}
                                 alt="product image"
                                 className="h-full w-full rounded-md object-cover object-center sm:h-64 sm:w-64"
                               />
-                            ) : null}
+                            )}
                           </div>
                         </div>
 
@@ -204,7 +143,7 @@ const Page = () => {
                               <div className="flex justify-between">
                                 <h3 className="text-sm">
                                   <Link
-                                    href={`/product/${product.category}`}
+                                    to={`/product/${product.name.toLowerCase()}`}
                                     className="font-medium text-zinc-700 hover:text-zinc-800 dark:text-zinc-200 dark:hover:text-zinc-100"
                                   >
                                     {product.name}
@@ -217,8 +156,7 @@ const Page = () => {
                                   Category:{" "}
                                   <span className="capitalize">
                                     {product.category
-                                      .replace("_", " ")
-                                      .toLocaleUpperCase()}
+                                      .replace("-", " ")}
                                   </span>
                                 </p>
                               </div>
@@ -246,7 +184,7 @@ const Page = () => {
                                   aria-label="remove product"
                                   onClick={() => removeItem(product.id)}
                                   variant="destructive"
-                                  size={"icon"}
+                                  size="icon"
                                   className="flex items-center justify-center"
                                 >
                                   <X size={24} aria-hidden="true" />
@@ -269,7 +207,7 @@ const Page = () => {
 
             <section
               className={cn(
-                "mt-4 rounded-lg border-[0.5px] border-zinc-200 px-4 py-6 sm:mt-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8 dark:border-zinc-200/20",
+                "mt-4 rounded-lg border-[0.5px] border-zinc-200 px-4 py-6 dark:border-zinc-200/20 sm:mt-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
               )}
             >
               <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
@@ -285,7 +223,7 @@ const Page = () => {
                     {isMounted ? (
                       formatPrice(cartTotal)
                     ) : (
-                      <Loader2 className="text-muted-foreground h-4 w-4 animate-spin" />
+                      <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
                     )}
                   </p>
                 </div>
@@ -293,8 +231,7 @@ const Page = () => {
                 <div className="flex items-center justify-between border-t-[0.5px] border-zinc-300 pt-4 dark:border-zinc-200/40">
                   <div
                     className={cn(
-                      InterVar.className,
-                      "text-muted-foreground flex items-center text-sm",
+                      "flex items-center text-sm text-muted-foreground"
                     )}
                   >
                     <span>Flat Transaction Fee</span>
@@ -303,7 +240,7 @@ const Page = () => {
                     {isMounted ? (
                       formatPrice(fee)
                     ) : (
-                      <Loader2 className="text-muted-foreground h-4 w-4 animate-spin" />
+                      <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
                     )}
                   </div>
                 </div>
@@ -311,8 +248,7 @@ const Page = () => {
                 <div className="flex items-center justify-between border-t-[0.5px] border-zinc-300 pt-4 dark:border-zinc-200/40">
                   <div
                     className={cn(
-                      InterVar.className,
-                      "text-base font-medium text-zinc-900 dark:text-zinc-100",
+                      "text-base font-medium text-zinc-900 dark:text-zinc-100"
                     )}
                   >
                     Order Total
@@ -321,7 +257,7 @@ const Page = () => {
                     {isMounted ? (
                       formatPrice(cartTotal + fee)
                     ) : (
-                      <Loader2 className="text-muted-foreground h-4 w-4 animate-spin" />
+                      <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
                     )}
                   </div>
                 </div>
@@ -329,14 +265,13 @@ const Page = () => {
 
               <div className="mt-6">
                 <Button
-                  // disabled={items.length === 0 || isLoading}
-                  // onClick={() => createCheckoutSession({ productIds })}
+                  disabled={items.length === 0 || isLoading}
                   onClick={handleCheckout}
                   className="w-full"
                   size="lg"
                 >
                   Checkout
-                  {isPaymentSessionIdLoading ? (
+                  {isLoading ? (
                     <Loader2 className="ml-1.5 h-4 w-4 animate-spin" />
                   ) : null}
                 </Button>
@@ -346,9 +281,9 @@ const Page = () => {
         </div>
       </div>
 
-      <div>{isVerifying && <LoadingScreen />}</div>
+      {isVerifying && <LoadingScreen />}
     </MaxWidthWrapper>
   );
 };
 
-export default Page;
+export default Checkout;

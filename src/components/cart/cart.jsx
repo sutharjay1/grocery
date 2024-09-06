@@ -12,6 +12,8 @@ import { useEffect } from "react";
 import CartItem from "./cart-item";
 import { Link } from "react-router-dom";
 import Hint from "../hint";
+import { ScrollArea } from "../ui/scroll-area";
+import { Separator } from "../ui/separator";
 
 const Cart = () => {
   const { items } = useCart();
@@ -24,7 +26,7 @@ const Cart = () => {
     0,
   );
 
-  useEffect(() => {});
+  useEffect(() => {}, []);
 
   return (
     <>
@@ -77,45 +79,26 @@ const Cart = () => {
                   </div>
                 </div>
 
-                <Sheet.Footer className="">
-                  <Sheet.Trigger asChild>
+                <Sheet.Footer>
+                  <Sheet.Close asChild>
                     <Link
-                      to="/cart"
+                      to="/checkout"
                       className={buttonVariants({
                         className: "w-full",
                       })}
                     >
                       Continue to Checkout
                     </Link>
-                  </Sheet.Trigger>
+                  </Sheet.Close>
                 </Sheet.Footer>
               </div>
             </>
           ) : (
             <div className="flex h-full w-full flex-col items-center justify-center space-y-1">
-              {/* <div
-                aria-hidden="true"
-                className="relative mb-4 h-60 w-60 text-muted-foreground"
-              >
-                <Image
-                  src="/not-found-light.svg"
-                  fill
-                  alt="empty shopping cart femeraa"
-                  draggable="false"
-                  className="dark:hidden"
-                />
-                <Image
-                  src="/not-found-dark.svg"
-                  fill
-                  alt="empty shopping cart femeraa"
-                  draggable="false"
-                  className="hidden dark:block"
-                />
-              </div> */}
               <div className="font-polySansMedian text-2xl font-medium">
                 Your cart is empty
               </div>
-              <Sheet.Trigger asChild>
+              <Sheet.Close asChild>
                 <Link
                   to="/product"
                   className={buttonVariants({
@@ -126,7 +109,7 @@ const Cart = () => {
                 >
                   Add items to your cart to checkout
                 </Link>
-              </Sheet.Trigger>
+              </Sheet.Close>
             </div>
           )}
         </Sheet.Content>

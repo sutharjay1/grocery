@@ -177,6 +177,7 @@ const ImageSlider = ({ images, className }) => {
               alt={`Slide ${i}`}
               className="h-full w-full object-cover"
               onClick={stopPropagation}
+              draggable={false}
             />
           </motion.div>
         ))}

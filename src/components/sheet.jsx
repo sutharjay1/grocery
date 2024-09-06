@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react"; // Assuming you're using this for the close icon
+import { X } from "lucide-react";
 import { cn, useOnClickOutside } from "../lib/utils";
 import { Button } from "./ui/button";
 
@@ -101,10 +101,24 @@ const SheetDescription = ({ children }) => (
   <p className="text-sm text-muted-foreground">{children}</p>
 );
 
+// Footer Component
+const SheetFooter = ({ children }) => (
+  <div className="mt-4 flex justify-end space-x-2">
+    {children}
+  </div>
+);
+
+// Close Component
+const SheetClose = ({ children, onClick }) => (
+  <Button onClick={onClick}>{children}</Button>
+);
+
 Sheet.Trigger = SheetTrigger;
 Sheet.Content = SheetContent;
 Sheet.Header = SheetHeader;
 Sheet.Title = SheetTitle;
 Sheet.Description = SheetDescription;
+Sheet.Footer = SheetFooter;
+Sheet.Close = SheetClose;
 
 export default Sheet;

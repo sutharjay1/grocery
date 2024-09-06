@@ -9,88 +9,64 @@ import Highlight from "../components/Highlight";
 import {
   Carousel,
   CarouselContent,
+  CarouselNavigation,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Card from "../components/card";
+import { CarouselIndicator } from "../components/ui/carousel";
 
 const Home = () => {
-  const [api, setApi] = useState(null);
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
-
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-  }, [api]);
-
   return (
     <MaxWidthWrapper className="h-full pb-4 pt-0">
       <div className="mx-auto max-w-8xl">
         {/* Hero Image Section */}
         <div className="mt-12 sm:mt-14">
-          <Carousel
-            orientation="horizontal"
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            setApi={setApi}
-            className="w-full"
-          >
-            <CarouselContent>
-              <CarouselItem>
-                <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
-                  <img
-                    src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-01.jpg"
-                    alt="Mount Everest"
-                    className="h-64 w-full object-cover sm:h-72 lg:h-96"
-                    draggable="false"
-                  />
-                  {/* <div className="absolute inset-0 flex items-center justify-start bg-black/30">
-                    <h1 className="text-3xl font-bold text-white lg:text-5xl">
-                      Explore the World&apos;s Highest Peaks
-                    </h1>
-                  </div> */}
-                </div>
-              </CarouselItem>
-              <CarouselItem>
-                <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
-                  <img
-                    src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-02.jpg"
-                    alt="Mount Everest"
-                    className="h-64 w-full object-cover sm:h-72 lg:h-96"
-                    draggable="false"
-                  />
-                </div>
-              </CarouselItem>
-              <CarouselItem>
-                <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
-                  <img
-                    src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-03.jpg"
-                    alt="Mount Everest"
-                    className="h-64 w-full object-cover sm:h-72 lg:h-96"
-                    draggable="false"
-                  />
-                </div>
-              </CarouselItem>
-            </CarouselContent>
-            <CarouselNext className="z-30 hidden lg:flex" />
-            <CarouselPrevious className="z-30 hidden lg:flex" />
-          </Carousel>
+          <div className="relative w-full">
+            <Carousel>
+              <CarouselContent className="-ml-4">
+                <CarouselItem className="pl-4">
+                  <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
+                    <img
+                      src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-01.jpg"
+                      alt="Mount Everest"
+                      className="h-64 w-full object-cover sm:h-72 lg:h-96"
+                      draggable="false"
+                    />
+                  </div>
+                </CarouselItem>
+                <CarouselItem className="pl-4">
+                  <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
+                    <img
+                      src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-02.jpg"
+                      alt="Mount Everest"
+                      className="h-64 w-full object-cover sm:h-72 lg:h-96"
+                      draggable="false"
+                    />
+                  </div>
+                </CarouselItem>
+                <CarouselItem className="pl-4">
+                  <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
+                    <img
+                      src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-03.jpg"
+                      alt="Mount Everest"
+                      className="h-64 w-full object-cover sm:h-72 lg:h-96"
+                      draggable="false"
+                    />
+                  </div>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselNavigation
+                className="absolute -bottom-14 left-auto top-auto w-full justify-end gap-2"
+                classNameButton="bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800"
+                alwaysShow
+              />
+              <CarouselIndicator className="absolute -bottom-6 left-auto top-auto w-full justify-center gap-2" />
+            </Carousel>
+          </div>
         </div>
 
         {/* Categories Section */}
-        <div className="mx-auto mt-10 w-full max-w-8xl">
+        <div className="mx-auto mt-12 w-full max-w-8xl">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
               Top Categories
@@ -104,7 +80,7 @@ const Home = () => {
               </Button>
             </Link>
           </div>
-          <div className="mt-8 grid grid-cols-2 rounded-lg border border-zinc-900/10 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="mt-4 grid grid-cols-2 rounded-lg border border-zinc-900/10 sm:grid-cols-3 lg:grid-cols-6">
             {categories.slice(0, 6).map((category, index) => (
               <Link
                 key={category.title}
@@ -145,8 +121,14 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Highlights Section */}
         <div className="mx-auto mt-8 max-w-8xl">
-          <div className="mt-8 hidden grid-cols-1 gap-4 sm:grid-cols-2 lg:grid lg:grid-cols-3">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
+              Highlights
+            </h2>
+          </div>
+          <div className="mt-6 hidden grid-cols-1 gap-4 sm:grid-cols-2 lg:grid lg:grid-cols-3">
             <Highlight
               badge="Only this week"
               title="Sale 70%"
@@ -173,54 +155,56 @@ const Home = () => {
             />
           </div>
           <div className="mt-8 flex w-full lg:hidden">
-            <Carousel
-              orientation="horizontal"
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                <CarouselItem>
-                  <Highlight
-                    badge="Only this week"
-                    title="Sale 30%"
-                    className="w-full"
-                    description="Sale 30% off on all products"
-                    buttonText="Shop Now"
-                    buttonLink="/categories/mount-everest"
-                    image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
-                  />
-                </CarouselItem>
-                <CarouselItem>
-                  <Highlight
-                    badge="Only this week"
-                    title="Sale 50%"
-                    className="w-full"
-                    description="Sale 50% off on all products"
-                    buttonText="Shop Now"
-                    buttonLink="/categories/mount-everest"
-                    image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
-                  />
-                </CarouselItem>
-                <CarouselItem>
-                  <Highlight
-                    badge="Only this week"
-                    title="Sale 70%"
-                    className="w-full"
-                    description="Sale 70% off on all products"
-                    buttonText="Shop Now"
-                    buttonLink="/categories/mount-everest"
-                    image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
-                  />
-                </CarouselItem>
-              </CarouselContent>
-            </Carousel>
+            <div className="relative w-full">
+              <Carousel>
+                <CarouselContent className="-ml-4">
+                  <CarouselItem className="pl-4">
+                    <Highlight
+                      badge="Only this week"
+                      title="Sale 30%"
+                      className="w-full"
+                      description="Sale 30% off on all products"
+                      buttonText="Shop Now"
+                      buttonLink="/categories/mount-everest"
+                      image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+                    />
+                  </CarouselItem>
+                  <CarouselItem className="pl-4">
+                    <Highlight
+                      badge="Only this week"
+                      title="Sale 50%"
+                      className="w-full"
+                      description="Sale 50% off on all products"
+                      buttonText="Shop Now"
+                      buttonLink="/categories/mount-everest"
+                      image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+                    />
+                  </CarouselItem>
+                  <CarouselItem className="pl-4">
+                    <Highlight
+                      badge="Only this week"
+                      title="Sale 70%"
+                      className="w-full"
+                      description="Sale 70% off on all products"
+                      buttonText="Shop Now"
+                      buttonLink="/categories/mount-everest"
+                      image="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg"
+                    />
+                  </CarouselItem>
+                </CarouselContent>
+                <CarouselNavigation
+                  className="absolute -bottom-14 left-auto top-auto w-full justify-end gap-2"
+                  classNameButton="bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800"
+                  alwaysShow
+                />
+                <CarouselIndicator className="absolute -bottom-6 left-auto top-auto w-full justify-center gap-2" />
+              </Carousel>
+            </div>
           </div>
         </div>
 
-        <div className="mx-auto mt-10 w-full max-w-8xl">
+        {/* Top Picks Section */}
+        <div className="mx-auto mt-12 w-full max-w-8xl">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
               Top Picks
@@ -234,25 +218,24 @@ const Home = () => {
               </Button>
             </Link>
           </div>
-          <div className="mt-8 w-full rounded-lg">
-            <Carousel
-              orientation="horizontal"
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="flex">
+          <div className="relative w-full max-w-full">
+            <Carousel>
+              <CarouselContent className="-ml-4">
                 {randomProducts.map((product, index) => (
                   <CarouselItem
                     key={index}
-                    className="w-full basis-11/12 sm:basis-1/3 lg:basis-1/6"
+                    className="basis-11/12 pl-4 sm:basis-1/3 lg:basis-1/6"
                   >
-                    <Card key={index} index={index} product={product} />
+                    <div className="flex aspect-square items-center justify-center">
+                      <Card index={index} product={product} />
+                    </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
+              <CarouselNavigation
+                className="absolute -bottom-14 left-auto top-auto w-full justify-end gap-2"
+                classNameButton="bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800"
+              />
             </Carousel>
           </div>
         </div>

@@ -8,6 +8,7 @@ import Home from "./screen/Home";
 import Product from "./screen/Product";
 import Search from "./screen/Search";
 import Categories from "./screen/Categories";
+import Checkout from "./screen/Checkout";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ export const AppRouter = () => {
       <Route path="/products/:productId" element={<Product />} />
       <Route path="/search" element={<Search />} />
       <Route path="/categories" element={<Categories />} />
+      <Route path="/checkout" element={<Checkout />} />
     </Routes>
   );
 };

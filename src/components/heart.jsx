@@ -1,16 +1,16 @@
 "use client";
 
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Sheet from "@/components/sheet";
-import { Heart, ShoppingCartIcon } from "lucide-react";
-import { cn, formatPrice } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 import { useCart } from "@/hook/useCart";
+import { cn, formatPrice } from "@/lib/utils";
+import { Heart } from "lucide-react";
 import { useEffect } from "react";
-import CartItem from "./cart/cart-item";
 import { Link } from "react-router-dom";
+import CartItem from "./cart/cart-item";
 import Hint from "./hint";
+import { ScrollArea } from "./ui/scroll-area";
+import { Separator } from "./ui/separator";
 
 const Cart = () => {
   const { items } = useCart();
@@ -29,11 +29,7 @@ const Cart = () => {
     <>
       <Sheet>
         <Sheet.Trigger className="group -m-2 flex items-center p-2">
-          <Hint
-            label={<p>Favorites</p>}
-            align="center"
-            alignOffset={10}
-          >
+          <Hint label={<p>Favorites</p>} align="center" alignOffset={10}>
             <div className="-m-2 flex items-center p-1">
               <Heart
                 aria-hidden="true"

@@ -1,22 +1,28 @@
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
 import { useCart } from "@/hook/useCart";
 import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
+import { ShoppingCartIcon } from "lucide-react";
 
-const AddToCartButton = ({ product, quantity, className }) => {
+const AddToCartButton = ({ product, quantity, className, size = "icon" }) => {
   const { addItem, items, removeItem } = useCart();
-  const [isInCart, setIsInCart] = useState < boolean > false;
+  const [isInCart, setIsInCart] = useState(false);
 
   useEffect(() => {
     const itemInCart = items.find((item) => item.product.id === product.id);
     setIsInCart(!!itemInCart);
   }, [items, product.id]);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.preventDefault(); 
+    e.stopPropagation();
     if (isInCart) {
       removeItem(product.id);
     } else {
       addItem(product);
+    }
+    if (onClick) {
+      onClick(e);
     }
   };
 
@@ -35,11 +41,17 @@ const AddToCartButton = ({ product, quantity, className }) => {
   return (
     <Button
       onClick={handleAddToCart}
-      size="lg"
-      className={cn(className, "w-full")}
-      variant={isInCart ? "destructive" : "default"}
+      size={size}
+      className={cn(className, "")}
+      variant={isInCart ? "destructive" : "ghost"}
     >
-      {isInCart ? "Remove from cart" : "Add to cart"}
+      {size === "icon" ? (
+        <ShoppingCartIcon />
+      ) : isInCart ? (
+        "Remove from cart"
+      ) : (
+        "Add to cart"
+      )}
     </Button>
   );
 };
