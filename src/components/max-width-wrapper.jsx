@@ -5,7 +5,7 @@ const MaxWidthWrapper = ({ className, children }) => {
   return (
     <div
       className={twMerge(
-        "max-w-7xl font-poppins mx-auto overflow-hidden bg-white px-4 pt-20 sm:px-6 lg:px-8",
+        "max-w-9xl font-poppins mx-auto overflow-hidden bg-white px-4 pt-20 sm:px-6 lg:px-8",
         className,
       )}
     >

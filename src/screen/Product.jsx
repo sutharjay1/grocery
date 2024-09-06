@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import MaxWidthWrapper from "../components/max-width-wrapper";
 import ImageSlider from "../components/image-slider";
 import { useParams } from "react-router-dom";
 import { productsByCategory } from "../config";
+import ProductSlider from "../components/product-slider";
+import { IconChevronLeft } from "@tabler/icons-react";
+import ReactImageMagnify from "react-image-magnify";
 
 const Product = () => {
   const { productId } = useParams();
+  const [isHovered, setIsHovered] = useState(false);
 
   const product = Object.values(productsByCategory)
     .flat()
@@ -20,10 +24,14 @@ const Product = () => {
   }
 
   return (
-    <MaxWidthWrapper>
+    <MaxWidthWrapper className="relative py-4">
       <div className="flex flex-col gap-8 md:flex-row">
         <div className="md:w-1/2">
-          <ImageSlider images={product.imageSrc} />
+          <ProductSlider
+            images={product.imageSrc}
+            isHovered={isHovered}
+            setIsHovered={setIsHovered}
+          />
         </div>
         <div className="flex flex-col gap-4 md:w-1/2">
           <h1 className="text-3xl font-bold">{product.name}</h1>
@@ -36,6 +44,11 @@ const Product = () => {
           </button>
         </div>
       </div>
+      {isHovered && (
+        <div className="h-full w-full bg-black/50">
+          <IconChevronLeft className="text-white" size={24} />
+        </div>
+      )}
     </MaxWidthWrapper>
   );
 };

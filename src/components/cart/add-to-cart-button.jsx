@@ -1,53 +1,43 @@
 import { useEffect, useState } from "react";
-import { useCart } from "@/hook/useCart";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { ShoppingCartIcon } from "lucide-react";
+import { cartStorage } from "../../hook/cartStorage";
 
 const AddToCartButton = ({ product, quantity, className, size = "icon" }) => {
-  const { addItem, items, removeItem } = useCart();
   const [isInCart, setIsInCart] = useState(false);
 
-  console.log(product);
+  useEffect(() => {
+    const items = cartStorage.getItems();
+    const itemInCart = items.find((item) => item.id === product.id);
+    setIsInCart(!!itemInCart);
+  }, [product.id]);
 
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (isInCart) {
-      removeItem(product.id);
+      cartStorage.removeItem(product.id);
+      setIsInCart(false);
     } else {
-      addItem(product, quantity); // Pass quantity if needed
+      const newItem = { ...product, quantity: quantity || 1 };
+      cartStorage.addItem(newItem);
+      setIsInCart(true);
     }
   };
 
   useEffect(() => {
-    const itemInCart = items.find((item) => item.product.id === product.id);
-    setIsInCart(!!itemInCart);
-  }, [items, product.id]);
-
-  useEffect(() => {
-    console.log("Cart items:", items);
-  }, [items]);
-  
-
-  useEffect(() => {
-    if (quantity) {
-      const itemInCart = items.find((item) => item.product.id === product.id);
-
-      if (itemInCart) {
-        itemInCart.product.quantity = quantity;
-        removeItem(itemInCart.product.id);
-        addItem(itemInCart.product);
-      }
+    if (isInCart && quantity) {
+      cartStorage.updateItemQuantity(product.id, quantity);
     }
-  }, [quantity]);
+  }, [quantity, product.id, isInCart]);
 
   return (
     <Button
       onClick={handleAddToCart}
       size={size}
       className={cn(className, "")}
-      variant={isInCart ? "destructive" : "ghost"}
+      variant={isInCart ? "destructive" : "default"}
     >
       {size === "icon" ? (
         <ShoppingCartIcon />

@@ -19,6 +19,7 @@ import { formatPrice } from "../lib/utils";
 import { Input } from "../components/ui/input";
 import { Slider } from "../components/ui/slider";
 import { Button } from "../components/ui/button";
+import Card from "../components/card";
 
 const ProductFilter = ({ categoryTag, filters, onFilterChange }) => {
   const [priceRange, setPriceRange] = useState([0, 1000]);
@@ -186,7 +187,7 @@ const CategoriesTag = () => {
             </div>
 
             <div className="py-6 sm:pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
-              <aside className="flex items-start pb-4 lg:col-span-1">
+              <aside className="sticky top-16 flex items-start pb-4 lg:col-span-1">
                 <h2 className="sr-only">Filters</h2>
 
                 <ProductFilter
@@ -222,50 +223,50 @@ const CategoriesTag = () => {
   );
 };
 
-const Card = ({ product }) => {
-  return (
-    <div className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
-      <div className="w-full">
-        <ImageSlider images={product.imageSrc} />
-      </div>
-      <Link to={product.href}>
-        <div className="flex flex-1 flex-col space-y-2 p-4">
-          <h3 className="text-sm font-medium text-gray-900">{product.name}</h3>
-          <p className="text-sm text-gray-500">{product.description}</p>
-          <div className="flex flex-1 flex-col justify-end">
-            <p className="text-sm italic text-gray-500">{product.options}</p>
-            <div className="flex items-center justify-between">
-              <p className="text-base font-medium text-gray-900">
-                {formatPrice(product.price)}
-              </p>
-              <AddToCartButton
-                product={product}
-                quantity={1}
-                className="mt-2"
-                size="icon"
-              />
-            </div>
-          </div>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {Object.entries(product).map(([key, value]) => {
-              if (Array.isArray(value) && key !== "imageSrc") {
-                return value.map((tag, index) => (
-                  <span
-                    key={`${key}-${index}`}
-                    className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
-                  >
-                    {tag}
-                  </span>
-                ));
-              }
-              return null;
-            })}
-          </div>
-        </div>
-      </Link>
-    </div>
-  );
-};
+// const Card = ({ product }) => {
+//   return (
+//     <div className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
+//       <div className="w-full">
+//         <ImageSlider images={product.imageSrc} />
+//       </div>
+//       <Link to={product.href}>
+//         <div className="flex flex-1 flex-col space-y-2 p-4">
+//           <h3 className="text-sm font-medium text-gray-900">{product.name}</h3>
+//           <p className="text-sm text-gray-500">{product.description}</p>
+//           <div className="flex flex-1 flex-col justify-end">
+//             <p className="text-sm italic text-gray-500">{product.options}</p>
+//             <div className="flex items-center justify-between">
+//               <p className="text-base font-medium text-gray-900">
+//                 {formatPrice(product.price)}
+//               </p>
+//               <AddToCartButton
+//                 product={product}
+//                 quantity={1}
+//                 className="mt-2"
+//                 size="icon"
+//               />
+//             </div>
+//           </div>
+//           <div className="mt-2 flex flex-wrap gap-2">
+//             {Object.entries(product).map(([key, value]) => {
+//               if (Array.isArray(value) && key !== "imageSrc") {
+//                 return value.map((tag, index) => (
+//                   <span
+//                     key={`${key}-${index}`}
+//                     className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+//                   >
+//                     {tag}
+//                   </span>
+//                 ));
+//               }
+//               return null;
+//             })}
+//           </div>
+//         </div>
+//       </Link>
+//     </div>
+//   );
+// };
 
 export default CategoriesTag;
 

@@ -2,9 +2,10 @@ import { useCart } from "@/hook/useCart";
 import { cn, formatPrice } from "@/lib/utils";
 import { ImageIcon, X } from "lucide-react";
 import { Button } from "../ui/button";
+import { cartStorage } from "../../hook/cartStorage";
 
 const CartItem = ({ product }) => {
-  const { removeItem } = useCart();
+  const removeItem = cartStorage.removeItem();
 
   return (
     <div className="space-y-3 py-2">
@@ -18,10 +19,10 @@ const CartItem = ({ product }) => {
                 className="absolute h-full w-full object-cover"
               />
             ) : (
-              <div className="bg-secondary flex h-full items-center justify-center">
+              <div className="flex h-full items-center justify-center bg-secondary">
                 <ImageIcon
                   aria-hidden="true"
-                  className="text-muted-foreground h-4 w-4"
+                  className="h-4 w-4 text-muted-foreground"
                 />
               </div>
             )}
@@ -36,11 +37,11 @@ const CartItem = ({ product }) => {
               {product.name}
             </span>
 
-            <div className="text-muted-foreground mt-4 text-xs">
+            <div className="mt-4 text-xs text-muted-foreground">
               <Button
                 variant="destructive"
                 onClick={() => removeItem(product.id)}
-                className="border-input flex items-center justify-center gap-0.5 border px-4"
+                className="flex items-center justify-center gap-0.5 border border-input px-4"
               >
                 <X className="size-5" />
                 Remove

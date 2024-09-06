@@ -28,7 +28,7 @@ const Home = () => {
                 <CarouselItem className="pl-4">
                   <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
                     <img
-                      src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-01.jpg"
+                      src="https://www.bigbasket.com/media/uploads/banner_images/b2c081912730-24801_b2c_hp_hnc_cm_lipton_460_060924_all.jpg?tr=w-2048,q=80"
                       alt="Mount Everest"
                       className="h-64 w-full object-cover sm:h-72 lg:h-96"
                       draggable="false"
@@ -38,7 +38,7 @@ const Home = () => {
                 <CarouselItem className="pl-4">
                   <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
                     <img
-                      src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-02.jpg"
+                      src="https://www.bigbasket.com/media/uploads/banner_images/b2c081912730-24800_b2c_hp_dnc_cm_domex_460_250824_all.jpg?tr=w-2048,q=80"
                       alt="Mount Everest"
                       className="h-64 w-full object-cover sm:h-72 lg:h-96"
                       draggable="false"
@@ -48,7 +48,7 @@ const Home = () => {
                 <CarouselItem className="pl-4">
                   <div className="relative overflow-hidden rounded-xl bg-zinc-900/5 ring-1 ring-inset ring-zinc-900/10 lg:rounded-2xl">
                     <img
-                      src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-03.jpg"
+                      src="https://www.bigbasket.com/media/uploads/banner_images/b2c081912730-24799_b2c_hp_dnc_cm_surf-excel_460_010924_all.jpg?tr=w-2048,q=80"
                       alt="Mount Everest"
                       className="h-64 w-full object-cover sm:h-72 lg:h-96"
                       draggable="false"
@@ -221,9 +221,9 @@ const Home = () => {
                 </Button>
               </Link>
             </div>
-            <div className="relative w-full max-w-full">
-              <Carousel>
-                <CarouselContent className="-ml-4">
+            <div className="mt-4 relative w-full max-w-full">
+              <Carousel className="w-full">
+                <CarouselContent className="w-full pl-4 snap-center">
                   {randomProducts.map((product, index) => (
                     <CarouselItem
                       key={index}

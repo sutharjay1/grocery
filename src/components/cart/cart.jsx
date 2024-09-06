@@ -15,19 +15,37 @@ import { Link } from "react-router-dom";
 import Hint from "../hint";
 import { ScrollArea } from "../ui/scroll-area";
 import { Separator } from "../ui/separator";
+import { cartStorage } from "../../hook/cartStorage";
 
 const Cart = () => {
-  const { items } = useCart();
-  const itemCount = items.length;
+  const [items, setItems] = useState([]);
+  const [itemCount, setItemCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const tempItems = cartStorage.getItems();
+  const removeItem = cartStorage.removeItem();
 
   const fee = 0.05;
 
   const cartTotal = items.reduce(
-    (total, { product }) => total + product.price,
+    (total, item) => total + item.price * item.quantity,
     0,
   );
+
+  useEffect(() => {
+    const updateCart = () => {
+      const cartItems = cartStorage.getItems();
+      setItems(cartItems);
+      setItemCount(cartItems.length);
+    };
+
+    updateCart();
+    window.addEventListener("storage", updateCart);
+
+    return () => {
+      window.removeEventListener("storage", updateCart);
+    };
+  }, [tempItems, removeItem]);
 
   useEffect(() => {
     setIsOpen(false);
@@ -62,8 +80,8 @@ const Cart = () => {
             <>
               <div className="flex w-full flex-1 flex-col pr-6">
                 <ScrollArea>
-                  {items.map(({ product }) => (
-                    <CartItem product={product} key={product.id} />
+                  {items.map((item) => (
+                    <CartItem product={item} key={item.id} />
                   ))}
                 </ScrollArea>
               </div>

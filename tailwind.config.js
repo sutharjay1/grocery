@@ -6,6 +6,7 @@ export default {
     extend: {
       maxWidth: {
         "8xl": "1408px",
+        "9xl": "1536px",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

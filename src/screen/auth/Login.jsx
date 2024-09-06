@@ -73,16 +73,11 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(data);
     setIsSubmitting(false);
-    // Move to next step or finish the form
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Handle form completion (e.g., show success message, redirect)
-      console.log("Form submitted successfully!");
     }
   };
 

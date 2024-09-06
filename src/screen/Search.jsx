@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { productsByCategory } from "../config";
 import MaxWidthWrapper from "../components/max-width-wrapper";
@@ -17,6 +17,19 @@ import {
 const Search = () => {
   const [searchParams] = useSearchParams();
   const rawQuery = searchParams.get("rawQuery");
+
+  const allProducts = useMemo(() => {
+    return Object.values(productsByCategory).flat();
+  }, []);
+
+  const filteredProducts = useMemo(() => {
+    if (!rawQuery) return allProducts;
+    const lowercaseQuery = rawQuery.toLowerCase();
+    return allProducts.filter(product => 
+      product.name.toLowerCase().includes(lowercaseQuery) ||
+      product.description.toLowerCase().includes(lowercaseQuery)
+    );
+  }, [allProducts, rawQuery]);
 
   return (
     <MaxWidthWrapper className="h-full pt-0">
@@ -69,130 +82,22 @@ const Search = () => {
                     </div>
 
                     <form className="mt-4">
-                      {/* {filters.map((section) => (
-                        <Disclosure
-                          as="div"
-                          key={section.name}
-                          className="border-t border-gray-200 pb-4 pt-4"
-                        >
-                          {({ open }) => (
-                            <fieldset>
-                              <legend className="w-full px-2">
-                                <DisclosureButton className="flex w-full items-center justify-between p-2 text-gray-400 hover:text-gray-500">
-                                  <span className="text-sm font-medium text-gray-900">
-                                    {section.name}
-                                  </span>
-                                  <span className="ml-6 flex h-7 items-center">
-                                    <ChevronDownIcon
-                                      className={`h-5 w-5 transform ${
-                                        open ? "-rotate-180" : "rotate-0"
-                                      }`}
-                                      aria-hidden="true"
-                                    />
-                                  </span>
-                                </DisclosureButton>
-                              </legend>
-                              <DisclosurePanel className="px-4 pb-2 pt-4">
-                                <div className="space-y-6">
-                                  {section.options.map((option) => (
-                                    <div
-                                      key={option.value}
-                                      className="flex items-center"
-                                    >
-                                      {/* <input
-                                        id={`${section.id}-${option.value}`}
-                                        name={`${section.id}[]`}
-                                        type="checkbox"
-                                        checked={selectedFilters[
-                                          section.id
-                                        ]?.includes(option.value)}
-                                        onChange={() =>
-                                          handleFilterChange(
-                                            section.id,
-                                            option.value,
-                                          )
-                                        }
-                                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                      /> 
-
-                                      <Checkbox
-                                        id={`${section.id}-${option.value}`}
-                                        name={`${section.id}[]`}
-                                        checked={selectedFilters[
-                                          section.id
-                                        ]?.includes(option.value)}
-                                        onChange={() =>
-                                          handleFilterChange(
-                                            section.id,
-                                            option.value,
-                                          )
-                                        }
-                                      />
-
-                                      <label
-                                        htmlFor={`${section.id}-${option.value}`}
-                                        className="ml-3 text-sm text-gray-500"
-                                      >
-                                        {option.label}
-                                      </label>
-                                    </div>
-                                  ))}
-                                </div>
-                              </DisclosurePanel>
-                            </fieldset>
-                          )}
-                        </Disclosure>
-                      ))} */}
+                      {/* Filter implementation can be added here */}
                     </form>
                   </div>
                 </Sheet.Content>
 
                 <div className="hidden lg:block">
-                  {/* <form className="space-y-10 divide-y divide-gray-200">
-                    {filters.map((section) => (
-                      <div key={section.name} className="">
-                        <fieldset>
-                          <legend className="block text-sm font-medium text-gray-900">
-                            {section.name}
-                          </legend>
-                          <div className="space-y-3 pt-6">
-                            {section.options.map((option) => (
-                              <div
-                                key={option.value}
-                                className="flex items-center"
-                              >
-                                <Checkbox
-                                  id={`${section.id}-${option.value}`}
-                                  name={`${section.id}[]`}
-                                  checked={selectedFilters[
-                                    section.id
-                                  ]?.includes(option.value)}
-                                  onChange={() =>
-                                    handleFilterChange(section.id, option.value)
-                                  }
-                                />
-                                <label
-                                  htmlFor={`${section.id}-${option.value}`}
-                                  className="ml-3 text-sm text-gray-600"
-                                >
-                                  {option.label}
-                                </label>
-                              </div>
-                            ))}
-                          </div>
-                        </fieldset>
-                      </div>
-                    ))}
-                  </form> */}
+                  {/* Desktop filter implementation can be added here */}
                 </div>
               </aside>
 
               <main className="w-full lg:col-span-3">
-                {/* <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+                <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
                   {filteredProducts.map((product) => (
                     <Card key={product.id} product={product} />
                   ))}
-                </div> */}
+                </div>
               </main>
             </div>
           </div>

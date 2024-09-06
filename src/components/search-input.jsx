@@ -16,8 +16,6 @@ const SearchInput = ({ className }) => {
     setInputValue(e.target.value);
   };
 
-  console.log(lastDebouncedValue.current);
-  console.log(debouncedValue);
 
   useEffect(() => {
     if (debouncedValue !== lastDebouncedValue.current) {
