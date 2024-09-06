@@ -11,27 +11,38 @@ import {
   ShoppingBag,
   CreditCard,
 } from "lucide-react";
-import { useCart } from "@/hook/useCart";
 import { P } from "@/components/shared/typographypara";
 import MaxWidthWrapper from "../components/max-width-wrapper";
 import { motion, AnimatePresence } from "framer-motion";
+import { cartStorage } from "@/hook/cartStorage";
 // import { toast } from "react-hot-toast";
 
 const Checkout = () => {
-  const { items, removeItem, clearCart } = useCart();
+  const [items, setItems] = useState([]);
   const [isMounted, setIsMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isVerifying, setIsVerifying] = useState(false);
 
-  const cartTotal = items.reduce((total, { product }) => {
-    return total + (product.price || 0) * (Number(product.quantity) || 1);
+  useEffect(() => {
+    setItems(cartStorage.getItems());
+    setIsMounted(true);
+  }, []);
+
+  const cartTotal = items.reduce((total, item) => {
+    return total + (item.price || 0) * (Number(item.quantity) || 1);
   }, 0);
 
   const fee = cartTotal * 0.05;
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const removeItem = (id) => {
+    cartStorage.removeItem(id);
+    setItems(cartStorage.getItems());
+  };
+
+  const clearCart = () => {
+    cartStorage.setItems([]);
+    setItems([]);
+  };
 
   const handleCheckout = async () => {
     setIsLoading(true);
@@ -146,7 +157,7 @@ const Checkout = () => {
               >
                 <AnimatePresence>
                   {isMounted &&
-                    items.map(({ product }) => {
+                    items.map((product) => {
                       const image = product.imageSrc && product.imageSrc[0];
 
                       return (

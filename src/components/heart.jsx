@@ -29,6 +29,11 @@ const Heart = () => {
     setItemCount(wishlistItems.length);
   };
 
+  const removeItem = (id) => {
+    wishlistStorage.removeItem(id);
+    updateWishlist();
+  };
+
   useEffect(() => {
     updateWishlist();
     window.addEventListener("storage", updateWishlist);
@@ -78,7 +83,11 @@ const Heart = () => {
               <div className="flex w-full flex-1 flex-col pr-6">
                 <ScrollArea>
                   {items.map((item) => (
-                    <CartItem product={item} key={item.id} />
+                    <CartItem
+                      product={item}
+                      key={item.id}
+                      removeItem={() => removeItem(item.id)}
+                    />
                   ))}
                 </ScrollArea>
               </div>

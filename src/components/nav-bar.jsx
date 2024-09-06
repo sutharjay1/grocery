@@ -11,8 +11,7 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ChevronDown, X, HamIcon } from "lucide-react";
 import { useState } from "react";
 import { GiFruitBowl } from "react-icons/gi";
 import { Link } from "react-router-dom";
@@ -140,7 +139,7 @@ const NavBar = () => {
               className="-my-2.5 rounded-md py-2.5 text-gray-700"
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+              <X aria-hidden="true" className="h-6 w-6" />
             </button>
           ) : (
             <button
@@ -149,7 +148,7 @@ const NavBar = () => {
               className="-my-2.5 inline-flex items-center justify-center rounded-md py-2.5 text-gray-700"
             >
               <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+              <HamIcon aria-hidden="true" className="h-6 w-6" />
             </button>
           )}
         </div>
@@ -167,7 +166,7 @@ const NavBar = () => {
             <Popover className="relative">
               <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
                 Product
-                <ChevronDownIcon
+                <ChevronDown
                   aria-hidden="true"
                   className="h-5 w-5 flex-none text-gray-400"
                 />
@@ -223,7 +222,7 @@ const NavBar = () => {
             <Popover className="relative hidden">
               <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
                 Shop by Category
-                <ChevronDownIcon
+                <ChevronDown
                   aria-hidden="true"
                   className="h-5 w-5 flex-none text-gray-400"
                 />
@@ -311,7 +310,7 @@ const NavBar = () => {
                 className="-my-2.5 rounded-md py-2.5 text-gray-700"
               >
                 <span className="sr-only">Close menu</span>
-                <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+                <X aria-hidden="true" className="h-6 w-6" />
               </button>
             </div>
           </div>
@@ -321,7 +320,7 @@ const NavBar = () => {
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                     Product
-                    <ChevronDownIcon
+                    <ChevronDown
                       aria-hidden="true"
                       className="h-5 w-5 flex-none group-data-[open]:rotate-180"
                     />

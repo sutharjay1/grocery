@@ -1,12 +1,9 @@
+import { ChevronLeft } from "lucide-react";
 import React, { useState } from "react";
-import MaxWidthWrapper from "../components/max-width-wrapper";
-import ImageSlider from "../components/image-slider";
 import { useParams } from "react-router-dom";
-import { productsByCategory } from "../config";
+import MaxWidthWrapper from "../components/max-width-wrapper";
 import ProductSlider from "../components/product-slider";
-import { IconChevronLeft } from "@tabler/icons-react";
-import ReactImageMagnify from "react-image-magnify";
-
+import { productsByCategory } from "../config";
 const Product = () => {
   const { productId } = useParams();
   const [isHovered, setIsHovered] = useState(false);
@@ -46,7 +43,7 @@ const Product = () => {
       </div>
       {isHovered && (
         <div className="h-full w-full bg-black/50">
-          <IconChevronLeft className="text-white" size={24} />
+          <ChevronLeft className="text-white" size={24} />
         </div>
       )}
     </MaxWidthWrapper>

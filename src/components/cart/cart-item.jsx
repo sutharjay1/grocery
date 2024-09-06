@@ -1,11 +1,10 @@
-import { useCart } from "@/hook/useCart";
 import { cn, formatPrice } from "@/lib/utils";
 import { ImageIcon, X } from "lucide-react";
-import { Button } from "../ui/button";
 import { cartStorage } from "../../hook/cartStorage";
+import { Button } from "../ui/button";
 
-const CartItem = ({ product }) => {
-  const removeItem = () => {
+const CartItem = ({ product, removeItem }) => {
+  const removeItemHandler = () => {
     cartStorage.removeItem(product.id);
   };
 
@@ -42,7 +41,7 @@ const CartItem = ({ product }) => {
             <div className="mt-4 text-xs text-muted-foreground">
               <Button
                 variant="destructive"
-                onClick={removeItem}
+                onClick={removeItem ? removeItem : removeItemHandler}
                 className="flex items-center justify-center gap-0.5 border border-input px-4"
               >
                 <X className="size-5" />

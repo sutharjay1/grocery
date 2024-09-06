@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 const ImageSlider = ({ images, className }) => {
@@ -37,7 +38,7 @@ const ImageSlider = ({ images, className }) => {
             }
           }}
         >
-          <IconChevronLeft className="stroke-neutral-600" size={20} />
+          <ChevronLeft className="stroke-neutral-600" size={20} />
         </button>
         <button
           style={imgIndex === images?.length - 1 ? { opacity: 0 } : {}}
@@ -48,7 +49,7 @@ const ImageSlider = ({ images, className }) => {
             }
           }}
         >
-          <IconChevronRight className="stroke-neutral-600" size={20} />
+          <ChevronRight className="stroke-neutral-600" size={20} />
         </button>
       </div>
       <div className="pointer-events-none absolute bottom-2 z-10 flex w-full items-center justify-center">
