@@ -14,7 +14,7 @@ import {
 import { ChevronDown, X, User, Menu, ShoppingBasket } from "lucide-react";
 import { useState } from "react";
 import { GiFruitBowl } from "react-icons/gi";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Banana, CupSoda, Milk, Pizza } from "lucide-react";
 import { FaBreadSlice, FaEgg, FaIceCream } from "react-icons/fa6";
@@ -119,7 +119,7 @@ const links = [
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(false);
-  const location = useLocation();
+  
 
   return (
     <header className="sticky top-0 z-50 bg-card">
@@ -362,14 +362,6 @@ const NavBar = () => {
           </div>
         </DialogPanel>
       </Dialog>
-
-      <SearchInput
-        className={cn(
-          "mb-4 lg:hidden",
-          mobileMenuOpen && "hidden",
-          location.pathname === "/signup" && "hidden",
-        )}
-      />
 
       <SearchInput
         className={cn("mb-4 lg:hidden", mobileMenuOpen && "hidden")}
