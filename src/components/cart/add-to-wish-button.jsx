@@ -1,27 +1,36 @@
 import { useEffect, useState } from "react";
-import { useWishlist } from "@/hook/useWishlist";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { HeartIcon } from "lucide-react";
+import { wishlistStorage } from "../../hook/wishlistStorage";
 
-const AddToWishButton = ({ product, className, size = "icon" }) => {
-  const { addToWishlist, items, removeFromWishlist } = useWishlist();
+const AddToWishButton = ({ product, quantity, className, size = "icon" }) => {
   const [isInWishlist, setIsInWishlist] = useState(false);
+
+  useEffect(() => {
+    const items = wishlistStorage.getItems();
+    const itemInWishlist = items.find((item) => item.id === product.id);
+    setIsInWishlist(!!itemInWishlist);
+  }, [product.id]);
 
   const handleAddToWishlist = (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (isInWishlist) {
-      removeFromWishlist(product.id);
+      wishlistStorage.removeItem(product.id);
+      setIsInWishlist(false);
     } else {
-      addToWishlist(product);
+      const newItem = { ...product, quantity: quantity || 1 };
+      wishlistStorage.addItem(newItem);
+      setIsInWishlist(true);
     }
   };
 
   useEffect(() => {
-    const itemInWishlist = items.find((item) => item.product.id === product.id);
-    setIsInWishlist(!!itemInWishlist);
-  }, [items, product.id]);
+    if (isInWishlist && quantity) {
+      wishlistStorage.updateItemQuantity(product.id, quantity);
+    }
+  }, [quantity, product.id, isInWishlist]);
 
   return (
     <Button

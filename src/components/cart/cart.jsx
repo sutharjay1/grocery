@@ -1,29 +1,24 @@
 "use client";
 
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Sheet from "@/components/sheet";
-import { ShoppingCartIcon } from "lucide-react";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { cn, formatPrice } from "@/lib/utils";
-import { useCart } from "@/hook/useCart";
+import { ShoppingCartIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import CartItem from "./cart-item";
 import { Link } from "react-router-dom";
+import { cartStorage } from "../../hook/cartStorage";
 import Hint from "../hint";
 import { ScrollArea } from "../ui/scroll-area";
 import { Separator } from "../ui/separator";
-import { cartStorage } from "../../hook/cartStorage";
+import CartItem from "./cart-item";
 
 const Cart = () => {
   const [items, setItems] = useState([]);
   const [itemCount, setItemCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const tempItems = cartStorage.getItems();
-  const removeItem = cartStorage.removeItem();
 
   const fee = 0.05;
 
@@ -32,24 +27,30 @@ const Cart = () => {
     0,
   );
 
-  useEffect(() => {
-    const updateCart = () => {
-      const cartItems = cartStorage.getItems();
-      setItems(cartItems);
-      setItemCount(cartItems.length);
-    };
+  const updateCart = () => {
+    const cartItems = cartStorage.getItems();
+    setItems(cartItems);
+    setItemCount(cartItems.length);
+  };
 
+  useEffect(() => {
     updateCart();
     window.addEventListener("storage", updateCart);
 
     return () => {
       window.removeEventListener("storage", updateCart);
     };
-  }, [tempItems, removeItem]);
+  }, []);
 
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    const intervalId = setInterval(updateCart, 1000); // Check for updates every second
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <>
@@ -110,7 +111,7 @@ const Cart = () => {
                         className: "w-full",
                       })}
                     >
-                      Continue to Checkout
+                      <Button className="w-full">Checkout</Button>
                     </Link>
                   </Sheet.Close>
                 </Sheet.Footer>

@@ -5,7 +5,9 @@ import { Button } from "../ui/button";
 import { cartStorage } from "../../hook/cartStorage";
 
 const CartItem = ({ product }) => {
-  const removeItem = cartStorage.removeItem();
+  const removeItem = () => {
+    cartStorage.removeItem(product.id);
+  };
 
   return (
     <div className="space-y-3 py-2">
@@ -40,7 +42,7 @@ const CartItem = ({ product }) => {
             <div className="mt-4 text-xs text-muted-foreground">
               <Button
                 variant="destructive"
-                onClick={() => removeItem(product.id)}
+                onClick={removeItem}
                 className="flex items-center justify-center gap-0.5 border border-input px-4"
               >
                 <X className="size-5" />
