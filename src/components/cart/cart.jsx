@@ -14,7 +14,7 @@ import { ScrollArea } from "../ui/scroll-area";
 import { Separator } from "../ui/separator";
 import CartItem from "./cart-item";
 
-const Cart = () => {
+const   Cart = () => {
   const [items, setItems] = useState([]);
   const [itemCount, setItemCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +62,7 @@ const Cart = () => {
             align="center"
             alignOffset={10}
           >
-            <div className="-m-2 flex items-center p-1">
+            <div className=" flex items-center p-1">
               <ShoppingCartIcon
                 aria-hidden="true"
                 className="h-6 w-6 flex-shrink-0 text-zinc-600 group-hover:text-zinc-700 dark:text-zinc-400"

@@ -11,10 +11,10 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/react";
-import { ChevronDown, X, HamIcon } from "lucide-react";
+import { ChevronDown, X, User, Menu, ShoppingBasket } from "lucide-react";
 import { useState } from "react";
 import { GiFruitBowl } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { Banana, CupSoda, Milk, Pizza } from "lucide-react";
 import { FaBreadSlice, FaEgg, FaIceCream } from "react-icons/fa6";
@@ -24,6 +24,8 @@ import Heart from "./heart";
 import AppLogo from "./logo";
 import Profile from "./profile";
 import SearchInput from "./search-input";
+import UserAvatar from "./user-avatar";
+import { Button } from "./ui/button";
 
 const categories = [
   {
@@ -116,6 +118,8 @@ const links = [
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState(false);
+  const location = useLocation();
 
   return (
     <header className="sticky top-0 z-50 bg-card">
@@ -129,18 +133,11 @@ const NavBar = () => {
             <AppLogo />
           </Link>
         </div>
-        <div className="flex space-x-4 lg:hidden">
+        <div className="flex items-center justify-center space-x-2 lg:hidden">
           <Heart />
           <Cart />
-          {mobileMenuOpen ? (
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              className="-my-2.5 rounded-md py-2.5 text-gray-700"
-            >
-              <span className="sr-only">Close menu</span>
-              <X aria-hidden="true" className="h-6 w-6" />
-            </button>
+          {user ? (
+            <UserAvatar user={user} setUser={setUser} />
           ) : (
             <button
               type="button"
@@ -148,12 +145,12 @@ const NavBar = () => {
               className="-my-2.5 inline-flex items-center justify-center rounded-md py-2.5 text-gray-700"
             >
               <span className="sr-only">Open main menu</span>
-              <HamIcon aria-hidden="true" className="h-6 w-6" />
+              <Menu aria-hidden="true" className="h-7 w-7" />
             </button>
           )}
         </div>
         <div className="hidden w-full items-center justify-between gap-x-12 pl-14 pr-2 lg:flex">
-          <PopoverGroup className="flex lg:gap-x-12">
+          <PopoverGroup className="flex lg:gap-x-8">
             {links.map((link) => (
               <Link
                 key={link.name}
@@ -277,17 +274,21 @@ const NavBar = () => {
           </PopoverGroup>
           <SearchInput className="hidden lg:flex" />
         </div>
-        <div className="hidden gap-x-6 lg:flex lg:justify-end">
+        <div className="hidden items-center gap-x-2 lg:flex lg:justify-end">
           <Heart />
           <Cart />
-          <Profile />
-
-          <Link
-            to="/signup"
-            className="hidden text-sm font-semibold leading-6 text-gray-900"
-          >
-            Log in <span aria-hidden="true">&rarr;</span>
-          </Link>
+          {user ? (
+            <UserAvatar user={user} setUser={setUser} />
+          ) : (
+            <Button
+              variant="outline"
+              onClick={() => setUser(true)}
+              className="flex w-fit items-center space-x-2"
+            >
+              <ShoppingBasket className="h-5 w-5" />
+              <span>Log in</span>
+            </Button>
+          )}
         </div>
       </nav>
       <Dialog
@@ -362,7 +363,17 @@ const NavBar = () => {
         </DialogPanel>
       </Dialog>
 
-      <SearchInput className={cn("lg:hidden", mobileMenuOpen && "hidden")} />
+      <SearchInput
+        className={cn(
+          "mb-4 lg:hidden",
+          mobileMenuOpen && "hidden",
+          location.pathname === "/signup" && "hidden",
+        )}
+      />
+
+      <SearchInput
+        className={cn("mb-4 lg:hidden", mobileMenuOpen && "hidden")}
+      />
 
       {/* <div className="relative z-10 w-full px-4 lg:hidden">
         <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
