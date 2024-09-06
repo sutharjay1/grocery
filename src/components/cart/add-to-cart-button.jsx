@@ -8,23 +8,27 @@ const AddToCartButton = ({ product, quantity, className, size = "icon" }) => {
   const { addItem, items, removeItem } = useCart();
   const [isInCart, setIsInCart] = useState(false);
 
+  console.log(product);
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (isInCart) {
+      removeItem(product.id);
+    } else {
+      addItem(product, quantity); // Pass quantity if needed
+    }
+  };
+
   useEffect(() => {
     const itemInCart = items.find((item) => item.product.id === product.id);
     setIsInCart(!!itemInCart);
   }, [items, product.id]);
 
-  const handleAddToCart = (e) => {
-    e.preventDefault(); 
-    e.stopPropagation();
-    if (isInCart) {
-      removeItem(product.id);
-    } else {
-      addItem(product);
-    }
-    if (onClick) {
-      onClick(e);
-    }
-  };
+  useEffect(() => {
+    console.log("Cart items:", items);
+  }, [items]);
+  
 
   useEffect(() => {
     if (quantity) {

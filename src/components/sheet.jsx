@@ -1,14 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { cn, useOnClickOutside } from "../lib/utils";
 import { Button } from "./ui/button";
+import { useLocation } from "react-router-dom";
 
 // Main Sheet Component
 const Sheet = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleSheet = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
 
   return (
     <>
@@ -103,9 +109,7 @@ const SheetDescription = ({ children }) => (
 
 // Footer Component
 const SheetFooter = ({ children }) => (
-  <div className="mt-4 flex justify-end space-x-2">
-    {children}
-  </div>
+  <div className="mt-4 flex justify-end space-x-2">{children}</div>
 );
 
 // Close Component

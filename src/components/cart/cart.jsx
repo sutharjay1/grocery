@@ -7,7 +7,8 @@ import Sheet from "@/components/sheet";
 import { ShoppingCartIcon } from "lucide-react";
 import { cn, formatPrice } from "@/lib/utils";
 import { useCart } from "@/hook/useCart";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import CartItem from "./cart-item";
 import { Link } from "react-router-dom";
@@ -18,6 +19,8 @@ import { Separator } from "../ui/separator";
 const Cart = () => {
   const { items } = useCart();
   const itemCount = items.length;
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const fee = 9.8;
 
@@ -26,11 +29,13 @@ const Cart = () => {
     0,
   );
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
 
   return (
     <>
-      <Sheet>
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <Sheet.Trigger className="group -m-2 flex items-center p-2">
           <Hint
             label={<p>Cart</p>}

@@ -15,9 +15,11 @@ const Checkout = () => {
   const [isVerifying, setIsVerifying] = useState(false);
 
   const cartTotal = items.reduce((total, { product }) => {
-    return total + product.price * Number(product.quantity);
+    return total + (product.price || 0) * (Number(product.quantity) || 1);
   }, 0);
-  const fee = 0;
+
+  console.log(cartTotal);
+  const fee = 9.8;
 
   useEffect(() => {
     setIsMounted(true);
@@ -126,12 +128,12 @@ const Checkout = () => {
                         className="flex flex-col py-6 md:flex-row"
                       >
                         <div className="flex-shrink-0">
-                          <div className="relative h-32 w-32">
+                          <div className="relative h-32 w-full sm:w-32">
                             {image && (
                               <img
                                 src={image.url || image}
                                 alt="product image"
-                                className="h-full w-full rounded-md object-cover object-center sm:h-64 sm:w-64"
+                                className="h-full w-full rounded-md object-cover object-center"
                               />
                             )}
                           </div>
@@ -155,8 +157,7 @@ const Checkout = () => {
                                 <p className="text-muted-foreground">
                                   Category:{" "}
                                   <span className="capitalize">
-                                    {product.category
-                                      .replace("-", " ")}
+                                    {product?.category?.replace("-", " ")}
                                   </span>
                                 </p>
                               </div>
@@ -207,7 +208,7 @@ const Checkout = () => {
 
             <section
               className={cn(
-                "mt-4 rounded-lg border-[0.5px] border-zinc-200 px-4 py-6 dark:border-zinc-200/20 sm:mt-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
+                "mt-4 rounded-lg border-[0.5px] border-zinc-200 px-4 py-6 dark:border-zinc-200/20 sm:mt-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8",
               )}
             >
               <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
@@ -231,7 +232,7 @@ const Checkout = () => {
                 <div className="flex items-center justify-between border-t-[0.5px] border-zinc-300 pt-4 dark:border-zinc-200/40">
                   <div
                     className={cn(
-                      "flex items-center text-sm text-muted-foreground"
+                      "flex items-center text-sm text-muted-foreground",
                     )}
                   >
                     <span>Flat Transaction Fee</span>
@@ -248,7 +249,7 @@ const Checkout = () => {
                 <div className="flex items-center justify-between border-t-[0.5px] border-zinc-300 pt-4 dark:border-zinc-200/40">
                   <div
                     className={cn(
-                      "text-base font-medium text-zinc-900 dark:text-zinc-100"
+                      "text-base font-medium text-zinc-900 dark:text-zinc-100",
                     )}
                   >
                     Order Total

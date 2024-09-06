@@ -371,7 +371,7 @@ export const productsByCategory = {
         "https://images.pexels.com/photos/5945681/pexels-photo-5945681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       ],
       href: "/products/potato-chips",
-      type: ["chips"],
+      type: ["chip"],
       flavor: ["original"],
       dietary: ["vegan"],
       category: "snacks",
