@@ -47,7 +47,7 @@ const   Cart = () => {
   }, [location]);
 
   useEffect(() => {
-    const intervalId = setInterval(updateCart, 1000); // Check for updates every second
+    const intervalId = setInterval(updateCart, 500); // Check for updates every second
 
     return () => clearInterval(intervalId);
   }, []);

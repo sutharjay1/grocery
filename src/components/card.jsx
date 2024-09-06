@@ -1,56 +1,80 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import ImageSlider from "../components/image-slider"; // Ensure this path is correct
-import { cn, formatPrice } from "../lib/utils";
+import ImageSlider from "../components/image-slider";
+import { formatPrice } from "../lib/utils";
 import AddToCartButton from "./cart/add-to-cart-button";
 import AddToWishButton from "./cart/add-to-wish-button";
 
 const Card = ({ product, index, showDescription = true }) => {
+  const discountedPrice = product.discount
+    ? product.price - (product.price * product.discount) / 100
+    : product.price;
+
   return (
     <div
       key={index}
-      className={cn(
-        "group relative flex h-[22rem] w-full flex-col overflow-hidden rounded-lg border border-zinc-600/20 shadow-md",
-      )}
+      className="flex h-[26rem] w-full flex-1 flex-col items-center justify-between rounded-md border bg-[#fbfcfc]"
       draggable={false}
       onSelect={(e) => {
         e.preventDefault();
         e.stopPropagation();
       }}
     >
-      <div className="relative h-48 w-full">
+      <div className="relative h-[200px] w-full">
         <ImageSlider images={product.imageSrc} />
-        {product.discount && (
-          <div className="absolute left-2 top-2 rounded bg-red-500 px-2 py-1 text-xs font-bold text-white">
+        {product.discount > 0 && (
+          <span
+            className="absolute left-2 top-2 mb-2 mr-2 inline-block rounded-full px-3 py-1 text-sm font-semibold"
+            style={{
+              backgroundColor: "#ef9f43",
+              color: "#ffffff",
+            }}
+          >
             {product.discount}% OFF
-          </div>
+          </span>
         )}
       </div>
-      <Link
-        to={product.href}
-        draggable={false}
-        className="flex flex-1 flex-col"
-      >
-        <div className="flex flex-1 flex-col p-4">
-          <h3 className="line-clamp-1 text-lg font-semibold text-gray-900">
-            {product.name}
-          </h3>
-          {showDescription && (
-            <p className="mt-2 line-clamp-2 text-sm text-gray-600">
-              {product.description}
-            </p>
-          )}
-          <div className="mt-auto flex items-center justify-between pt-4">
-            <p className="text-base font-medium text-gray-900">
-              {formatPrice(product.price)}
-            </p>
-            <div className="flex space-x-2">
-              <AddToWishButton product={product} quantity={1} size="icon" />
-              <AddToCartButton product={product} quantity={1} size="icon" />
-            </div>
+      <div className="relative flex w-full flex-grow flex-col space-y-2.5 p-4">
+        <span className="inline-flex items-center text-xl font-semibold">
+          {product.name}
+        </span>
+        {showDescription && (
+          <p className="mt-3 line-clamp-2 w-full text-sm text-[#868686] selection:text-[#16191E]">
+            {product.description}
+          </p>
+        )}
+        <div className="mt-auto flex w-full flex-col items-center justify-center space-y-4">
+          <div className="flex w-full items-center justify-between text-sm text-[#868686]">
+            <span className="selection:text-[#16191E]">
+              Price:{" "}
+              <span className="font-bold text-[#ef9f43] selection:text-[#16191E]">
+                {formatPrice(discountedPrice)}
+              </span>
+            </span>
+            {product.discount > 0 && (
+              <span className="selection:text-[#16191E]">
+                Original:{" "}
+                <span className="font-bold text-[#0a7558] line-through selection:text-[#16191E]">
+                  {formatPrice(product.price)}
+                </span>
+              </span>
+            )}
           </div>
         </div>
-      </Link>
+        <div className="absolute bottom-0 left-0 right-0 flex w-full space-x-2 p-4">
+          <AddToWishButton
+            className="w-full"
+            product={product}
+            quantity={1}
+            size="icon"
+          />
+          <AddToCartButton
+            className="w-full"
+            product={product}
+            quantity={1}
+            size="icon"
+          />
+        </div>
+      </div>
     </div>
   );
 };

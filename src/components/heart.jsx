@@ -48,7 +48,7 @@ const Heart = () => {
   }, [location]);
 
   useEffect(() => {
-    const intervalId = setInterval(updateWishlist, 1000); // Check for updates every second
+    const intervalId = setInterval(updateWishlist, 500); // Check for updates every second
 
     return () => clearInterval(intervalId);
   }, []);

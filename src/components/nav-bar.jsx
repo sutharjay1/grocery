@@ -119,7 +119,6 @@ const links = [
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(false);
-  
 
   return (
     <header className="sticky top-0 z-50 bg-card">
@@ -280,14 +279,19 @@ const NavBar = () => {
           {user ? (
             <UserAvatar user={user} setUser={setUser} />
           ) : (
-            <Button
-              variant="outline"
-              onClick={() => setUser(true)}
-              className="flex w-fit items-center space-x-2"
+            <Link
+              to="/signup"
+              className="-mx-3 block rounded-lg px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
             >
-              <ShoppingBasket className="h-5 w-5" />
-              <span>Log in</span>
-            </Button>
+              <Button
+                variant="default"
+                // onClick={() => setUser(true)}
+                className="flex w-full items-center space-x-2"
+              >
+                <ShoppingBasket className="h-5 w-5" />
+                <span>Login / Signup</span>
+              </Button>
+            </Link>
           )}
         </div>
       </nav>
@@ -355,7 +359,14 @@ const NavBar = () => {
                   to="/signup"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Log in
+                  <Button
+                    variant="default"
+                    // onClick={() => setUser(true)}
+                    className="flex w-full items-center space-x-2"
+                  >
+                    <ShoppingBasket className="h-5 w-5" />
+                    <span>Login / Signup</span>
+                  </Button>
                 </Link>
               </div>
             </div>

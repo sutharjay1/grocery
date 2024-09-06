@@ -221,13 +221,13 @@ const Home = () => {
                 </Button>
               </Link>
             </div>
-            <div className="mt-4 relative w-full max-w-full">
+            <div className="relative mt-4 w-full max-w-full">
               <Carousel className="w-full">
-                <CarouselContent className="w-full pl-4 snap-center">
+                <CarouselContent className="w-full snap-center pl-4">
                   {randomProducts.map((product, index) => (
                     <CarouselItem
                       key={index}
-                      className="basis-11/12 pl-4 sm:basis-1/3 lg:basis-1/6"
+                      className="basis-11/12 auto-rows-[22rem] pl-4 sm:basis-1/3 lg:basis-1/6"
                     >
                       <div className="flex aspect-square items-center justify-center">
                         <Card index={index} product={product} />

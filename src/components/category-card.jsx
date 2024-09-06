@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { formatPrice } from "@/lib/utils";
 
 const CategoryCard = ({ category }) => {
   if (!category) {
@@ -27,6 +28,27 @@ const CategoryCard = ({ category }) => {
           )}
           {category.description && (
             <p className="mt-2 text-sm text-gray-500">{category.description}</p>
+          )}
+          {category.price && (
+            <div className="mt-2">
+              {category.discount ? (
+                <>
+                  <span className="text-sm text-gray-500 line-through">
+                    MRP: {formatPrice(category.price)}
+                  </span>
+                  <span className="ml-2 text-lg font-semibold text-green-600">
+                    {formatPrice(
+                      category.price -
+                        (category.price * category.discount) / 100,
+                    )}
+                  </span>
+                </>
+              ) : (
+                <span className="text-lg font-semibold text-zinc-900">
+                  {formatPrice(category.price)}
+                </span>
+              )}
+            </div>
           )}
         </div>
       </Link>

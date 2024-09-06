@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { P } from "@/components/shared/typographypara";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { cn, formatPrice } from "@/lib/utils";
-import {
-  Check,
-  Loader2,
-  X,
-  ArrowRight,
-  ShoppingBag,
-  CreditCard,
-} from "lucide-react";
-import { P } from "@/components/shared/typographypara";
-import MaxWidthWrapper from "../components/max-width-wrapper";
-import { motion, AnimatePresence } from "framer-motion";
 import { cartStorage } from "@/hook/cartStorage";
+import { cn, formatPrice } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  ArrowRight,
+  Check,
+  CreditCard,
+  Loader2,
+  ShoppingBag,
+  X,
+} from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import MaxWidthWrapper from "../components/max-width-wrapper";
 // import { toast } from "react-hot-toast";
 
 const Checkout = () => {
@@ -84,11 +84,11 @@ const Checkout = () => {
     >
       <div className="">
         <div className="mx-auto max-w-2xl pb-24 pt-[4.8rem] sm:pt-0 lg:max-w-7xl lg:pt-16">
-          <h1 className="font-polySansMedian text-3xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
+          <h1 className="h-full font-polySansMedian text-3xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
             Your Shopping Bag
           </h1>
 
-          <div className="mt-8 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
+          <div className="h-full mt-8 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
             <div
               className={cn("lg:col-span-7", {
                 "rounded-lg border-[1.2px] border-dashed border-zinc-400 p-12 dark:border-zinc-200/30":
@@ -250,83 +250,85 @@ const Checkout = () => {
               </ul>
             </div>
 
-            <motion.section
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className={cn(
-                "mt-4 rounded-lg border-[0.5px] border-zinc-200 px-4 py-6 dark:border-zinc-200/20 sm:mt-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8",
-              )}
-            >
-              <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
-                Order Summary
-              </h2>
+            <div className="mt-4 lg:col-span-5 lg:mt-0 h-full">
+              <motion.section
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className={cn(
+                  "rounded-lg border-[0.5px] border-zinc-200 px-4 py-6 dark:border-zinc-200/20 sm:p-6 lg:p-8 lg:sticky lg:top-20",
+                )}
+              >
+                <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
+                  Order Summary
+                </h2>
 
-              <div className="mt-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                    Subtotal
-                  </p>
-                  <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                    {isMounted ? (
-                      formatPrice(cartTotal)
-                    ) : (
-                      <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
-                    )}
-                  </p>
+                <div className="mt-6 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                      Subtotal
+                    </p>
+                    <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                      {isMounted ? (
+                        formatPrice(cartTotal)
+                      ) : (
+                        <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+                      )}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between border-t-[0.5px] border-zinc-300 pt-4 dark:border-zinc-200/40">
+                    <div
+                      className={cn(
+                        "flex items-center text-sm text-muted-foreground",
+                      )}
+                    >
+                      <span>Transaction Fee (5%)</span>
+                    </div>
+                    <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                      {isMounted ? (
+                        formatPrice(fee)
+                      ) : (
+                        <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between border-t-[0.5px] border-zinc-300 pt-4 dark:border-zinc-200/40">
+                    <div
+                      className={cn(
+                        "text-base font-medium text-zinc-900 dark:text-zinc-100",
+                      )}
+                    >
+                      Order Total
+                    </div>
+                    <div className="text-base font-medium text-zinc-900 dark:text-zinc-100">
+                      {isMounted ? (
+                        formatPrice(cartTotal + fee)
+                      ) : (
+                        <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+                      )}
+                    </div>
+                  </div>
                 </div>
 
-                <div className="flex items-center justify-between border-t-[0.5px] border-zinc-300 pt-4 dark:border-zinc-200/40">
-                  <div
-                    className={cn(
-                      "flex items-center text-sm text-muted-foreground",
-                    )}
+                <div className="mt-6">
+                  <Button
+                    disabled={items.length === 0 || isLoading}
+                    onClick={handleCheckout}
+                    className="w-full"
+                    size="lg"
                   >
-                    <span>Transaction Fee (5%)</span>
-                  </div>
-                  <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                    {isMounted ? (
-                      formatPrice(fee)
+                    {isLoading ? "Processing..." : "Complete Purchase"}
+                    {isLoading ? (
+                      <Loader2 className="ml-1.5 h-4 w-4 animate-spin" />
                     ) : (
-                      <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+                      <CreditCard className="ml-1.5 h-4 w-4" />
                     )}
-                  </div>
+                  </Button>
                 </div>
-
-                <div className="flex items-center justify-between border-t-[0.5px] border-zinc-300 pt-4 dark:border-zinc-200/40">
-                  <div
-                    className={cn(
-                      "text-base font-medium text-zinc-900 dark:text-zinc-100",
-                    )}
-                  >
-                    Order Total
-                  </div>
-                  <div className="text-base font-medium text-zinc-900 dark:text-zinc-100">
-                    {isMounted ? (
-                      formatPrice(cartTotal + fee)
-                    ) : (
-                      <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <Button
-                  disabled={items.length === 0 || isLoading}
-                  onClick={handleCheckout}
-                  className="w-full"
-                  size="lg"
-                >
-                  {isLoading ? "Processing..." : "Complete Purchase"}
-                  {isLoading ? (
-                    <Loader2 className="ml-1.5 h-4 w-4 animate-spin" />
-                  ) : (
-                    <CreditCard className="ml-1.5 h-4 w-4" />
-                  )}
-                </Button>
-              </div>
-            </motion.section>
+              </motion.section>
+            </div>
           </div>
         </div>
       </div>
