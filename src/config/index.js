@@ -337,9 +337,9 @@ export const productsByCategory = {
       description: "Tasty frozen pizza.",
       price: "$7.49",
       imageSrc: [
-        "https://images.pexels.com/photos/1595745/pexels-photo-1595745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1595745/pexels-photo-1595745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1595745/pexels-photo-1595745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/905847/pexels-photo-905847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/905847/pexels-photo-905847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/905847/pexels-photo-905847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       ],
       href: "/products/frozen-pizza",
     },
@@ -1036,10 +1036,14 @@ export const productFilter = {
 };
 
 export const randomProducts = [
-  productsByCategory["beverages"],
-  productsByCategory["snacks"],
-  productsByCategory["frozen-foods"],
-  productsByCategory["pantry-staples"],
-  productsByCategory["cereals-grains"],
-  productsByCategory["condiments-sauces"],
+  { ...productsByCategory["beverages"][0] },
+  { ...productsByCategory["snacks"][0] },
+  { ...productsByCategory["frozen-foods"][0] },
+  { ...productsByCategory["pantry-staples"][0] },
+  { ...productsByCategory["cereals-grains"][0] },
+  { ...productsByCategory["condiments-sauces"][0] },
+  { ...productsByCategory["health-wellness"][0] },
+  { ...productsByCategory["pet-supplies"][0] },
+  { ...productsByCategory["household-essentials"][0] },
+  { ...productsByCategory["organic-foods"][0] },
 ];

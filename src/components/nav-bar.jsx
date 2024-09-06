@@ -17,24 +17,14 @@ import { useState } from "react";
 import { GiFruitBowl } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
-import { Input } from "./ui/input";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
-import {
-  Banana,
-  CupSoda,
-  Milk,
-  Pizza,
-  Search,
-  XCircleIcon,
-} from "lucide-react";
+import { Banana, CupSoda, Milk, Pizza } from "lucide-react";
 import { FaBreadSlice, FaEgg, FaIceCream } from "react-icons/fa6";
-import AppLogo from "./logo";
+import { cn } from "../lib/utils";
 import Cart from "./cart/cart";
 import Heart from "./heart";
+import AppLogo from "./logo";
 import Profile from "./profile";
 import SearchInput from "./search-input";
-import { cn } from "../lib/utils";
 
 const categories = [
   {
@@ -132,7 +122,7 @@ const NavBar = () => {
     <header className="sticky top-0 z-50 bg-card">
       <nav
         aria-label="Global"
-        className="max-w-7xl mx-auto flex items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-none">
           <Link to="/" className="-m-1.5 p-1.5">
@@ -292,10 +282,6 @@ const NavBar = () => {
           <Heart />
           <Cart />
           <Profile />
-          {/* <Avatar>
-            <AvatarImage src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar> */}
 
           <Link
             to="/signup"

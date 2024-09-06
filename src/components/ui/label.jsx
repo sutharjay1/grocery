@@ -1,16 +1,28 @@
-import * as React from "react"
-import * as LabelPrimitive from "@radix-ui/react-label"
 import { cva } from "class-variance-authority";
-
-import { cn } from "@/lib/utils"
+import * as React from "react";
 
 const labelVariants = cva(
-  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-)
+  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+);
 
-const Label = React.forwardRef(({ className, ...props }, ref) => (
-  <LabelPrimitive.Root ref={ref} className={cn(labelVariants(), className)} {...props} />
-))
-Label.displayName = LabelPrimitive.Root.displayName
+const Label = React.forwardRef(({ className, ...props }, ref) => {
+  return (
+    <label
+      ref={ref}
+      className={labelVariants(className)}
+      {...props}
+      onMouseDown={(event) => {
+        // Only prevent text selection if clicking inside the label itself
+        const target = event.target;
+        if (target.closest("button, input, select, textarea")) return;
 
-export { Label }
+        // Prevent text selection when double clicking label
+        if (!event.defaultPrevented && event.detail > 1) event.preventDefault();
+      }}
+    />
+  );
+});
+
+Label.displayName = "Label";
+
+export { Label };

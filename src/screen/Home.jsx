@@ -20,7 +20,6 @@ const Home = () => {
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
 
-
   useEffect(() => {
     if (!api) {
       return;
@@ -36,7 +35,7 @@ const Home = () => {
 
   return (
     <MaxWidthWrapper className="h-full pb-4 pt-0">
-      <div className="max-w-8xl mx-auto">
+      <div className="mx-auto max-w-8xl">
         {/* Hero Image Section */}
         <div className="mt-12 sm:mt-14">
           <Carousel
@@ -91,7 +90,7 @@ const Home = () => {
         </div>
 
         {/* Categories Section */}
-        <div className="max-w-8xl mx-auto mt-10 w-full">
+        <div className="mx-auto mt-10 w-full max-w-8xl">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
               Top Categories
@@ -146,7 +145,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="max-w-8xl mx-auto mt-8">
+        <div className="mx-auto mt-8 max-w-8xl">
           <div className="mt-8 hidden grid-cols-1 gap-4 sm:grid-cols-2 lg:grid lg:grid-cols-3">
             <Highlight
               badge="Only this week"
@@ -221,7 +220,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="max-w-8xl mx-auto mt-10 w-full">
+        <div className="mx-auto mt-10 w-full max-w-8xl">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
               Top Picks
@@ -235,10 +234,26 @@ const Home = () => {
               </Button>
             </Link>
           </div>
-          <div className="mt-8 grid grid-cols-2 rounded-lg border border-zinc-900/10 sm:grid-cols-3 lg:grid-cols-6">
-            {randomProducts.map((product) => (
-              <Card product={product} />
-            ))}
+          <div className="mt-8 w-full rounded-lg">
+            <Carousel
+              orientation="horizontal"
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="flex">
+                {randomProducts.map((product, index) => (
+                  <CarouselItem
+                    key={index}
+                    className="w-full basis-11/12 sm:basis-1/3 lg:basis-1/6"
+                  >
+                    <Card key={index} index={index} product={product} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
       </div>

@@ -1,38 +1,36 @@
-import * as React from "react"
-import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+const ScrollArea = React.forwardRef(
+  ({ className, children, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={`relative overflow-hidden ${className}`}
+      {...props}
+    >
+      <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300 h-full w-full overflow-auto">
+        {children}
+      </div>
+      <ScrollBar orientation="vertical" />
+    </div>
+  ),
+);
 
-const ScrollArea = React.forwardRef(({ className, children, ...props }, ref) => (
-  <ScrollAreaPrimitive.Root
-    ref={ref}
-    className={cn("relative overflow-hidden", className)}
-    {...props}>
-    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-[inherit]">
-      {children}
-    </ScrollAreaPrimitive.Viewport>
-    <ScrollBar />
-    <ScrollAreaPrimitive.Corner />
-  </ScrollAreaPrimitive.Root>
-))
-ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName
+ScrollArea.displayName = "ScrollArea";
 
-const ScrollBar = React.forwardRef(({ className, orientation = "vertical", ...props }, ref) => (
-  <ScrollAreaPrimitive.ScrollAreaScrollbar
-    ref={ref}
-    orientation={orientation}
-    className={cn(
-      "flex touch-none select-none transition-colors",
-      orientation === "vertical" &&
-        "h-full w-2.5 border-l border-l-transparent p-[1px]",
-      orientation === "horizontal" &&
-        "h-2.5 flex-col border-t border-t-transparent p-[1px]",
-      className
-    )}
-    {...props}>
-    <ScrollAreaPrimitive.ScrollAreaThumb className="relative flex-1 rounded-full bg-border" />
-  </ScrollAreaPrimitive.ScrollAreaScrollbar>
-))
-ScrollBar.displayName = ScrollAreaPrimitive.ScrollAreaScrollbar.displayName
+const ScrollBar = React.forwardRef(
+  ({ className, orientation = "vertical", ...props }, ref) => (
+    <div
+      ref={ref}
+      className={`absolute ${orientation === "vertical" ? "right-0 top-0 w-2 bg-gray-400" : "bottom-0 left-0 h-2 bg-gray-400"} ${className}`}
+      {...props}
+    >
+      <div
+        className={`relative ${orientation === "vertical" ? "h-full w-full" : "h-full w-full"} rounded-full bg-gray-600`}
+      />
+    </div>
+  ),
+);
 
-export { ScrollArea, ScrollBar }
+ScrollBar.displayName = "ScrollBar";
+
+export { ScrollArea, ScrollBar };

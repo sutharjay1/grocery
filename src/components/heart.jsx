@@ -8,13 +8,9 @@ import { Heart, ShoppingCartIcon } from "lucide-react";
 import { cn, formatPrice } from "@/lib/utils";
 import { useCart } from "@/hook/useCart";
 import { useEffect } from "react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import CartItem from "./cart/cart-item";
 import { Link } from "react-router-dom";
+import Hint from "./hint";
 
 const Cart = () => {
   const { items } = useCart();
@@ -28,14 +24,17 @@ const Cart = () => {
   );
 
   useEffect(() => {});
-  
 
   return (
     <>
       <Sheet>
         <Sheet.Trigger className="group -m-2 flex items-center p-2">
-          <Tooltip delayDuration={100}>
-            <TooltipTrigger className="-m-2 flex items-center p-1">
+          <Hint
+            label={<p>Favorites</p>}
+            align="center"
+            alignOffset={10}
+          >
+            <div className="-m-2 flex items-center p-1">
               <Heart
                 aria-hidden="true"
                 className="h-6 w-6 flex-shrink-0 text-zinc-600 group-hover:text-zinc-700 dark:text-zinc-400"
@@ -43,11 +42,8 @@ const Cart = () => {
               <span className="ml-2 text-sm font-medium text-zinc-700 group-hover:text-zinc-800 dark:text-zinc-400">
                 {/* {isMounted ? itemCount : 0} */} {itemCount}
               </span>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Favorites</p>
-            </TooltipContent>
-          </Tooltip>
+            </div>
+          </Hint>
         </Sheet.Trigger>
         <Sheet.Content className="flex w-full flex-col sm:max-w-lg">
           <Sheet.Header className="font-polySansMedian space-y-2.5 pr-6 font-medium">

@@ -8,13 +8,10 @@ import { ShoppingCartIcon } from "lucide-react";
 import { cn, formatPrice } from "@/lib/utils";
 import { useCart } from "@/hook/useCart";
 import { useEffect } from "react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+
 import CartItem from "./cart-item";
 import { Link } from "react-router-dom";
+import Hint from "../hint";
 
 const Cart = () => {
   const { items } = useCart();
@@ -33,22 +30,24 @@ const Cart = () => {
     <>
       <Sheet>
         <Sheet.Trigger className="group -m-2 flex items-center p-2">
-          <Tooltip>
-            <TooltipTrigger className="-m-2 flex items-center p-1">
+          <Hint
+            label={<p>Cart</p>}
+            side="bottom"
+            align="center"
+            alignOffset={10}
+          >
+            <div className="-m-2 flex items-center p-1">
               <ShoppingCartIcon
                 aria-hidden="true"
                 className="h-6 w-6 flex-shrink-0 text-zinc-600 group-hover:text-zinc-700 dark:text-zinc-400"
               />
               <span className="ml-2 text-sm font-medium text-zinc-700 group-hover:text-zinc-800 dark:text-zinc-400">
-                {/* {isMounted ? itemCount : 0} */} {itemCount}
+                {itemCount}
               </span>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Cart</p>
-            </TooltipContent>
-          </Tooltip>
+            </div>
+          </Hint>
         </Sheet.Trigger>
-        <Sheet.Content className="flex w-full items-center justify-center flex-col sm:max-w-lg">
+        <Sheet.Content className="flex w-full flex-col items-center justify-center sm:max-w-lg">
           <Sheet.Header className="font-polySansMedian space-y-2.5 pr-6 font-medium">
             <Sheet.Title>Cart ({itemCount})</Sheet.Title>
           </Sheet.Header>
