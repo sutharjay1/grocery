@@ -123,7 +123,7 @@ const NavBar = () => {
   }, [user, location]);
 
   return (
-    <header className="sticky top-0 z-50 bg-card border-b">
+    <header className="sticky top-0 z-40 border-b bg-card">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-8xl items-center justify-between p-6 lg:px-8"
@@ -140,14 +140,15 @@ const NavBar = () => {
           {user ? (
             <UserAvatar user={user} setUser={setUser} />
           ) : (
-            <button
-              type="button"
+            <Button
+              size="icon"
+              variant="ghost"
               onClick={() => setMobileMenuOpen(true)}
-              className="-my-2.5 inline-flex items-center justify-center rounded-md py-2.5 text-gray-700"
+              className="inline-flex items-center justify-center rounded-md py-2.5 pt-2 text-gray-700"
             >
               <span className="sr-only">Open main menu</span>
               <Menu aria-hidden="true" className="h-7 w-7" />
-            </button>
+            </Button>
           )}
         </div>
         <div className="hidden w-full items-center justify-between gap-x-12 pl-14 pr-2 lg:flex">
@@ -170,10 +171,7 @@ const NavBar = () => {
                 />
               </PopoverButton>
 
-              <PopoverPanel
-           
-                className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
-              >
+              <PopoverPanel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in">
                 <div className="p-4">
                   {products.map((item) => (
                     <div
@@ -226,10 +224,7 @@ const NavBar = () => {
                 />
               </PopoverButton>
 
-              <PopoverPanel
-
-                className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
-              >
+              <PopoverPanel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in">
                 <div className="p-4">
                   {categories.map((item) => (
                     <div
@@ -300,25 +295,27 @@ const NavBar = () => {
       <Dialog
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
-        className="z-30 lg:hidden"
+        className="z-[100] lg:hidden"
       >
-        <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <div className="fixed inset-0" />
+        <DialogPanel className="fixed inset-y-0 left-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <AppLogo />
             </Link>
-            <div className="flex space-x-4">
+            <div className="flex space-x-2">
+              <Heart />
               <Cart />
-              <button
-                type="button"
+              <Button
+                size="icon"
+                variant="ghost"
                 onClick={() => setMobileMenuOpen(false)}
-                className="-my-2.5 rounded-md py-2.5 text-gray-700"
+                className="inline-flex items-center justify-center rounded-md py-2.5 text-gray-700"
               >
                 <span className="sr-only">Close menu</span>
                 <X aria-hidden="true" className="h-6 w-6" />
-              </button>
+              </Button>
             </div>
           </div>
           <div className="mt-6 flow-root">
@@ -376,9 +373,7 @@ const NavBar = () => {
         </DialogPanel>
       </Dialog>
 
-      <SearchInput
-        className={cn("mb-4 lg:hidden", mobileMenuOpen && "hidden")}
-      />
+      <SearchInput className={cn("mb-4 lg:hidden")} />
 
       {/* <div className="relative z-10 w-full px-4 lg:hidden">
         <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />

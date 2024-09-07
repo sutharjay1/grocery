@@ -43,6 +43,7 @@ const sections = ["overview", "analytics", "orders", "products", "customers"];
 
 const Admin = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedSection, setSelectedSection] = useState("dashboard");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -67,6 +68,20 @@ const Admin = () => {
       setSelectedSection(searchParams.get("section"));
     }
   }, [searchParams]);
+
+  useEffect(() => {
+    if (location.pathname === "/admin") {
+      // setSelectedSection("overview");
+      const url = qs.stringifyUrl(
+        {
+          url: `/admin`,
+          query: { section: "overview" },
+        },
+        { skipEmptyString: true, skipNull: true },
+      );
+      navigate(url, { replace: true });
+    }
+  }, []);
 
   return (
     <>

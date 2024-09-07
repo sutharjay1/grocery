@@ -51,7 +51,7 @@ const Products = () => {
 
   return (
     <div className="space-y-4 p-6">
-      <Table className="w-full">
+      <Table className="w-full min-w-sm">
         <TableCaption>A list of all products.</TableCaption>
         <TableHeader>
           <TableRow>
