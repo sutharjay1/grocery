@@ -15,7 +15,7 @@ const Card = ({ product, index, showDescription = true }) => {
     <Link to={product.href} className="w-full">
       <div
         key={index}
-        className="flex h-[26rem] w-full flex-col items-center justify-between rounded-lg border bg-[#fbfcfc]"
+        className="flex h-[26rem] w-full flex-col rounded-lg border bg-[#fbfcfc]"
         draggable={false}
         onSelect={(e) => {
           e.preventDefault();
@@ -30,17 +30,19 @@ const Card = ({ product, index, showDescription = true }) => {
             </span>
           )}
         </div>
-        <div className="relative flex w-full flex-initial flex-col space-y-2.5 p-4">
-          <span className="inline-flex items-center truncate text-xl font-semibold">
-            {product.name}
-          </span>
-          {showDescription && (
-            <p className="mt-3 line-clamp-2 w-full text-sm text-[#868686] selection:text-[#16191E]">
-              {product.description}
-            </p>
-          )}
-          <div className="w-full">{renderRating(product.rating || 0)}</div>
-          <div className="flex items-end justify-between">
+        <div className="flex flex-1 flex-col justify-between p-4">
+          <div className="space-y-2">
+            <span className="inline-flex items-center truncate text-xl font-semibold">
+              {product.name}
+            </span>
+            {showDescription && (
+              <p className="line-clamp-2 w-full text-sm text-[#868686] selection:text-[#16191E]">
+                {product.description}
+              </p>
+            )}
+            <div className="w-full">{renderRating(product.rating || 0)}</div>
+          </div>
+          <div className="mt-auto flex items-end justify-between">
             <div className="flex flex-col items-start text-[#868686]">
               <span
                 className={cn(
@@ -48,18 +50,28 @@ const Card = ({ product, index, showDescription = true }) => {
                   discountedPrice < product.price ? "text-base" : "text-lg",
                 )}
               >
-                MRP:{" "}
-                <span
-                  className={cn(
-                    "font-bold text-[#ef9f43] selection:text-[#16191E]",
-                    discountedPrice < product.price && "line-through",
-                  )}
-                >
-                  {formatPrice(product.price)}
-                </span>
+                {!product.discount ? (
+                  <span className="mt-1 text-xl selection:text-[#16191E]">
+                    <span className="font-bold text-[#0a7558] selection:text-[#16191E]">
+                      {formatPrice(product.price)}
+                    </span>
+                  </span>
+                ) : (
+                  <>
+                    MRP:
+                    <span
+                      className={cn(
+                        "font-bold text-[#ef9f43] selection:text-[#16191E]",
+                        discountedPrice < product.price && "line-through",
+                      )}
+                    >
+                      {formatPrice(product.price)}
+                    </span>
+                  </>
+                )}
               </span>
               {product.discount > 0 && (
-                <span className="text-lg selection:text-[#16191E]">
+                <span className="mt-1 text-xl selection:text-[#16191E]">
                   <span className="font-bold text-[#0a7558] selection:text-[#16191E]">
                     {formatPrice(discountedPrice)}
                   </span>

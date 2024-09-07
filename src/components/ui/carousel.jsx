@@ -298,7 +298,7 @@ function Carousel({
       onIndexChange={handleIndexChange}
     >
       <div className={cn('group/hover relative', className)}>
-        <div className='overflow-hidden'>{children}</div>
+        <div className='overflow-hidden snap-center' >{children}</div>
       </div>
     </CarouselProvider>
   );
