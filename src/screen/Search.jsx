@@ -64,12 +64,15 @@ const ProductFilter = ({
   };
 
   const handleSortChange = (value) => {
-    setSortOrder(value);
-    onFilterChange({
-      ...selectedFilters,
-      price: priceRange,
-      sortOrder: value,
-      rating: ratingFilter,
+    setSortOrder((prev) => {
+      const newSortOrder = prev === value ? "" : value;
+      onFilterChange({
+        ...selectedFilters,
+        price: priceRange,
+        sortOrder: newSortOrder,
+        rating: ratingFilter,
+      });
+      return newSortOrder;
     });
   };
 
@@ -138,12 +141,11 @@ const ProductFilter = ({
               id="sort-low-to-high"
               checked={sortOrder === "lowToHigh"}
               onChange={() => handleSortChange("lowToHigh")}
-              name="sort-order"
               className="size-4 rounded border-gray-300"
             />
             <label
               htmlFor="sort-low-to-high"
-              className="ml-3 text-sm text-gray-600"
+              className="ml-3 text-sm text-gray-600 cursor-pointer"
             >
               Low to High
             </label>
@@ -154,12 +156,11 @@ const ProductFilter = ({
               id="sort-high-to-low"
               checked={sortOrder === "highToLow"}
               onChange={() => handleSortChange("highToLow")}
-              name="sort-order"
               className="size-4 rounded border-gray-300"
             />
             <label
               htmlFor="sort-high-to-low"
-              className="ml-3 text-sm text-gray-600"
+              className="ml-3 text-sm text-gray-600 cursor-pointer"
             >
               High to Low
             </label>
@@ -180,7 +181,7 @@ const ProductFilter = ({
               />
               <label
                 htmlFor={`rating-${star}`}
-                className="ml-3 text-sm text-gray-600"
+                className="ml-3 text-sm text-gray-600 cursor-pointer"
               >
                 {star} Star{star !== 1 && "s"}
               </label>

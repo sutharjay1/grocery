@@ -92,7 +92,6 @@ const ProductFilter = ({
     });
   };
 
-
   const renderFilterContent = () => (
     <div className="space-y-4">
       <div className="border-b border-gray-200 pb-4">
@@ -127,7 +126,7 @@ const ProductFilter = ({
             onChange={(e) =>
               handlePriceChange([priceRange[0], Number(e.target.value)])
             }
-            className="w-full text-red-800 appearance-auto "
+            className="w-full appearance-auto text-red-800"
           />
           <div className="text-sm text-gray-500">
             Price: {formatPrice(priceRange[0])} - {formatPrice(priceRange[1])}
@@ -147,7 +146,7 @@ const ProductFilter = ({
             />
             <label
               htmlFor="sort-low-to-high"
-              className="ml-3 text-sm text-gray-600"
+              className="ml-3 cursor-pointer text-sm text-gray-600"
             >
               Low to High
             </label>
@@ -162,7 +161,7 @@ const ProductFilter = ({
             />
             <label
               htmlFor="sort-high-to-low"
-              className="ml-3 text-sm text-gray-600"
+              className="ml-3 cursor-pointer text-sm text-gray-600"
             >
               High to Low
             </label>
@@ -183,7 +182,7 @@ const ProductFilter = ({
               />
               <label
                 htmlFor={`rating-${star}`}
-                className="ml-3 text-sm text-gray-600"
+                className="ml-3 cursor-pointer text-sm text-gray-600"
               >
                 {star} Star{star !== 1 && "s"}
               </label>
@@ -274,7 +273,6 @@ const CategoriesTag = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [categoryTag]);
-
 
   const initialFilters = useMemo(() => {
     const filters = {};
