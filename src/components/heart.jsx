@@ -89,7 +89,7 @@ const Heart = () => {
           </Sheet.Header>
           {itemCount > 0 ? (
             <div className="flex h-full flex-col">
-              <div className="space-y-4 overflow-y-auto p-6 pr-6">
+              <div className="space-y-4 overflow-y-auto p-6 pr-6 pb-64">
                 {items.map((item) => (
                   <CartItem product={item} key={item.id} />
                 ))}

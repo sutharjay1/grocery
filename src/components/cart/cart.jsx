@@ -76,13 +76,13 @@ const Cart = () => {
             </div>
           </Hint>
         </Sheet.Trigger>
-        <Sheet.Content className="flex h-full flex-col">
-          <Sheet.Header className="font-polySansMedian space-y-2.5 p-6 font-medium">
+        <Sheet.Content className="flex h-full  flex-col">
+          <Sheet.Header className=" space-y-2.5 p-6 font-medium">
             <Sheet.Title>Cart ({itemCount})</Sheet.Title>
           </Sheet.Header>{" "}
           {itemCount > 0 ? (
             <div className="flex h-full flex-col">
-              <div className="space-y-4 overflow-y-auto p-6 pr-6">
+              <div className="space-y-4 overflow-y-auto p-6 pr-6 pb-64">
                 {items.map((item) => (
                   <CartItem product={item} key={item.id} />
                 ))}
