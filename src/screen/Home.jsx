@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import MaxWidthWrapper from "../components/max-width-wrapper";
 import { Link } from "react-router-dom";
-import { categories, productsByCategory, randomProducts } from "../config";
+import {
+  categories,
+  mostSearched,
+  productsByCategory,
+  randomProducts,
+} from "../config";
 import { Button } from "../components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import { cn } from "../lib/utils";
@@ -320,6 +325,43 @@ const Home = () => {
               </div>
             </section>
           </div>
+        </Motion>
+
+        <Motion direction="up" duration={1.8}>
+          <div className="mx-auto mt-12 w-full max-w-8xl pb-8">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
+                Most Searched
+              </h2>
+              <Link to="/categories">
+                <Button
+                  variant="ghost"
+                  className="rounded-3xl border border-zinc-900/10 text-sm text-zinc-900 dark:text-zinc-100"
+                >
+                  View All <ArrowRightIcon className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+            <div className="relative mt-4 w-full max-w-full">
+              <Carousel>
+                <CarouselContent className="w-full md:gap-x-2">
+                  {mostSearched.map((product, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="w-full basis-full snap-center auto-rows-[26rem] sm:basis-1/3 lg:basis-1/5"
+                    >
+                      <Card index={index} product={product} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselNavigation
+                  alwaysShow
+                  className="absolute -bottom-16 left-auto top-auto z-50 w-full justify-end gap-2"
+                  classNameButton="bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800"
+                />
+              </Carousel>
+            </div>
+          </div>{" "}
         </Motion>
 
         <Motion direction="up" duration={1.8}>

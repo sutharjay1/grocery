@@ -3539,7 +3539,6 @@ export const productsByCategory = {
       rating: 4.4,
     },
 
-
     {
       id: 70,
       name: "Frozen Fruit Bars",
@@ -6032,3 +6031,9 @@ export const randomProducts = Object.keys(productsByCategory).map(
     ],
   }),
 );
+
+export const mostSearched = Object.keys(productsByCategory).map((category) => ({
+  ...productsByCategory[category][
+    Math.floor(Math.random() * productsByCategory[category].length)
+  ],
+}));
