@@ -10,6 +10,7 @@ import Search from "./screen/Search";
 import Categories from "./screen/Categories";
 import Checkout from "./screen/Checkout";
 import toast, { Toaster } from "react-hot-toast";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -20,7 +21,7 @@ const App = () => {
           <AppRouter />
         </main>{" "}
         <Toaster />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </BrowserRouter>
   );
