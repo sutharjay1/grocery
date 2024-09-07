@@ -48,3 +48,4 @@ export const useOnClickOutside = (
     };
   }, [ref, handler]); // Reload only if ref or handler changes
 };
+

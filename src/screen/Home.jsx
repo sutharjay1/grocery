@@ -207,7 +207,7 @@ const Home = () => {
         </Motion>
 
         <Motion direction="up" duration={1.8}>
-          <div className="mx-auto mt-12 w-full max-w-8xl">
+          <div className="mx-auto mt-12 w-full max-w-8xl pb-8">
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
                 Top Picks
@@ -236,7 +236,7 @@ const Home = () => {
                   ))}
                 </CarouselContent>
                 <CarouselNavigation
-                  className="absolute -bottom-14 left-auto top-auto w-full justify-end gap-2"
+                  className="absolute -bottom-16 left-auto top-auto z-50 w-full justify-end gap-2"
                   classNameButton="bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800"
                 />
               </Carousel>

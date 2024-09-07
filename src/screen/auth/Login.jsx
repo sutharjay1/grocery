@@ -74,7 +74,7 @@ const FloatingLabelInput = ({ label, name, type = "text", form }) => {
       name={name}
       render={({ field }) => (
         <FormItem className="mb-4">
-          <FormControl>
+          {/* <FormControl>
             <div className="relative w-full">
               <input
                 type={type}
@@ -93,7 +93,28 @@ const FloatingLabelInput = ({ label, name, type = "text", form }) => {
                 {label}
               </label>
             </div>
+          </FormControl> */}
+          <FormControl>
+            <div className="relative w-full">
+              <input
+                type={type}
+                {...field}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                className="peer w-full rounded-sm border border-gray-300 bg-transparent px-4 py-2 text-base placeholder:px-4 placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
+              />
+              <label
+                className={`pointer-events-none absolute left-2 text-gray-500 transition-all duration-200 ease-in-out ${
+                  focused || inputValue
+                    ? "-top-3 text-xs text-blue-500"
+                    : "top-2 text-base"
+                }`}
+              >
+                {label}
+              </label>
+            </div>
           </FormControl>
+
           <FormMessage />
         </FormItem>
       )}
@@ -190,7 +211,7 @@ const Login = () => {
   };
 
   return (
-    <section className="h-full bg-card">
+    <section className="h-[calc(100vh-5rem)] bg-card">
       <div className="flex h-full w-full place-items-center lg:grid lg:grid-cols-12">
         <section className="relative hidden h-32 items-end bg-gray-900 lg:col-span-5 lg:flex lg:h-full xl:col-span-6">
           <img
