@@ -237,8 +237,8 @@ const ProductFilter = ({
           className="relative z-50"
         >
           <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-          <div className="fixed inset-0 flex items-center justify-center p-4">
-            <DialogPanel className="my-4 w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+          <div className="fixed inset-0 flex items-center justify-center p-4 my-8">
+            <DialogPanel className=" w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold">Filters</h2>
                 <Button

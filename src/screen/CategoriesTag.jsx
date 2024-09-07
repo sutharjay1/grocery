@@ -235,7 +235,7 @@ const ProductFilter = ({
           className="relative z-50"
         >
           <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-          <div className="fixed inset-0 flex items-center justify-center p-4">
+          <div className="fixed inset-0 my-8 flex items-center justify-center p-4">
             <DialogPanel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold">Filters</h2>
@@ -248,7 +248,7 @@ const ProductFilter = ({
                   <X className="h-4 w-4" />
                 </Button>
               </div>
-              <div className="mt-4 max-h-[calc(100vh-10rem)] overflow-y-auto">
+              <div className="mt-4 max-h-[calc(100vh-12rem)] overflow-y-auto">
                 {renderFilterContent()}
               </div>
             </DialogPanel>
