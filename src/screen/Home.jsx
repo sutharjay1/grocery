@@ -67,7 +67,7 @@ const Home = () => {
         </div>
 
         {/* Categories Section */}
-        <Motion direction="up" duration={1.8}>
+        <Motion direction="up" duration={1.8} up={70}>
           <div className="mx-auto mt-12 w-full max-w-8xl">
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">

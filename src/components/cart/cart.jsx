@@ -53,7 +53,7 @@ const Cart = () => {
   useEffect(() => {
     const intervalId = setInterval(updateCart, 500); // Check for updates every second
     // Remove the toast notification
-    toast.success("Cart updated");
+    // toast.success("Cart updated");
     return () => clearInterval(intervalId);
   }, []);
 
