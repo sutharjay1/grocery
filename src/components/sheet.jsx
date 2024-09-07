@@ -112,8 +112,8 @@ const SheetDescription = ({ children }) => (
 );
 
 // Footer Component
-const SheetFooter = ({ children }) => (
-  <div className="mt-auto flex justify-end space-x-2 border-t">
+const SheetFooter = ({ children, className }) => (
+  <div className={cn("mx-auto flex space-x-2  bg-white", className)}>
     {children}
   </div>
 );

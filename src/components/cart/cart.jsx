@@ -82,28 +82,29 @@ const Cart = () => {
           </Sheet.Header>{" "}
           {itemCount > 0 ? (
             <div className="flex h-full flex-col">
-              <div className="space-y-4 p-6 pr-6">
+              <div className="space-y-4 overflow-y-auto p-6 pr-6">
                 {items.map((item) => (
                   <CartItem product={item} key={item.id} />
                 ))}
               </div>
-              <div className="space-y-4 p-6 pt-6 sm:pt-2">
-                <Separator />
-                <div className="space-y-1.5 text-sm">
-                  <div className="flex">
-                    <span className="flex-1">Shipping</span>
-                    <span>Free</span>
+              <Sheet.Footer className="absolute bottom-0 w-full space-y-2">
+                <div className="w-full space-y-4 p-6 pt-6 sm:pt-2">
+                  <Separator />
+                  <div className="space-y-1.5 text-sm">
+                    <div className="flex">
+                      <span className="flex-1">Shipping</span>
+                      <span>Free</span>
+                    </div>
+                    <div className="flex">
+                      <span className="flex-1">Transaction Fee</span>
+                      <span>{formatPrice(fee)}</span>
+                    </div>
+                    <div className="flex">
+                      <span className="flex-1">Total</span>
+                      <span>{formatPrice(cartTotal + fee)}</span>
+                    </div>
                   </div>
-                  <div className="flex">
-                    <span className="flex-1">Transaction Fee</span>
-                    <span>{formatPrice(fee)}</span>
-                  </div>
-                  <div className="flex">
-                    <span className="flex-1">Total</span>
-                    <span>{formatPrice(cartTotal + fee)}</span>
-                  </div>
-                </div>
-                <Sheet.Footer>
+
                   <Link
                     to="/checkout"
                     className={buttonVariants({
@@ -112,22 +113,22 @@ const Cart = () => {
                   >
                     Checkout
                   </Link>
-                </Sheet.Footer>
-              </div>
+                </div>
+              </Sheet.Footer>
             </div>
           ) : (
-            <div className="flex h-full flex-col items-center justify-center space-y-1">
-              <div className="font-polySansMedian text-2xl font-medium">
+            <div className="flex h-full flex-col items-center justify-center space-y-6">
+              <div className="text-zinc-900 text-2xl font-medium">
                 Your cart is empty
               </div>
               <Sheet.Footer>
                 <Sheet.Close asChild>
                   <Link
-                    to="/product"
+                    to="/categories"
                     className={buttonVariants({
                       variant: "link",
                       size: "sm",
-                      className: "text-lg text-muted-foreground",
+                      className: "text-lg text-zinc-900",
                     })}
                   >
                     Add items to your cart to checkout

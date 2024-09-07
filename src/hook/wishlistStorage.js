@@ -28,4 +28,7 @@ export const wishlistStorage = {
       wishlistStorage.setItems(items);
     }
   },
+  clearWishlist: () => {
+    localStorage.removeItem("wishlist-storage");
+  },
 };

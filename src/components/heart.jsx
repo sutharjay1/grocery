@@ -1,13 +1,14 @@
 import Sheet from "@/components/sheet";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { cn, formatPrice } from "@/lib/utils";
+import { cartStorage } from "@/hook/cartStorage";
+import { wishlistStorage } from "@/hook/wishlistStorage";
+import { formatPrice } from "@/lib/utils";
 import { Heart as HeartIcon } from "lucide-react";
 import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { Link, useLocation } from "react-router-dom";
-import { wishlistStorage } from "@/hook/wishlistStorage";
-import Hint from "./hint";
-import { ScrollArea } from "./ui/scroll-area";
 import CartItem from "./cart/cart-item";
+import Hint from "./hint";
 import { Separator } from "./ui/separator";
 
 const Heart = () => {
@@ -46,9 +47,24 @@ const Heart = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  const handleAddAllToCart = () => {
+    Promise.all(
+      items.map(async (item) => {
+        cartStorage.addItem(item);
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        wishlistStorage.clearWishlist();
+      }),
+    ).then(() => {
+      updateWishlist();
+      toast.success("All items added to cart");
+      setIsOpen(false);
+    });
+  };
+
   return (
     <>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <Toaster />
         <Sheet.Trigger className="group -m-2 flex items-center p-2">
           <Hint
             label={<p>Favorites</p>}
@@ -73,48 +89,50 @@ const Heart = () => {
           </Sheet.Header>
           {itemCount > 0 ? (
             <div className="flex h-full flex-col">
-              <div className="space-y-4 p-6 pr-6">
+              <div className="space-y-4 overflow-y-auto p-6 pr-6">
                 {items.map((item) => (
                   <CartItem product={item} key={item.id} />
                 ))}
-              </div>
-              <div className="space-y-4 p-6 pt-6 sm:pt-2">
-                <Separator />
-                <div className="space-y-1.5 text-sm">
-                  <div className="flex">
-                    <span className="flex-1">Total</span>
-                    <span>{formatPrice(wishlistTotal)}</span>
+              </div>{" "}
+              <Sheet.Footer className="absolute bottom-0 w-full space-y-2">
+                <div className="w-full space-y-4 p-6 pt-6 sm:pt-2">
+                  <Separator />
+                  <div className="space-y-1.5 text-sm">
+                    <div className="flex">
+                      <span className="flex-1">Total</span>
+                      <span>{formatPrice(wishlistTotal)}</span>
+                    </div>
                   </div>
-                </div>
-                <Sheet.Footer>
-                  <Link
-                    to="/cart"
+                  <Button
                     className={buttonVariants({
                       className: "w-full",
                     })}
+                    onClick={handleAddAllToCart}
                   >
-                    Add to Cart
-                  </Link>
-                </Sheet.Footer>
-              </div>
+                    Add all to cart
+                  </Button>
+                </div>
+              </Sheet.Footer>
             </div>
           ) : (
-            <div className="flex h-full flex-col items-center justify-center space-y-1">
-              <div className="font-polySansMedian text-2xl font-medium">
-                Your favorites is empty
+            <div className="flex h-full flex-col items-center justify-center space-y-6">
+              <div className="text-2xl font-medium text-zinc-900">
+                Your wishlist is empty
               </div>
-              <Sheet.Close asChild>
-                <Link
-                  to="/product"
-                  className={buttonVariants({
-                    variant: "link",
-                    size: "sm",
-                    className: "text-lg text-muted-foreground",
-                  })}
-                >
-                  Add items to your favorites
-                </Link>
-              </Sheet.Close>
+              <Sheet.Footer>
+                <Sheet.Close asChild>
+                  <Link
+                    to="/categories"
+                    className={buttonVariants({
+                      variant: "link",
+                      size: "sm",
+                      className: "text-lg text-zinc-900",
+                    })}
+                  >
+                    Continue shopping
+                  </Link>
+                </Sheet.Close>
+              </Sheet.Footer>
             </div>
           )}
         </Sheet.Content>

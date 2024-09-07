@@ -17,7 +17,7 @@ const CartItem = ({ product, removeItem }) => {
       <Toaster />
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center space-x-4">
-          <Link to={product.href}>
+          <Link to={product.href} className="flex items-center space-x-4">
             <div className="relative aspect-square h-16 w-16 min-w-fit overflow-hidden rounded">
               {product.imageSrc && product.imageSrc.length > 0 ? (
                 <img
@@ -34,19 +34,19 @@ const CartItem = ({ product, removeItem }) => {
                 </div>
               )}
             </div>
+            <div className="flex flex-col items-start justify-center">
+              <span
+                className={cn(
+                  "line-clamp-1 text-base font-semibold text-gray-900",
+                )}
+              >
+                {product.name}
+              </span>
+              <span className={cn("text-base font-medium text-green-900")}>
+                {formatPrice(product.price)}
+              </span>
+            </div>{" "}
           </Link>
-          <div className="flex flex-col items-start justify-center">
-            <span
-              className={cn(
-                "line-clamp-1 text-base font-semibold text-gray-900",
-              )}
-            >
-              {product.name}
-            </span>
-            <span className={cn("text-base font-medium text-green-900")}>
-              {formatPrice(product.price)}
-            </span>
-          </div>
         </div>
         <Button
           variant="destructive"
