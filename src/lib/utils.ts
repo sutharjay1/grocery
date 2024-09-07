@@ -13,17 +13,18 @@ export function formatPrice(
     notation?: Intl.NumberFormatOptions["notation"];
   } = {},
 ) {
-  const { currency = "INR", notation = "compact" } = options;
+  const { currency = "INR", notation } = options;
 
   const numericPrice = typeof price === "string" ? parseFloat(price) : price;
 
   return new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency,
-    notation,
+    notation: numericPrice < 100000 ? undefined : notation,
     maximumFractionDigits: 2,
   }).format(numericPrice);
 }
+
 
 export const useOnClickOutside = (
   ref: React.RefObject<HTMLElement>,
