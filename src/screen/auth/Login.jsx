@@ -25,7 +25,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import AppLogo from "../../components/logo";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 const schema = z
   .object({
@@ -74,26 +74,6 @@ const FloatingLabelInput = ({ label, name, type = "text", form }) => {
       name={name}
       render={({ field }) => (
         <FormItem className="mb-4">
-          {/* <FormControl>
-            <div className="relative w-full">
-              <input
-                type={type}
-                {...field}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                className="peer w-full rounded-lg border-2 border-gray-300 bg-transparent px-4 py-2 focus:border-blue-500 focus:outline-none"
-              />
-              <label
-                className={`absolute left-4 top-2 select-none text-gray-500 transition-all duration-200 ease-in-out ${
-                  focused || inputValue
-                    ? "-top-3 bg-white px-1 text-xs text-blue-500"
-                    : "top-2 text-base"
-                }`}
-              >
-                {label}
-              </label>
-            </div>
-          </FormControl> */}
           <FormControl>
             <div className="relative w-full">
               <input
@@ -106,7 +86,7 @@ const FloatingLabelInput = ({ label, name, type = "text", form }) => {
               <label
                 className={`pointer-events-none absolute left-2 text-gray-500 transition-all duration-200 ease-in-out ${
                   focused || inputValue
-                    ? "-top-3 text-xs text-blue-500"
+                    ? "-top-2 bg-white text-xs text-blue-500"
                     : "top-2 text-base"
                 }`}
               >
@@ -124,6 +104,7 @@ const FloatingLabelInput = ({ label, name, type = "text", form }) => {
 
 const Login = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -134,14 +115,19 @@ const Login = () => {
 
   useEffect(() => {
     setIsSignUp(searchParams.get("signup") === "true");
+    const step = searchParams.get("step");
+    if (step) {
+      setCurrentStep(parseInt(step));
+    }
+    setShowNameOTP(searchParams.get("showNameOTP") === "true");
   }, [searchParams]);
 
   const form = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
-      name: "",
-      mobileNumber: "",
-      otp: "",
+      name: searchParams.get("name") || "",
+      mobileNumber: searchParams.get("mobile") || "",
+      otp: searchParams.get("otp") || "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -156,7 +142,9 @@ const Login = () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     setIsSubmitting(false);
     if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
+      const nextStep = currentStep + 1;
+      setCurrentStep(nextStep);
+      setSearchParams({ step: nextStep.toString(), ...data });
     } else {
       // Handle final submission
     }
@@ -166,12 +154,25 @@ const Login = () => {
     if (currentStep === 0) {
       const result = await form.trigger(["name", "mobileNumber"]);
       if (result) {
-        setCurrentStep((prevStep) => prevStep + 1);
+        const nextStep = currentStep + 1;
+        setCurrentStep(nextStep);
+        setSearchParams({
+          step: nextStep.toString(),
+          name: form.getValues("name"),
+          mobile: form.getValues("mobileNumber"),
+        });
       }
     } else if (currentStep === 1) {
       const result = await form.trigger("otp");
       if (result) {
-        setCurrentStep((prevStep) => prevStep + 1);
+        const nextStep = currentStep + 1;
+        setCurrentStep(nextStep);
+        setSearchParams({
+          step: nextStep.toString(),
+          name: form.getValues("name"),
+          mobile: form.getValues("mobileNumber"),
+          otp: form.getValues("otp"),
+        });
       }
     } else {
       const result = await form.trigger();
@@ -183,10 +184,12 @@ const Login = () => {
 
   const handleLoginClick = () => {
     setShowNameOTP(true);
+    setSearchParams({ showNameOTP: "true" });
   };
 
   const handleGoogleLogin = () => {
     setShowNameOTP(true);
+    setSearchParams({ showNameOTP: "true" });
   };
 
   const handleAlreadyHaveAccount = () => {
@@ -202,12 +205,14 @@ const Login = () => {
     "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   ];
+  const [currentImage, setCurrentImage] = useState(images[0]);
 
   const [randomImageState, setRandomImageState] = useState(images.length);
 
-  const getRandomImage = () => {
-    return images[Math.floor(Math.random() * Math.floor(randomImageState))];
-  };
+  useEffect(() => {
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    setCurrentImage(randomImage);
+  }, [randomImageState]);
 
   return (
     <section className="h-[calc(100vh-5rem)] bg-card">
@@ -215,7 +220,7 @@ const Login = () => {
         <section className="relative hidden h-32 items-end bg-gray-900 lg:col-span-5 lg:flex lg:h-full xl:col-span-6">
           <img
             alt="Decorative background image"
-            src={getRandomImage()}
+            src={currentImage}
             className="absolute inset-0 h-full w-full object-cover opacity-80"
           />
           <div className="hidden bg-gradient-to-t from-gray-950 to-gray-900/[0.01] lg:relative lg:block lg:px-12 lg:pb-16 lg:pt-36">
@@ -324,18 +329,66 @@ const Login = () => {
                     </>
                   ) : (
                     <>
-                      <FloatingLabelInput
-                        label="Email"
-                        name="email"
-                        type="email"
-                        form={form}
-                      />
-                      <FloatingLabelInput
-                        label="Password"
-                        name="password"
-                        type="password"
-                        form={form}
-                      />
+                      {showNameOTP ? (
+                        <>
+                          <FloatingLabelInput
+                            label="Name"
+                            name="name"
+                            form={form}
+                          />
+                          <FloatingLabelInput
+                            label="Mobile Number"
+                            name="mobileNumber"
+                            form={form}
+                          />
+                          <FormField
+                            control={form.control}
+                            name="otp"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormControl className="mx-auto flex w-full flex-1">
+                                  <InputOTP
+                                    maxLength={6}
+                                    value={field.value}
+                                    onChange={(value) => {
+                                      field.onChange(value);
+                                      setOtp(value);
+                                    }}
+                                  >
+                                    <InputOTPGroup>
+                                      <InputOTPSlot index={0} />
+                                      <InputOTPSlot index={1} />
+                                      <InputOTPSlot index={2} />
+                                    </InputOTPGroup>
+                                    <InputOTPSeparator />
+                                    <InputOTPGroup>
+                                      <InputOTPSlot index={3} />
+                                      <InputOTPSlot index={4} />
+                                      <InputOTPSlot index={5} />
+                                    </InputOTPGroup>
+                                  </InputOTP>
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </>
+                      ) : (
+                        <>
+                          <FloatingLabelInput
+                            label="Email"
+                            name="email"
+                            type="email"
+                            form={form}
+                          />
+                          <FloatingLabelInput
+                            label="Password"
+                            name="password"
+                            type="password"
+                            form={form}
+                          />
+                        </>
+                      )}
                     </>
                   )}
                 </CardContent>
