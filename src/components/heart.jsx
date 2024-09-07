@@ -67,20 +67,18 @@ const Heart = () => {
             </div>
           </Hint>
         </Sheet.Trigger>
-        <Sheet.Content>
+        <Sheet.Content className="flex h-full flex-col">
           <Sheet.Header className="font-polySansMedian space-y-2.5 pr-6 font-medium">
             <Sheet.Title>Favorites ({itemCount})</Sheet.Title>
           </Sheet.Header>
           {itemCount > 0 ? (
             <div className="flex h-full flex-col">
-              <ScrollArea className="h-screen flex-grow">
-                <div className="space-y-4 pr-6">
-                  {items.map((item) => (
-                    <CartItem product={item} key={item.id} />
-                  ))}
-                </div>
-              </ScrollArea>
-              <div className="space-y-4 pt-6">
+              <div className="space-y-4 p-6 pr-6">
+                {items.map((item) => (
+                  <CartItem product={item} key={item.id} />
+                ))}
+              </div>
+              <div className="space-y-4 p-6 pt-6 sm:pt-2">
                 <Separator />
                 <div className="space-y-1.5 text-sm">
                   <div className="flex">
@@ -88,7 +86,7 @@ const Heart = () => {
                     <span>{formatPrice(wishlistTotal)}</span>
                   </div>
                 </div>
-                <Sheet.Close asChild>
+                <Sheet.Footer>
                   <Link
                     to="/cart"
                     className={buttonVariants({
@@ -97,7 +95,7 @@ const Heart = () => {
                   >
                     Add to Cart
                   </Link>
-                </Sheet.Close>
+                </Sheet.Footer>
               </div>
             </div>
           ) : (

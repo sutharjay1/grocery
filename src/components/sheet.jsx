@@ -60,7 +60,7 @@ const SheetContent = ({ children, isOpen, toggleSheet, side = "right" }) => {
           <SheetOverlay />
           <motion.div
             ref={ref}
-            className={`fixed inset-y-0 ${side}-0 z-50 flex h-full w-full flex-col border-l border-zinc-900/40 bg-background shadow-lg transition-transform sm:max-w-md`}
+            className={`fixed inset-y-0 ${side}-0 z-50 flex h-full w-full flex-col border-l-2 border-zinc-900/60 bg-background shadow-lg transition-transform sm:max-w-md`}
             initial="closed"
             animate="open"
             exit="closed"

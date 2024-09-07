@@ -81,42 +81,40 @@ const Cart = () => {
             <Sheet.Title>Cart ({itemCount})</Sheet.Title>
           </Sheet.Header>{" "}
           {itemCount > 0 ? (
-            <ScrollArea className="flex-grow">
-              <div className="flex h-full flex-col">
-                <div className="space-y-4 p-6 pr-6">
-                  {items.map((item) => (
-                    <CartItem product={item} key={item.id} />
-                  ))}
-                </div>
-                <div className="space-y-4 p-6 pt-6 sm:pt-2">
-                  <Separator />
-                  <div className="space-y-1.5 text-sm">
-                    <div className="flex">
-                      <span className="flex-1">Shipping</span>
-                      <span>Free</span>
-                    </div>
-                    <div className="flex">
-                      <span className="flex-1">Transaction Fee</span>
-                      <span>{formatPrice(fee)}</span>
-                    </div>
-                    <div className="flex">
-                      <span className="flex-1">Total</span>
-                      <span>{formatPrice(cartTotal + fee)}</span>
-                    </div>
-                  </div>
-                  <Sheet.Footer>
-                    <Link
-                      to="/checkout"
-                      className={buttonVariants({
-                        className: "w-full",
-                      })}
-                    >
-                      Checkout
-                    </Link>
-                  </Sheet.Footer>
-                </div>
+            <div className="flex h-full flex-col">
+              <div className="space-y-4 p-6 pr-6">
+                {items.map((item) => (
+                  <CartItem product={item} key={item.id} />
+                ))}
               </div>
-            </ScrollArea>
+              <div className="space-y-4 p-6 pt-6 sm:pt-2">
+                <Separator />
+                <div className="space-y-1.5 text-sm">
+                  <div className="flex">
+                    <span className="flex-1">Shipping</span>
+                    <span>Free</span>
+                  </div>
+                  <div className="flex">
+                    <span className="flex-1">Transaction Fee</span>
+                    <span>{formatPrice(fee)}</span>
+                  </div>
+                  <div className="flex">
+                    <span className="flex-1">Total</span>
+                    <span>{formatPrice(cartTotal + fee)}</span>
+                  </div>
+                </div>
+                <Sheet.Footer>
+                  <Link
+                    to="/checkout"
+                    className={buttonVariants({
+                      className: "w-full",
+                    })}
+                  >
+                    Checkout
+                  </Link>
+                </Sheet.Footer>
+              </div>
+            </div>
           ) : (
             <div className="flex h-full flex-col items-center justify-center space-y-1">
               <div className="font-polySansMedian text-2xl font-medium">

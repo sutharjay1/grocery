@@ -65,25 +65,30 @@ const ProductFilter = ({
   };
 
   const handleSortChange = (value) => {
-    setSortOrder(value);
-    onFilterChange({
-      ...selectedFilters,
-      price: priceRange,
-      sortOrder: value,
-      rating: ratingFilter,
+    setSortOrder((prevSortOrder) => {
+      const newSortOrder = prevSortOrder === value ? "" : value;
+      onFilterChange({
+        ...selectedFilters,
+        price: priceRange,
+        sortOrder: newSortOrder,
+        rating: ratingFilter,
+      });
+      return newSortOrder;
     });
   };
 
   const handleRatingChange = (value) => {
-    const updatedRating = ratingFilter.includes(value)
-      ? ratingFilter.filter((r) => r !== value)
-      : [...ratingFilter, value];
-    setRatingFilter(updatedRating);
-    onFilterChange({
-      ...selectedFilters,
-      price: priceRange,
-      sortOrder,
-      rating: updatedRating,
+    setRatingFilter((prevRating) => {
+      const updatedRating = prevRating.includes(value)
+        ? prevRating.filter((r) => r !== value)
+        : [...prevRating, value];
+      onFilterChange({
+        ...selectedFilters,
+        price: priceRange,
+        sortOrder,
+        rating: updatedRating,
+      });
+      return updatedRating;
     });
   };
 
@@ -121,7 +126,7 @@ const ProductFilter = ({
             onChange={(e) =>
               handlePriceChange([priceRange[0], Number(e.target.value)])
             }
-            className="w-full bg-primary"
+            className="w-full text-red-800 appearance-auto "
           />
           <div className="text-sm text-gray-500">
             Price: {formatPrice(priceRange[0])} - {formatPrice(priceRange[1])}
