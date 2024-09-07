@@ -15,7 +15,7 @@ const Card = ({ product, index, showDescription = true }) => {
     <Link to={product.href} className="w-full">
       <div
         key={index}
-        className="flex h-[26rem] w-full flex-col items-center justify-between rounded-md border bg-[#fbfcfc]"
+        className="flex h-[26rem] w-full flex-col items-center justify-between rounded-lg border bg-[#fbfcfc]"
         draggable={false}
         onSelect={(e) => {
           e.preventDefault();
