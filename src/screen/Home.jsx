@@ -24,7 +24,7 @@ const Feature = ({ icon: Icon, title, subtitle }) => (
         <Icon className="h-8 w-8 text-purple-600" />
       </div>
     </div>
-    <div className="flex flex-col md:text-right">
+    <div className="flex w-full max-w-full flex-col md:text-right">
       <h3 className="mb-2 text-base font-semibold">{title}</h3>
       <p className="text-sm text-gray-600">{subtitle}</p>
     </div>
