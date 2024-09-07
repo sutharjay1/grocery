@@ -12,7 +12,7 @@ import {
   PopoverPanel,
 } from "@headlessui/react";
 import { ChevronDown, X, User, Menu, ShoppingBasket } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GiFruitBowl } from "react-icons/gi";
 import { Link, useLocation } from "react-router-dom";
 
@@ -110,19 +110,21 @@ const callsToAction = [
 
 const links = [
   { name: "Home", to: "/" },
+  // { name: "Shop by Category", section },
   { name: "Deals", to: "/deals" },
+  // { name: "My Orders", to: "/orders" },
   { name: "Profile", to: "/profile" },
 ];
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(false);
+
   const location = useLocation();
 
   useEffect(() => {
-    // Keep mobile menu open on route change
-    setMobileMenuOpen(true);
-  }, [location]);
+    setMobileMenuOpen(false);
+  }, [user, location]);
 
   return (
     <header className="sticky top-0 z-50 bg-card">
@@ -173,6 +175,7 @@ const NavBar = () => {
               </PopoverButton>
 
               <PopoverPanel
+                //   transition
                 className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
               >
                 <div className="p-4">
@@ -228,6 +231,7 @@ const NavBar = () => {
               </PopoverButton>
 
               <PopoverPanel
+                //   transition
                 className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
               >
                 <div className="p-4">
@@ -287,6 +291,7 @@ const NavBar = () => {
             >
               <Button
                 variant="default"
+                // onClick={() => setUser(true)}
                 className="flex w-full items-center space-x-2"
               >
                 <ShoppingBasket className="h-5 w-5" />
@@ -324,33 +329,31 @@ const NavBar = () => {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
-                  {({ open }) => (
-                    <>
-                      <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        Product
-                        <ChevronDown
-                          aria-hidden="true"
-                          className={`h-5 w-5 flex-none ${open ? 'rotate-180' : ''} transition-transform`}
-                        />
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                    Product
+                    <ChevronDown
+                      aria-hidden="true"
+                      className="h-5 w-5 flex-none group-data-[open]:rotate-180"
+                    />
+                  </DisclosureButton>
+                  <DisclosurePanel className="mt-2 space-y-2">
+                    {[...products, ...callsToAction].map((item) => (
+                      <DisclosureButton
+                        key={item.name}
+                        as={Link}
+                        to={item.to}
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      >
+                        {item.name}
                       </DisclosureButton>
-                      <DisclosurePanel className="mt-2 space-y-2">
-                        {[...products, ...callsToAction].map((item) => (
-                          <Link
-                            key={item.name}
-                            to={item.to}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </DisclosurePanel>
-                    </>
-                  )}
+                    ))}
+                  </DisclosurePanel>
                 </Disclosure>
                 {links.map((link) => (
                   <Link
                     key={link.name}
                     to={link.to}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     {link.name}
@@ -360,11 +363,12 @@ const NavBar = () => {
               <div className="space-y-6 py-6">
                 <Link
                   to="/signup"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   <Button
                     variant="default"
-                    className="flex w-full items-center space-x-2"
+                    // onClick={() => setUser(true)}
+                    className="flex w-full items-center space-x-2 px-3 py-2.5"
                   >
                     <ShoppingBasket className="h-5 w-5" />
                     <span>Login / Signup</span>
