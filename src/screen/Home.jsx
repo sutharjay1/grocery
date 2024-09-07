@@ -15,8 +15,55 @@ import {
 import Card from "../components/card";
 import { CarouselIndicator } from "../components/ui/carousel";
 import { Motion } from "../components/motion";
+import { Truck, Shield, Star, FileText } from "lucide-react";
+
+const Feature = ({ icon: Icon, title, subtitle }) => (
+  <div className="flex flex-col items-center space-y-4 p-4 text-center md:flex-row md:items-center md:space-x-4 md:space-y-0 md:text-left">
+    <div className="relative flex items-center justify-center md:hidden">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-100">
+        <Icon className="h-8 w-8 text-purple-600" />
+      </div>
+    </div>
+    <div className="flex flex-col md:text-right">
+      <h3 className="mb-2 text-base font-semibold">{title}</h3>
+      <p className="text-sm text-gray-600">{subtitle}</p>
+    </div>
+    <div className="relative hidden items-center justify-center md:flex">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-100">
+        <Icon className="h-8 w-8 text-purple-600" />
+      </div>
+    </div>
+  </div>
+);
 
 const Home = () => {
+  const features = [
+    {
+      icon: Truck,
+      title: "Delivery from 1 hour",
+      subtitle:
+        "Tasigforsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa",
+    },
+    {
+      icon: Shield,
+      title: "Quality assurance",
+      subtitle:
+        "Tasigforsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa",
+    },
+    {
+      icon: Star,
+      title: "New stocks and sales",
+      subtitle:
+        "Tasigforsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa",
+    },
+    {
+      icon: FileText,
+      title: "Payment only online",
+      subtitle:
+        "Tasigforsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa",
+    },
+  ];
+
   return (
     <MaxWidthWrapper className="h-full pb-4 pt-0">
       <div className="mx-auto max-w-8xl">
@@ -244,6 +291,7 @@ const Home = () => {
             </div>
           </div>{" "}
         </Motion>
+
         <Motion direction="up" duration={1.8}>
           <div className="mx-auto mt-12 w-full max-w-8xl pb-8">
             <section className="rounded-lg bg-primary px-6 py-12 lg:px-12">
@@ -273,6 +321,18 @@ const Home = () => {
                 </div>
               </div>
             </section>
+          </div>
+        </Motion>
+
+        <Motion direction="up" duration={1.8}>
+          <div className="mx-auto mt-12 w-full max-w-8xl pb-8">
+            <div className="container mx-auto px-4 py-8">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {features.map((feature, index) => (
+                  <Feature key={index} {...feature} />
+                ))}
+              </div>
+            </div>
           </div>
         </Motion>
       </div>
