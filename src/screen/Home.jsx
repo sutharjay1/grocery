@@ -122,9 +122,9 @@ const Home = () => {
         <Motion direction="up" duration={1.8} up={70}>
           <div className="mx-auto mt-12 w-full max-w-8xl">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
+              <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">
                 Top Categories
-              </h2>
+              </h1>
               <Link to="/categories">
                 <Button
                   variant="ghost"
@@ -178,9 +178,9 @@ const Home = () => {
         <Motion direction="up" duration={1.8}>
           <div className="mx-auto mt-8 max-w-8xl">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
-                Highlights
-              </h2>
+              <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">
+                Special Offers
+              </h1>
             </div>
             <div className="mt-6 hidden grid-cols-1 gap-4 sm:grid-cols-2 lg:grid lg:grid-cols-3">
               <Highlight
@@ -261,9 +261,9 @@ const Home = () => {
         <Motion direction="up" duration={1.8}>
           <div className="mx-auto mt-12 w-full max-w-8xl pb-8">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
+              <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">
                 Top Picks
-              </h2>
+              </h1>
               <Link to="/categories">
                 <Button
                   variant="ghost"
@@ -330,9 +330,9 @@ const Home = () => {
         <Motion direction="up" duration={1.8}>
           <div className="mx-auto mt-12 w-full max-w-8xl pb-8">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-xl">
+              <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">
                 Most Searched
-              </h2>
+              </h1>
               <Link to="/categories">
                 <Button
                   variant="ghost"

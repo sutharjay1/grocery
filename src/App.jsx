@@ -1,6 +1,6 @@
 import React from "react";
 import { Toaster } from "react-hot-toast";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
 import NavBar from "./components/nav-bar";
 import Login from "./screen/auth/Login";
@@ -10,23 +10,31 @@ import Checkout from "./screen/Checkout";
 import Home from "./screen/Home";
 import Product from "./screen/Product";
 import Search from "./screen/Search";
+import Admin from "./screen/admin/Admin";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="font-poppins flex h-full min-h-screen w-full flex-col bg-card text-muted-foreground">
-        <NavBar />
-        <main className="font-poppins w-full flex-1">
-          <AppRouter />
-        </main>{" "}
-        <Toaster />
-        <Footer />
-      </div>
+      <AppContent />
     </BrowserRouter>
   );
 };
 
 export default App;
+
+const AppContent = () => {
+  const location = useLocation();
+  return (
+    <div className="font-poppins flex h-full min-h-screen w-full flex-col bg-card text-muted-foreground">
+      {location.pathname !== "/admin" && <NavBar />}
+      <main className="font-poppins w-full flex-1">
+        <AppRouter />
+      </main>{" "}
+      <Toaster />
+      {location.pathname !== "/admin" && <Footer />}
+    </div>
+  );
+};
 
 export const AppRouter = () => {
   return (
@@ -38,6 +46,7 @@ export const AppRouter = () => {
       <Route path="/search" element={<Search />} />
       <Route path="/categories" element={<Categories />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/admin" element={<Admin />} />
     </Routes>
   );
 };

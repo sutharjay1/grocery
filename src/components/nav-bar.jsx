@@ -123,7 +123,7 @@ const NavBar = () => {
   }, [user, location]);
 
   return (
-    <header className="sticky top-0 z-50 bg-card">
+    <header className="sticky top-0 z-50 bg-card border-b">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-8xl items-center justify-between p-6 lg:px-8"
