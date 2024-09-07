@@ -1,16 +1,15 @@
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import NavBar from "./components/nav-bar";
 import Login from "./screen/auth/Login";
+import Categories from "./screen/Categories";
 import CategoriesTag from "./screen/CategoriesTag";
+import Checkout from "./screen/Checkout";
 import Home from "./screen/Home";
 import Product from "./screen/Product";
 import Search from "./screen/Search";
-import Categories from "./screen/Categories";
-import Checkout from "./screen/Checkout";
-import toast, { Toaster } from "react-hot-toast";
-import Footer from "./components/Footer";
 
 const App = () => {
   return (

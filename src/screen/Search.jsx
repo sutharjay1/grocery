@@ -41,7 +41,12 @@ const ProductFilter = ({
             ? prev[sectionId].filter((item) => item !== value)
             : [...(prev[sectionId] || []), value],
         };
-        onFilterChange({ ...updatedFilters, price: priceRange, sortOrder, rating: ratingFilter });
+        onFilterChange({
+          ...updatedFilters,
+          price: priceRange,
+          sortOrder,
+          rating: ratingFilter,
+        });
         return updatedFilters;
       });
     },
@@ -50,12 +55,22 @@ const ProductFilter = ({
 
   const handlePriceChange = (value) => {
     setPriceRange(value);
-    onFilterChange({ ...selectedFilters, price: value, sortOrder, rating: ratingFilter });
+    onFilterChange({
+      ...selectedFilters,
+      price: value,
+      sortOrder,
+      rating: ratingFilter,
+    });
   };
 
   const handleSortChange = (value) => {
     setSortOrder(value);
-    onFilterChange({ ...selectedFilters, price: priceRange, sortOrder: value, rating: ratingFilter });
+    onFilterChange({
+      ...selectedFilters,
+      price: priceRange,
+      sortOrder: value,
+      rating: ratingFilter,
+    });
   };
 
   const handleRatingChange = (value) => {
@@ -63,7 +78,12 @@ const ProductFilter = ({
       const newRating = prev.includes(value)
         ? prev.filter((r) => r !== value)
         : [...prev, value];
-      onFilterChange({ ...selectedFilters, price: priceRange, sortOrder, rating: newRating });
+      onFilterChange({
+        ...selectedFilters,
+        price: priceRange,
+        sortOrder,
+        rating: newRating,
+      });
       return newRating;
     });
   };
@@ -230,7 +250,9 @@ const ProductFilter = ({
                   <X className="h-4 w-4" />
                 </Button>
               </div>
-              <div className="mt-4">{renderFilterContent()}</div>
+              <div className="mt-4 max-h-[calc(100vh-10rem)] overflow-y-auto">
+                {renderFilterContent()}
+              </div>
             </DialogPanel>
           </div>
         </Dialog>
@@ -313,7 +335,9 @@ const Search = () => {
           filtered.sort((a, b) => b.price - a.price);
         }
       } else if (key === "rating") {
-        filtered = filtered.filter((product) => value.includes(Math.floor(product.rating)));
+        filtered = filtered.filter((product) =>
+          value.includes(Math.floor(product.rating)),
+        );
       } else {
         filtered = filtered.filter((product) =>
           value.some((v) => product[key] && product[key].includes(v)),

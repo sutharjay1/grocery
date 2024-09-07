@@ -1,6 +1,6 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { X } from "lucide-react";
-import React, { useCallback, useMemo, useState, useEffect } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { CiFilter } from "react-icons/ci";
 import { useParams, useSearchParams } from "react-router-dom";
 import Card from "../components/card";
@@ -24,8 +24,6 @@ const ProductFilter = ({
   const [isOpen, setIsOpen] = useState(false);
   const [sortOrder, setSortOrder] = useState(initialFilters.sortOrder || "");
   const [ratingFilter, setRatingFilter] = useState(initialFilters.rating || []);
-
-  const productsCategory = productsByCategory[categoryTag];
 
   useEffect(() => {
     setSelectedFilters(initialFilters);
@@ -250,7 +248,9 @@ const ProductFilter = ({
                   <X className="h-4 w-4" />
                 </Button>
               </div>
-              <div className="mt-4">{renderFilterContent()}</div>
+              <div className="mt-4 max-h-[calc(100vh-10rem)] overflow-y-auto">
+                {renderFilterContent()}
+              </div>
             </DialogPanel>
           </div>
         </Dialog>
