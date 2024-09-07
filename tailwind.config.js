@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       maxWidth: {
-        "8xl": "1408px",
+        "8xl": "1358px",
         "9xl": "1536px",
       },
       backgroundImage: {

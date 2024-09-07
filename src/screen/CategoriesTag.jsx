@@ -1,7 +1,7 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import React, { useCallback, useMemo, useState } from "react";
 import { CiFilter } from "react-icons/ci";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import Card from "../components/card";
 import MaxWidthWrapper from "../components/max-width-wrapper";
 import { Button } from "../components/ui/button";
@@ -17,28 +17,37 @@ import {
 } from "@headlessui/react";
 import { X } from "lucide-react";
 
-const ProductFilter = ({ categoryTag, filters, onFilterChange }) => {
-  const [priceRange, setPriceRange] = useState([0, 1000]);
-  const [selectedFilters, setSelectedFilters] = useState({});
+const ProductFilter = ({
+  categoryTag,
+  filters,
+  onFilterChange,
+  initialFilters,
+  filteredProducts,
+}) => {
+  const [priceRange, setPriceRange] = useState(
+    initialFilters.price || [0, 1000]
+  );
+  const [selectedFilters, setSelectedFilters] = useState(initialFilters);
   const [isOpen, setIsOpen] = useState(false);
+
+  const productsCategory = productsByCategory[categoryTag];
 
   const handleFilterChange = useCallback(
     (sectionId, value) => {
       setSelectedFilters((prev) => {
-        const newFilters = {
+        const isSelected = prev[sectionId]?.includes(value);
+        const updatedFilters = {
           ...prev,
-          [sectionId]: prev[sectionId]
-            ? prev[sectionId].includes(value)
-              ? prev[sectionId].filter((item) => item !== value)
-              : [...prev[sectionId], value]
-            : [value],
+          [sectionId]: isSelected
+            ? prev[sectionId].filter((item) => item !== value)
+            : [...(prev[sectionId] || []), value],
         };
-        onFilterChange({ ...newFilters, price: priceRange });
-        return newFilters;
+        onFilterChange({ ...updatedFilters, price: priceRange });
+        return updatedFilters;
       });
     },
     [onFilterChange, priceRange],
-  );
+  );  
 
   const handlePriceChange = (value) => {
     setPriceRange(value);
@@ -95,7 +104,7 @@ const ProductFilter = ({ categoryTag, filters, onFilterChange }) => {
                 <Checkbox
                   id={`${section.id}-${option.value}`}
                   checked={selectedFilters[section.id]?.includes(option.value)}
-                  onCheckedChange={(checked) => {
+                  onCheckedChange={() => {
                     handleFilterChange(section.id, option.value);
                   }}
                 />
@@ -160,11 +169,36 @@ const ProductFilter = ({ categoryTag, filters, onFilterChange }) => {
 
 const CategoriesTag = () => {
   const { categoryTag } = useParams();
-  const [selectedFilters, setSelectedFilters] = useState({});
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleFilterChange = useCallback((newFilters) => {
-    setSelectedFilters(newFilters);
-  }, []);
+  const initialFilters = useMemo(() => {
+    const filters = {};
+    for (const [key, value] of searchParams.entries()) {
+      if (key === "price") {
+        filters[key] = value.split("-").map(Number);
+      } else {
+        filters[key] = filters[key] ? [...filters[key], value] : [value];
+      }
+    }
+    return filters;
+  }, [searchParams]);
+
+  const handleFilterChange = useCallback(
+    (newFilters) => {
+      const params = new URLSearchParams();
+      Object.entries(newFilters).forEach(([key, value]) => {
+        if (Array.isArray(value) && value.length > 0) {
+          if (key === "price") {
+            params.append(key, value.join("-"));
+          } else {
+            value.forEach((v) => params.append(key, v));
+          }
+        }
+      });
+      setSearchParams(params);
+    },
+    [setSearchParams],
+  );
 
   const filters = useMemo(
     () => productFilter[categoryTag] || [],
@@ -174,7 +208,7 @@ const CategoriesTag = () => {
   const filteredProducts = useMemo(() => {
     const products = productsByCategory[categoryTag] || [];
     return products.filter((product) =>
-      Object.entries(selectedFilters).every(([filterId, selectedValues]) => {
+      Object.entries(initialFilters).every(([filterId, selectedValues]) => {
         if (filterId === "price") {
           const [min, max] = selectedValues;
           return product.price >= min && product.price <= max;
@@ -189,7 +223,7 @@ const CategoriesTag = () => {
         );
       }),
     );
-  }, [categoryTag, selectedFilters]);
+  }, [categoryTag, initialFilters]);
 
   return (
     <MaxWidthWrapper className="h-full pt-0">
@@ -213,6 +247,8 @@ const CategoriesTag = () => {
                 categoryTag={categoryTag}
                 filters={filters}
                 onFilterChange={handleFilterChange}
+                initialFilters={initialFilters}
+                filteredProducts={filteredProducts}
               />
             </aside>
 

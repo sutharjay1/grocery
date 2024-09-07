@@ -53,7 +53,6 @@ const Product = () => {
     cartStorage.updateItemQuantity(product.id, newQuantity);
   };
 
-  console.log(product);
 
   const handleIncreaseQuantity = () => {
     handleQuantityChange(quantity + 1);

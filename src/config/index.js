@@ -1324,25 +1324,7 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.5,
     },
-    {
-      id: 27,
-      name: "Fish Food",
-      description: "Nutritious flakes for tropical fish.",
-      price: 599,
-      discount: 10,
-      imageSrc: [
-        "https://images.pexels.com/photos/325044/pexels-photo-325044.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/325045/pexels-photo-325045.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/325046/pexels-photo-325046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/fish-food",
-      type: ["fish-food"],
-      petType: ["fish"],
-      feature: ["tropical"],
-      category: "pet-supplies",
-      quantity: 1,
-      rating: 4.3,
-    },
+
     {
       id: 28,
       name: "Dog Bed",
@@ -3501,42 +3483,8 @@ export const productsByCategory = {
     },
   ],
   "frozen-foods": [
-    {
-      id: 61,
-      name: "Frozen Chicken Nuggets",
-      description: "Crispy breaded chicken nuggets.",
-      price: 499,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941010/pexels-photo-6941010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941011/pexels-photo-6941011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941012/pexels-photo-6941012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/frozen-chicken-nuggets",
-      type: ["chicken"],
-      flavor: ["breaded"],
-      category: "frozen-foods",
-      quantity: 1,
-      rating: 4.2,
-    },
-    {
-      id: 62,
-      name: "Frozen Fish Fillets",
-      description: "Wild-caught cod fillets.",
-      price: 699,
-      discount: 10,
-      imageSrc: [
-        "https://images.pexels.com/photos/3298067/pexels-photo-3298067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/3298068/pexels-photo-3298068.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/3298069/pexels-photo-3298069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/frozen-fish-fillets",
-      type: ["fish"],
-      flavor: ["cod"],
-      category: "frozen-foods",
-      quantity: 1,
-      rating: 4.5,
-    },
+ 
+  
     {
       id: 63,
       name: "Frozen Berries",
@@ -3591,24 +3539,7 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.0,
     },
-    {
-      id: 66,
-      name: "Frozen Meatballs",
-      description: "Italian-style beef meatballs.",
-      price: 649,
-      discount: 10,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941013/pexels-photo-6941013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941014/pexels-photo-6941014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941015/pexels-photo-6941015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/frozen-meatballs",
-      type: ["meat"],
-      flavor: ["Italian"],
-      category: "frozen-foods",
-      quantity: 1,
-      rating: 4.6,
-    },
+
     {
       id: 67,
       name: "Frozen Stir-Fry Mix",
@@ -3645,24 +3576,7 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.1,
     },
-    {
-      id: 69,
-      name: "Frozen Shrimp",
-      description: "Peeled and deveined large shrimp.",
-      price: 899,
-      discount: 15,
-      imageSrc: [
-        "https://images.pexels.com/photos/3298070/pexels-photo-3298070.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/3298071/pexels-photo-3298071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/3298072/pexels-photo-3298072.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/frozen-shrimp",
-      type: ["seafood"],
-      flavor: ["shrimp"],
-      category: "frozen-foods",
-      quantity: 1,
-      rating: 4.7,
-    },
+  
     {
       id: 70,
       name: "Frozen Fruit Bars",
@@ -3753,24 +3667,7 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.4,
     },
-    {
-      id: 75,
-      name: "Frozen Pot Pie",
-      description: "Chicken pot pie with vegetables.",
-      price: 549,
-      discount: 5,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941022/pexels-photo-6941022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941023/pexels-photo-6941023.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941024/pexels-photo-6941024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/frozen-pot-pie",
-      type: ["pie"],
-      flavor: ["chicken"],
-      category: "frozen-foods",
-      quantity: 1,
-      rating: 4.6,
-    },
+ 
     {
       id: 58,
       name: "Frozen Pizza",
@@ -4207,24 +4104,7 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.4,
     },
-    {
-      id: 83,
-      name: "Chicken Broth",
-      description: "Low-sodium chicken broth.",
-      price: 199,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/5765/chicken-broth-soup-stock.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/5766/chicken-broth-soup-stock.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/5767/chicken-broth-soup-stock.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/chicken-broth",
-      type: ["broth"],
-      flavor: ["chicken"],
-      category: "pantry-staples",
-      quantity: 1,
-      rating: 4.3,
-    },
+
     {
       id: 84,
       name: "Peanut Butter",
@@ -5021,24 +4901,7 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.5,
     },
-    {
-      id: 98,
-      name: "Fish Sauce",
-      description: "Pungent and savory fish sauce for Asian cuisine.",
-      price: 339,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/3609933/pexels-photo-3609933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/3609934/pexels-photo-3609934.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/3609935/pexels-photo-3609935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/fish-sauce",
-      type: ["sauce"],
-      flavor: ["savory", "umami"],
-      category: "condiments-sauces",
-      quantity: 1,
-      rating: 4.3,
-    },
+
     {
       id: 99,
       name: "Hoisin Sauce",
@@ -5458,24 +5321,7 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.7,
     },
-    {
-      id: 117,
-      name: "Fish Food",
-      description: "Nutritionally balanced flakes for tropical fish.",
-      price: 799,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/7788660/pexels-photo-7788660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/7788661/pexels-photo-7788661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/7788662/pexels-photo-7788662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/fish-food",
-      type: ["food"],
-      petType: ["fish"],
-      category: "pet-supplies",
-      quantity: 1,
-      rating: 4.3,
-    },
+   
     {
       id: 118,
       name: "Bird Cage",
@@ -6089,30 +5935,6 @@ export const productFilter = {
         { value: "cake", label: "Cake" },
         { value: "pastry", label: "Pastries" },
         { value: "cookie", label: "Cookies" },
-      ],
-    },
-  ],
-  "meat-poultry": [
-    {
-      id: "type",
-      name: "Type",
-      options: [
-        { value: "chicken", label: "Chicken" },
-        { value: "beef", label: "Beef" },
-        { value: "pork", label: "Pork" },
-        { value: "turkey", label: "Turkey" },
-      ],
-    },
-  ],
-  seafood: [
-    {
-      id: "type",
-      name: "Type",
-      options: [
-        { value: "fish", label: "Fish" },
-        { value: "shellfish", label: "Shellfish" },
-        { value: "crustacean", label: "Crustaceans" },
-        { value: "mollusk", label: "Mollusks" },
       ],
     },
   ],

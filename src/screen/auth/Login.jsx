@@ -159,7 +159,6 @@ const Login = () => {
       setCurrentStep(currentStep + 1);
     } else {
       // Handle final submission
-      console.log("Form submitted:", data);
     }
   };
 
