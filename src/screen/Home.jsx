@@ -296,7 +296,7 @@ const Home = () => {
         </Motion>
 
         <Motion direction="up" duration={1.8}>
-          <div className="mx-auto mt-12 w-full max-w-8xl pb-8">
+          <div className="mx-auto mt-12 w-full max-w-8xl">
             <section className="rounded-lg bg-primary px-6 py-12 lg:px-12">
               <div className="mx-auto max-w-7xl text-center">
                 <h2 className="mb-4 text-3xl font-bold text-white lg:text-4xl">
