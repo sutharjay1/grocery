@@ -16,6 +16,10 @@ const Categories = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeCategory]);
+
   return (
     <MaxWidthWrapper className="h-full pt-0">
       <div className="mx-auto max-w-6xl">

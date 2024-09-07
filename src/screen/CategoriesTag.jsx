@@ -92,6 +92,7 @@ const ProductFilter = ({
     });
   };
 
+
   const renderFilterContent = () => (
     <div className="space-y-4">
       <div className="border-b border-gray-200 pb-4">
@@ -269,6 +270,11 @@ const ProductFilter = ({
 const CategoriesTag = () => {
   const { categoryTag } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [categoryTag]);
+
 
   const initialFilters = useMemo(() => {
     const filters = {};

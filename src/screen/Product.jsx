@@ -81,6 +81,10 @@ const Product = () => {
     ? product.price - (product.price * product.discount) / 100
     : product.price;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [productId]);
+
   return (
     <MaxWidthWrapper className="pt-5">
       <div className="grid grid-cols-1 items-start gap-6 pb-10 lg:grid-cols-2 lg:gap-24 lg:pb-14">
