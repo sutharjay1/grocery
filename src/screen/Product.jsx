@@ -79,7 +79,9 @@ const Product = () => {
     setShowCursorPosition(false);
   };
 
-
+  const discountedPrice = product.discount
+    ? product.price - (product.price * product.discount) / 100
+    : product.price;
 
   return (
     <MaxWidthWrapper className="pt-5">
@@ -149,13 +151,28 @@ const Product = () => {
             <p className="mt-2 text-sm leading-6 text-gray-700 lg:text-base lg:leading-8">
               {product.description}
             </p>
-            <div className="mt-5 flex items-center">
-              <div className="pr-2 text-base font-bold text-gray-900 md:pr-0 md:text-xl lg:pr-2 lg:text-2xl 2xl:pr-0 2xl:text-4xl">
-                {formatPrice(product.price)}
-              </div>
-              {product.originalPrice && (
-                <span className="font-segoe pl-2 text-sm text-gray-400 line-through md:text-base lg:text-lg xl:text-xl">
-                  {formatPrice(product.originalPrice)}
+            <div className="flex flex-col items-start text-[#868686]">
+              <span
+                className={cn(
+                  "selection:text-[#16191E]",
+                  discountedPrice < product.price ? "text-base" : "text-lg",
+                )}
+              >
+                MRP:{" "}
+                <span
+                  className={cn(
+                    "font-bold text-[#ef9f43] selection:text-[#16191E]",
+                    discountedPrice < product.price && "line-through",
+                  )}
+                >
+                  {formatPrice(product.price)}
+                </span>
+              </span>
+              {product.discount > 0 && (
+                <span className="text-lg selection:text-[#16191E]">
+                  <span className="font-bold text-[#0a7558] selection:text-[#16191E]">
+                    {formatPrice(discountedPrice)}
+                  </span>
                 </span>
               )}
             </div>
