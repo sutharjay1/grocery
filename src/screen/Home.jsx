@@ -236,12 +236,44 @@ const Home = () => {
                   ))}
                 </CarouselContent>
                 <CarouselNavigation
+                  alwaysShow
                   className="absolute -bottom-16 left-auto top-auto z-50 w-full justify-end gap-2"
                   classNameButton="bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800"
                 />
               </Carousel>
             </div>
           </div>{" "}
+        </Motion>
+        <Motion direction="up" duration={1.8}>
+          <div className="mx-auto mt-12 w-full max-w-8xl pb-8">
+            <section className="rounded-lg bg-primary px-6 py-12 lg:px-12">
+              <div className="mx-auto max-w-7xl text-center">
+                <h2 className="mb-4 text-3xl font-bold text-white lg:text-4xl">
+                  Get Fresh Groceries Delivered to Your Doorstep
+                </h2>
+                <p className="mb-8 text-lg text-white lg:text-xl">
+                  Shop from a wide range of fresh fruits, vegetables, and
+                  everyday essentials. Fast delivery within hours!
+                </p>
+                <div className="flex flex-col justify-center gap-4 md:flex-row">
+                  <Button
+                    asChild
+                    variant="secondary"
+                    className="rounded-md px-6 py-4 text-lg font-semibold text-primary transition duration-300 hover:bg-secondary/80"
+                  >
+                    <Link to="/shop">Shop Now</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="rounded-md border-2 border-white bg-transparent px-6 py-4 text-lg font-semibold text-white transition duration-300 hover:bg-primary/20"
+                  >
+                    <Link to="/signup">Sign Up & Save</Link>
+                  </Button>
+                </div>
+              </div>
+            </section>
+          </div>
         </Motion>
       </div>
     </MaxWidthWrapper>
