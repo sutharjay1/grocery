@@ -3,16 +3,10 @@ import { Link } from "react-router-dom";
 import { formatPrice } from "@/lib/utils";
 
 const CategoryCard = ({ category }) => {
-  if (!category) {
-    return null; // Return null if category is undefined or null
-  }
-
+  console.log(category);
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-      <Link
-        to={category.href || "#"}
-        className="flex flex-col items-center p-3"
-      >
+      <Link to={category.href} className="flex flex-col items-center p-3">
         {category.imageSrc && (
           <img
             src={category.imageSrc}

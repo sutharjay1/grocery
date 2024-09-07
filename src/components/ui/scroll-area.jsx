@@ -4,13 +4,11 @@ const ScrollArea = React.forwardRef(
   ({ className, children, ...props }, ref) => (
     <div
       ref={ref}
-      className={`relative overflow-hidden ${className}`}
+      className={`relative overflow-scroll ${className}`}
       {...props}
     >
-      <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300 h-full w-full overflow-auto">
-        {children}
-      </div>
-      <ScrollBar orientation="vertical" />
+      <div className="h-full w-full overflow-y-auto">{children}</div>
+      {/* <ScrollBar orientation="vertical" /> */}
     </div>
   ),
 );

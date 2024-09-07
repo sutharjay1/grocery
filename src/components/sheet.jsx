@@ -4,6 +4,7 @@ import { X } from "lucide-react";
 import { cn, useOnClickOutside } from "../lib/utils";
 import { Button } from "./ui/button";
 import { useLocation } from "react-router-dom";
+import { ScrollArea } from "./ui/scroll-area";
 
 // Main Sheet Component
 const Sheet = ({ children }) => {
@@ -59,7 +60,7 @@ const SheetContent = ({ children, isOpen, toggleSheet, side = "right" }) => {
           <SheetOverlay />
           <motion.div
             ref={ref}
-            className={`fixed inset-y-0 ${side}-0 z-50 h-full w-full border-l border-zinc-900/40 bg-background p-6 shadow-lg transition-transform sm:max-w-md`}
+            className={`fixed inset-y-0 ${side}-0 z-50 flex h-full w-full flex-col border-l border-zinc-900/40 bg-background shadow-lg transition-transform sm:max-w-md`}
             initial="closed"
             animate="open"
             exit="closed"
@@ -70,12 +71,12 @@ const SheetContent = ({ children, isOpen, toggleSheet, side = "right" }) => {
               variant="ghost"
               size="icon"
               onClick={toggleSheet}
-              className="absolute right-6 top-6 rounded-md bg-black/5 p-2 opacity-70 transition-opacity hover:opacity-100"
+              className="absolute right-6 top-6 rounded-md bg-black/5 p-2 opacity-70 transition-opacity hover:opacity-100 z-50"
             >
               <X className="h-6 w-6" />
               <span className="sr-only">Close</span>
             </Button>
-            <div className="p-4">{children}</div>
+            <ScrollArea className="flex-grow p-6">{children}</ScrollArea>
           </motion.div>
         </>
       )}
@@ -109,7 +110,9 @@ const SheetDescription = ({ children }) => (
 
 // Footer Component
 const SheetFooter = ({ children }) => (
-  <div className="mt-4 flex justify-end space-x-2">{children}</div>
+  <div className="mt-auto flex justify-end space-x-2 border-t p-4">
+    {children}
+  </div>
 );
 
 // Close Component

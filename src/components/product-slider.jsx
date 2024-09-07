@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Carousel,
   CarouselContent,
@@ -8,19 +6,28 @@ import {
 import { cn } from "@/lib/utils";
 import React, { useState } from "react";
 
-const ProductSlider = ({ images, className, isHovered, setIsHovered }) => {
+const ProductSlider = ({
+  images,
+  className,
+  isHovered,
+  setIsHovered,
+  cursorX,
+  cursorY,
+  handleMouseMove,
+}) => {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className={cn("relative w-full py-8", className)}>
+    <div className={cn("relative w-full pb-8", className)}>
       <Carousel index={index} onIndexChange={setIndex}>
         <CarouselContent className="relative">
           {images?.map((src, i) => (
             <CarouselItem key={i} className="">
               <div
-                className="flex aspect-square items-center justify-center overflow-hidden rounded-lg"
+                className="flex h-[400px] items-center justify-center overflow-hidden rounded-lg"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                onMouseMove={handleMouseMove}
               >
                 <img
                   src={src}

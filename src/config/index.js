@@ -175,6 +175,7 @@ export const productsByCategory = {
       organic: ["organic"],
       color: ["orange"],
       category: "fresh-vegetables",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -193,6 +194,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["red", "yellow", "green"],
       category: "fresh-vegetables",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -211,6 +213,7 @@ export const productsByCategory = {
       organic: ["organic"],
       color: ["green"],
       category: "fresh-vegetables",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -229,6 +232,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["red"],
       category: "fresh-vegetables",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -247,6 +251,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["green"],
       category: "fresh-vegetables",
+      quantity: 1,
       rating: 4.1,
     },
     {
@@ -265,6 +270,7 @@ export const productsByCategory = {
       organic: ["organic"],
       color: ["green"],
       category: "fresh-vegetables",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -283,6 +289,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["green"],
       category: "fresh-vegetables",
+      quantity: 1,
       rating: 4.6,
     },
   ],
@@ -303,6 +310,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["red", "green"],
       category: "fruits",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -321,6 +329,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["yellow", "orange"],
       category: "fruits",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -339,6 +348,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["yellow"],
       category: "fruits",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -357,6 +367,7 @@ export const productsByCategory = {
       organic: ["organic"],
       color: ["orange"],
       category: "fruits",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -375,6 +386,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["green", "purple"],
       category: "fruits",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -393,6 +405,7 @@ export const productsByCategory = {
       organic: ["organic"],
       color: ["red"],
       category: "fruits",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -411,6 +424,7 @@ export const productsByCategory = {
       organic: ["organic"],
       color: ["blue"],
       category: "fruits",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -428,6 +442,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["yellow"],
       category: "fruits",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -446,6 +461,7 @@ export const productsByCategory = {
       organic: ["organic"],
       color: ["green", "brown"],
       category: "fruits",
+      quantity: 1,
       rating: 4.9,
     },
     {
@@ -464,6 +480,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["yellow", "orange"],
       category: "fruits",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -482,6 +499,7 @@ export const productsByCategory = {
       organic: ["organic"],
       color: ["orange", "red"],
       category: "fruits",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -500,6 +518,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["green", "red"],
       category: "fruits",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -518,6 +537,7 @@ export const productsByCategory = {
       organic: ["organic"],
       color: ["red"],
       category: "fruits",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -536,6 +556,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["green", "yellow"],
       category: "fruits",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -554,6 +575,7 @@ export const productsByCategory = {
       organic: ["organic"],
       color: ["purple", "red"],
       category: "fruits",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -572,6 +594,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       color: ["red"],
       category: "fruits",
+      quantity: 1,
       rating: 4.8,
     },
   ],
@@ -592,6 +615,7 @@ export const productsByCategory = {
       organic: ["organic"],
       packaging: ["carton"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -610,6 +634,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["plastic"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -628,6 +653,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["plastic"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -646,6 +672,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["foil"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -664,6 +691,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["plastic"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -682,6 +710,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["plastic"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -700,6 +729,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["plastic"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -718,6 +748,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["can"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.1,
     },
     {
@@ -736,6 +767,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["wax"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -754,6 +786,7 @@ export const productsByCategory = {
       organic: ["organic"],
       packaging: ["carton"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -772,6 +805,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["foil"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -790,6 +824,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["brine"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -808,6 +843,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["carton"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -826,6 +862,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["shaker"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -844,6 +881,7 @@ export const productsByCategory = {
       organic: ["organic"],
       packaging: ["carton"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -862,6 +900,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["plastic"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -880,6 +919,7 @@ export const productsByCategory = {
       organic: ["organic"],
       packaging: ["carton"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.1,
     },
     {
@@ -898,6 +938,7 @@ export const productsByCategory = {
       organic: ["conventional"],
       packaging: ["plastic"],
       category: "dairy-products",
+      quantity: 1,
       rating: 4.9,
     },
   ],
@@ -918,6 +959,7 @@ export const productsByCategory = {
       grain: ["wheat"],
       style: ["artisan"],
       category: "bakery",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -936,6 +978,7 @@ export const productsByCategory = {
       flavor: ["chocolate"],
       occasion: ["dessert"],
       category: "bakery",
+      quantity: 1,
       rating: 4.9,
     },
     {
@@ -954,6 +997,7 @@ export const productsByCategory = {
       grain: ["wheat"],
       style: ["French"],
       category: "bakery",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -972,6 +1016,7 @@ export const productsByCategory = {
       flavor: ["blueberry"],
       occasion: ["breakfast"],
       category: "bakery",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -982,7 +1027,7 @@ export const productsByCategory = {
       discount: 5,
       imageSrc: [
         "https://images.pexels.com/photos/1586947/pexels-photo-1586947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/2636385/pexels-photo-2636385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1586947/pexels-photo-1586947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         "https://images.pexels.com/photos/1387070/pexels-photo-1387070.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       ],
       href: "/products/sourdough-bread",
@@ -990,6 +1035,7 @@ export const productsByCategory = {
       grain: ["wheat"],
       style: ["sourdough"],
       category: "bakery",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -1008,6 +1054,7 @@ export const productsByCategory = {
       flavor: ["cinnamon"],
       occasion: ["dessert", "breakfast"],
       category: "bakery",
+      quantity: 1,
       rating: 4.9,
     },
     {
@@ -1026,6 +1073,7 @@ export const productsByCategory = {
       grain: ["wheat"],
       style: ["French"],
       category: "bakery",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -1044,6 +1092,7 @@ export const productsByCategory = {
       flavor: ["apple"],
       occasion: ["dessert"],
       category: "bakery",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -1062,6 +1111,7 @@ export const productsByCategory = {
       grain: ["whole wheat"],
       style: ["healthy"],
       category: "bakery",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1081,6 +1131,7 @@ export const productsByCategory = {
       flavor: ["chocolate"],
       occasion: ["snack", "dessert"],
       category: "bakery",
+      quantity: 1,
       rating: 4.9,
     },
     {
@@ -1099,6 +1150,7 @@ export const productsByCategory = {
       grain: ["rye"],
       style: ["traditional"],
       category: "bakery",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -1117,6 +1169,7 @@ export const productsByCategory = {
       flavor: ["carrot"],
       occasion: ["dessert"],
       category: "bakery",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -1135,6 +1188,7 @@ export const productsByCategory = {
       grain: ["wheat"],
       style: ["New York"],
       category: "bakery",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -1153,6 +1207,7 @@ export const productsByCategory = {
       flavor: ["lemon"],
       occasion: ["dessert"],
       category: "bakery",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -1171,6 +1226,7 @@ export const productsByCategory = {
       grain: ["wheat"],
       style: ["Italian"],
       category: "bakery",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1189,6 +1245,7 @@ export const productsByCategory = {
       flavor: ["banana"],
       occasion: ["breakfast", "snack"],
       category: "bakery",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1207,6 +1264,7 @@ export const productsByCategory = {
       flavor: ["fruit"],
       occasion: ["breakfast", "dessert"],
       category: "bakery",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1223,6 +1281,7 @@ export const productsByCategory = {
       href: "/products/garlic-bread",
       type: ["bread"],
       category: "bakery",
+      quantity: 1,
       rating: 4.6,
     },
   ],
@@ -1243,6 +1302,7 @@ export const productsByCategory = {
       petType: ["dog"],
       size: ["small", "medium", "large"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -1261,6 +1321,7 @@ export const productsByCategory = {
       petType: ["cat"],
       feature: ["interactive"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -1279,6 +1340,7 @@ export const productsByCategory = {
       petType: ["fish"],
       feature: ["tropical"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -1297,6 +1359,7 @@ export const productsByCategory = {
       petType: ["dog"],
       size: ["medium", "large"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -1315,6 +1378,7 @@ export const productsByCategory = {
       petType: ["cat"],
       material: ["sisal"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1333,6 +1397,7 @@ export const productsByCategory = {
       petType: ["small-animal"],
       size: ["medium"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -1351,6 +1416,7 @@ export const productsByCategory = {
       petType: ["bird"],
       feature: ["mixed-seeds"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -1369,6 +1435,7 @@ export const productsByCategory = {
       petType: ["dog"],
       material: ["nylon"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -1387,6 +1454,7 @@ export const productsByCategory = {
       petType: ["cat"],
       size: ["medium"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1405,6 +1473,7 @@ export const productsByCategory = {
       petType: ["reptile"],
       feature: ["adjustable"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -1423,6 +1492,7 @@ export const productsByCategory = {
       petType: ["fish"],
       size: ["medium"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -1441,6 +1511,7 @@ export const productsByCategory = {
       petType: ["small-animal"],
       feature: ["high-fiber"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1459,6 +1530,7 @@ export const productsByCategory = {
       petType: ["dog"],
       feature: ["multi-tool"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -1477,6 +1549,7 @@ export const productsByCategory = {
       petType: ["cat"],
       feature: ["filtered"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -1495,6 +1568,7 @@ export const productsByCategory = {
       petType: ["small-animal"],
       size: ["large"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1513,6 +1587,7 @@ export const productsByCategory = {
       petType: ["dog"],
       lifestage: ["adult"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -1531,6 +1606,7 @@ export const productsByCategory = {
       petType: ["cat"],
       feature: ["clumping", "odor-control"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.7,
     },
   ],
@@ -1550,6 +1626,7 @@ export const productsByCategory = {
       type: ["cleaning"],
       feature: ["high-efficiency"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -1567,6 +1644,7 @@ export const productsByCategory = {
       type: ["cleaning"],
       feature: ["grease-cutting"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -1584,6 +1662,7 @@ export const productsByCategory = {
       type: ["disposables"],
       feature: ["tear-resistant"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1601,6 +1680,7 @@ export const productsByCategory = {
       type: ["cleaning"],
       feature: ["multi-purpose"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -1618,6 +1698,7 @@ export const productsByCategory = {
       type: ["home-care"],
       feature: ["scented"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -1635,6 +1716,7 @@ export const productsByCategory = {
       type: ["paper-products"],
       feature: ["soft", "absorbent"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -1652,6 +1734,7 @@ export const productsByCategory = {
       type: ["cleaning"],
       feature: ["streak-free"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1669,6 +1752,7 @@ export const productsByCategory = {
       type: ["cleaning"],
       feature: ["disinfecting"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -1686,6 +1770,7 @@ export const productsByCategory = {
       type: ["laundry"],
       feature: ["scented"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -1703,6 +1788,7 @@ export const productsByCategory = {
       type: ["cleaning"],
       feature: ["set"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -1720,6 +1806,7 @@ export const productsByCategory = {
       type: ["kitchen"],
       feature: ["heavy-duty"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1737,6 +1824,7 @@ export const productsByCategory = {
       type: ["kitchen"],
       feature: ["reusable"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -1754,6 +1842,7 @@ export const productsByCategory = {
       type: ["cleaning"],
       feature: ["disinfectant"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -1771,6 +1860,7 @@ export const productsByCategory = {
       type: ["home-care"],
       feature: ["energy-efficient", "LED"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -1788,6 +1878,7 @@ export const productsByCategory = {
       type: ["electronics"],
       feature: ["alkaline"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.9,
     },
     {
@@ -1804,6 +1895,7 @@ export const productsByCategory = {
       href: "/products/all-purpose-cleaner",
       type: ["cleaner"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -1820,336 +1912,11 @@ export const productsByCategory = {
       href: "/products/paper-towels",
       type: ["paper-products"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
   ],
-  "meat-poultry": [
-    {
-      id: 46,
-      name: "Turkey Breast",
-      description: "Lean, boneless turkey breast.",
-      price: 799,
-      discount: 5,
-      imageSrc: [
-        "https://images.pexels.com/photos/265393/pexels-photo-265393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/265393/pexels-photo-265393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/265393/pexels-photo-265393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/turkey-breast",
-      type: ["poultry"],
-      cut: ["breast"],
-      preparation: ["boneless"],
-      category: "meat-poultry",
-      rating: 4.7,
-    },
-    {
-      id: 47,
-      name: "Lamb Chops",
-      description: "Tender, grass-fed lamb chops.",
-      price: 1299,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941013/pexels-photo-6941013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941013/pexels-photo-6941013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941013/pexels-photo-6941013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/lamb-chops",
-      type: ["lamb"],
-      cut: ["chop"],
-      preparation: ["grass-fed"],
-      category: "meat-poultry",
-      rating: 4.8,
-    },
-    {
-      id: 48,
-      name: "Beef Sirloin Steak",
-      description: "Premium cut sirloin steak.",
-      price: 1099,
-      discount: 10,
-      imageSrc: [
-        "https://images.pexels.com/photos/1639561/pexels-photo-1639561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1639561/pexels-photo-1639561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1639561/pexels-photo-1639561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/beef-sirloin-steak",
-      type: ["beef"],
-      cut: ["sirloin"],
-      preparation: ["steak"],
-      category: "meat-poultry",
-      rating: 4.9,
-    },
-    {
-      id: 49,
-      name: "Whole Chicken",
-      description: "Fresh, free-range whole chicken.",
-      price: 899,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/whole-chicken",
-      type: ["poultry"],
-      cut: ["whole"],
-      preparation: ["free-range"],
-      category: "meat-poultry",
-      rating: 4.6,
-    },
-    {
-      id: 50,
-      name: "Pork Tenderloin",
-      description: "Lean and tender pork tenderloin.",
-      price: 799,
-      discount: 5,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941010/pexels-photo-6941010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941010/pexels-photo-6941010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941010/pexels-photo-6941010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/pork-tenderloin",
-      type: ["pork"],
-      cut: ["tenderloin"],
-      preparation: ["lean"],
-      category: "meat-poultry",
-      rating: 4.7,
-    },
-    {
-      id: 51,
-      name: "Ground Turkey",
-      description: "Lean ground turkey meat.",
-      price: 599,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941014/pexels-photo-6941014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941014/pexels-photo-6941014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941014/pexels-photo-6941014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/ground-turkey",
-      type: ["poultry"],
-      cut: ["ground"],
-      preparation: ["lean"],
-      category: "meat-poultry",
-      rating: 4.5,
-    },
-    {
-      id: 52,
-      name: "Beef Ribeye Steak",
-      description: "Marbled and flavorful ribeye steak.",
-      price: 1499,
-      discount: 7,
-      imageSrc: [
-        "https://images.pexels.com/photos/1639561/pexels-photo-1639561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1639561/pexels-photo-1639561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1639561/pexels-photo-1639561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/beef-ribeye-steak",
-      type: ["beef"],
-      cut: ["ribeye"],
-      preparation: ["steak"],
-      category: "meat-poultry",
-      rating: 4.9,
-    },
-    {
-      id: 53,
-      name: "Chicken Thighs",
-      description: "Juicy, bone-in chicken thighs.",
-      price: 499,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/chicken-thighs",
-      type: ["poultry"],
-      cut: ["thigh"],
-      preparation: ["bone-in"],
-      category: "meat-poultry",
-      rating: 4.6,
-    },
-    {
-      id: 54,
-      name: "Pork Sausages",
-      description: "Flavorful pork sausages.",
-      price: 699,
-      discount: 5,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941015/pexels-photo-6941015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941015/pexels-photo-6941015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941015/pexels-photo-6941015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/pork-sausages",
-      type: ["pork"],
-      cut: ["sausage"],
-      preparation: ["seasoned"],
-      category: "meat-poultry",
-      rating: 4.7,
-    },
-    {
-      id: 55,
-      name: "Duck Breast",
-      description: "Rich and flavorful duck breast.",
-      price: 1299,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941016/pexels-photo-6941016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941016/pexels-photo-6941016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941016/pexels-photo-6941016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/duck-breast",
-      type: ["poultry"],
-      cut: ["breast"],
-      preparation: ["skin-on"],
-      category: "meat-poultry",
-      rating: 4.8,
-    },
-    {
-      id: 56,
-      name: "Beef Brisket",
-      description: "Tender beef brisket for slow cooking.",
-      price: 1099,
-      discount: 10,
-      imageSrc: [
-        "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/beef-brisket",
-      type: ["beef"],
-      cut: ["brisket"],
-      preparation: ["slow-cook"],
-      category: "meat-poultry",
-      rating: 4.7,
-    },
-    {
-      id: 57,
-      name: "Lamb Leg",
-      description: "Bone-in lamb leg roast.",
-      price: 1599,
-      discount: 5,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941017/pexels-photo-6941017.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941017/pexels-photo-6941017.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941017/pexels-photo-6941017.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/lamb-leg",
-      type: ["lamb"],
-      cut: ["leg"],
-      preparation: ["bone-in"],
-      category: "meat-poultry",
-      rating: 4.8,
-    },
-    {
-      id: 58,
-      name: "Veal Cutlets",
-      description: "Tender veal cutlets for quick cooking.",
-      price: 1399,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941018/pexels-photo-6941018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941018/pexels-photo-6941018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941018/pexels-photo-6941018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/veal-cutlets",
-      type: ["veal"],
-      cut: ["cutlet"],
-      preparation: ["thin-sliced"],
-      category: "meat-poultry",
-      rating: 4.6,
-    },
-    {
-      id: 59,
-      name: "Chicken Wings",
-      description: "Fresh chicken wings for grilling or frying.",
-      price: 599,
-      discount: 5,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941019/pexels-photo-6941019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941019/pexels-photo-6941019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941019/pexels-photo-6941019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/chicken-wings",
-      type: ["poultry"],
-      cut: ["wing"],
-      preparation: ["fresh"],
-      category: "meat-poultry",
-      rating: 4.7,
-    },
-    {
-      id: 60,
-      name: "Beef Short Ribs",
-      description: "Flavorful beef short ribs for braising.",
-      price: 1199,
-      discount: 7,
-      imageSrc: [
-        "https://images.pexels.com/photos/1639563/pexels-photo-1639563.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1639563/pexels-photo-1639563.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1639563/pexels-photo-1639563.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/beef-short-ribs",
-      type: ["beef"],
-      cut: ["short rib"],
-      preparation: ["braise"],
-      category: "meat-poultry",
-      rating: 4.7,
-    },
 
-    {
-      id: 9,
-      name: "Chicken Breasts",
-      description: "Boneless and skinless chicken breasts.",
-      price: 590,
-      discount: 7,
-      imageSrc: [
-        "https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/2673353/pexels-photo-2673353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/chicken-breasts",
-      type: ["poultry"],
-      cut: ["breast"],
-      preparation: ["boneless", "skinless"],
-      category: "meat-poultry",
-      rating: 4.6,
-    },
-    {
-      id: 10,
-      name: "Ground Beef",
-      description: "Lean ground beef.",
-      price: 405,
-      discount: 5,
-      imageSrc: [
-        "https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1639561/pexels-photo-1639561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/ground-beef",
-      type: ["beef"],
-      cut: ["ground"],
-      leanness: ["lean"],
-      category: "meat-poultry",
-      rating: 4.5,
-    },
-    {
-      id: 45,
-      name: "Pork Chops",
-      description: "Juicy bone-in pork chops.",
-      price: 699,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/6941010/pexels-photo-6941010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941011/pexels-photo-6941011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/6941012/pexels-photo-6941012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/pork-chops",
-      type: ["pork"],
-      cut: ["chop"],
-      preparation: ["bone-in"],
-      category: "meat-poultry",
-      rating: 4.6,
-    },
-  ],
   beverages: [
     {
       id: 61,
@@ -2167,6 +1934,7 @@ export const productsByCategory = {
       flavor: ["black"],
       packaging: ["bottle"],
       category: "beverages",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -2185,6 +1953,7 @@ export const productsByCategory = {
       flavor: ["coconut"],
       packaging: ["can"],
       category: "beverages",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -2203,6 +1972,7 @@ export const productsByCategory = {
       flavor: ["mixed berry"],
       packaging: ["bottle"],
       category: "beverages",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2221,6 +1991,7 @@ export const productsByCategory = {
       flavor: ["almond"],
       packaging: ["carton"],
       category: "beverages",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -2239,6 +2010,7 @@ export const productsByCategory = {
       flavor: ["original"],
       packaging: ["can"],
       category: "beverages",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -2257,6 +2029,7 @@ export const productsByCategory = {
       flavor: ["lemon"],
       packaging: ["bottle"],
       category: "beverages",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -2275,6 +2048,7 @@ export const productsByCategory = {
       flavor: ["black"],
       packaging: ["bottle"],
       category: "beverages",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2293,6 +2067,7 @@ export const productsByCategory = {
       flavor: ["chocolate"],
       packaging: ["bottle"],
       category: "beverages",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -2311,6 +2086,7 @@ export const productsByCategory = {
       flavor: ["coconut"],
       packaging: ["carton"],
       category: "beverages",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -2329,6 +2105,7 @@ export const productsByCategory = {
       flavor: ["mixed berry"],
       packaging: ["bottle"],
       category: "beverages",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -2347,6 +2124,7 @@ export const productsByCategory = {
       flavor: ["soy"],
       packaging: ["carton"],
       category: "beverages",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -2365,6 +2143,7 @@ export const productsByCategory = {
       flavor: ["vegetable"],
       packaging: ["bottle"],
       category: "beverages",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -2383,6 +2162,7 @@ export const productsByCategory = {
       flavor: ["lemon-lime"],
       packaging: ["can"],
       category: "beverages",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -2401,6 +2181,7 @@ export const productsByCategory = {
       flavor: ["chocolate"],
       packaging: ["tin"],
       category: "beverages",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -2419,6 +2200,7 @@ export const productsByCategory = {
       flavor: ["matcha"],
       packaging: ["tin"],
       category: "beverages",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -2437,6 +2219,7 @@ export const productsByCategory = {
       flavor: ["orange"],
       packaging: ["bottle"],
       category: "beverages",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2455,6 +2238,7 @@ export const productsByCategory = {
       carbonation: ["sparkling"],
       packaging: ["bottle"],
       category: "beverages",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2473,6 +2257,7 @@ export const productsByCategory = {
       flavor: ["green"],
       packaging: ["tea bags"],
       category: "beverages",
+      quantity: 1,
       rating: 4.5,
     },
   ],
@@ -2491,6 +2276,7 @@ export const productsByCategory = {
       href: "/products/body-lotion",
       type: ["skin-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2507,6 +2293,7 @@ export const productsByCategory = {
       href: "/products/facial-cleanser",
       type: ["skin-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -2523,6 +2310,7 @@ export const productsByCategory = {
       href: "/products/deodorant",
       type: ["personal-hygiene"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -2539,6 +2327,7 @@ export const productsByCategory = {
       href: "/products/hand-soap",
       type: ["personal-hygiene"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -2555,6 +2344,7 @@ export const productsByCategory = {
       href: "/products/sunscreen",
       type: ["skin-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -2571,6 +2361,7 @@ export const productsByCategory = {
       href: "/products/hair-conditioner",
       type: ["hair-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2587,6 +2378,7 @@ export const productsByCategory = {
       href: "/products/lip-balm",
       type: ["skin-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -2603,6 +2395,7 @@ export const productsByCategory = {
       href: "/products/face-mask",
       type: ["skin-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -2619,6 +2412,7 @@ export const productsByCategory = {
       href: "/products/nail-polish",
       type: ["nail-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -2635,6 +2429,7 @@ export const productsByCategory = {
       href: "/products/hair-styling-gel",
       type: ["hair-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -2651,6 +2446,7 @@ export const productsByCategory = {
       href: "/products/body-wash",
       type: ["personal-hygiene"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -2667,6 +2463,7 @@ export const productsByCategory = {
       href: "/products/facial-toner",
       type: ["skin-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2683,6 +2480,7 @@ export const productsByCategory = {
       href: "/products/dental-floss",
       type: ["oral-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -2699,6 +2497,7 @@ export const productsByCategory = {
       href: "/products/hand-cream",
       type: ["skin-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -2715,6 +2514,7 @@ export const productsByCategory = {
       href: "/products/razor",
       type: ["shaving"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2731,6 +2531,7 @@ export const productsByCategory = {
       href: "/products/shampoo",
       type: ["hair-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2747,6 +2548,7 @@ export const productsByCategory = {
       href: "/products/toothpaste",
       type: ["oral-care"],
       category: "personal-care",
+      quantity: 1,
       rating: 4.5,
     },
   ],
@@ -2765,6 +2567,7 @@ export const productsByCategory = {
       href: "/products/smartphone",
       type: ["mobile"],
       category: "electronics",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -2781,6 +2584,7 @@ export const productsByCategory = {
       href: "/products/laptop",
       type: ["computer"],
       category: "electronics",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -2797,6 +2601,7 @@ export const productsByCategory = {
       href: "/products/bluetooth-speaker",
       type: ["audio"],
       category: "electronics",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2813,6 +2618,7 @@ export const productsByCategory = {
       href: "/products/4k-smart-tv",
       type: ["television"],
       category: "electronics",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -2830,6 +2636,7 @@ export const productsByCategory = {
       href: "/products/digital-camera",
       type: ["camera"],
       category: "electronics",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -2846,6 +2653,7 @@ export const productsByCategory = {
       href: "/products/gaming-console",
       type: ["gaming"],
       category: "electronics",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -2862,6 +2670,7 @@ export const productsByCategory = {
       href: "/products/wireless-router",
       type: ["networking"],
       category: "electronics",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2878,6 +2687,7 @@ export const productsByCategory = {
       href: "/products/portable-ssd",
       type: ["storage"],
       category: "electronics",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -2894,6 +2704,7 @@ export const productsByCategory = {
       href: "/products/wireless-mouse",
       type: ["accessory"],
       category: "electronics",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -2910,6 +2721,7 @@ export const productsByCategory = {
       href: "/products/mechanical-keyboard",
       type: ["accessory"],
       category: "electronics",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -2927,6 +2739,7 @@ export const productsByCategory = {
       href: "/products/wireless-headphones",
       type: ["audio"],
       category: "electronics",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -2944,6 +2757,7 @@ export const productsByCategory = {
       href: "/products/smartwatch",
       type: ["wearable"],
       category: "electronics",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -2961,6 +2775,7 @@ export const productsByCategory = {
       href: "/products/tablet",
       type: ["mobile"],
       category: "electronics",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -2977,6 +2792,7 @@ export const productsByCategory = {
       href: "/products/smart-home-hub",
       type: ["smart-home"],
       category: "electronics",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -2994,6 +2810,7 @@ export const productsByCategory = {
       href: "/products/drone",
       type: ["camera"],
       category: "electronics",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -3010,6 +2827,7 @@ export const productsByCategory = {
       href: "/products/wireless-earbuds",
       type: ["audio"],
       category: "electronics",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -3026,6 +2844,7 @@ export const productsByCategory = {
       href: "/products/smart-watch",
       type: ["wearable"],
       category: "electronics",
+      quantity: 1,
       rating: 4.5,
     },
   ],
@@ -3045,6 +2864,7 @@ export const productsByCategory = {
       type: ["citrus"],
       organic: ["conventional"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -3062,6 +2882,7 @@ export const productsByCategory = {
       type: ["grape"],
       organic: ["conventional"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -3079,6 +2900,7 @@ export const productsByCategory = {
       type: ["tropical"],
       organic: ["conventional"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -3096,6 +2918,7 @@ export const productsByCategory = {
       type: ["berry"],
       organic: ["organic"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -3113,6 +2936,7 @@ export const productsByCategory = {
       type: ["tropical"],
       organic: ["conventional"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -3130,6 +2954,7 @@ export const productsByCategory = {
       type: ["exotic"],
       organic: ["conventional"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -3147,6 +2972,7 @@ export const productsByCategory = {
       type: ["melon"],
       organic: ["conventional"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.9,
     },
     {
@@ -3164,6 +2990,7 @@ export const productsByCategory = {
       type: ["stone fruit"],
       organic: ["organic"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -3181,6 +3008,7 @@ export const productsByCategory = {
       type: ["berry"],
       organic: ["organic"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -3198,6 +3026,7 @@ export const productsByCategory = {
       type: ["pome"],
       organic: ["conventional"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -3215,6 +3044,7 @@ export const productsByCategory = {
       type: ["stone fruit"],
       organic: ["conventional"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -3232,6 +3062,7 @@ export const productsByCategory = {
       type: ["stone fruit"],
       organic: ["organic"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -3249,6 +3080,7 @@ export const productsByCategory = {
       type: ["exotic"],
       organic: ["conventional"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -3266,6 +3098,7 @@ export const productsByCategory = {
       type: ["citrus"],
       organic: ["organic"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -3283,6 +3116,7 @@ export const productsByCategory = {
       type: ["berry"],
       organic: ["organic"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -3300,6 +3134,7 @@ export const productsByCategory = {
       type: ["apple"],
       organic: ["organic"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -3317,6 +3152,7 @@ export const productsByCategory = {
       type: ["banana"],
       organic: ["conventional"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -3334,6 +3170,7 @@ export const productsByCategory = {
       type: ["berry"],
       organic: ["conventional"],
       category: "fresh-fruits",
+      quantity: 1,
       rating: 4.5,
     },
   ],
@@ -3353,6 +3190,7 @@ export const productsByCategory = {
       type: ["popcorn"],
       flavor: ["salted"],
       category: "snacks",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -3370,6 +3208,7 @@ export const productsByCategory = {
       type: ["pretzels"],
       flavor: ["salted"],
       category: "snacks",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -3387,6 +3226,7 @@ export const productsByCategory = {
       type: ["gummy"],
       flavor: ["fruit"],
       category: "snacks",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -3404,6 +3244,7 @@ export const productsByCategory = {
       type: ["mix"],
       flavor: ["mixed"],
       category: "snacks",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -3421,6 +3262,7 @@ export const productsByCategory = {
       type: ["jerky"],
       flavor: ["original"],
       category: "snacks",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -3438,6 +3280,7 @@ export const productsByCategory = {
       type: ["bars"],
       flavor: ["honey"],
       category: "snacks",
+      quantity: 1,
       rating: 4.1,
     },
     {
@@ -3455,6 +3298,7 @@ export const productsByCategory = {
       type: ["rice-cakes"],
       flavor: ["plain"],
       category: "snacks",
+      quantity: 1,
       rating: 3.8,
     },
     {
@@ -3472,6 +3316,7 @@ export const productsByCategory = {
       type: ["chips"],
       flavor: ["vegetable"],
       category: "snacks",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -3489,6 +3334,7 @@ export const productsByCategory = {
       type: ["bars"],
       flavor: ["chocolate"],
       category: "snacks",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -3506,6 +3352,7 @@ export const productsByCategory = {
       type: ["dried-fruit"],
       flavor: ["mixed"],
       category: "snacks",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -3523,6 +3370,7 @@ export const productsByCategory = {
       type: ["seaweed"],
       flavor: ["sea-salt"],
       category: "snacks",
+      quantity: 1,
       rating: 3.9,
     },
     {
@@ -3540,6 +3388,7 @@ export const productsByCategory = {
       type: ["crackers"],
       flavor: ["cheese"],
       category: "snacks",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -3557,6 +3406,7 @@ export const productsByCategory = {
       type: ["chickpeas"],
       flavor: ["spicy"],
       category: "snacks",
+      quantity: 1,
       rating: 4.1,
     },
     {
@@ -3574,6 +3424,7 @@ export const productsByCategory = {
       type: ["chips"],
       flavor: ["herb"],
       category: "snacks",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -3591,6 +3442,7 @@ export const productsByCategory = {
       type: ["chips"],
       flavor: ["sea-salt"],
       category: "snacks",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -3608,6 +3460,7 @@ export const productsByCategory = {
       type: ["chips"],
       flavor: ["salted"],
       category: "snacks",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -3625,6 +3478,7 @@ export const productsByCategory = {
       type: ["nuts"],
       flavor: ["roasted"],
       category: "snacks",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -3642,6 +3496,7 @@ export const productsByCategory = {
       type: ["chocolate"],
       flavor: ["dark"],
       category: "snacks",
+      quantity: 1,
       rating: 4.0,
     },
   ],
@@ -3661,6 +3516,7 @@ export const productsByCategory = {
       type: ["chicken"],
       flavor: ["breaded"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -3678,6 +3534,7 @@ export const productsByCategory = {
       type: ["fish"],
       flavor: ["cod"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -3695,6 +3552,7 @@ export const productsByCategory = {
       type: ["fruit"],
       flavor: ["mixed berries"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -3712,6 +3570,7 @@ export const productsByCategory = {
       type: ["pasta"],
       flavor: ["beef"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -3729,6 +3588,7 @@ export const productsByCategory = {
       type: ["breakfast"],
       flavor: ["plain"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -3746,6 +3606,7 @@ export const productsByCategory = {
       type: ["meat"],
       flavor: ["Italian"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -3763,6 +3624,7 @@ export const productsByCategory = {
       type: ["vegetables"],
       flavor: ["Asian"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -3780,6 +3642,7 @@ export const productsByCategory = {
       type: ["breakfast"],
       flavor: ["egg and cheese"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.1,
     },
     {
@@ -3797,6 +3660,7 @@ export const productsByCategory = {
       type: ["seafood"],
       flavor: ["shrimp"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -3814,6 +3678,7 @@ export const productsByCategory = {
       type: ["dessert"],
       flavor: ["assorted fruit"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -3831,6 +3696,7 @@ export const productsByCategory = {
       type: ["vegetables"],
       flavor: ["spinach"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -3848,6 +3714,7 @@ export const productsByCategory = {
       type: ["bread"],
       flavor: ["garlic"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -3865,6 +3732,7 @@ export const productsByCategory = {
       type: ["Asian"],
       flavor: ["pork and vegetable"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -3882,6 +3750,7 @@ export const productsByCategory = {
       type: ["vegetables"],
       flavor: ["corn"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -3899,6 +3768,7 @@ export const productsByCategory = {
       type: ["pie"],
       flavor: ["chicken"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -3916,6 +3786,7 @@ export const productsByCategory = {
       type: ["pizza"],
       flavor: ["pepperoni"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -3933,6 +3804,7 @@ export const productsByCategory = {
       type: ["vegetables"],
       flavor: ["mixed"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -3950,6 +3822,7 @@ export const productsByCategory = {
       type: ["dessert"],
       flavor: ["vanilla"],
       category: "frozen-foods",
+      quantity: 1,
       rating: 4.5,
     },
   ],
@@ -3969,6 +3842,7 @@ export const productsByCategory = {
       type: ["spice"],
       flavor: ["peppery"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -3986,6 +3860,7 @@ export const productsByCategory = {
       type: ["herb"],
       flavor: ["oregano"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -4003,6 +3878,7 @@ export const productsByCategory = {
       type: ["spice"],
       flavor: ["earthy"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -4020,6 +3896,7 @@ export const productsByCategory = {
       type: ["spice"],
       flavor: ["sweet"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -4037,6 +3914,7 @@ export const productsByCategory = {
       type: ["herb"],
       flavor: ["thyme"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.1,
     },
     {
@@ -4054,6 +3932,7 @@ export const productsByCategory = {
       type: ["herb"],
       flavor: ["rosemary"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -4071,6 +3950,7 @@ export const productsByCategory = {
       type: ["spice"],
       flavor: ["garlic"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -4088,6 +3968,7 @@ export const productsByCategory = {
       type: ["spice"],
       flavor: ["spicy"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -4105,6 +3986,7 @@ export const productsByCategory = {
       type: ["spice"],
       flavor: ["earthy"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -4122,6 +4004,7 @@ export const productsByCategory = {
       type: ["herb"],
       flavor: ["bay"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -4139,6 +4022,7 @@ export const productsByCategory = {
       type: ["spice"],
       flavor: ["nutty"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -4156,6 +4040,7 @@ export const productsByCategory = {
       type: ["herb"],
       flavor: ["sage"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.1,
     },
     {
@@ -4173,6 +4058,7 @@ export const productsByCategory = {
       type: ["spice"],
       flavor: ["aromatic"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -4190,6 +4076,7 @@ export const productsByCategory = {
       type: ["herb"],
       flavor: ["dill"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -4207,6 +4094,7 @@ export const productsByCategory = {
       type: ["spice"],
       flavor: ["anise-like"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -4224,6 +4112,7 @@ export const productsByCategory = {
       type: ["herb"],
       flavor: ["basil"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -4241,6 +4130,7 @@ export const productsByCategory = {
       type: ["spice"],
       flavor: ["cinnamon"],
       category: "spices-herbs",
+      quantity: 1,
       rating: 4.0,
     },
   ],
@@ -4260,6 +4150,7 @@ export const productsByCategory = {
       type: ["oil"],
       flavor: ["olive"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -4277,6 +4168,7 @@ export const productsByCategory = {
       type: ["baking"],
       flavor: ["wheat"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -4294,6 +4186,7 @@ export const productsByCategory = {
       type: ["sweetener"],
       flavor: ["sweet"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -4311,6 +4204,7 @@ export const productsByCategory = {
       type: ["canned-good"],
       flavor: ["bean"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -4328,6 +4222,7 @@ export const productsByCategory = {
       type: ["broth"],
       flavor: ["chicken"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -4345,6 +4240,7 @@ export const productsByCategory = {
       type: ["spread"],
       flavor: ["peanut"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -4362,6 +4258,7 @@ export const productsByCategory = {
       type: ["sweetener"],
       flavor: ["honey"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.9,
     },
     {
@@ -4379,6 +4276,7 @@ export const productsByCategory = {
       type: ["condiment"],
       flavor: ["salty", "umami"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -4396,6 +4294,7 @@ export const productsByCategory = {
       type: ["condiment"],
       flavor: ["sour"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -4413,6 +4312,7 @@ export const productsByCategory = {
       type: ["canned-good"],
       flavor: ["coconut"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -4430,6 +4330,7 @@ export const productsByCategory = {
       type: ["condiment"],
       flavor: ["tangy"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -4447,6 +4348,7 @@ export const productsByCategory = {
       type: ["grain"],
       flavor: ["oat"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -4464,6 +4366,7 @@ export const productsByCategory = {
       type: ["baking"],
       flavor: ["neutral"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -4481,6 +4384,7 @@ export const productsByCategory = {
       type: ["baking"],
       flavor: ["vanilla"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.9,
     },
     {
@@ -4498,6 +4402,7 @@ export const productsByCategory = {
       type: ["baking"],
       flavor: ["neutral"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -4515,6 +4420,7 @@ export const productsByCategory = {
       type: ["canned-good"],
       flavor: ["tomato"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -4532,6 +4438,7 @@ export const productsByCategory = {
       type: ["pasta"],
       flavor: ["wheat"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -4549,6 +4456,7 @@ export const productsByCategory = {
       type: ["rice"],
       flavor: ["plain"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -4566,6 +4474,7 @@ export const productsByCategory = {
       type: ["oil"],
       flavor: ["olive"],
       category: "pantry-staples",
+      quantity: 1,
       rating: 4.0,
     },
   ],
@@ -4585,6 +4494,7 @@ export const productsByCategory = {
       type: ["quinoa"],
       flavor: ["nutty"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -4602,6 +4512,7 @@ export const productsByCategory = {
       type: ["barley"],
       flavor: ["earthy"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -4619,6 +4530,7 @@ export const productsByCategory = {
       type: ["couscous"],
       flavor: ["wheat"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -4636,6 +4548,7 @@ export const productsByCategory = {
       type: ["millet"],
       flavor: ["mild"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -4653,6 +4566,7 @@ export const productsByCategory = {
       type: ["buckwheat"],
       flavor: ["nutty"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -4670,6 +4584,7 @@ export const productsByCategory = {
       type: ["cornmeal"],
       flavor: ["corn"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -4687,6 +4602,7 @@ export const productsByCategory = {
       type: ["farro"],
       flavor: ["nutty"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -4704,6 +4620,7 @@ export const productsByCategory = {
       type: ["bulgur"],
       flavor: ["wheat"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -4721,6 +4638,7 @@ export const productsByCategory = {
       type: ["amaranth"],
       flavor: ["peppery"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -4738,6 +4656,7 @@ export const productsByCategory = {
       type: ["spelt"],
       flavor: ["nutty"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -4755,6 +4674,7 @@ export const productsByCategory = {
       type: ["teff"],
       flavor: ["mild"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -4772,6 +4692,7 @@ export const productsByCategory = {
       type: ["sorghum"],
       flavor: ["sweet"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -4789,6 +4710,7 @@ export const productsByCategory = {
       type: ["rice"],
       flavor: ["nutty"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -4806,6 +4728,7 @@ export const productsByCategory = {
       type: ["rye"],
       flavor: ["earthy"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -4823,6 +4746,7 @@ export const productsByCategory = {
       type: ["kamut"],
       flavor: ["buttery"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -4840,6 +4764,7 @@ export const productsByCategory = {
       type: ["oat"],
       flavor: ["plain"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.0,
     },
     {
@@ -4857,6 +4782,7 @@ export const productsByCategory = {
       type: ["granola"],
       flavor: ["mixed"],
       category: "cereals-grains",
+      quantity: 1,
       rating: 4.0,
     },
   ],
@@ -4876,6 +4802,7 @@ export const productsByCategory = {
       type: ["sauce"],
       flavor: ["smoky", "tangy"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -4893,6 +4820,7 @@ export const productsByCategory = {
       type: ["sauce"],
       flavor: ["salty", "umami"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -4910,6 +4838,7 @@ export const productsByCategory = {
       type: ["sauce"],
       flavor: ["spicy"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -4927,6 +4856,7 @@ export const productsByCategory = {
       type: ["condiment"],
       flavor: ["creamy"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -4944,6 +4874,7 @@ export const productsByCategory = {
       type: ["oil"],
       flavor: ["olive"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -4961,6 +4892,7 @@ export const productsByCategory = {
       type: ["vinegar"],
       flavor: ["tangy", "sweet"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -4978,6 +4910,7 @@ export const productsByCategory = {
       type: ["sauce"],
       flavor: ["basil", "garlic"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -4995,6 +4928,7 @@ export const productsByCategory = {
       type: ["sauce"],
       flavor: ["sweet", "savory"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -5012,6 +4946,7 @@ export const productsByCategory = {
       type: ["dressing"],
       flavor: ["creamy", "herbal"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.1,
     },
     {
@@ -5029,6 +4964,7 @@ export const productsByCategory = {
       type: ["sauce"],
       flavor: ["spicy", "garlicky"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -5046,6 +4982,7 @@ export const productsByCategory = {
       type: ["sauce"],
       flavor: ["sweet", "tangy"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -5063,6 +5000,7 @@ export const productsByCategory = {
       type: ["sauce"],
       flavor: ["savory", "tangy"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -5080,6 +5018,7 @@ export const productsByCategory = {
       type: ["paste"],
       flavor: ["nutty", "creamy"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5097,6 +5036,7 @@ export const productsByCategory = {
       type: ["sauce"],
       flavor: ["savory", "umami"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -5114,6 +5054,7 @@ export const productsByCategory = {
       type: ["sauce"],
       flavor: ["sweet", "savory"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -5131,6 +5072,7 @@ export const productsByCategory = {
       type: ["ketchup"],
       flavor: ["tomato"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5148,6 +5090,7 @@ export const productsByCategory = {
       type: ["mustard"],
       flavor: ["dijon"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.2,
     },
 
@@ -5166,6 +5109,7 @@ export const productsByCategory = {
       type: ["mustard"],
       flavor: ["dijon"],
       category: "condiments-sauces",
+      quantity: 1,
       rating: 4.2,
     },
   ],
@@ -5185,6 +5129,7 @@ export const productsByCategory = {
       type: ["supplement"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -5202,6 +5147,7 @@ export const productsByCategory = {
       type: ["vitamin"],
       flavor: ["orange"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -5219,6 +5165,7 @@ export const productsByCategory = {
       type: ["supplement"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -5236,6 +5183,7 @@ export const productsByCategory = {
       type: ["supplement"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5253,6 +5201,7 @@ export const productsByCategory = {
       type: ["vitamin"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -5270,6 +5219,7 @@ export const productsByCategory = {
       type: ["supplement"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -5287,6 +5237,7 @@ export const productsByCategory = {
       type: ["protein-powder"],
       flavor: ["chocolate"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -5304,6 +5255,7 @@ export const productsByCategory = {
       type: ["supplement"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5321,6 +5273,7 @@ export const productsByCategory = {
       type: ["supplement"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -5338,6 +5291,7 @@ export const productsByCategory = {
       type: ["supplement"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -5355,6 +5309,7 @@ export const productsByCategory = {
       type: ["vitamin"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -5372,6 +5327,7 @@ export const productsByCategory = {
       type: ["supplement"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5389,6 +5345,7 @@ export const productsByCategory = {
       type: ["vitamin"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -5406,6 +5363,7 @@ export const productsByCategory = {
       type: ["supplement"],
       flavor: ["turmeric"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -5423,6 +5381,7 @@ export const productsByCategory = {
       type: ["supplement"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5440,6 +5399,7 @@ export const productsByCategory = {
       type: ["vitamin"],
       flavor: ["unflavored"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5457,6 +5417,7 @@ export const productsByCategory = {
       type: ["protein-powder"],
       flavor: ["vanilla"],
       category: "health-wellness",
+      quantity: 1,
       rating: 4.5,
     },
   ],
@@ -5476,6 +5437,7 @@ export const productsByCategory = {
       type: ["litter"],
       petType: ["cat"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.2,
     },
     {
@@ -5493,6 +5455,7 @@ export const productsByCategory = {
       type: ["accessory"],
       petType: ["dog"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -5510,6 +5473,7 @@ export const productsByCategory = {
       type: ["food"],
       petType: ["fish"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -5527,6 +5491,7 @@ export const productsByCategory = {
       type: ["housing"],
       petType: ["bird"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -5544,6 +5509,7 @@ export const productsByCategory = {
       type: ["toy"],
       petType: ["hamster", "gerbil"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.4,
     },
     {
@@ -5561,6 +5527,7 @@ export const productsByCategory = {
       type: ["furniture"],
       petType: ["cat"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -5578,6 +5545,7 @@ export const productsByCategory = {
       type: ["bedding"],
       petType: ["dog"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.9,
     },
     {
@@ -5595,6 +5563,7 @@ export const productsByCategory = {
       type: ["equipment"],
       petType: ["fish"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5612,6 +5581,7 @@ export const productsByCategory = {
       type: ["grooming"],
       petType: ["dog", "cat"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -5629,6 +5599,7 @@ export const productsByCategory = {
       type: ["equipment"],
       petType: ["reptile"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.3,
     },
     {
@@ -5646,6 +5617,7 @@ export const productsByCategory = {
       type: ["accessory"],
       petType: ["dog", "cat"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.7,
     },
     {
@@ -5663,6 +5635,7 @@ export const productsByCategory = {
       type: ["housing"],
       petType: ["hamster", "gerbil", "mouse"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5680,6 +5653,7 @@ export const productsByCategory = {
       type: ["food"],
       petType: ["dog"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.8,
     },
     {
@@ -5697,6 +5671,7 @@ export const productsByCategory = {
       type: ["travel"],
       petType: ["cat"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.6,
     },
     {
@@ -5714,6 +5689,7 @@ export const productsByCategory = {
       type: ["grooming"],
       petType: ["dog", "cat"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5731,6 +5707,7 @@ export const productsByCategory = {
       type: ["food"],
       petType: ["dog"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5748,6 +5725,7 @@ export const productsByCategory = {
       type: ["toy"],
       petType: ["cat"],
       category: "pet-supplies",
+      quantity: 1,
       rating: 4.5,
     },
   ],
@@ -5766,6 +5744,7 @@ export const productsByCategory = {
       href: "/products/laundry-detergent",
       type: ["cleaning"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5782,6 +5761,7 @@ export const productsByCategory = {
       href: "/products/paper-towels",
       type: ["cleaning"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5798,6 +5778,7 @@ export const productsByCategory = {
       href: "/products/dish-soap",
       type: ["cleaning"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5814,6 +5795,7 @@ export const productsByCategory = {
       href: "/products/trash-bags",
       type: ["cleaning"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5830,6 +5812,7 @@ export const productsByCategory = {
       href: "/products/hand-soap",
       type: ["personal-care"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5846,6 +5829,7 @@ export const productsByCategory = {
       href: "/products/toilet-paper",
       type: ["personal-care"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5862,6 +5846,7 @@ export const productsByCategory = {
       href: "/products/air-freshener",
       type: ["cleaning"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5878,6 +5863,7 @@ export const productsByCategory = {
       href: "/products/sponges",
       type: ["cleaning"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5894,6 +5880,7 @@ export const productsByCategory = {
       href: "/products/shampoo",
       type: ["personal-care"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5910,6 +5897,7 @@ export const productsByCategory = {
       href: "/products/conditioner",
       type: ["personal-care"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5926,6 +5914,7 @@ export const productsByCategory = {
       href: "/products/deodorant",
       type: ["personal-care"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5942,6 +5931,7 @@ export const productsByCategory = {
       href: "/products/facial-tissues",
       type: ["personal-care"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5958,6 +5948,7 @@ export const productsByCategory = {
       href: "/products/dishwasher-detergent",
       type: ["cleaning"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5974,6 +5965,7 @@ export const productsByCategory = {
       href: "/products/light-bulbs",
       type: ["home-improvement"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -5990,6 +5982,7 @@ export const productsByCategory = {
       href: "/products/batteries",
       type: ["electronics"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -6006,6 +5999,7 @@ export const productsByCategory = {
       href: "/products/all-purpose-cleaner",
       type: ["cleaning"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
     {
@@ -6022,6 +6016,7 @@ export const productsByCategory = {
       href: "/products/toothpaste",
       type: ["personal-care"],
       category: "household-essentials",
+      quantity: 1,
       rating: 4.5,
     },
   ],

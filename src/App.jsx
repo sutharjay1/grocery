@@ -9,6 +9,7 @@ import Product from "./screen/Product";
 import Search from "./screen/Search";
 import Categories from "./screen/Categories";
 import Checkout from "./screen/Checkout";
+import toast, { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
         <NavBar />
         <main className="font-poppins w-full flex-1">
           <AppRouter />
-        </main>
+        </main>{" "}
+        <Toaster />
         {/* <Footer /> */}
       </div>
     </BrowserRouter>

@@ -13,8 +13,12 @@ import Hint from "../hint";
 import { ScrollArea } from "../ui/scroll-area";
 import { Separator } from "../ui/separator";
 import CartItem from "./cart-item";
+import toast, { Toaster } from "react-hot-toast";
 
-const   Cart = () => {
+// Remove the import for react-hot-toast
+// import toast, { Toaster } from "react-hot-toast";
+
+const Cart = () => {
   const [items, setItems] = useState([]);
   const [itemCount, setItemCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -48,13 +52,15 @@ const   Cart = () => {
 
   useEffect(() => {
     const intervalId = setInterval(updateCart, 500); // Check for updates every second
-
+    // Remove the toast notification
+    toast.success("Cart updated");
     return () => clearInterval(intervalId);
   }, []);
 
   return (
     <>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <Toaster />
         <Sheet.Trigger className="group -m-2 flex items-center p-2">
           <Hint
             label={<p>Cart</p>}
@@ -62,7 +68,7 @@ const   Cart = () => {
             align="center"
             alignOffset={10}
           >
-            <div className=" flex items-center p-1">
+            <div className="flex items-center p-1">
               <ShoppingCartIcon
                 aria-hidden="true"
                 className="h-6 w-6 flex-shrink-0 text-zinc-600 group-hover:text-zinc-700 dark:text-zinc-400"
@@ -73,36 +79,35 @@ const   Cart = () => {
             </div>
           </Hint>
         </Sheet.Trigger>
-        <Sheet.Content className="flex w-full flex-col items-center justify-center sm:max-w-lg">
+        <Sheet.Content>
           <Sheet.Header className="font-polySansMedian space-y-2.5 pr-6 font-medium">
             <Sheet.Title>Cart ({itemCount})</Sheet.Title>
           </Sheet.Header>
           {itemCount > 0 ? (
-            <>
-              <div className="flex w-full flex-1 flex-col pr-6">
-                <ScrollArea>
+            <div className="flex h-full flex-col">
+              <ScrollArea className="flex-grow">
+                <div className="space-y-4 pr-6">
                   {items.map((item) => (
                     <CartItem product={item} key={item.id} />
                   ))}
-                </ScrollArea>
-              </div>
-              <div className="space-y-4">
+                </div>
+              </ScrollArea>
+              <div className="space-y-4 pt-6 sm:pt-2">
                 <Separator />
                 <div className="space-y-1.5 text-sm">
                   <div className="flex">
-                    <span className={cn("flex-1")}>Shipping</span>
+                    <span className="flex-1">Shipping</span>
                     <span>Free</span>
                   </div>
                   <div className="flex">
-                    <span className={cn("flex-1")}>Transaction Fee</span>
+                    <span className="flex-1">Transaction Fee</span>
                     <span>{formatPrice(fee)}</span>
                   </div>
                   <div className="flex">
-                    <span className={cn("flex-1")}>Total</span>
+                    <span className="flex-1">Total</span>
                     <span>{formatPrice(cartTotal + fee)}</span>
                   </div>
                 </div>
-
                 <Sheet.Footer>
                   <Sheet.Close asChild>
                     <Link
@@ -111,29 +116,31 @@ const   Cart = () => {
                         className: "w-full",
                       })}
                     >
-                      <Button className="w-full">Checkout</Button>
+                      Checkout
                     </Link>
                   </Sheet.Close>
                 </Sheet.Footer>
               </div>
-            </>
+            </div>
           ) : (
-            <div className="flex h-full w-full flex-col items-center justify-center space-y-1">
+            <div className="flex h-full flex-col items-center justify-center space-y-1">
               <div className="font-polySansMedian text-2xl font-medium">
                 Your cart is empty
               </div>
-              <Sheet.Close asChild>
-                <Link
-                  to="/product"
-                  className={buttonVariants({
-                    variant: "link",
-                    size: "sm",
-                    className: "text-lg text-muted-foreground",
-                  })}
-                >
-                  Add items to your cart to checkout
-                </Link>
-              </Sheet.Close>
+              <Sheet.Footer>
+                <Sheet.Close asChild>
+                  <Link
+                    to="/product"
+                    className={buttonVariants({
+                      variant: "link",
+                      size: "sm",
+                      className: "text-lg text-muted-foreground",
+                    })}
+                  >
+                    Add items to your cart to checkout
+                  </Link>
+                </Sheet.Close>
+              </Sheet.Footer>
             </div>
           )}
         </Sheet.Content>

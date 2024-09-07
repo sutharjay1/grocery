@@ -9,8 +9,8 @@ import { Link, useLocation } from "react-router-dom";
 import { wishlistStorage } from "@/hook/wishlistStorage";
 import Hint from "./hint";
 import { ScrollArea } from "./ui/scroll-area";
-import { Separator } from "./ui/separator";
 import CartItem from "./cart/cart-item";
+import { Separator } from "./ui/separator";
 
 const Heart = () => {
   const [items, setItems] = useState([]);
@@ -27,11 +27,6 @@ const Heart = () => {
     const wishlistItems = wishlistStorage.getItems();
     setItems(wishlistItems);
     setItemCount(wishlistItems.length);
-  };
-
-  const removeItem = (id) => {
-    wishlistStorage.removeItem(id);
-    updateWishlist();
   };
 
   useEffect(() => {
@@ -63,7 +58,7 @@ const Heart = () => {
             align="center"
             alignOffset={10}
           >
-            <div className=" flex items-center p-1">
+            <div className="flex items-center p-1">
               <HeartIcon
                 aria-hidden="true"
                 className="h-6 w-6 flex-shrink-0 text-zinc-600 group-hover:text-zinc-700 dark:text-zinc-400"
@@ -74,48 +69,41 @@ const Heart = () => {
             </div>
           </Hint>
         </Sheet.Trigger>
-        <Sheet.Content className="flex w-full flex-col items-center justify-center sm:max-w-lg">
+        <Sheet.Content>
           <Sheet.Header className="font-polySansMedian space-y-2.5 pr-6 font-medium">
             <Sheet.Title>Favorites ({itemCount})</Sheet.Title>
           </Sheet.Header>
           {itemCount > 0 ? (
-            <>
-              <div className="flex w-full flex-1 flex-col pr-6">
-                <ScrollArea>
+            <div className="flex h-full flex-col">
+              <ScrollArea className="h-screen flex-grow">
+                <div className="space-y-4 pr-6">
                   {items.map((item) => (
-                    <CartItem
-                      product={item}
-                      key={item.id}
-                      removeItem={() => removeItem(item.id)}
-                    />
+                    <CartItem product={item} key={item.id} />
                   ))}
-                </ScrollArea>
-              </div>
-              <div className="space-y-4">
+                </div>
+              </ScrollArea>
+              <div className="space-y-4 pt-6">
                 <Separator />
                 <div className="space-y-1.5 text-sm">
                   <div className="flex">
-                    <span className={cn("flex-1")}>Total</span>
+                    <span className="flex-1">Total</span>
                     <span>{formatPrice(wishlistTotal)}</span>
                   </div>
                 </div>
-
-                <Sheet.Footer>
-                  <Sheet.Close asChild>
-                    <Link
-                      to="/cart"
-                      className={buttonVariants({
-                        className: "w-full",
-                      })}
-                    >
-                      <Button className="w-full">Add to Cart</Button>
-                    </Link>
-                  </Sheet.Close>
-                </Sheet.Footer>
+                <Sheet.Close asChild>
+                  <Link
+                    to="/cart"
+                    className={buttonVariants({
+                      className: "w-full",
+                    })}
+                  >
+                    Add to Cart
+                  </Link>
+                </Sheet.Close>
               </div>
-            </>
+            </div>
           ) : (
-            <div className="flex h-full w-full flex-col items-center justify-center space-y-1">
+            <div className="flex h-full flex-col items-center justify-center space-y-1">
               <div className="font-polySansMedian text-2xl font-medium">
                 Your favorites is empty
               </div>
