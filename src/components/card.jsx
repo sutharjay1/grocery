@@ -12,27 +12,27 @@ const Card = ({ product, index, showDescription = true }) => {
     : product.price;
 
   return (
-    <Link to={product.href} className="w-full">
-      <div
-        key={index}
-        className="flex h-[26rem] w-full flex-col rounded-lg border bg-[#fbfcfc]"
-        draggable={false}
-        onSelect={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-        }}
-      >
-        <div className="relative h-[200px] w-full">
-          <ImageSlider images={product.imageSrc} />
-          {product.discount > 0 && (
-            <span className="absolute left-2 top-2 mb-2 mr-2 inline-block rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white">
-              {product.discount}% OFF
-            </span>
-          )}
-        </div>
+    <div
+      key={index}
+      className="flex h-[26rem] w-full flex-col rounded-lg border bg-[#fbfcfc]"
+      draggable={false}
+      onSelect={(e) => {
+        e.stopPropagation();
+        e.preventDefault();
+      }}
+    >
+      <div className="relative h-[200px] w-full">
+        <ImageSlider images={product.imageSrc} />
+        {product.discount > 0 && (
+          <span className="absolute left-2 top-2 mb-2 mr-2 inline-block rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white">
+            {product.discount}% OFF
+          </span>
+        )}
+      </div>{" "}
+      <Link to={product.href} className="flex w-full flex-grow">
         <div className="flex flex-1 flex-col justify-between p-4">
           <div className="space-y-2">
-            <span className="inline-flex items-center truncate text-xl font-semibold">
+            <span className="inline-flex flex-wrap items-center truncate text-xl font-semibold">
               {product.name}
             </span>
             {showDescription && (
@@ -93,9 +93,9 @@ const Card = ({ product, index, showDescription = true }) => {
               />
             </div>
           </div>
-        </div>
-      </div>
-    </Link>
+        </div>{" "}
+      </Link>
+    </div>
   );
 };
 

@@ -274,7 +274,7 @@ const Home = () => {
                   {randomProducts.map((product, index) => (
                     <CarouselItem
                       key={index}
-                      className="w-full basis-full snap-center auto-rows-[26rem] sm:basis-1/3 lg:basis-1/6"
+                      className="w-full basis-full snap-center auto-rows-[26rem] sm:basis-1/3 lg:basis-1/5"
                     >
                       <Card index={index} product={product} />
                     </CarouselItem>

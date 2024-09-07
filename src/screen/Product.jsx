@@ -53,7 +53,6 @@ const Product = () => {
     cartStorage.updateItemQuantity(product.id, newQuantity);
   };
 
-
   const handleIncreaseQuantity = () => {
     handleQuantityChange(quantity + 1);
   };
@@ -100,7 +99,7 @@ const Product = () => {
                       <img
                         src={src}
                         alt={`Product image ${i + 1}`}
-                        className="h-full w-full object-cover "
+                        className="h-full w-full object-cover"
                         draggable={false}
                       />
                     </div>
@@ -133,7 +132,9 @@ const Product = () => {
         <div className="relative pt-8 lg:pt-0">
           {isHovered && (
             <div
-              className={cn("hidden lg:flex absolute inset-0 z-50 h-[80%] w-full overflow-hidden rounded-lg bg-black/50")}
+              className={cn(
+                "absolute inset-0 z-50 hidden h-[80%] w-full overflow-hidden rounded-lg bg-black/50 lg:flex",
+              )}
               style={{
                 backgroundImage: `url(${images[index]})`,
                 backgroundPosition: `${cursorPosition.x}% ${cursorPosition.y}%`,

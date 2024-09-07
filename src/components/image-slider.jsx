@@ -32,7 +32,8 @@ const ImageSlider = ({ images, className }) => {
         <button
           style={imgIndex === 0 ? { opacity: 0 } : {}}
           className="pointer-events-auto h-fit w-fit rounded-full bg-white/80 p-2 opacity-0 transition-all group-hover:opacity-100"
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             if (imgIndex > 0) {
               setImgIndex((prevIndex) => prevIndex - 1);
             }
@@ -43,7 +44,8 @@ const ImageSlider = ({ images, className }) => {
         <button
           style={imgIndex === images?.length - 1 ? { opacity: 0 } : {}}
           className="pointer-events-auto h-fit w-fit rounded-full bg-white/80 p-2 opacity-0 transition-all group-hover:opacity-100"
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             if (imgIndex < images?.length - 1) {
               setImgIndex((prevIndex) => prevIndex + 1);
             }

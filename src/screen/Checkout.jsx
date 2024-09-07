@@ -82,13 +82,13 @@ const Checkout = () => {
       paddingY="large"
       className="px-3 pt-8 selection:bg-teal-500/30"
     >
-      <div className="">
+      <div className="relative h-full">
         <div className="mx-auto max-w-2xl pb-24 pt-[4.8rem] sm:pt-0 lg:max-w-7xl lg:pt-16">
-          <h1 className="h-full font-polySansMedian text-3xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
+          <h1 className="font-polySansMedian h-full text-3xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
             Your Shopping Bag
           </h1>
 
-          <div className="h-full mt-8 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
+          <div className="mt-8 h-full lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
             <div
               className={cn("lg:col-span-7", {
                 "rounded-lg border-[1.2px] border-dashed border-zinc-400 p-12 dark:border-zinc-200/30":
@@ -187,7 +187,7 @@ const Checkout = () => {
                                 <div className="flex justify-between">
                                   <h3 className="text-sm">
                                     <Link
-                                      to={`/product/${product.name.toLowerCase()}`}
+                                      to={`/products/${product.name.toLowerCase().replace(" ", "-")}`}
                                       className="font-medium text-zinc-700 hover:text-zinc-800 dark:text-zinc-200 dark:hover:text-zinc-100"
                                     >
                                       {product.name}
@@ -211,13 +211,6 @@ const Checkout = () => {
 
                                   <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
                                     Quantity: {product.quantity}
-                                  </p>
-                                  <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                    Size: {product.product?.details.size}
-                                  </p>
-                                  <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                    Pack: {product.product?.details.quantity}{" "}
-                                    pcs
                                   </p>
                                 </div>
                               </div>
@@ -250,13 +243,13 @@ const Checkout = () => {
               </ul>
             </div>
 
-            <div className="mt-4 lg:col-span-5 lg:mt-0 h-full">
+            <div className="mt-4 h-full lg:col-span-5 lg:mt-0">
               <motion.section
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
                 className={cn(
-                  "rounded-lg border-[0.5px] border-zinc-200 px-4 py-6 dark:border-zinc-200/20 sm:p-6 lg:p-8 lg:sticky lg:top-20",
+                  "rounded-lg border-[0.5px] border-zinc-200 px-4 py-6 dark:border-zinc-200/20 sm:p-6 lg:sticky lg:top-20 lg:p-8",
                 )}
               >
                 <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">

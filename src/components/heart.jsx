@@ -1,5 +1,3 @@
-"use client";
-
 import Sheet from "@/components/sheet";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn, formatPrice } from "@/lib/utils";

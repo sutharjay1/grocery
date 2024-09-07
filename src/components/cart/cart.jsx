@@ -1,19 +1,16 @@
-"use client";
-
 import Sheet from "@/components/sheet";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { cn, formatPrice } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import { formatPrice } from "@/lib/utils";
 import { ShoppingCartIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-
+import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { cartStorage } from "../../hook/cartStorage";
 import Hint from "../hint";
 import { ScrollArea } from "../ui/scroll-area";
 import { Separator } from "../ui/separator";
 import CartItem from "./cart-item";
-import toast, { Toaster } from "react-hot-toast";
 
 // Remove the import for react-hot-toast
 // import toast, { Toaster } from "react-hot-toast";
@@ -79,37 +76,35 @@ const Cart = () => {
             </div>
           </Hint>
         </Sheet.Trigger>
-        <Sheet.Content>
-          <Sheet.Header className="font-polySansMedian space-y-2.5 pr-6 font-medium">
+        <Sheet.Content className="flex h-full flex-col">
+          <Sheet.Header className="font-polySansMedian space-y-2.5 p-6 font-medium">
             <Sheet.Title>Cart ({itemCount})</Sheet.Title>
-          </Sheet.Header>
+          </Sheet.Header>{" "}
           {itemCount > 0 ? (
-            <div className="flex h-full flex-col">
-              <ScrollArea className="flex-grow">
-                <div className="space-y-4 pr-6">
+            <ScrollArea className="flex-grow">
+              <div className="flex h-full flex-col">
+                <div className="space-y-4 p-6 pr-6">
                   {items.map((item) => (
                     <CartItem product={item} key={item.id} />
                   ))}
                 </div>
-              </ScrollArea>
-              <div className="space-y-4 pt-6 sm:pt-2">
-                <Separator />
-                <div className="space-y-1.5 text-sm">
-                  <div className="flex">
-                    <span className="flex-1">Shipping</span>
-                    <span>Free</span>
+                <div className="space-y-4 p-6 pt-6 sm:pt-2">
+                  <Separator />
+                  <div className="space-y-1.5 text-sm">
+                    <div className="flex">
+                      <span className="flex-1">Shipping</span>
+                      <span>Free</span>
+                    </div>
+                    <div className="flex">
+                      <span className="flex-1">Transaction Fee</span>
+                      <span>{formatPrice(fee)}</span>
+                    </div>
+                    <div className="flex">
+                      <span className="flex-1">Total</span>
+                      <span>{formatPrice(cartTotal + fee)}</span>
+                    </div>
                   </div>
-                  <div className="flex">
-                    <span className="flex-1">Transaction Fee</span>
-                    <span>{formatPrice(fee)}</span>
-                  </div>
-                  <div className="flex">
-                    <span className="flex-1">Total</span>
-                    <span>{formatPrice(cartTotal + fee)}</span>
-                  </div>
-                </div>
-                <Sheet.Footer>
-                  <Sheet.Close asChild>
+                  <Sheet.Footer>
                     <Link
                       to="/checkout"
                       className={buttonVariants({
@@ -118,10 +113,10 @@ const Cart = () => {
                     >
                       Checkout
                     </Link>
-                  </Sheet.Close>
-                </Sheet.Footer>
+                  </Sheet.Footer>
+                </div>
               </div>
-            </div>
+            </ScrollArea>
           ) : (
             <div className="flex h-full flex-col items-center justify-center space-y-1">
               <div className="font-polySansMedian text-2xl font-medium">

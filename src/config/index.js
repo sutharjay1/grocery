@@ -758,9 +758,9 @@ export const productsByCategory = {
       price: 599,
       discount: 5,
       imageSrc: [
-        "https://images.pexels.com/photos/4109968/pexels-photo-4109968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/4109969/pexels-photo-4109969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/4109970/pexels-photo-4109970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/8472090/pexels-photo-8472090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/8472091/pexels-photo-8472091.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/8472092/pexels-photo-8472092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       ],
       href: "/products/gouda-cheese",
       type: ["cheese"],
@@ -815,9 +815,9 @@ export const productsByCategory = {
       price: 449,
       discount: 8,
       imageSrc: [
-        "https://images.pexels.com/photos/4109971/pexels-photo-4109971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/4109972/pexels-photo-4109972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/4109973/pexels-photo-4109973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6601816/pexels-photo-6601816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6601817/pexels-photo-6601817.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6601818/pexels-photo-6601818.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       ],
       href: "/products/feta-cheese",
       type: ["cheese"],
@@ -846,25 +846,7 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.3,
     },
-    {
-      id: 18,
-      name: "Parmesan Cheese",
-      description: "Grated Parmesan cheese.",
-      price: 699,
-      discount: 10,
-      imageSrc: [
-        "https://images.pexels.com/photos/4109974/pexels-photo-4109974.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/4109975/pexels-photo-4109975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/4109976/pexels-photo-4109976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/parmesan-cheese",
-      type: ["cheese"],
-      organic: ["conventional"],
-      packaging: ["shaker"],
-      category: "dairy-products",
-      quantity: 1,
-      rating: 4.8,
-    },
+
     {
       id: 19,
       name: "Soy Milk",
@@ -891,9 +873,9 @@ export const productsByCategory = {
       price: 399,
       discount: 5,
       imageSrc: [
-        "https://images.pexels.com/photos/4109977/pexels-photo-4109977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/4109978/pexels-photo-4109978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/4109979/pexels-photo-4109979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6163263/pexels-photo-6163263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6163262/pexels-photo-6163262.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6163261/pexels-photo-6163261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       ],
       href: "/products/ricotta-cheese",
       type: ["cheese"],
@@ -929,9 +911,9 @@ export const productsByCategory = {
       price: 599,
       discount: 8,
       imageSrc: [
-        "https://images.pexels.com/photos/4109980/pexels-photo-4109980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/4109981/pexels-photo-4109981.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/4109982/pexels-photo-4109982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6163263/pexels-photo-6163263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6163262/pexels-photo-6163262.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6163261/pexels-photo-6163261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       ],
       href: "/products/blue-cheese",
       type: ["cheese"],
@@ -939,7 +921,7 @@ export const productsByCategory = {
       packaging: ["plastic"],
       category: "dairy-products",
       quantity: 1,
-      rating: 4.9,
+      rating: 1,
     },
   ],
   bakery: [
@@ -960,7 +942,7 @@ export const productsByCategory = {
       style: ["artisan"],
       category: "bakery",
       quantity: 1,
-      rating: 4.8,
+      rating: 2.8,
     },
     {
       id: 8,
@@ -979,7 +961,7 @@ export const productsByCategory = {
       occasion: ["dessert"],
       category: "bakery",
       quantity: 1,
-      rating: 4.9,
+      rating: 1.9,
     },
     {
       id: 9,
@@ -998,7 +980,7 @@ export const productsByCategory = {
       style: ["French"],
       category: "bakery",
       quantity: 1,
-      rating: 4.7,
+      rating: 3,
     },
     {
       id: 10,
@@ -1151,7 +1133,7 @@ export const productsByCategory = {
       style: ["traditional"],
       category: "bakery",
       quantity: 1,
-      rating: 4.7,
+      rating: 2.7,
     },
     {
       id: 18,
@@ -3483,8 +3465,6 @@ export const productsByCategory = {
     },
   ],
   "frozen-foods": [
- 
-  
     {
       id: 63,
       name: "Frozen Berries",
@@ -3558,25 +3538,8 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.4,
     },
-    {
-      id: 68,
-      name: "Frozen Breakfast Sandwiches",
-      description: "Egg and cheese on English muffin.",
-      price: 599,
-      discount: 0,
-      imageSrc: [
-        "https://images.pexels.com/photos/7144979/pexels-photo-7144979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/7144980/pexels-photo-7144980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/7144981/pexels-photo-7144981.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/frozen-breakfast-sandwiches",
-      type: ["breakfast"],
-      flavor: ["egg and cheese"],
-      category: "frozen-foods",
-      quantity: 1,
-      rating: 4.1,
-    },
-  
+
+
     {
       id: 70,
       name: "Frozen Fruit Bars",
@@ -3667,7 +3630,7 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.4,
     },
- 
+
     {
       id: 58,
       name: "Frozen Pizza",
@@ -5321,7 +5284,7 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.7,
     },
-   
+
     {
       id: 118,
       name: "Bird Cage",

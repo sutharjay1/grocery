@@ -71,12 +71,13 @@ const SheetContent = ({ children, isOpen, toggleSheet, side = "right" }) => {
               variant="ghost"
               size="icon"
               onClick={toggleSheet}
-              className="absolute right-6 top-6 rounded-md bg-black/5 p-2 opacity-70 transition-opacity hover:opacity-100 z-50"
+              className="absolute right-6 top-[1.125rem] z-50 rounded-md bg-black/5 p-2 opacity-70 transition-opacity hover:opacity-100"
             >
               <X className="h-6 w-6" />
               <span className="sr-only">Close</span>
             </Button>
-            <ScrollArea className="flex-grow p-6">{children}</ScrollArea>
+
+            {children}
           </motion.div>
         </>
       )}
@@ -93,9 +94,11 @@ const SheetTrigger = ({ children, toggleSheet }) => (
 
 // Header Component
 const SheetHeader = ({ children }) => (
-  <div className="mb-4 flex flex-col space-y-2 text-center sm:text-left">
-    {children}
-  </div>
+  <>
+    <div className="sticky top-4 mx-4 my-6 flex flex-col space-y-2 text-center sm:text-left">
+      {children}
+    </div>
+  </>
 );
 
 // Title Component
@@ -110,7 +113,7 @@ const SheetDescription = ({ children }) => (
 
 // Footer Component
 const SheetFooter = ({ children }) => (
-  <div className="mt-auto flex justify-end space-x-2 border-t p-4">
+  <div className="mt-auto flex justify-end space-x-2 border-t">
     {children}
   </div>
 );

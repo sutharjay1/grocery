@@ -1,5 +1,6 @@
-import { Checkbox } from "@/components/ui/checkbox";
-import React, { useCallback, useMemo, useState } from "react";
+import { Dialog, DialogPanel } from "@headlessui/react";
+import { X } from "lucide-react";
+import React, { useCallback, useMemo, useState, useEffect } from "react";
 import { CiFilter } from "react-icons/ci";
 import { useParams, useSearchParams } from "react-router-dom";
 import Card from "../components/card";
@@ -8,14 +9,6 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { productFilter, productsByCategory } from "../config";
 import { formatPrice } from "../lib/utils";
-import {
-  Dialog,
-  DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-} from "@headlessui/react";
-import { X } from "lucide-react";
 
 const ProductFilter = ({
   categoryTag,
@@ -25,12 +18,21 @@ const ProductFilter = ({
   filteredProducts,
 }) => {
   const [priceRange, setPriceRange] = useState(
-    initialFilters.price || [0, 1000]
+    initialFilters.price || [0, 1000],
   );
   const [selectedFilters, setSelectedFilters] = useState(initialFilters);
   const [isOpen, setIsOpen] = useState(false);
+  const [sortOrder, setSortOrder] = useState(initialFilters.sortOrder || "");
+  const [ratingFilter, setRatingFilter] = useState(initialFilters.rating || []);
 
   const productsCategory = productsByCategory[categoryTag];
+
+  useEffect(() => {
+    setSelectedFilters(initialFilters);
+    setPriceRange(initialFilters.price || [0, 1000]);
+    setSortOrder(initialFilters.sortOrder || "");
+    setRatingFilter(initialFilters.rating || []);
+  }, [initialFilters]);
 
   const handleFilterChange = useCallback(
     (sectionId, value) => {
@@ -42,16 +44,49 @@ const ProductFilter = ({
             ? prev[sectionId].filter((item) => item !== value)
             : [...(prev[sectionId] || []), value],
         };
-        onFilterChange({ ...updatedFilters, price: priceRange });
+        onFilterChange({
+          ...updatedFilters,
+          price: priceRange,
+          sortOrder,
+          rating: ratingFilter,
+        });
         return updatedFilters;
       });
     },
-    [onFilterChange, priceRange],
-  );  
+    [onFilterChange, priceRange, sortOrder, ratingFilter],
+  );
 
   const handlePriceChange = (value) => {
     setPriceRange(value);
-    onFilterChange({ ...selectedFilters, price: value });
+    onFilterChange({
+      ...selectedFilters,
+      price: value,
+      sortOrder,
+      rating: ratingFilter,
+    });
+  };
+
+  const handleSortChange = (value) => {
+    setSortOrder(value);
+    onFilterChange({
+      ...selectedFilters,
+      price: priceRange,
+      sortOrder: value,
+      rating: ratingFilter,
+    });
+  };
+
+  const handleRatingChange = (value) => {
+    const updatedRating = ratingFilter.includes(value)
+      ? ratingFilter.filter((r) => r !== value)
+      : [...ratingFilter, value];
+    setRatingFilter(updatedRating);
+    onFilterChange({
+      ...selectedFilters,
+      price: priceRange,
+      sortOrder,
+      rating: updatedRating,
+    });
   };
 
   const renderFilterContent = () => (
@@ -88,23 +123,82 @@ const ProductFilter = ({
             onChange={(e) =>
               handlePriceChange([priceRange[0], Number(e.target.value)])
             }
-            className="w-full"
+            className="w-full bg-primary"
           />
           <div className="text-sm text-gray-500">
             Price: {formatPrice(priceRange[0])} - {formatPrice(priceRange[1])}
           </div>
         </div>
       </div>
+      <div className="border-b border-gray-200 pb-4">
+        <h3 className="text-lg font-medium text-gray-900">Sort by Price</h3>
+        <div className="mt-4 space-y-4">
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="sort-low-to-high"
+              checked={sortOrder === "lowToHigh"}
+              className="size-4 rounded border-gray-300"
+              onChange={() => handleSortChange("lowToHigh")}
+            />
+            <label
+              htmlFor="sort-low-to-high"
+              className="ml-3 text-sm text-gray-600"
+            >
+              Low to High
+            </label>
+          </div>
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="sort-high-to-low"
+              checked={sortOrder === "highToLow"}
+              className="size-4 rounded border-gray-300"
+              onChange={() => handleSortChange("highToLow")}
+            />
+            <label
+              htmlFor="sort-high-to-low"
+              className="ml-3 text-sm text-gray-600"
+            >
+              High to Low
+            </label>
+          </div>
+        </div>
+      </div>
+      <div className="border-b border-gray-200 pb-4">
+        <h3 className="text-lg font-medium text-gray-900">Filter by Rating</h3>
+        <div className="mt-4 space-y-4">
+          {[5, 4, 3, 2, 1].map((star) => (
+            <div key={star} className="flex items-center">
+              <input
+                type="checkbox"
+                id={`rating-${star}`}
+                checked={ratingFilter.includes(star)}
+                onChange={() => handleRatingChange(star)}
+                className="size-4 rounded border-gray-300"
+              />
+              <label
+                htmlFor={`rating-${star}`}
+                className="ml-3 text-sm text-gray-600"
+              >
+                {star} Star{star !== 1 && "s"}
+              </label>
+            </div>
+          ))}
+        </div>
+      </div>
       {filters.map((section) => (
         <div key={section.id} className="border-b border-gray-200 pb-4">
-          <h3 className="text-lg font-medium text-gray-900">{section.name}</h3>
+          <h3 className="text-lg font-medium text-gray-900">Filter by</h3>
           <div className="mt-4 space-y-4">
             {section.options.map((option) => (
               <div key={option.value} className="flex items-center">
-                <Checkbox
+                <input
+                  type="checkbox"
                   id={`${section.id}-${option.value}`}
+                  className="size-4 rounded border-gray-300"
                   checked={selectedFilters[section.id]?.includes(option.value)}
-                  onCheckedChange={() => {
+                  onChange={() => {
                     handleFilterChange(section.id, option.value);
                   }}
                 />
@@ -176,6 +270,10 @@ const CategoriesTag = () => {
     for (const [key, value] of searchParams.entries()) {
       if (key === "price") {
         filters[key] = value.split("-").map(Number);
+      } else if (key === "sortOrder") {
+        filters[key] = value;
+      } else if (key === "rating") {
+        filters[key] = value.split(",").map(Number);
       } else {
         filters[key] = filters[key] ? [...filters[key], value] : [value];
       }
@@ -190,9 +288,13 @@ const CategoriesTag = () => {
         if (Array.isArray(value) && value.length > 0) {
           if (key === "price") {
             params.append(key, value.join("-"));
+          } else if (key === "rating") {
+            params.append(key, value.join(","));
           } else {
             value.forEach((v) => params.append(key, v));
           }
+        } else if (key === "sortOrder" && value) {
+          params.append(key, value);
         }
       });
       setSearchParams(params);
@@ -206,12 +308,21 @@ const CategoriesTag = () => {
   );
 
   const filteredProducts = useMemo(() => {
-    const products = productsByCategory[categoryTag] || [];
-    return products.filter((product) =>
+    let products = productsByCategory[categoryTag] || [];
+    products = products.filter((product) =>
       Object.entries(initialFilters).every(([filterId, selectedValues]) => {
         if (filterId === "price") {
           const [min, max] = selectedValues;
           return product.price >= min && product.price <= max;
+        }
+        if (filterId === "sortOrder") {
+          return true; // We'll handle sorting separately
+        }
+        if (filterId === "rating") {
+          return (
+            selectedValues.length === 0 ||
+            selectedValues.includes(Math.floor(product.rating))
+          );
         }
         if (!selectedValues || selectedValues.length === 0) {
           return true;
@@ -223,6 +334,15 @@ const CategoriesTag = () => {
         );
       }),
     );
+
+    // Apply sorting
+    if (initialFilters.sortOrder === "lowToHigh") {
+      products.sort((a, b) => a.price - b.price);
+    } else if (initialFilters.sortOrder === "highToLow") {
+      products.sort((a, b) => b.price - a.price);
+    }
+
+    return products;
   }, [categoryTag, initialFilters]);
 
   return (

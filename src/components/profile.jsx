@@ -1,4 +1,4 @@
-"use client";
+
 
 import { CircleUserRound } from "lucide-react";
 import { Link } from "react-router-dom";
