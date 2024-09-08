@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
-import { z } from "zod";
-import Stepper from "@/components/ui/stepper";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -17,53 +18,49 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
+import Stepper from "@/components/ui/stepper";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, User } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { z } from "zod";
 import AppLogo from "../../components/logo";
-import { useSearchParams, useNavigate } from "react-router-dom";
 
 const signupSchema = z.object({
   mobileNumber: z
     .string()
-    .nonempty("Mobile number is required")
     .regex(/^[0-9]+$/, "Mobile number must contain only digits")
-    .length(10, "Mobile number must be exactly 10 digits"),
+    .length(10, "Mobile number must be exactly 10 digits")
+    .optional(),
   otp: z
     .string()
-    .nonempty("OTP is required")
     .length(6, "OTP must be 6 digits")
-    .regex(/^[0-9]+$/, "OTP must contain only digits"),
-  name: z.string().nonempty("Name is required"),
-  address: z.string().nonempty("Address is required"),
-  gender: z.enum(["male", "female", "other"]),
+    .regex(/^[0-9]+$/, "OTP must contain only digits")
+    .optional(),
+  name: z.string().optional(),
+  address: z.string().optional(),
+  gender: z.enum(["male", "female", "other"]).optional(),
   profileImage: z.string().optional(),
   alternateNumber: z
     .string()
     .regex(/^[0-9]+$/, "Alternate number must contain only digits")
     .length(10, "Alternate number must be exactly 10 digits")
     .optional(),
-  email: z
-    .string()
-    .email("Invalid email address")
-    .nonempty("Email is required"),
+  email: z.string().email("Invalid email address").optional(),
 });
 
 const loginSchema = z.object({
   mobileNumber: z
     .string()
-    .nonempty("Mobile number is required")
     .regex(/^[0-9]+$/, "Mobile number must contain only digits")
-    .length(10, "Mobile number must be exactly 10 digits"),
+    .length(10, "Mobile number must be exactly 10 digits")
+    .optional(),
   otp: z
     .string()
-    .nonempty("OTP is required")
     .length(6, "OTP must be 6 digits")
-    .regex(/^[0-9]+$/, "OTP must contain only digits"),
+    .regex(/^[0-9]+$/, "OTP must contain only digits")
+    .optional(),
 });
 
 const FloatingLabelInput = ({ label, name, type = "text", form }) => {
@@ -101,7 +98,7 @@ const FloatingLabelInput = ({ label, name, type = "text", form }) => {
               </label>
             </div>
           </FormControl>
-          <FormMessage />
+          {field.value && <FormMessage />}
         </FormItem>
       )}
     />
@@ -114,6 +111,7 @@ const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const images = [
     "https://images.pexels.com/photos/260503/pexels-photo-260503.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -151,28 +149,29 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    if (currentStep < (isSignUp ? signupSteps.length : loginSteps.length)) {
-      const nextStep = currentStep + 1;
-      setCurrentStep(nextStep);
-      setSearchParams({
-        step: nextStep.toString(),
-        signup: isSignUp.toString(),
-        ...data,
-      });
-      setCurrentImage(images[(nextStep - 1) % images.length]);
-    } else {
+    setErrorMessage("");
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       // Handle final submission
       console.log("Final submission:", data);
       // Navigate to page after successful login/signup
+    } catch (error) {
+      setErrorMessage("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const handleNextStep = async () => {
-    const result = await form.trigger();
-    if (result) {
-      await onSubmit(form.getValues());
+    const data = form.getValues();
+    const nextStep = currentStep + 1;
+    if (nextStep <= (isSignUp ? signupSteps.length : loginSteps.length)) {
+      setCurrentStep(nextStep);
+      setSearchParams({
+        signup: isSignUp.toString(),
+        step: nextStep.toString(),
+      });
+      setCurrentImage(images[(nextStep - 1) % images.length]);
     }
   };
 
@@ -182,11 +181,17 @@ const Login = () => {
     setSearchParams({ signup: (!isSignUp).toString(), step: "1" });
     form.reset();
     setCurrentImage(images[0]);
+    setErrorMessage("");
   };
 
   const handleStepChange = (index) => {
     setCurrentStep(index);
-    setSearchParams({ signup: isSignUp.toString(), step: index.toString() });
+    setSearchParams((prev) => {
+      prev.set("step", index.toString());
+      return prev;
+    });
+    setCurrentImage(images[(index - 1) % images.length]);
+    setErrorMessage("");
   };
 
   const renderStepContent = () => {
@@ -228,7 +233,7 @@ const Login = () => {
                       </InputOTPGroup>
                     </InputOTP>
                   </FormControl>
-                  <FormMessage />
+                  {field.value && <FormMessage />}
                 </FormItem>
               )}
             />
@@ -274,7 +279,7 @@ const Login = () => {
                         />
                       </div>
                     </FormControl>
-                    <FormMessage />
+                    {field.value && <FormMessage />}
                   </FormItem>
                 )}
               />
@@ -307,7 +312,7 @@ const Login = () => {
                         <option value="other">Other</option>
                       </select>
                     </FormControl>
-                    <FormMessage />
+                    {field.value && <FormMessage />}
                   </FormItem>
                 )}
               />
@@ -352,7 +357,7 @@ const Login = () => {
                       </InputOTPGroup>
                     </InputOTP>
                   </FormControl>
-                  <FormMessage />
+                  {field.value && <FormMessage />}
                 </FormItem>
               )}
             />
@@ -383,7 +388,7 @@ const Login = () => {
             </p>
           </div>
         </section>
-        <Card className="mx-auto flex w-full max-w-xl items-center justify-center px-4 py-6 sm:px-8 lg:col-span-7 lg:px-16 lg:py-8 xl:col-span-6">
+        <Card className="mx-auto flex w-full max-w-xl items-center justify-center px-4 py-6 sm:px-8 lg:col-span-7 lg:px-16 lg:py-6 xl:col-span-6">
           <div className="w-full">
             <CardHeader className="px-2 py-0">
               <h1 className="my-2 text-center text-xl font-bold text-gray-900 sm:text-2xl">
@@ -405,25 +410,46 @@ const Login = () => {
                   {renderStepContent()}
                 </CardContent>
 
+                {errorMessage && (
+                  <p className="text-center text-sm text-red-500">
+                    {errorMessage}
+                  </p>
+                )}
+
                 <CardFooter className="flex flex-col space-y-4 px-2 py-2 pt-0">
-                  <Button
-                    type="button"
-                    className="w-full rounded-lg"
-                    disabled={isSubmitting}
-                    onClick={handleNextStep}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Submitting...
-                      </>
-                    ) : currentStep ===
-                      (isSignUp ? signupSteps.length : loginSteps.length) ? (
-                      "Submit"
-                    ) : (
-                      "Next"
-                    )}
-                  </Button>
+                  {currentStep <
+                  (isSignUp ? signupSteps.length : loginSteps.length) ? (
+                    <Button
+                      type="button"
+                      className="w-full rounded-lg"
+                      disabled={isSubmitting}
+                      onClick={handleNextStep}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        "Next"
+                      )}
+                    </Button>
+                  ) : (
+                    <Button
+                      type="submit"
+                      className="w-full rounded-lg"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        "Submit"
+                      )}
+                    </Button>
+                  )}
                   <Button
                     type="button"
                     variant="link"

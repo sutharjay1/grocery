@@ -284,7 +284,7 @@ const CategoriesTag = () => {
       // Simulate loading for uncached categories
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [categoryTag, cachedProducts]);
