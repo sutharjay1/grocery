@@ -58,7 +58,7 @@ const Products = () => {
       .slice((currentPage - 1) * 8, currentPage * 8);
 
     setAllProducts(products);
-    setSelectedProducts(products);
+    setSelectedProducts([]);
   }, [searchParams]);
 
   const handlePagination = (newPage) => {
