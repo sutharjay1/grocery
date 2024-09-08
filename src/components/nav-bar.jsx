@@ -118,7 +118,7 @@ const links = [
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
 
   const location = useLocation();
 
