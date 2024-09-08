@@ -77,7 +77,7 @@ const Checkout = () => {
     <MaxWidthWrapper className="px-3 pt-8 selection:bg-teal-500/30">
       <div className="relative h-full">
         <div className="mx-auto max-w-2xl pb-24 sm:pt-0 lg:max-w-7xl lg:pt-16">
-          <h2 className="text-3xl font-semibold capitalize tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-semibold capitalize tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
             Your Shopping Bag
           </h2>
 
