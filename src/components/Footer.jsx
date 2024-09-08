@@ -4,8 +4,8 @@ import { HiMapPin } from "react-icons/hi2";
 import { ImLinkedin2 } from "react-icons/im";
 import { IoLogoInstagram, IoLogoTwitter, IoMail } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import AppLogo from "./logo";
 import { categories } from "../config";
+import AppLogo from "./logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

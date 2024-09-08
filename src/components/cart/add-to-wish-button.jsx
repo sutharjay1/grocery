@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { HeartIcon, HeartCrackIcon } from "lucide-react";
@@ -14,31 +14,33 @@ const AddToWishButton = ({ product, quantity, className, size = "icon" }) => {
     setIsInWishlist(!!itemInWishlist);
   }, [product.id]);
 
-  const handleAddToWishlist = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (isInWishlist) {
-      wishlistStorage.removeItem(product.id);
-      setIsInWishlist(false);
-      toast.success(`${product.name} removed from wishlist`, {
-        icon: '💔',
-      });
-    } else {
-      const newItem = { ...product, quantity: quantity || 1 };
-      wishlistStorage.addItem(newItem);
-      setIsInWishlist(true);
-      toast.success(`${product.name} added to wishlist`, {
-        icon: '❤️',
-      });
-    }
-  };
+  const handleAddToWishlist = useCallback(
+    (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isInWishlist) {
+        wishlistStorage.removeItem(product.id);
+        setIsInWishlist(false);
+        toast.success(`${product.name} removed from wishlist`, {
+          icon: "💔",
+        });
+      } else {
+        const newItem = { ...product, quantity: quantity || 1 };
+        wishlistStorage.addItem(newItem);
+        setIsInWishlist(true);
+        toast.success(`${product.name} added to wishlist`, {
+          icon: "❤️",
+        });
+      }
+    },
+    [isInWishlist, product, quantity],
+  );
 
   useEffect(() => {
     if (isInWishlist && quantity) {
       wishlistStorage.updateItemQuantity(product.id, quantity);
-      // toast.success(`${product.name} quantity updated in wishlist`);
     }
-  }, [quantity, product.id, isInWishlist, product.name]);
+  }, [quantity, product.id, isInWishlist]);
 
   return (
     <Button

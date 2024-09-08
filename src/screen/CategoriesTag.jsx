@@ -1,6 +1,6 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { X } from "lucide-react";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { CiFilter } from "react-icons/ci";
 import { useParams, useSearchParams } from "react-router-dom";
 import Card from "../components/card";
@@ -9,6 +9,7 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { productFilter, productsByCategory } from "../config";
 import { formatPrice } from "../lib/utils";
+import { Skeleton } from "../components/ui/skeleton";
 
 const ProductFilter = ({
   categoryTag,
@@ -269,10 +270,24 @@ const ProductFilter = ({
 const CategoriesTag = () => {
   const { categoryTag } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [isLoading, setIsLoading] = useState(true);
+
+  const cachedProducts = useMemo(() => {
+    return productsByCategory[categoryTag] || [];
+  }, [categoryTag]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [categoryTag]);
+    if (cachedProducts.length > 0) {
+      setIsLoading(false);
+    } else {
+      // Simulate loading for uncached categories
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [categoryTag, cachedProducts]);
 
   const initialFilters = useMemo(() => {
     const filters = {};
@@ -317,7 +332,7 @@ const CategoriesTag = () => {
   );
 
   const filteredProducts = useMemo(() => {
-    let products = productsByCategory[categoryTag] || [];
+    let products = cachedProducts;
     products = products.filter((product) =>
       Object.entries(initialFilters).every(([filterId, selectedValues]) => {
         if (filterId === "price") {
@@ -325,7 +340,7 @@ const CategoriesTag = () => {
           return product.price >= min && product.price <= max;
         }
         if (filterId === "sortOrder") {
-          return true; // We'll handle sorting separately
+          return true;
         }
         if (filterId === "rating") {
           return (
@@ -344,7 +359,6 @@ const CategoriesTag = () => {
       }),
     );
 
-    // Apply sorting
     if (initialFilters.sortOrder === "lowToHigh") {
       products.sort((a, b) => a.price - b.price);
     } else if (initialFilters.sortOrder === "highToLow") {
@@ -352,7 +366,7 @@ const CategoriesTag = () => {
     }
 
     return products;
-  }, [categoryTag, initialFilters]);
+  }, [cachedProducts, initialFilters]);
 
   return (
     <MaxWidthWrapper className="h-full pt-0">
@@ -382,7 +396,17 @@ const CategoriesTag = () => {
             </aside>
 
             <main className="w-full lg:col-span-3">
-              {filteredProducts.length > 0 ? (
+              {isLoading ? (
+                <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+                  {[...Array(9)].map((_, index) => (
+                    <div key={index} className="space-y-4">
+                      <Skeleton className="h-48 w-full" />
+                      <Skeleton className="h-4 w-3/4" />
+                      <Skeleton className="h-4 w-1/2" />
+                    </div>
+                  ))}
+                </div>
+              ) : filteredProducts.length > 0 ? (
                 <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
                   {filteredProducts.map((product) => (
                     <Card key={product.id} product={product} />

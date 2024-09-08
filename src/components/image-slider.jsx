@@ -1,7 +1,6 @@
-import React, { useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const ImageSlider = ({ images, className }) => {

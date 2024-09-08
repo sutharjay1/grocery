@@ -42,8 +42,7 @@ const Heart = () => {
   }, [location]);
 
   useEffect(() => {
-    const intervalId = setInterval(updateWishlist, 500); // Check for updates every second
-
+    const intervalId = setInterval(updateWishlist, 300);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -89,9 +88,9 @@ const Heart = () => {
           </Sheet.Header>
           {itemCount > 0 ? (
             <div className="flex h-full flex-col">
-              <div className="space-y-4 overflow-y-auto p-6 pr-6 pb-52">
+              <div className="space-y-4 overflow-y-auto p-6 pb-52 pr-6">
                 {items.map((item) => (
-                  <CartItem product={item} key={item.id} />
+                  <CartItem product={item} key={item.id} wishlist={true} />
                 ))}
               </div>{" "}
               <Sheet.Footer className="absolute bottom-0 w-full space-y-2">

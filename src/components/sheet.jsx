@@ -1,12 +1,10 @@
-import React, { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { cn, useOnClickOutside } from "../lib/utils";
 import { Button } from "./ui/button";
-import { useLocation } from "react-router-dom";
-import { ScrollArea } from "./ui/scroll-area";
 
-// Main Sheet Component
 const Sheet = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -26,7 +24,6 @@ const Sheet = ({ children }) => {
   );
 };
 
-// Overlay Component
 const SheetOverlay = React.forwardRef(({ className, ...props }, ref) => (
   <div
     className={cn(
@@ -39,7 +36,6 @@ const SheetOverlay = React.forwardRef(({ className, ...props }, ref) => (
 ));
 SheetOverlay.displayName = "SheetOverlay";
 
-// Content Component with Framer Motion
 const SheetContent = ({ children, isOpen, toggleSheet, side = "right" }) => {
   const ref = useRef(null);
 
@@ -85,14 +81,12 @@ const SheetContent = ({ children, isOpen, toggleSheet, side = "right" }) => {
   );
 };
 
-// Trigger Component
 const SheetTrigger = ({ children, toggleSheet }) => (
   <button onClick={toggleSheet} className="">
     {children}
   </button>
 );
 
-// Header Component
 const SheetHeader = ({ children }) => (
   <>
     <div className="sticky top-4 mx-4 my-6 flex flex-col space-y-2 text-center sm:text-left">
@@ -101,24 +95,20 @@ const SheetHeader = ({ children }) => (
   </>
 );
 
-// Title Component
 const SheetTitle = ({ children }) => (
   <h2 className="text-lg font-semibold text-foreground">{children}</h2>
 );
 
-// Description Component
 const SheetDescription = ({ children }) => (
   <p className="text-sm text-muted-foreground">{children}</p>
 );
 
-// Footer Component
 const SheetFooter = ({ children, className }) => (
-  <div className={cn("mx-auto flex space-x-2  bg-white", className)}>
+  <div className={cn("mx-auto flex space-x-2 bg-white", className)}>
     {children}
   </div>
 );
 
-// Close Component
 const SheetClose = ({ children, onClick }) => (
   <Button onClick={onClick}>{children}</Button>
 );

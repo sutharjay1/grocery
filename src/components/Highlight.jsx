@@ -1,8 +1,7 @@
-import React from "react";
-import { cn } from "../lib/utils";
-import { Button } from "./ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { cn } from "../lib/utils";
+import { Button } from "./ui/button";
 
 const Highlight = ({
   className,
@@ -40,14 +39,6 @@ const Highlight = ({
           )}
           {buttonText && buttonLink && (
             <Link to={buttonLink} className="mt-4 inline-block">
-              {/* <Button
-                variant="outline"
-                className="bg-white text-gray-800 transition-colors duration-200 hover:bg-gray-100"
-              >
-                {buttonText}
-                <ArrowRightIcon className="ml-2 h-4 w-4" />
-              </Button> */}
-
               <Button
                 variant="outline"
                 className="rounded-3xl border border-zinc-900/10 px-4 py-2 text-sm text-zinc-900 dark:text-zinc-100"

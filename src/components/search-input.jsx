@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import { cn } from "../lib/utils";
 import { Search } from "lucide-react";
-import { Input } from "./ui/input";
 import qs from "query-string";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useDebounce from "../hook/use-debounce";
+import { cn } from "../lib/utils";
+import { Input } from "./ui/input";
 
 const SearchInput = ({ className }) => {
   const [inputValue, setInputValue] = useState("");
@@ -15,7 +15,6 @@ const SearchInput = ({ className }) => {
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
-
 
   useEffect(() => {
     if (debouncedValue !== lastDebouncedValue.current) {

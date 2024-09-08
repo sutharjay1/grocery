@@ -3,17 +3,12 @@ import { buttonVariants } from "@/components/ui/button";
 import { formatPrice } from "@/lib/utils";
 import { ShoppingCartIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { cartStorage } from "../../hook/cartStorage";
 import Hint from "../hint";
-import { ScrollArea } from "../ui/scroll-area";
 import { Separator } from "../ui/separator";
 import CartItem from "./cart-item";
-
-// Remove the import for react-hot-toast
-// import toast, { Toaster } from "react-hot-toast";
 
 const Cart = () => {
   const [items, setItems] = useState([]);
@@ -48,9 +43,7 @@ const Cart = () => {
   }, [location]);
 
   useEffect(() => {
-    const intervalId = setInterval(updateCart, 500); // Check for updates every second
-    // Remove the toast notification
-    // toast.success("Cart updated");
+    const intervalId = setInterval(updateCart, 300);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -76,13 +69,13 @@ const Cart = () => {
             </div>
           </Hint>
         </Sheet.Trigger>
-        <Sheet.Content className="flex h-full  flex-col">
-          <Sheet.Header className=" space-y-2.5 p-6 font-medium">
+        <Sheet.Content className="flex h-full flex-col">
+          <Sheet.Header className="space-y-2.5 p-6 font-medium">
             <Sheet.Title>Cart ({itemCount})</Sheet.Title>
           </Sheet.Header>{" "}
           {itemCount > 0 ? (
             <div className="flex h-full flex-col">
-              <div className="space-y-4 overflow-y-auto p-6 pr-6 pb-64">
+              <div className="space-y-4 overflow-y-auto p-6 pb-64 pr-6">
                 {items.map((item) => (
                   <CartItem product={item} key={item.id} />
                 ))}
@@ -118,7 +111,7 @@ const Cart = () => {
             </div>
           ) : (
             <div className="flex h-full flex-col items-center justify-center space-y-6">
-              <div className="text-zinc-900 text-2xl font-medium">
+              <div className="text-2xl font-medium text-zinc-900">
                 Your cart is empty
               </div>
               <Sheet.Footer>

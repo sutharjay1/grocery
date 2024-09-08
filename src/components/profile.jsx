@@ -1,5 +1,3 @@
-
-
 import { CircleUserRound } from "lucide-react";
 import { Link } from "react-router-dom";
 import Hint from "./hint";
@@ -7,11 +5,7 @@ import Hint from "./hint";
 const Profile = () => {
   return (
     <>
-      <Hint
-        label={<p>Profile</p>}
-        align="center"
-        alignOffset={10}
-      >
+      <Hint label={<p>Profile</p>} align="center" alignOffset={10}>
         <div className="-m-2 flex items-center p-1">
           <Link to="/signup">
             <CircleUserRound

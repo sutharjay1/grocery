@@ -4,7 +4,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const ProductSlider = ({
   images,

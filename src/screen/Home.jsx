@@ -1,26 +1,20 @@
-import React, { useEffect, useState } from "react";
-import MaxWidthWrapper from "../components/max-width-wrapper";
-import { Link } from "react-router-dom";
-import {
-  categories,
-  mostSearched,
-  productsByCategory,
-  randomProducts,
-} from "../config";
-import { Button } from "../components/ui/button";
-import { ArrowRightIcon } from "lucide-react";
-import { cn } from "../lib/utils";
-import Highlight from "../components/Highlight";
 import {
   Carousel,
   CarouselContent,
-  CarouselNavigation,
   CarouselItem,
+  CarouselNavigation,
 } from "@/components/ui/carousel";
+import { ArrowRightIcon, FileText, Shield, Star, Truck } from "lucide-react";
+import React from "react";
+import { Link } from "react-router-dom";
 import Card from "../components/card";
-import { CarouselIndicator } from "../components/ui/carousel";
+import Highlight from "../components/Highlight";
+import MaxWidthWrapper from "../components/max-width-wrapper";
 import { Motion } from "../components/motion";
-import { Truck, Shield, Star, FileText } from "lucide-react";
+import { Button } from "../components/ui/button";
+import { CarouselIndicator } from "../components/ui/carousel";
+import { categories, mostSearched, randomProducts } from "../config";
+import { cn } from "../lib/utils";
 
 const Feature = ({ icon: Icon, title, subtitle }) => (
   <div className="flex flex-col items-center space-y-4 p-4 text-center md:flex-row md:items-center md:space-x-4 md:space-y-0 md:text-left">
@@ -175,6 +169,8 @@ const Home = () => {
             </div>
           </div>
         </Motion>
+
+        {/* Special Offers */}
         <Motion direction="up" duration={1.8}>
           <div className="mx-auto mt-8 max-w-8xl">
             <div className="flex items-center justify-between">
@@ -258,6 +254,7 @@ const Home = () => {
           </div>{" "}
         </Motion>
 
+        {/* Top Picks */}
         <Motion direction="up" duration={1.8}>
           <div className="mx-auto mt-12 w-full max-w-8xl pb-8">
             <div className="flex items-center justify-between">
@@ -295,6 +292,7 @@ const Home = () => {
           </div>{" "}
         </Motion>
 
+        {/* Get Fresh Groceries Delivered to Your Doorstep */}
         <Motion direction="up" duration={1.8}>
           <div className="mx-auto mt-12 w-full max-w-8xl">
             <section className="rounded-lg bg-primary px-6 py-12 lg:px-12">
@@ -327,6 +325,7 @@ const Home = () => {
           </div>
         </Motion>
 
+        {/* Most Searched */}
         <Motion direction="up" duration={1.8}>
           <div className="mx-auto mt-12 w-full max-w-8xl pb-8">
             <div className="flex items-center justify-between">
@@ -364,6 +363,7 @@ const Home = () => {
           </div>{" "}
         </Motion>
 
+        {/* Features */}
         <Motion direction="up" duration={1.8}>
           <div className="mx-auto mt-12 w-full max-w-8xl pb-8">
             <div className="container mx-auto px-4 py-8">

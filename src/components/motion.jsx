@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import React, { useMemo, useRef } from "react";
+import { useMemo, useRef } from "react";
 
 export function Motion({
   direction = "up",

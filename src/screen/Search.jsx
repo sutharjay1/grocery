@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState, useEffect } from "react";
+import { useCallback, useMemo, useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import MaxWidthWrapper from "../components/max-width-wrapper";
 import { productsByCategory, productFilter } from "../config";
@@ -9,6 +9,7 @@ import { formatPrice } from "../lib/utils";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
+import { Skeleton } from "../components/ui/skeleton";
 
 const ProductFilter = ({
   filters,
@@ -145,7 +146,7 @@ const ProductFilter = ({
             />
             <label
               htmlFor="sort-low-to-high"
-              className="ml-3 text-sm text-gray-600 cursor-pointer"
+              className="ml-3 cursor-pointer text-sm text-gray-600"
             >
               Low to High
             </label>
@@ -160,7 +161,7 @@ const ProductFilter = ({
             />
             <label
               htmlFor="sort-high-to-low"
-              className="ml-3 text-sm text-gray-600 cursor-pointer"
+              className="ml-3 cursor-pointer text-sm text-gray-600"
             >
               High to Low
             </label>
@@ -181,7 +182,7 @@ const ProductFilter = ({
               />
               <label
                 htmlFor={`rating-${star}`}
-                className="ml-3 text-sm text-gray-600 cursor-pointer"
+                className="ml-3 cursor-pointer text-sm text-gray-600"
               >
                 {star} Star{star !== 1 && "s"}
               </label>
@@ -189,31 +190,6 @@ const ProductFilter = ({
           ))}
         </div>
       </div>
-      {/* {filters.map((section) => (
-        <div key={section.id} className="border-b border-gray-200 pb-4">
-          <h3 className="text-lg font-medium text-gray-900">Filter by</h3>
-          <div className="mt-4 space-y-4">
-            {section.options.map((option) => (
-              <div key={option.value} className="flex items-center">
-                <input
-                  type="checkbox"
-                  id={`${section.id}-${option.value}`}
-                  checked={selectedFilters[section.id]?.includes(option.value)}
-                  onChange={() => {
-                    handleFilterChange(section.id, option.value);
-                  }}
-                />
-                <label
-                  htmlFor={`${section.id}-${option.value}`}
-                  className="ml-3 text-sm text-gray-600"
-                >
-                  {option.label}
-                </label>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))} */}
     </div>
   );
 
@@ -238,8 +214,8 @@ const ProductFilter = ({
           className="relative z-50"
         >
           <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-          <div className="fixed inset-0 flex items-center justify-center p-4 my-8">
-            <DialogPanel className=" w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+          <div className="fixed inset-0 my-8 flex items-center justify-center p-4">
+            <DialogPanel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold">Filters</h2>
                 <Button
@@ -267,6 +243,7 @@ const ProductFilter = ({
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const rawQuery = searchParams.get("rawQuery");
+  const [isLoading, setIsLoading] = useState(true);
 
   const initialFilters = useMemo(() => {
     const filters = {};
@@ -329,7 +306,6 @@ const Search = () => {
           (product) => product.price >= min && product.price <= max,
         );
       } else if (key === "sortOrder") {
-        // Handle sorting
         if (value === "lowToHigh") {
           filtered.sort((a, b) => a.price - b.price);
         } else if (value === "highToLow") {
@@ -351,6 +327,15 @@ const Search = () => {
 
   const filters = useMemo(() => {
     return Object.values(productFilter).flat();
+  }, []);
+
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -379,7 +364,17 @@ const Search = () => {
             </aside>
 
             <main className="w-full lg:col-span-3">
-              {filteredProducts.length > 0 ? (
+              {isLoading ? (
+                <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+                  {[...Array(9)].map((_, index) => (
+                    <div key={index} className="space-y-4">
+                      <Skeleton className="h-48 w-full" />
+                      <Skeleton className="h-4 w-3/4" />
+                      <Skeleton className="h-4 w-1/2" />
+                    </div>
+                  ))}
+                </div>
+              ) : filteredProducts.length > 0 ? (
                 <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
                   {filteredProducts.map((product) => (
                     <Card key={product.id} product={product} />

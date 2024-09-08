@@ -4,13 +4,24 @@ import { cartStorage } from "../../hook/cartStorage";
 import { Button } from "../ui/button";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { wishlistStorage } from "../../hook/wishlistStorage";
 
-const CartItem = ({ product, removeItem }) => {
+const CartItem = ({ product, removeItem, wishlist }) => {
   const removeItemHandler = (e) => {
     e.stopPropagation();
     cartStorage.removeItem(product.id);
     toast.success(`${product.name} removed from cart`);
   };
+
+  const removeWishItem = (e) => {
+    e.stopPropagation();
+    wishlistStorage.removeItem(product.id);
+    toast.success(`${product.name} removed from wishlist`);
+  };
+
+  const handleRemove = wishlist
+    ? removeWishItem
+    : removeItem || removeItemHandler;
 
   return (
     <div className="space-y-3 py-2">
@@ -45,13 +56,13 @@ const CartItem = ({ product, removeItem }) => {
               <span className={cn("text-base font-medium text-green-900")}>
                 {formatPrice(product.price)}
               </span>
-            </div>{" "}
+            </div>
           </Link>
         </div>
         <Button
           variant="destructive"
           size="sm"
-          onClick={removeItem ? removeItem : removeItemHandler}
+          onClick={handleRemove}
           className="text-sm text-zinc-900 hover:text-zinc-950"
         >
           <X className="mr-1 h-4 w-4" />

@@ -165,7 +165,7 @@ const Login = () => {
     } else {
       // Handle final submission
       console.log("Final submission:", data);
-      // Navigate to appropriate page after successful login/signup
+      // Navigate to page after successful login/signup
     }
   };
 

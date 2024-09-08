@@ -9,21 +9,27 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/react";
-import { ChevronDown, X, User, Menu, ShoppingBasket } from "lucide-react";
+import {
+  Banana,
+  ChevronDown,
+  CupSoda,
+  Menu,
+  Milk,
+  Pizza,
+  ShoppingBasket,
+  X,
+} from "lucide-react";
 import { useEffect, useState } from "react";
+import { FaBreadSlice, FaEgg, FaIceCream } from "react-icons/fa6";
 import { GiFruitBowl } from "react-icons/gi";
 import { Link, useLocation } from "react-router-dom";
-
-import { Banana, CupSoda, Milk, Pizza } from "lucide-react";
-import { FaBreadSlice, FaEgg, FaIceCream } from "react-icons/fa6";
 import { cn } from "../lib/utils";
 import Cart from "./cart/cart";
 import Heart from "./heart";
 import AppLogo from "./logo";
-import Profile from "./profile";
 import SearchInput from "./search-input";
-import UserAvatar from "./user-avatar";
 import { Button } from "./ui/button";
+import UserAvatar from "./user-avatar";
 
 const categories = [
   {
@@ -282,7 +288,6 @@ const NavBar = () => {
             >
               <Button
                 variant="default"
-                // onClick={() => setUser(true)}
                 className="flex w-full items-center space-x-2"
               >
                 <ShoppingBasket className="h-5 w-5" />
@@ -374,17 +379,6 @@ const NavBar = () => {
       </Dialog>
 
       <SearchInput className={cn("mb-4 lg:hidden")} />
-
-      {/* <div className="relative z-10 w-full px-4 lg:hidden">
-        <Search className="pointer-events-none absolute left-8 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
-        <Input
-          type="search"
-          placeholder="Search for Fruits, Vegetables and more..."
-          className="w-full rounded-xl py-6 pl-10 pr-6 ring-0 focus-visible:outline-none"
-          //   onChange={handleChange}
-          aria-label="Search for products"
-        />
-      </div> */}
     </header>
   );
 };

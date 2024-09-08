@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import MaxWidthWrapper from "../components/max-width-wrapper";
-import { formatPrice } from "@/lib/utils";
-import AddToCartButton from "../components/cart/add-to-cart-button";
-import AddToWishButton from "../components/cart/add-to-wish-button";
-import { productsByCategory } from "../config";
-import { cartStorage } from "../hook/cartStorage";
-import { cn } from "@/lib/utils";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { Star } from "lucide-react";
+import { cn, formatPrice } from "@/lib/utils";
+import { useEffect, useState, useMemo } from "react";
+import { useParams } from "react-router-dom";
+import AddToCartButton from "../components/cart/add-to-cart-button";
+import AddToWishButton from "../components/cart/add-to-wish-button";
+import MaxWidthWrapper from "../components/max-width-wrapper";
 import { renderRating } from "../components/shared/rating";
+import { productsByCategory } from "../config";
+import { cartStorage } from "../hook/cartStorage";
+import { Skeleton } from "../components/ui/skeleton";
 
 const Product = () => {
   const { productId } = useParams();
@@ -22,10 +21,35 @@ const Product = () => {
   const [index, setIndex] = useState(0);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [showCursorPosition, setShowCursorPosition] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [product, setProduct] = useState(null);
 
-  const product = Object.values(productsByCategory)
-    .flat()
-    .find((product) => product.href === `/products/${productId}`);
+  const cachedProducts = useMemo(() => {
+    return JSON.parse(localStorage.getItem("cachedProducts")) || {};
+  }, []);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      if (cachedProducts[productId]) {
+        setProduct(cachedProducts[productId]);
+        setIsLoading(false);
+      } else {
+        // Simulate API call
+        await new Promise((resolve) => setTimeout(resolve, 100));
+        const foundProduct = Object.values(productsByCategory)
+          .flat()
+          .find((p) => p.href === `/products/${productId}`);
+        setProduct(foundProduct);
+        setIsLoading(false);
+
+        // Cache the product
+        const updatedCache = { ...cachedProducts, [productId]: foundProduct };
+        localStorage.setItem("cachedProducts", JSON.stringify(updatedCache));
+      }
+    };
+
+    fetchProduct();
+  }, [productId, cachedProducts]);
 
   useEffect(() => {
     if (product) {
@@ -37,6 +61,24 @@ const Product = () => {
       }
     }
   }, [product]);
+
+  if (isLoading) {
+    return (
+      <MaxWidthWrapper className="pt-5">
+        <div className="grid grid-cols-1 items-start gap-6 pb-10 lg:grid-cols-2 lg:gap-24 lg:pb-14">
+          <Skeleton className="h-[600px] w-full" />
+          <div>
+            <Skeleton className="mb-4 h-8 w-3/4" />
+            <Skeleton className="mb-2 h-4 w-1/4" />
+            <Skeleton className="mb-4 h-20 w-full" />
+            <Skeleton className="mb-4 h-6 w-1/3" />
+            <Skeleton className="mb-8 h-12 w-full" />
+            <Skeleton className="h-40 w-full" />
+          </div>
+        </div>
+      </MaxWidthWrapper>
+    );
+  }
 
   if (!product) {
     return (
@@ -80,10 +122,6 @@ const Product = () => {
   const discountedPrice = product.discount
     ? product.price - (product.price * product.discount) / 100
     : product.price;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [productId]);
 
   return (
     <MaxWidthWrapper className="pt-5">

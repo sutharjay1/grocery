@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
-import { ShoppingCart, ShoppingCartIcon } from "lucide-react";
-import { cartStorage } from "../../hook/cartStorage";
+import { ShoppingCart } from "lucide-react";
+import { useEffect, useState, useCallback } from "react";
 import toast from "react-hot-toast";
+import { cartStorage } from "../../hook/cartStorage";
+import { Button } from "../ui/button";
 
 const AddToCartButton = ({
   product,
-  quantity,
+  quantity = 1,
   className,
   size = "icon",
   label,
@@ -16,33 +16,31 @@ const AddToCartButton = ({
   const [prevQuantity, setPrevQuantity] = useState(quantity);
 
   useEffect(() => {
-    const items = cartStorage.getItems();
-    const itemInCart = items.find((item) => item.id === product.id);
-    setIsInCart(!!itemInCart);
+    setIsInCart(cartStorage.getItems().some((item) => item.id === product.id));
   }, [product.id]);
 
-  const handleAddToCart = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (isInCart) {
-      cartStorage.removeItem(product.id);
-      setIsInCart(false);
-      toast.success(`${product.name} removed from cart`);
-    } else {
-      const newItem = { ...product, quantity: quantity || 1 };
-      cartStorage.addItem(newItem);
-      setIsInCart(true);
-      toast.success(`${product.name} added to cart`);
-    }
-  };
+  const handleAddToCart = useCallback(
+    (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isInCart) {
+        cartStorage.removeItem(product.id);
+        setIsInCart(false);
+        toast.success(`${product.name} removed from cart`);
+      } else {
+        cartStorage.addItem({ ...product, quantity });
+        setIsInCart(true);
+        toast.success(`${product.name} added to cart`);
+      }
+    },
+    [isInCart, product, quantity],
+  );
 
   useEffect(() => {
-    if (isInCart && quantity) {
+    if (isInCart && quantity !== prevQuantity) {
       cartStorage.updateItemQuantity(product.id, quantity);
-      if (quantity !== prevQuantity) {
-        toast.success(`${product.name} quantity updated in cart`);
-        setPrevQuantity(quantity);
-      }
+      toast.success(`${product.name} quantity updated in cart`);
+      setPrevQuantity(quantity);
     }
   }, [quantity, product.id, product.name, isInCart, prevQuantity]);
 
@@ -53,12 +51,12 @@ const AddToCartButton = ({
       className={cn(className, "gap-x-2")}
       variant={isInCart ? "destructive" : "default"}
     >
-      {size === "icon" ? <ShoppingCart /> : null}
-      {label ? (
+      {size === "icon" && <ShoppingCart />}
+      {label && (
         <span className="text-base font-medium">
           {isInCart ? "Remove from cart" : "Add to cart"}
         </span>
-      ) : null}
+      )}
     </Button>
   );
 };

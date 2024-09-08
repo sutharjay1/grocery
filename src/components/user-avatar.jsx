@@ -1,5 +1,3 @@
-
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
@@ -11,9 +9,7 @@ const UserAvatar = ({ user, setUser }) => {
   const [open, setOpen] = useState(false);
 
   const handleLogout = () => {
-    // Perform logout logic here
     setUser(null);
-    // You might want to add additional logout logic, such as clearing local storage or cookies
   };
 
   return (

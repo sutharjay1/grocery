@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import CategoryCard from "../components/category-card";
 import MaxWidthWrapper from "../components/max-width-wrapper";
 import { categories } from "../config";
-import CategoryCard from "../components/category-card";
-import { motion } from "framer-motion";
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = useState(null);
@@ -23,7 +23,6 @@ const Categories = () => {
   return (
     <MaxWidthWrapper className="h-full pt-0">
       <div className="mx-auto max-w-6xl">
-        {/* <div className="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900"> */}
         <div className="">
           <div className="border-b border-gray-200 pb-10 pt-10 text-center">
             <motion.h2

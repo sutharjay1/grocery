@@ -1,35 +1,10 @@
-// import * as React from "react"
-// import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-// import { Check } from "lucide-react"
-
-// import { cn } from "@/lib/utils"
-
-// const Checkbox = React.forwardRef(({ className, ...props }, ref) => (
-//   <CheckboxPrimitive.Root
-//     ref={ref}
-//     className={cn(
-//       "peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
-//       className
-//     )}
-//     {...props}>
-//     <CheckboxPrimitive.Indicator className={cn("flex items-center justify-center text-current")}>
-//       <Check className="h-4 w-4" />
-//     </CheckboxPrimitive.Indicator>
-//   </CheckboxPrimitive.Root>
-// ))
-// Checkbox.displayName = CheckboxPrimitive.Root.displayName
-
-// export { Checkbox }
-
 import React, { useState } from "react";
 import { Check } from "lucide-react";
-import { cn } from "@/lib/utils"; // Ensure this utility is available for class names
+import { cn } from "@/lib/utils";
 
 const Checkbox = ({ className, checked, onChange, disabled, ...props }) => {
-  // Local state for controlled checkbox
   const [isChecked, setIsChecked] = useState(checked);
 
-  // Toggle checkbox state
   const handleChange = () => {
     if (!disabled) {
       const newChecked = !isChecked;
@@ -61,6 +36,6 @@ const Checkbox = ({ className, checked, onChange, disabled, ...props }) => {
   );
 };
 
-Checkbox.displayName = "Checkbox";  
+Checkbox.displayName = "Checkbox";
 
 export { Checkbox };

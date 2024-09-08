@@ -12,10 +12,9 @@ import {
   ShoppingBag,
   X,
 } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MaxWidthWrapper from "../components/max-width-wrapper";
-// import { toast } from "react-hot-toast";
 
 const Checkout = () => {
   const [items, setItems] = useState([]);
@@ -53,7 +52,6 @@ const Checkout = () => {
     setIsVerifying(false);
     setIsLoading(false);
     clearCart();
-    // toast.success("Order placed successfully!");
   };
 
   const LoadingScreen = () => (

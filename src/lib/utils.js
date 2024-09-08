@@ -1,18 +1,12 @@
-import { type ClassValue, clsx } from "clsx";
+import { clsx } from "clsx";
 import { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 
-export function cn(...inputs: ClassValue[]) {
+export function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
-export function formatPrice(
-  price: number | string,
-  options: {
-    currency?: "USD" | "INR";
-    notation?: Intl.NumberFormatOptions["notation"];
-  } = {},
-) {
+export function formatPrice(price, options = {}) {
   const { currency = "INR", notation } = options;
 
   const numericPrice = typeof price === "string" ? parseFloat(price) : price;
@@ -25,19 +19,15 @@ export function formatPrice(
   }).format(numericPrice);
 }
 
-
-export const useOnClickOutside = (
-  ref: React.RefObject<HTMLElement>,
-  handler: (event: Event) => void,
-) => {
+export const useOnClickOutside = (ref, handler) => {
   useEffect(() => {
-    const listener = (event: Event) => {
+    const listener = (event) => {
       const el = ref?.current;
-      if (!el || el.contains((event?.target as Node) || null)) {
+      if (!el || el.contains(event?.target || null)) {
         return;
       }
 
-      handler(event); // Call the handler only if the click is outside of the element passed.
+      handler(event);
     };
 
     document.addEventListener("mousedown", listener);
@@ -47,6 +37,5 @@ export const useOnClickOutside = (
       document.removeEventListener("mousedown", listener);
       document.removeEventListener("touchstart", listener);
     };
-  }, [ref, handler]); // Reload only if ref or handler changes
+  }, [ref, handler]);
 };
-
