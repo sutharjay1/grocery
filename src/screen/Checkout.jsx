@@ -74,17 +74,12 @@ const Checkout = () => {
   );
 
   return (
-    <MaxWidthWrapper
-      padding="large"
-      paddingTop="large"
-      paddingY="large"
-      className="px-3 pt-8 selection:bg-teal-500/30"
-    >
+    <MaxWidthWrapper className="px-3 pt-8 selection:bg-teal-500/30">
       <div className="relative h-full">
-        <div className="mx-auto max-w-2xl pb-24 pt-[4.8rem] sm:pt-0 lg:max-w-7xl lg:pt-16">
-          <h1 className="font-polySansMedian h-full text-3xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
+        <div className="mx-auto max-w-2xl pb-24 sm:pt-0 lg:max-w-7xl lg:pt-16">
+          <h2 className="text-3xl font-semibold capitalize tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl md:text-5xl">
             Your Shopping Bag
-          </h1>
+          </h2>
 
           <div className="mt-8 h-full lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
             <div
