@@ -25,7 +25,7 @@ const SearchInput = ({ className }) => {
       const url = qs.stringifyUrl(
         {
           url: debouncedValue ? `/search` : `/`,
-          query: queryParams,
+          query: { page: 1, ...queryParams },
         },
         { skipEmptyString: true, skipNull: true },
       );

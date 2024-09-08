@@ -6,6 +6,7 @@ import { categories } from "../config";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Categories = () => {
+  const location = useLocation();
   const [activeCategory, setActiveCategory] = useState(null);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const Categories = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [location]);
 
   return (
     <MaxWidthWrapper className="h-full pt-0">

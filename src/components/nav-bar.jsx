@@ -16,7 +16,6 @@ import {
   Menu,
   Milk,
   Pizza,
-  ShoppingBasket,
   X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -115,7 +114,6 @@ const callsToAction = [
 const links = [
   { name: "Home", to: "/" },
   { name: "Deals", to: "/deals" },
-  { name: "Profile", to: "/profile" },
 ];
 
 const NavBar = () => {
@@ -290,7 +288,6 @@ const NavBar = () => {
                 variant="default"
                 className="flex w-full items-center space-x-2"
               >
-                <ShoppingBasket className="h-5 w-5" />
                 <span>Login / Signup</span>
               </Button>
             </Link>
@@ -368,7 +365,6 @@ const NavBar = () => {
                     // onClick={() => setUser(true)}
                     className="flex w-full items-center space-x-2 px-3 py-2.5"
                   >
-                    <ShoppingBasket className="h-5 w-5" />
                     <span>Login / Signup</span>
                   </Button>
                 </Link>

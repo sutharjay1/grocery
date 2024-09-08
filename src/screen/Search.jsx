@@ -1,8 +1,8 @@
 import { useCallback, useMemo, useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import MaxWidthWrapper from "../components/max-width-wrapper";
 import { productsByCategory, productFilter } from "../config";
-import { X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { CiFilter } from "react-icons/ci";
 import Card from "../components/card";
 import { formatPrice } from "../lib/utils";
@@ -11,6 +11,13 @@ import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { Skeleton } from "../components/ui/skeleton";
 import { Checkbox } from "../components/ui/checkbox";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/ui/accordion";
+import qs from "query-string";
 
 const ProductFilter = ({
   filters,
@@ -93,106 +100,126 @@ const ProductFilter = ({
     });
   };
 
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
   const renderFilterContent = () => (
-    <div className="space-y-4">
-      <div className="border-b border-gray-200 pb-4">
-        <h3 className="text-lg font-medium text-gray-900">Price Range</h3>
-        <div className="mt-4 space-y-4">
-          <div className="flex justify-between">
-            <Input
-              type="number"
-              value={priceRange[0]}
-              onChange={(e) =>
-                handlePriceChange([Number(e.target.value), priceRange[1]])
-              }
-              className="w-20"
-              placeholder="Min"
-            />
-            <Input
-              type="number"
-              value={priceRange[1]}
-              onChange={(e) =>
-                handlePriceChange([priceRange[0], Number(e.target.value)])
-              }
-              className="w-20"
-              placeholder="Max"
-            />
-          </div>
-          <input
-            type="range"
-            min={0}
-            max={1000}
-            step={10}
-            value={priceRange[1]}
-            onChange={(e) =>
-              handlePriceChange([priceRange[0], Number(e.target.value)])
-            }
-            className="w-full bg-primary"
-          />
-          <div className="text-sm text-gray-500">
-            Price: {formatPrice(priceRange[0])} - {formatPrice(priceRange[1])}
-          </div>
-        </div>
-      </div>
-      <div className="border-b border-gray-200 pb-4">
-        <h3 className="text-lg font-medium text-gray-900">Sort by Price</h3>
-        <div className="mt-4 space-y-4">
-          <div className="flex items-center">
-            <Checkbox
-              id="sort-low-to-high"
-              checked={sortOrder === "lowToHigh"}
-              onChange={() => handleSortChange("lowToHigh")}
-              className="size-4"
-            />
-            <label
-              htmlFor="sort-low-to-high"
-              className="ml-3 cursor-pointer text-sm text-gray-600"
-            >
-              Low to High
-            </label>
-          </div>
-          <div className="flex items-center">
-            <Checkbox
-              id="sort-high-to-low"
-              checked={sortOrder === "highToLow"}
-              onChange={() => handleSortChange("highToLow")}
-              className="size-4"
-            />
-            <label
-              htmlFor="sort-high-to-low"
-              className="ml-3 cursor-pointer text-sm text-gray-600"
-            >
-              High to Low
-            </label>
-          </div>
-        </div>
-      </div>
-      <div className="border-b border-gray-200 pb-4">
-        <h3 className="text-lg font-medium text-gray-900">Filter by Rating</h3>
-        <div className="mt-4 space-y-4">
-          {[5, 4, 3, 2, 1].map((star) => (
-            <div key={star} className="flex items-center">
-              <Checkbox
-                id={`rating-${star}`}
-                checked={ratingFilter.includes(star)}
-                onChange={() => handleRatingChange(star)}
-                className="size-4"
-              />
-              <label
-                htmlFor={`rating-${star}`}
-                className="ml-3 cursor-pointer text-sm text-gray-600"
-              >
-                {star} Star{star !== 1 && "s"}
-              </label>
+    <Accordion isOpen={!isFilterOpen} collapsed className="flex flex-1">
+      <AccordionItem>
+        <AccordionTrigger className="mx-auto mr-6 w-full pb-4 pt-0">
+          <Button variant="ghost" className="w-full px-9 py-0 text-left">
+            <span className="text-left text-lg font-medium text-gray-700">
+              Filters
+            </span>
+          </Button>
+        </AccordionTrigger>
+        <AccordionContent>
+          <div className="space-y-4">
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-medium text-gray-900">Price Range</h3>
+              <div className="mt-4 space-y-4">
+                <div className="flex justify-between">
+                  <Input
+                    type="number"
+                    value={priceRange[0]}
+                    onChange={(e) =>
+                      handlePriceChange([Number(e.target.value), priceRange[1]])
+                    }
+                    className="w-20"
+                    placeholder="Min"
+                  />
+                  <Input
+                    type="number"
+                    value={priceRange[1]}
+                    onChange={(e) =>
+                      handlePriceChange([priceRange[0], Number(e.target.value)])
+                    }
+                    className="w-20"
+                    placeholder="Max"
+                  />
+                </div>
+                <input
+                  type="range"
+                  min={0}
+                  max={1000}
+                  step={10}
+                  value={priceRange[1]}
+                  onChange={(e) =>
+                    handlePriceChange([priceRange[0], Number(e.target.value)])
+                  }
+                  className="w-full bg-primary"
+                />
+                <div className="text-sm text-gray-500">
+                  Price: {formatPrice(priceRange[0])} -{" "}
+                  {formatPrice(priceRange[1])}
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </div>
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-medium text-gray-900">
+                Sort by Price
+              </h3>
+              <div className="mt-4 space-y-4">
+                <div className="flex items-center">
+                  <Checkbox
+                    id="sort-low-to-high"
+                    checked={sortOrder === "lowToHigh"}
+                    onChange={() => handleSortChange("lowToHigh")}
+                    className="size-4"
+                  />
+                  <label
+                    htmlFor="sort-low-to-high"
+                    className="ml-3 cursor-pointer text-sm text-gray-600"
+                  >
+                    Low to High
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <Checkbox
+                    id="sort-high-to-low"
+                    checked={sortOrder === "highToLow"}
+                    onChange={() => handleSortChange("highToLow")}
+                    className="size-4"
+                  />
+                  <label
+                    htmlFor="sort-high-to-low"
+                    className="ml-3 cursor-pointer text-sm text-gray-600"
+                  >
+                    High to Low
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-medium text-gray-900">
+                Filter by Rating
+              </h3>
+              <div className="mt-4 space-y-4">
+                {[5, 4, 3, 2, 1].map((star) => (
+                  <div key={star} className="flex items-center">
+                    <Checkbox
+                      id={`rating-${star}`}
+                      checked={ratingFilter.includes(star)}
+                      onChange={() => handleRatingChange(star)}
+                      className="size-4"
+                    />
+                    <label
+                      htmlFor={`rating-${star}`}
+                      className="ml-3 cursor-pointer text-sm text-gray-600"
+                    >
+                      {star} Star{star !== 1 && "s"}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   );
 
   return (
-    <div className="bg-white">
+    <div className="w-full bg-white">
       <div className="lg:hidden">
         <Button
           variant="outline"
@@ -226,7 +253,117 @@ const ProductFilter = ({
                 </Button>
               </div>
               <div className="mt-4 max-h-[calc(100vh-10rem)] overflow-y-auto">
-                {renderFilterContent()}
+                <div className="space-y-4">
+                  <div className="border-b border-gray-200 pb-4">
+                    <h3 className="text-lg font-medium text-gray-900">
+                      Price Range
+                    </h3>
+                    <div className="mt-4 space-y-4">
+                      <div className="flex justify-between">
+                        <Input
+                          type="number"
+                          value={priceRange[0]}
+                          onChange={(e) =>
+                            handlePriceChange([
+                              Number(e.target.value),
+                              priceRange[1],
+                            ])
+                          }
+                          className="w-20"
+                          placeholder="Min"
+                        />
+                        <Input
+                          type="number"
+                          value={priceRange[1]}
+                          onChange={(e) =>
+                            handlePriceChange([
+                              priceRange[0],
+                              Number(e.target.value),
+                            ])
+                          }
+                          className="w-20"
+                          placeholder="Max"
+                        />
+                      </div>
+                      <input
+                        type="range"
+                        min={0}
+                        max={1000}
+                        step={10}
+                        value={priceRange[1]}
+                        onChange={(e) =>
+                          handlePriceChange([
+                            priceRange[0],
+                            Number(e.target.value),
+                          ])
+                        }
+                        className="w-full bg-primary"
+                      />
+                      <div className="text-sm text-gray-500">
+                        Price: {formatPrice(priceRange[0])} -{" "}
+                        {formatPrice(priceRange[1])}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="border-b border-gray-200 pb-4">
+                    <h3 className="text-lg font-medium text-gray-900">
+                      Sort by Price
+                    </h3>
+                    <div className="mt-4 space-y-4">
+                      <div className="flex items-center">
+                        <Checkbox
+                          id="sort-low-to-high"
+                          checked={sortOrder === "lowToHigh"}
+                          onChange={() => handleSortChange("lowToHigh")}
+                          className="size-4"
+                        />
+                        <label
+                          htmlFor="sort-low-to-high"
+                          className="ml-3 cursor-pointer text-sm text-gray-600"
+                        >
+                          Low to High
+                        </label>
+                      </div>
+                      <div className="flex items-center">
+                        <Checkbox
+                          id="sort-high-to-low"
+                          checked={sortOrder === "highToLow"}
+                          onChange={() => handleSortChange("highToLow")}
+                          className="size-4"
+                        />
+                        <label
+                          htmlFor="sort-high-to-low"
+                          className="ml-3 cursor-pointer text-sm text-gray-600"
+                        >
+                          High to Low
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="border-b border-gray-200 pb-4">
+                    <h3 className="text-lg font-medium text-gray-900">
+                      Filter by Rating
+                    </h3>
+                    <div className="mt-4 space-y-4">
+                      {[5, 4, 3, 2, 1].map((star) => (
+                        <div key={star} className="flex items-center">
+                          <Checkbox
+                            id={`rating-${star}`}
+                            checked={ratingFilter.includes(star)}
+                            onChange={() => handleRatingChange(star)}
+                            className="size-4"
+                          />
+                          <label
+                            htmlFor={`rating-${star}`}
+                            className="ml-3 cursor-pointer text-sm text-gray-600"
+                          >
+                            {star} Star{star !== 1 && "s"}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </DialogPanel>
           </div>
@@ -240,8 +377,11 @@ const ProductFilter = ({
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const rawQuery = searchParams.get("rawQuery");
+  const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPageProducts, setCurrentPageProducts] = useState([]);
 
   const initialFilters = useMemo(() => {
     const filters = {};
@@ -252,7 +392,7 @@ const Search = () => {
         filters[key] = value;
       } else if (key === "rating") {
         filters[key] = value.split(",").map(Number);
-      } else if (key !== "rawQuery") {
+      } else if (key !== "rawQuery" && key !== "page") {
         filters[key] = filters[key] ? [...filters[key], value] : [value];
       }
     }
@@ -276,6 +416,7 @@ const Search = () => {
           params.append(key, value);
         }
       });
+      params.set("page", "1"); 
       setSearchParams(params);
     },
     [searchParams, setSearchParams],
@@ -327,8 +468,30 @@ const Search = () => {
     return Object.values(productFilter).flat();
   }, []);
 
+  const PRODUCTS_PER_PAGE = 9;
+  const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
+
   useEffect(() => {
-    // Simulate loading delay
+    const currentPage = parseInt(searchParams.get("page") || "1", 10);
+    setPage(currentPage);
+
+    const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+    const endIndex = startIndex + PRODUCTS_PER_PAGE;
+    const products = filteredProducts.slice(startIndex, endIndex);
+
+    setCurrentPageProducts(products);
+  }, [searchParams, filteredProducts]);
+
+  const handlePagination = (newPage) => {
+    if (newPage < 1 || newPage > totalPages) return;
+
+    setPage(newPage);
+    const params = new URLSearchParams(searchParams);
+    params.set("page", newPage.toString());
+    setSearchParams(params);
+  };
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
@@ -360,11 +523,10 @@ const Search = () => {
                 filteredProducts={filteredProducts}
               />
             </aside>
-
             <main className="w-full lg:col-span-3">
               {isLoading ? (
                 <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-                  {[...Array(9)].map((_, index) => (
+                  {[...Array(PRODUCTS_PER_PAGE)].map((_, index) => (
                     <div key={index} className="space-y-4">
                       <Skeleton className="h-48 w-full" />
                       <Skeleton className="h-4 w-3/4" />
@@ -372,9 +534,9 @@ const Search = () => {
                     </div>
                   ))}
                 </div>
-              ) : filteredProducts.length > 0 ? (
+              ) : currentPageProducts.length > 0 ? (
                 <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-                  {filteredProducts.map((product) => (
+                  {currentPageProducts.map((product) => (
                     <Card key={product.id} product={product} />
                   ))}
                 </div>
@@ -390,6 +552,46 @@ const Search = () => {
               )}
             </main>
           </div>
+          {totalPages > 1 && (
+            <div className="mt-4 flex items-center justify-between">
+              <Button
+                variant={page === 1 ? "disabled" : "outline"}
+                onClick={() => handlePagination(page - 1)}
+                disabled={page === 1}
+                className="w-24"
+              >
+                <ChevronLeft className="mr-2 h-4 w-4" />
+                Prev
+              </Button>
+              <div className="hidden space-x-2 px-8 text-center md:flex">
+                {[...Array(totalPages).keys()].map((i) => {
+                  const pageNumber = i + 1;
+                  return (
+                    <Button
+                      key={pageNumber}
+                      size="icon"
+                      variant={page === pageNumber ? "default" : "outline"}
+                      onClick={() => handlePagination(pageNumber)}
+                    >
+                      {pageNumber}
+                    </Button>
+                  );
+                })}
+              </div>
+              <div className="flex md:hidden">
+                Page {page} of {totalPages}
+              </div>
+              <Button
+                variant={page === totalPages ? "disabled" : "outline"}
+                onClick={() => handlePagination(page + 1)}
+                disabled={page === totalPages}
+                className="w-24"
+              >
+                Next
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </MaxWidthWrapper>

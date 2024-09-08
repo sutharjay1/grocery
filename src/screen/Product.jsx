@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/carousel";
 import { cn, formatPrice } from "@/lib/utils";
 import { useEffect, useState, useMemo } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import AddToCartButton from "../components/cart/add-to-cart-button";
 import AddToWishButton from "../components/cart/add-to-wish-button";
 import MaxWidthWrapper from "../components/max-width-wrapper";
@@ -16,6 +16,7 @@ import { Skeleton } from "../components/ui/skeleton";
 
 const Product = () => {
   const { productId } = useParams();
+  const location = useLocation();
   const [isHovered, setIsHovered] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [index, setIndex] = useState(0);
@@ -27,6 +28,10 @@ const Product = () => {
   const cachedProducts = useMemo(() => {
     return JSON.parse(localStorage.getItem("cachedProducts")) || {};
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   useEffect(() => {
     const fetchProduct = async () => {
