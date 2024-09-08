@@ -10,6 +10,7 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { Skeleton } from "../components/ui/skeleton";
+import { Checkbox } from "../components/ui/checkbox";
 
 const ProductFilter = ({
   filters,
@@ -137,12 +138,11 @@ const ProductFilter = ({
         <h3 className="text-lg font-medium text-gray-900">Sort by Price</h3>
         <div className="mt-4 space-y-4">
           <div className="flex items-center">
-            <input
-              type="checkbox"
+            <Checkbox
               id="sort-low-to-high"
               checked={sortOrder === "lowToHigh"}
               onChange={() => handleSortChange("lowToHigh")}
-              className="size-4 rounded border-gray-300"
+              className="size-4"
             />
             <label
               htmlFor="sort-low-to-high"
@@ -152,12 +152,11 @@ const ProductFilter = ({
             </label>
           </div>
           <div className="flex items-center">
-            <input
-              type="checkbox"
+            <Checkbox
               id="sort-high-to-low"
               checked={sortOrder === "highToLow"}
               onChange={() => handleSortChange("highToLow")}
-              className="size-4 rounded border-gray-300"
+              className="size-4"
             />
             <label
               htmlFor="sort-high-to-low"
@@ -173,12 +172,11 @@ const ProductFilter = ({
         <div className="mt-4 space-y-4">
           {[5, 4, 3, 2, 1].map((star) => (
             <div key={star} className="flex items-center">
-              <input
-                type="checkbox"
+              <Checkbox
                 id={`rating-${star}`}
                 checked={ratingFilter.includes(star)}
                 onChange={() => handleRatingChange(star)}
-                className="size-4 rounded border-gray-300"
+                className="size-4"
               />
               <label
                 htmlFor={`rating-${star}`}

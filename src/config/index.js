@@ -2017,25 +2017,7 @@ export const productsByCategory = {
       quantity: 1,
       rating: 4.4,
     },
-    {
-      id: 70,
-      name: "Fruit Smoothie",
-      description: "Mixed berry fruit smoothie.",
-      price: 379,
-      discount: 5,
-      imageSrc: [
-        "https://images.pexels.com/photos/1346347/pexels-photo-1346347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1346348/pexels-photo-1346348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "https://images.pexels.com/photos/1346349/pexels-photo-1346349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      ],
-      href: "/products/fruit-smoothie",
-      type: ["smoothie"],
-      flavor: ["mixed berry"],
-      packaging: ["bottle"],
-      category: "beverages",
-      quantity: 1,
-      rating: 4.7,
-    },
+
     {
       id: 71,
       name: "Soy Milk",

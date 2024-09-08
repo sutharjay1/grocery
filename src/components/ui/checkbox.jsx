@@ -25,7 +25,7 @@ const Checkbox = ({ className, checked, onChange, disabled, ...props }) => {
         }
       }}
       className={cn(
-        "flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border border-primary ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+        "flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded-sm border border-primary ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
         isChecked && "bg-primary text-primary-foreground",
         className,
       )}

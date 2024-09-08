@@ -8,8 +8,10 @@ import MaxWidthWrapper from "../components/max-width-wrapper";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { productFilter, productsByCategory } from "../config";
-import { formatPrice } from "../lib/utils";
+import { cn, formatPrice } from "../lib/utils";
+import { motion } from "framer-motion";
 import { Skeleton } from "../components/ui/skeleton";
+import { Checkbox } from "../components/ui/checkbox";
 
 const ProductFilter = ({
   categoryTag,
@@ -138,11 +140,9 @@ const ProductFilter = ({
         <h3 className="text-lg font-medium text-gray-900">Sort by Price</h3>
         <div className="mt-4 space-y-4">
           <div className="flex items-center">
-            <input
-              type="checkbox"
+            <Checkbox
               id="sort-low-to-high"
               checked={sortOrder === "lowToHigh"}
-              className="size-4 rounded border-gray-300"
               onChange={() => handleSortChange("lowToHigh")}
             />
             <label
@@ -153,11 +153,9 @@ const ProductFilter = ({
             </label>
           </div>
           <div className="flex items-center">
-            <input
-              type="checkbox"
+            <Checkbox
               id="sort-high-to-low"
               checked={sortOrder === "highToLow"}
-              className="size-4 rounded border-gray-300"
               onChange={() => handleSortChange("highToLow")}
             />
             <label
@@ -173,13 +171,11 @@ const ProductFilter = ({
         <h3 className="text-lg font-medium text-gray-900">Filter by Rating</h3>
         <div className="mt-4 space-y-4">
           {[5, 4, 3, 2, 1].map((star) => (
-            <div key={star} className="flex items-center">
-              <input
-                type="checkbox"
+            <div key={star} className="flex items-center" id={`rating-${star}`}>
+              <Checkbox
                 id={`rating-${star}`}
                 checked={ratingFilter.includes(star)}
                 onChange={() => handleRatingChange(star)}
-                className="size-4 rounded border-gray-300"
               />
               <label
                 htmlFor={`rating-${star}`}
@@ -196,19 +192,18 @@ const ProductFilter = ({
           <h3 className="text-lg font-medium text-gray-900">Filter by</h3>
           <div className="mt-4 space-y-4">
             {section.options.map((option) => (
-              <div key={option.value} className="flex items-center">
-                <input
-                  type="checkbox"
+              <div
+                key={option.value}
+                className="flex cursor-pointer items-center"
+              >
+                <Checkbox
                   id={`${section.id}-${option.value}`}
-                  className="size-4 rounded border-gray-300"
                   checked={selectedFilters[section.id]?.includes(option.value)}
-                  onChange={() => {
-                    handleFilterChange(section.id, option.value);
-                  }}
+                  onChange={() => handleFilterChange(section.id, option.value)}
                 />
                 <label
                   htmlFor={`${section.id}-${option.value}`}
-                  className="ml-3 text-sm text-gray-600"
+                  className="ml-3 cursor-pointer text-sm text-gray-600"
                 >
                   {option.label}
                 </label>
@@ -225,7 +220,7 @@ const ProductFilter = ({
       <div className="lg:hidden">
         <Button
           variant="outline"
-          className="flex w-full items-center justify-between"
+          className="flex w-full items-center justify-between border-zinc-400"
           onClick={() => setIsOpen(true)}
         >
           <span className="text-base font-medium text-gray-700">Filters</span>
@@ -373,12 +368,12 @@ const CategoriesTag = () => {
       <div className="mx-auto max-w-6xl">
         <div className="bg-white">
           <div className="border-b border-gray-200 pt-5 lg:py-10">
-            <h2 className="text-2xl font-bold capitalize tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl md:text-4xl">
+            <h2 className="text-3xl font-extrabold capitalize tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl md:text-5xl">
               {categoryTag.replace(/-/g, " ")}
             </h2>
-            <p className="my-2 text-sm text-gray-500 sm:text-base">
-              Explore our selection of fresh, locally-sourced products to add
-              nutrition and flavor to your meals.
+            <p className="mb-4 mt-2 text-sm text-gray-600 dark:text-gray-300 sm:text-base">
+              Discover a world of fresh, high-quality products in our curated
+              {categoryTag.replace(/-/g, " ")} category.
             </p>
           </div>
 
