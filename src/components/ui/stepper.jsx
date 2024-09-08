@@ -1,14 +1,15 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import { Check } from "lucide-react"; // Import the Check icon
 
 const Stepper = ({ steps, currentStep, setCurrentStep }) => {
   const getStepColor = (index) => {
     switch (index) {
-      case 0:
-        return "border-purple-500 bg-purple-500 text-white"; // Color for the 1st step
       case 1:
-        return "border-green-500 bg-green-500 text-white"; // Color for the 2nd step
+        return "border-purple-500 bg-purple-500 text-white"; // Color for the 1st step
       case 2:
+        return "border-green-500 bg-green-500 text-white"; // Color for the 2nd step
+      case 3:
         return "border-sky-500 bg-sky-500 text-white"; // Color for the 3rd step
       default:
         return "border-muted-foreground bg-background text-muted-foreground"; // Default color
@@ -16,33 +17,41 @@ const Stepper = ({ steps, currentStep, setCurrentStep }) => {
   };
 
   return (
-    <div className="flex w-full items-center justify-between">
+    <div className="mx-auto flex w-full items-center justify-center">
       {steps.map((step, index) => (
-        <React.Fragment key={index}>
-          <button
-            onClick={() => setCurrentStep(index)}
-            className={cn(
-              "flex flex-col items-center text-center",
-              index <= currentStep ? "text-primary" : "text-muted-foreground",
-            )}
-          >
-            <div
+        <React.Fragment key={index + 1}>
+          <div className="flex w-full flex-col items-center">
+            <button
+              onClick={() => setCurrentStep(index + 1)}
               className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-xl border-2 transition-colors duration-300",
-                index === currentStep
-                  ? getStepColor(index)
-                  : index < currentStep
-                    ? "border-primary bg-primary/20 text-primary"
-                    : "border-muted-foreground bg-background text-muted-foreground",
+                "z-10 flex w-full flex-col items-center text-center",
+                index + 1 <= currentStep
+                  ? "text-primary"
+                  : "text-muted-foreground",
               )}
-            ></div>
-            <span className="mt-2 text-xs font-medium">{step}</span>
-          </button>
+            >
+              <div
+                className={cn(
+                  "flex h-10 w-10 items-center justify-center rounded-xl border-2 transition-colors duration-300",
+                  index + 1 === currentStep
+                    ? getStepColor(index + 1)
+                    : index + 1 < currentStep
+                      ? "border-primary bg-primary/20 text-primary"
+                      : "border-muted-foreground bg-background text-muted-foreground",
+                )}
+              >
+                {index + 1 < currentStep && <Check size={20} />}
+              </div>
+              <span className="mt-2 w-full text-xs font-medium">{step}</span>
+            </button>
+          </div>
           {index < steps.length - 1 && (
             <div
               className={cn(
-                "mb-5 h-[2px] flex-1 transition-colors duration-300",
-                index < currentStep ? "bg-primary" : "bg-muted-foreground/30",
+                "z-20 mx-2 h-0.5 w-full translate-y-[-575%] transform transition-colors duration-300",
+                index + 1 < currentStep
+                  ? "bg-primary"
+                  : "bg-muted-foreground/30",
               )}
             />
           )}
