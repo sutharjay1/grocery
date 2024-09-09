@@ -13,14 +13,14 @@ const Card = ({ product, index }) => {
   return (
     <div
       key={index}
-      className="flex h-32 w-full items-center rounded-lg border border-gray-200 bg-white shadow-sm"
+      className="flex h-28 w-full items-center rounded-lg border border-gray-200 bg-white shadow-sm md:h-32"
       draggable={false}
       onSelect={(e) => {
         e.stopPropagation();
         e.preventDefault();
       }}
     >
-      <div className="relative h-32 w-32 overflow-hidden">
+      <div className="relative h-28 w-32 overflow-hidden md:h-32">
         {product.imageSrc && <ImageSlider images={product.imageSrc} />}
         {product.discount > 0 && (
           <span className="absolute left-2 top-2 inline-block rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white">
@@ -68,8 +68,8 @@ const Card = ({ product, index }) => {
 
 const Orders = () => {
   return (
-    <div className="h-screen w-full overflow-y-auto p-4">
-      <div className="flex flex-col space-y-4">
+    <div className="h-full w-full">
+      <div className="flex w-full flex-col space-y-4 overflow-y-auto">
         {randomProducts.slice(0, 10).map((product, index) => (
           <Card key={index} product={product} index={index} />
         ))}

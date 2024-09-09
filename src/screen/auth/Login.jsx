@@ -26,6 +26,19 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { z } from "zod";
 import AppLogo from "../../components/logo";
+("use client");
+
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { MapPin } from "lucide-react";
 
 const signupSchema = z.object({
   mobileNumber: z
@@ -48,6 +61,22 @@ const signupSchema = z.object({
     .length(10, "Alternate number must be exactly 10 digits")
     .optional(),
   email: z.string().email("Invalid email address").optional(),
+});
+
+const addressSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  phoneNumber: z.string().regex(/^\d{10}$/, "Invalid phone number"),
+  pincode: z.string().regex(/^\d{6}$/, "Invalid pincode"),
+  locality: z.string().min(1, "Locality is required"),
+  address: z.string().min(1, "Address is required"),
+  city: z.string().min(1, "City is required"),
+  state: z.string().min(1, "State is required"),
+  landmark: z.string().optional(),
+  alternatePhone: z
+    .string()
+    .regex(/^\d{10}$/, "Invalid phone number")
+    .optional(),
+  addressType: z.enum(["home", "work"]),
 });
 
 const loginSchema = z.object({
@@ -88,10 +117,10 @@ const FloatingLabelInput = ({ label, name, type = "text", form }) => {
                 className="peer w-full rounded-sm border border-gray-300 bg-transparent px-4 py-2 text-base placeholder:px-4 placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
               />
               <label
-                className={`pointer-events-none absolute left-2 text-gray-500 transition-all duration-200 ease-in-out ${
+                className={`pointer-events-none absolute left-2 text-sm text-gray-500 transition-all duration-200 ease-in-out md:text-base ${
                   focused || inputValue
-                    ? "-top-3 bg-white px-2 text-base font-light text-blue-500"
-                    : "top-2 px-3 text-base"
+                    ? "-top-3 bg-white px-2 font-light text-blue-500"
+                    : "top-2 px-3"
                 }`}
               >
                 {label}
@@ -140,6 +169,13 @@ const Login = () => {
       profileImage: "",
       alternateNumber: "",
       email: "",
+      pincode: "",
+      locality: "",
+      city: "",
+      state: "",
+      landmark: "",
+      alternatePhone: "",
+      addressType: "home",
     },
     mode: "onChange",
   });
@@ -240,82 +276,217 @@ const Login = () => {
           );
         case 3:
           return (
-            <div className="flex w-full flex-col space-y-4">
-              <FormField
-                control={form.control}
-                name="profileImage"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <div className="flex items-center justify-center">
-                        <div
-                          className="flex h-24 w-24 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gray-200"
-                          onClick={() =>
-                            document.getElementById("profileImageInput").click()
-                          }
-                        >
-                          {field.value ? (
-                            <img
-                              src={URL.createObjectURL(field.value)}
-                              alt="Profile"
-                              className="h-full w-full object-cover"
-                            />
-                          ) : (
-                            <span className="text-gray-400">
-                              <User size={48} />
-                            </span>
-                          )}
-                        </div>
-                        <input
-                          id="profileImageInput"
-                          type="file"
-                          accept="image/*"
-                          onChange={(e) =>
-                            field.onChange(
-                              e.target.files ? e.target.files[0] : null,
-                            )
-                          }
-                          className="hidden"
-                        />
-                      </div>
-                    </FormControl>
-                    {field.value && <FormMessage />}
-                  </FormItem>
-                )}
-              />
-              <FloatingLabelInput label="Name" name="name" form={form} />
-              <FloatingLabelInput
-                label="Email"
-                name="email"
-                type="email"
-                form={form}
-              />
-              <FloatingLabelInput label="Address" name="address" form={form} />
-              <FloatingLabelInput
-                label="Alternate Number"
-                name="alternateNumber"
-                form={form}
-              />
-              <FormField
-                control={form.control}
-                name="gender"
-                render={({ field }) => (
-                  <FormItem className="w-full">
-                    <FormControl>
-                      <select
-                        {...field}
-                        className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                      >
-                        <option value="">Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </FormControl>
-                    {field.value && <FormMessage />}
-                  </FormItem>
-                )}
-              />
+            // <div className="flex w-full flex-col space-y-2">
+            //   <FormField
+            //     control={form.control}
+            //     name="profileImage"
+            //     render={({ field }) => (
+            //       <FormItem>
+            //         <FormControl>
+            //           <div className="flex w-full items-center justify-between">
+            //             <div
+            //               className="flex h-24 w-24 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gray-200"
+            //               onClick={() =>
+            //                 document.getElementById("profileImageInput").click()
+            //               }
+            //             >
+            //               {field.value ? (
+            //                 <img
+            //                   src={URL.createObjectURL(field.value)}
+            //                   alt="Profile"
+            //                   className="h-full w-full object-cover"
+            //                 />
+            //               ) : (
+            //                 <span className="text-gray-400">
+            //                   <User size={48} />
+            //                 </span>
+            //               )}
+            //             </div>
+            //             <div className="ml-4">
+            //               <Button className="w-full">
+            //                 Use Current Location
+            //               </Button>
+            //             </div>
+            //           </div>
+            //         </FormControl>
+            //         {field.value && <FormMessage />}
+            //       </FormItem>
+            //     )}
+            //   />
+            //   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            //     <FloatingLabelInput label="Name" name="name" form={form} />{" "}
+            //     <FloatingLabelInput
+            //       label="Alternate Number"
+            //       name="alternateNumber"
+            //       form={form}
+            //     />
+            //   </div>
+            //   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            //     <FloatingLabelInput label="Pincode" name="pincode" form={form} />{" "}
+            //     <FloatingLabelInput
+            //       label="Locality"
+            //       name="locality"
+            //       form={form}
+            //     />
+            //   </div>
+            //   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            //     <FloatingLabelInput label="City/District/State" name="cityDistrictState" form={form} />{" "}
+            //     <FloatingLabelInput
+            //       label="Locality"
+            //       name="locality"
+            //       form={form}
+            //     />
+            //   </div>
+            //   <FloatingLabelInput label="Address" name="address" form={form} className="w-full row-span-4" />
+            //   <FloatingLabelInput
+            //     label="Email"
+            //     name="email"
+            //     type="email"
+            //     form={form}
+            //   />
+
+            //   <FormField
+            //     control={form.control}
+            //     name="gender"
+            //     render={({ field }) => (
+            //       <FormItem className="w-full">
+            //         <FormControl>
+            //           <select
+            //             {...field}
+            //             className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            //           >
+            //             <option value="">Select Gender</option>
+            //             <option value="male">Male</option>
+            //             <option value="female">Female</option>
+            //             <option value="other">Other</option>
+            //           </select>
+            //         </FormControl>
+            //         {field.value && <FormMessage />}
+            //       </FormItem>
+            //     )}
+            //   />
+            // </div>
+
+            <div className="mx-auto w-full max-w-2xl rounded-lg bg-white p-6 shadow">
+              <Button className="mb-6 w-full bg-blue-600 text-white hover:bg-blue-700">
+                <MapPin className="mr-2 h-4 w-4" /> Use my current location
+              </Button>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <FloatingLabelInput label="Name" name="name" form={form} />
+                </div>
+                <div>
+                  <FloatingLabelInput
+                    label="Alternate Number"
+                    name="alternateNumber"
+                    form={form}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <FloatingLabelInput
+                    label="Pincode"
+                    name="pincode"
+                    form={form}
+                  />
+                </div>
+                <div>
+                  <FloatingLabelInput
+                    label="Locality"
+                    name="locality"
+                    form={form}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <FloatingLabelInput
+                  label="Address"
+                  name="address"
+                  form={form}
+                  className="row-span-4 w-full"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <FloatingLabelInput
+                    label="City/District/State"
+                    name="city"
+                    form={form}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="state">State</Label>
+                  <Select
+                    onValueChange={(value) =>
+                      register("state").onChange({ target: { value } })
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select State" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="state1">State 1</SelectItem>
+                      <SelectItem value="state2">State 2</SelectItem>
+                      {/* Add more states as needed */}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <FloatingLabelInput
+                    label="Landmark (Optional)"
+                    name="landmark"
+                    form={form}
+                  />
+                </div>
+                <div>
+                  <FloatingLabelInput
+                    label="Alternate Number"
+                    name="alternateNumber"
+                    form={form}
+                  />
+                </div>
+              </div>
+
+              <div className="pb-2">
+                <Label>Address Type</Label>
+                <RadioGroup
+                  defaultValue="home"
+                  className="flex space-x-2 space-y-2"
+                  onValueChange={(value) =>
+                    register("addressType").onChange({ target: { value } })
+                  }
+                >
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="home" id="home" />
+                    <Label htmlFor="home">Home</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="work" id="work" />
+                    <Label htmlFor="work">Work</Label>
+                  </div>
+                </RadioGroup>
+              </div>
+
+              <div className="flex justify-between">
+                <Button
+                  type="submit"
+                  className="bg-blue-600 text-white hover:bg-blue-700"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Saving..." : "SAVE"}
+                </Button>
+                <Button type="button" variant="ghost">
+                  CANCEL
+                </Button>
+              </div>
             </div>
           );
         default:
@@ -388,7 +559,7 @@ const Login = () => {
             </p>
           </div>
         </section>
-        <Card className="mx-auto flex w-full max-w-xl items-center justify-center px-4 py-6 sm:px-8 lg:col-span-7 lg:px-16 lg:py-6 xl:col-span-6">
+        <Card className="mx-auto flex w-full max-w-xl items-center justify-center px-4 py-6 sm:px-8 lg:col-span-7 lg:px-10 lg:py-6 xl:col-span-6">
           <div className="w-full">
             <CardHeader className="px-2 py-0">
               <h1 className="my-2 text-center text-xl font-bold text-gray-900 sm:text-2xl">
