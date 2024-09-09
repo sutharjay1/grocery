@@ -441,7 +441,7 @@ const Login = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <FloatingLabelInput
-                    label="Landmark (Optional)"
+                    label="Landmark"
                     name="landmark"
                     form={form}
                   />
