@@ -23,7 +23,7 @@ const UserAvatar = ({ user, setUser }) => {
   return (
     <div>
       {user ? (
-        <Popover className="relative">
+        <Popover className="relative z-50">
           <PopoverButton
             className={`${open ? "" : "text-opacity-90"} group inline-flex items-center rounded-md text-base font-medium text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
             onClick={() => setOpen(!open)}
