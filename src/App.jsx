@@ -14,6 +14,7 @@ const Product = lazy(() => import("./screen/Product"));
 const Search = lazy(() => import("./screen/Search"));
 const NotFound = lazy(() => import("./screen/NotFound"));
 const Account = lazy(() => import("./screen/account/Account"));
+const About = lazy(() => import("./screen/About"));
 
 const App = () => (
   <BrowserRouter>
@@ -50,6 +51,7 @@ const AppRouter = () => (
     <Route path="/categories" element={<Categories />} />
     <Route path="/checkout" element={<Checkout />} />
     <Route path="/account" element={<Account />} />
+    <Route path="/about" element={<About />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

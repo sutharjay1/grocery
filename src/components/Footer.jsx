@@ -18,12 +18,13 @@ const Footer = () => {
     { title: "My Account", slug: "my-account" },
     { title: "Order History", slug: "order-history" },
     { title: "Wishlist", slug: "wishlist" },
+    { title: "About Us", slug: "about" },
     { title: "Delivery Information", slug: "delivery-information" },
     { title: "Returns & Refunds", slug: "returns-and-refunds" },
   ];
 
   return (
-    <footer className="border-t border-gray-200 mt-5">
+    <footer className="mt-5 border-t border-gray-200">
       <div className="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           <div>
