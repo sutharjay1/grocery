@@ -69,7 +69,7 @@ const Card = ({ product, index }) => {
 const Orders = () => {
   return (
     <div className="h-full w-full">
-      <div className="flex w-full flex-col space-y-4 overflow-y-auto">
+      <div className="flex h-screen w-full flex-col space-y-4 overflow-y-auto">
         {randomProducts.slice(0, 10).map((product, index) => (
           <Card key={index} product={product} index={index} />
         ))}

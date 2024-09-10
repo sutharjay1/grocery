@@ -540,7 +540,7 @@ const Login = () => {
   };
 
   return (
-    <section className="h-[calc(100vh-5rem)] bg-card">
+    <section className="h-[calc(100vh+2rem)] bg-card">
       <div className="flex h-full w-full place-items-center lg:grid lg:grid-cols-12">
         <section className="relative hidden h-32 items-end bg-gray-900 lg:col-span-5 lg:flex lg:h-full xl:col-span-6">
           <img
