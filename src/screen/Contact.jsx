@@ -175,7 +175,7 @@ const Contact = () => {
                           <textarea
                             {...field}
                             placeholder="Your message"
-                            className="w-full rounded-sm border border-gray-300 px-4 py-2 text-base placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
+                            className="peer w-full rounded-sm border border-gray-300 bg-transparent px-4 py-2 text-base placeholder:px-4 placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
                             rows={4}
                           />
                         </FormControl>
