@@ -19,7 +19,7 @@ const Footer = () => {
     { title: "Order History", slug: "order-history" },
     { title: "Wishlist", slug: "wishlist" },
     { title: "About Us", slug: "about" },
-    { title: "Delivery Information", slug: "delivery-information" },
+    { title: "Contact Us", slug: "contact-us" },
     { title: "Returns & Refunds", slug: "returns-and-refunds" },
   ];
 

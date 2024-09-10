@@ -15,6 +15,7 @@ const Search = lazy(() => import("./screen/Search"));
 const NotFound = lazy(() => import("./screen/NotFound"));
 const Account = lazy(() => import("./screen/account/Account"));
 const About = lazy(() => import("./screen/About"));
+const Contact = lazy(() => import("./screen/Contact"));
 
 const App = () => (
   <BrowserRouter>
@@ -52,6 +53,7 @@ const AppRouter = () => (
     <Route path="/checkout" element={<Checkout />} />
     <Route path="/account" element={<Account />} />
     <Route path="/about" element={<About />} />
+    <Route path="/contact-us" element={<Contact />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

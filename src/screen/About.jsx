@@ -53,12 +53,17 @@ const About = () => {
             <h2 className="mb-4 text-3xl font-semibold tracking-tight text-primary">
               Our Mission
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-4 text-lg text-gray-600 dark:text-gray-300"
+            >
               At FreshMart, we're on a mission to revolutionize grocery
               shopping. We believe everyone deserves access to fresh,
               high-quality produce and pantry essentials, delivered right to
               their door with just a few taps on their phone.
-            </p>
+            </motion.p>
           </section>
         </Motion>
 
