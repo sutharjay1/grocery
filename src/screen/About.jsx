@@ -12,8 +12,13 @@ import {
   CarouselItem,
   CarouselNavigation,
 } from "../components/ui/carousel";
+import { useEffect } from "react";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <MaxWidthWrapper className="pt-5">
       <div className="container mx-auto py-8">
