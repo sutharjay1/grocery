@@ -16,6 +16,7 @@ const NotFound = lazy(() => import("./screen/NotFound"));
 const Account = lazy(() => import("./screen/account/Account"));
 const About = lazy(() => import("./screen/About"));
 const Contact = lazy(() => import("./screen/Contact"));
+const Deals = lazy(() => import("./screen/Deals"));
 
 const App = () => (
   <BrowserRouter>
@@ -54,6 +55,7 @@ const AppRouter = () => (
     <Route path="/account" element={<Account />} />
     <Route path="/about" element={<About />} />
     <Route path="/contact-us" element={<Contact />} />
+    <Route path="/deals" element={<Deals />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );
