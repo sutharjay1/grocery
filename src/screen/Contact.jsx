@@ -117,7 +117,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="pb-2 text-3xl font-bold capitalize tracking-tight text-primary sm:text-4xl md:text-5xl"
+            className="pb-1 text-3xl font-bold capitalize tracking-tight text-primary sm:text-4xl md:text-5xl"
           >
             Get in touch
           </motion.h2>
@@ -125,7 +125,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-4 text-sm text-gray-600 dark:text-gray-300 sm:text-base"
+            className="text-sm text-gray-600 dark:text-gray-300 sm:text-base"
           >
             Our friendly team would love to hear from you.
           </motion.p>
