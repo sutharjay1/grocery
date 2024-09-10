@@ -14,6 +14,7 @@ import { cn } from "../lib/utils";
 import { randomProducts } from "../config";
 import Card from "../components/card";
 import { useEffect } from "react";
+import { Input } from "../components/ui/input";
 
 const Highlight = ({
   className,
@@ -327,6 +328,31 @@ const Deals = () => {
               </div>
             </div>
           </div>{" "}
+        </Motion>
+
+        <Motion direction="up" duration={1.8}>
+          <div className="mx-auto mt-16 w-full max-w-8xl">
+            <section className="rounded-lg bg-primary px-6 py-12 lg:px-12">
+              <div className="mx-auto max-w-7xl text-center">
+                <h2 className="mb-4 text-3xl font-bold text-white lg:text-4xl">
+                  Subscribe for Exclusive Deals
+                </h2>
+                <p className="mb-8 text-lg text-white lg:text-xl">
+                  Be the first to know about our best offers and new arrivals!
+                </p>
+                <div className="mx-auto flex max-w-xl flex-col gap-4 sm:flex-row">
+                  <Input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="flex-grow rounded-md px-4 py-2 text-gray-900"
+                  />
+                  <Button className="bg-white text-purple-600 hover:bg-gray-100">
+                    Subscribe
+                  </Button>
+                </div>
+              </div>
+            </section>
+          </div>
         </Motion>
       </div>
     </MaxWidthWrapper>
