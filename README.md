@@ -1,3 +1,5 @@
+# JAY
+
 # Grocery React App
 
 Welcome to our Grocery React App! This cutting-edge e-commerce platform is crafted using React and Vite, leveraging a robust set of dependencies to deliver an exceptional shopping experience. Our app combines modern web technologies with user-centric design to create a seamless, efficient, and enjoyable online grocery shopping journey.
